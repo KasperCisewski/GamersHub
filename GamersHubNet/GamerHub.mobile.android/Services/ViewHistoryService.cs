@@ -1,9 +1,10 @@
 ﻿using Android.App;
+using GamerHub.mobile.core.Services;
 using MvvmCross;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Platforms.Android;
 
-namespace GamerHub.android.Services
+namespace GamerHub.mobile.android.Services
 {
     public class ViewHistoryService : IViewHistoryService
     {

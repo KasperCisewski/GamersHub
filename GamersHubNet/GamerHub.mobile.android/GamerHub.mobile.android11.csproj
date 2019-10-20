@@ -10,8 +10,8 @@
     <TemplateGuid>{122416d6-6b49-4ee2-a1e8-b825f31c79fe}</TemplateGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GamerHub.android</RootNamespace>
-    <AssemblyName>GamerHub.android</AssemblyName>
+    <RootNamespace>GamerHub.mobile.android</RootNamespace>
+    <AssemblyName>GamerHub.mobile.android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -135,6 +135,11 @@
       <Project>{f2f8c970-949f-4170-9116-43802dd835d7}</Project>
       <Name>GamerHub.shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Res\layout\activity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -5,7 +5,7 @@ using Android.Views.InputMethods;
 using MvvmCross;
 using MvvmCross.Platforms.Android;
 
-namespace GamerHub.android.Services
+namespace GamerHub.mobile.android.Services
 {
     public class KeyboardService : IKeyboardService
     {

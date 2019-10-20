@@ -1,6 +1,6 @@
 ﻿using GamerHub.mobile.core.Services;
 
-namespace GamerHub.android.Services
+namespace GamerHub.mobile.android.Services
 {
     public class GlobalStateHistory : IGlobalStateService
     {
