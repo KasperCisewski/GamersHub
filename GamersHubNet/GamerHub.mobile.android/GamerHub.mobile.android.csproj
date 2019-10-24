@@ -68,6 +68,8 @@
     <Compile Include="Services\KeyboardService.cs" />
     <Compile Include="Services\ViewHistoryService.cs" />
     <Compile Include="Views\Fragments\Base\FragmentBase.cs" />
+    <Compile Include="Views\Fragments\FragmentLoginView.cs" />
+    <Compile Include="Views\MainView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -139,6 +141,16 @@
       <Project>{d726ee56-9e6b-4927-9f15-bd898adeccdd}</Project>
       <Name>GamerHub.shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\layout\Fragment_Login_View.axml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\layout\Main_View.axml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
