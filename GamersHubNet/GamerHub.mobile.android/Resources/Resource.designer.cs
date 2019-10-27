@@ -44,155 +44,6 @@ namespace GamerHub.mobile.android
 			global::MvvmCross.Resource.Styleable.MvxListView = global::GamerHub.mobile.android.Resource.Styleable.MvxListView;
 			global::MvvmCross.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Resource.Styleable.MvxListView_MvxItemTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxListView_MvxItemTemplate;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.alpha = global::GamerHub.mobile.android.Resource.Attribute.alpha;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.font = global::GamerHub.mobile.android.Resource.Attribute.font;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.fontProviderAuthority = global::GamerHub.mobile.android.Resource.Attribute.fontProviderAuthority;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.fontProviderCerts = global::GamerHub.mobile.android.Resource.Attribute.fontProviderCerts;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.fontProviderFetchStrategy = global::GamerHub.mobile.android.Resource.Attribute.fontProviderFetchStrategy;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.fontProviderFetchTimeout = global::GamerHub.mobile.android.Resource.Attribute.fontProviderFetchTimeout;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.fontProviderPackage = global::GamerHub.mobile.android.Resource.Attribute.fontProviderPackage;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.fontProviderQuery = global::GamerHub.mobile.android.Resource.Attribute.fontProviderQuery;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.fontStyle = global::GamerHub.mobile.android.Resource.Attribute.fontStyle;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.fontVariationSettings = global::GamerHub.mobile.android.Resource.Attribute.fontVariationSettings;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.fontWeight = global::GamerHub.mobile.android.Resource.Attribute.fontWeight;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.MvxBind = global::GamerHub.mobile.android.Resource.Attribute.MvxBind;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.MvxDropDownItemTemplate = global::GamerHub.mobile.android.Resource.Attribute.MvxDropDownItemTemplate;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.MvxGroupItemTemplate = global::GamerHub.mobile.android.Resource.Attribute.MvxGroupItemTemplate;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.MvxItemTemplate = global::GamerHub.mobile.android.Resource.Attribute.MvxItemTemplate;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.MvxLang = global::GamerHub.mobile.android.Resource.Attribute.MvxLang;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.MvxTemplate = global::GamerHub.mobile.android.Resource.Attribute.MvxTemplate;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Attribute.ttcIndex = global::GamerHub.mobile.android.Resource.Attribute.ttcIndex;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Color.notification_action_color_filter = global::GamerHub.mobile.android.Resource.Color.notification_action_color_filter;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Color.notification_icon_bg_color = global::GamerHub.mobile.android.Resource.Color.notification_icon_bg_color;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Color.ripple_material_light = global::GamerHub.mobile.android.Resource.Color.ripple_material_light;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Color.secondary_text_default_material_light = global::GamerHub.mobile.android.Resource.Color.secondary_text_default_material_light;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.compat_button_inset_horizontal_material = global::GamerHub.mobile.android.Resource.Dimension.compat_button_inset_horizontal_material;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.compat_button_inset_vertical_material = global::GamerHub.mobile.android.Resource.Dimension.compat_button_inset_vertical_material;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.compat_button_padding_horizontal_material = global::GamerHub.mobile.android.Resource.Dimension.compat_button_padding_horizontal_material;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.compat_button_padding_vertical_material = global::GamerHub.mobile.android.Resource.Dimension.compat_button_padding_vertical_material;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.compat_control_corner_material = global::GamerHub.mobile.android.Resource.Dimension.compat_control_corner_material;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.compat_notification_large_icon_max_height = global::GamerHub.mobile.android.Resource.Dimension.compat_notification_large_icon_max_height;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.compat_notification_large_icon_max_width = global::GamerHub.mobile.android.Resource.Dimension.compat_notification_large_icon_max_width;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_action_icon_size = global::GamerHub.mobile.android.Resource.Dimension.notification_action_icon_size;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_action_text_size = global::GamerHub.mobile.android.Resource.Dimension.notification_action_text_size;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_big_circle_margin = global::GamerHub.mobile.android.Resource.Dimension.notification_big_circle_margin;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_content_margin_start = global::GamerHub.mobile.android.Resource.Dimension.notification_content_margin_start;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_large_icon_height = global::GamerHub.mobile.android.Resource.Dimension.notification_large_icon_height;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_large_icon_width = global::GamerHub.mobile.android.Resource.Dimension.notification_large_icon_width;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_main_column_padding_top = global::GamerHub.mobile.android.Resource.Dimension.notification_main_column_padding_top;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_media_narrow_margin = global::GamerHub.mobile.android.Resource.Dimension.notification_media_narrow_margin;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_right_icon_size = global::GamerHub.mobile.android.Resource.Dimension.notification_right_icon_size;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_right_side_padding_top = global::GamerHub.mobile.android.Resource.Dimension.notification_right_side_padding_top;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_small_icon_background_padding = global::GamerHub.mobile.android.Resource.Dimension.notification_small_icon_background_padding;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_small_icon_size_as_large = global::GamerHub.mobile.android.Resource.Dimension.notification_small_icon_size_as_large;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_subtext_size = global::GamerHub.mobile.android.Resource.Dimension.notification_subtext_size;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_top_pad = global::GamerHub.mobile.android.Resource.Dimension.notification_top_pad;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Dimension.notification_top_pad_large_text = global::GamerHub.mobile.android.Resource.Dimension.notification_top_pad_large_text;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_action_background = global::GamerHub.mobile.android.Resource.Drawable.notification_action_background;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_bg = global::GamerHub.mobile.android.Resource.Drawable.notification_bg;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_bg_low = global::GamerHub.mobile.android.Resource.Drawable.notification_bg_low;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_bg_low_normal = global::GamerHub.mobile.android.Resource.Drawable.notification_bg_low_normal;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_bg_low_pressed = global::GamerHub.mobile.android.Resource.Drawable.notification_bg_low_pressed;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_bg_normal = global::GamerHub.mobile.android.Resource.Drawable.notification_bg_normal;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_bg_normal_pressed = global::GamerHub.mobile.android.Resource.Drawable.notification_bg_normal_pressed;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_icon_background = global::GamerHub.mobile.android.Resource.Drawable.notification_icon_background;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_template_icon_bg = global::GamerHub.mobile.android.Resource.Drawable.notification_template_icon_bg;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_template_icon_low_bg = global::GamerHub.mobile.android.Resource.Drawable.notification_template_icon_low_bg;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notification_tile_bg = global::GamerHub.mobile.android.Resource.Drawable.notification_tile_bg;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Drawable.notify_panel_notification_icon_bg = global::GamerHub.mobile.android.Resource.Drawable.notify_panel_notification_icon_bg;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.actions = global::GamerHub.mobile.android.Resource.Id.actions;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.action_container = global::GamerHub.mobile.android.Resource.Id.action_container;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.action_divider = global::GamerHub.mobile.android.Resource.Id.action_divider;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.action_image = global::GamerHub.mobile.android.Resource.Id.action_image;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.action_text = global::GamerHub.mobile.android.Resource.Id.action_text;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.async = global::GamerHub.mobile.android.Resource.Id.async;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.blocking = global::GamerHub.mobile.android.Resource.Id.blocking;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.chronometer = global::GamerHub.mobile.android.Resource.Id.chronometer;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.forever = global::GamerHub.mobile.android.Resource.Id.forever;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.icon = global::GamerHub.mobile.android.Resource.Id.icon;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.icon_group = global::GamerHub.mobile.android.Resource.Id.icon_group;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.info = global::GamerHub.mobile.android.Resource.Id.info;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.italic = global::GamerHub.mobile.android.Resource.Id.italic;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.line1 = global::GamerHub.mobile.android.Resource.Id.line1;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.line3 = global::GamerHub.mobile.android.Resource.Id.line3;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.MvvmCrossTagId = global::GamerHub.mobile.android.Resource.Id.MvvmCrossTagId;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.MvxBindingTagUnique = global::GamerHub.mobile.android.Resource.Id.MvxBindingTagUnique;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.normal = global::GamerHub.mobile.android.Resource.Id.normal;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.notification_background = global::GamerHub.mobile.android.Resource.Id.notification_background;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.notification_main_column = global::GamerHub.mobile.android.Resource.Id.notification_main_column;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.notification_main_column_container = global::GamerHub.mobile.android.Resource.Id.notification_main_column_container;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.right_icon = global::GamerHub.mobile.android.Resource.Id.right_icon;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.right_side = global::GamerHub.mobile.android.Resource.Id.right_side;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.tag_transition_group = global::GamerHub.mobile.android.Resource.Id.tag_transition_group;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.tag_unhandled_key_event_manager = global::GamerHub.mobile.android.Resource.Id.tag_unhandled_key_event_manager;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.tag_unhandled_key_listeners = global::GamerHub.mobile.android.Resource.Id.tag_unhandled_key_listeners;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.text = global::GamerHub.mobile.android.Resource.Id.text;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.text2 = global::GamerHub.mobile.android.Resource.Id.text2;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.time = global::GamerHub.mobile.android.Resource.Id.time;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Id.title = global::GamerHub.mobile.android.Resource.Id.title;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Integer.status_bar_notification_info_maxnum = global::GamerHub.mobile.android.Resource.Integer.status_bar_notification_info_maxnum;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Layout.notification_action = global::GamerHub.mobile.android.Resource.Layout.notification_action;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Layout.notification_action_tombstone = global::GamerHub.mobile.android.Resource.Layout.notification_action_tombstone;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Layout.notification_template_custom_big = global::GamerHub.mobile.android.Resource.Layout.notification_template_custom_big;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Layout.notification_template_icon_group = global::GamerHub.mobile.android.Resource.Layout.notification_template_icon_group;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Layout.notification_template_part_chronometer = global::GamerHub.mobile.android.Resource.Layout.notification_template_part_chronometer;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Layout.notification_template_part_time = global::GamerHub.mobile.android.Resource.Layout.notification_template_part_time;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.String.status_bar_notification_info_overflow = global::GamerHub.mobile.android.Resource.String.status_bar_notification_info_overflow;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Style.TextAppearance_Compat_Notification = global::GamerHub.mobile.android.Resource.Style.TextAppearance_Compat_Notification;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Style.TextAppearance_Compat_Notification_Info = global::GamerHub.mobile.android.Resource.Style.TextAppearance_Compat_Notification_Info;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::GamerHub.mobile.android.Resource.Style.TextAppearance_Compat_Notification_Line2;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Style.TextAppearance_Compat_Notification_Time = global::GamerHub.mobile.android.Resource.Style.TextAppearance_Compat_Notification_Time;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Style.TextAppearance_Compat_Notification_Title = global::GamerHub.mobile.android.Resource.Style.TextAppearance_Compat_Notification_Title;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Style.Widget_Compat_NotificationActionContainer = global::GamerHub.mobile.android.Resource.Style.Widget_Compat_NotificationActionContainer;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Style.Widget_Compat_NotificationActionText = global::GamerHub.mobile.android.Resource.Style.Widget_Compat_NotificationActionText;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.ColorStateListItem = global::GamerHub.mobile.android.Resource.Styleable.ColorStateListItem;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.ColorStateListItem_alpha = global::GamerHub.mobile.android.Resource.Styleable.ColorStateListItem_alpha;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.ColorStateListItem_android_alpha = global::GamerHub.mobile.android.Resource.Styleable.ColorStateListItem_android_alpha;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.ColorStateListItem_android_color = global::GamerHub.mobile.android.Resource.Styleable.ColorStateListItem_android_color;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamily = global::GamerHub.mobile.android.Resource.Styleable.FontFamily;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_android_font = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_android_font;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_android_fontStyle = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_android_fontStyle;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_android_fontWeight = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_android_fontWeight;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_android_ttcIndex;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_font = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_font;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_fontStyle = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_fontStyle;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_fontVariationSettings;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_fontWeight = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_fontWeight;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamilyFont_ttcIndex = global::GamerHub.mobile.android.Resource.Styleable.FontFamilyFont_ttcIndex;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamily_fontProviderAuthority = global::GamerHub.mobile.android.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamily_fontProviderCerts = global::GamerHub.mobile.android.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::GamerHub.mobile.android.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::GamerHub.mobile.android.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamily_fontProviderPackage = global::GamerHub.mobile.android.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.FontFamily_fontProviderQuery = global::GamerHub.mobile.android.Resource.Styleable.FontFamily_fontProviderQuery;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor = global::GamerHub.mobile.android.Resource.Styleable.GradientColor;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColorItem = global::GamerHub.mobile.android.Resource.Styleable.GradientColorItem;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColorItem_android_color = global::GamerHub.mobile.android.Resource.Styleable.GradientColorItem_android_color;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColorItem_android_offset = global::GamerHub.mobile.android.Resource.Styleable.GradientColorItem_android_offset;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_centerColor = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_centerColor;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_centerX = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_centerX;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_centerY = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_centerY;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_endColor = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_endColor;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_endX = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_endX;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_endY = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_endY;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_gradientRadius = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_gradientRadius;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_startColor = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_startColor;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_startX = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_startX;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_startY = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_startY;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_tileMode = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_tileMode;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.GradientColor_android_type = global::GamerHub.mobile.android.Resource.Styleable.GradientColor_android_type;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxBinding = global::GamerHub.mobile.android.Resource.Styleable.MvxBinding;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxBinding_MvxBind = global::GamerHub.mobile.android.Resource.Styleable.MvxBinding_MvxBind;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxBinding_MvxLang = global::GamerHub.mobile.android.Resource.Styleable.MvxBinding_MvxLang;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxControl = global::GamerHub.mobile.android.Resource.Styleable.MvxControl;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxControl_MvxTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxControl_MvxTemplate;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxExpandableListView = global::GamerHub.mobile.android.Resource.Styleable.MvxExpandableListView;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxListView = global::GamerHub.mobile.android.Resource.Styleable.MvxListView;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
-			global::MvvmCross.Droid.Support.Core.Utils.Resource.Styleable.MvxListView_MvxItemTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxListView_MvxItemTemplate;
 			global::MvvmCross.Droid.Support.Design.Resource.Animation.abc_fade_in = global::GamerHub.mobile.android.Resource.Animation.abc_fade_in;
 			global::MvvmCross.Droid.Support.Design.Resource.Animation.abc_fade_out = global::GamerHub.mobile.android.Resource.Animation.abc_fade_out;
 			global::MvvmCross.Droid.Support.Design.Resource.Animation.abc_grow_fade_in_from_bottom = global::GamerHub.mobile.android.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -5489,24 +5340,6 @@ namespace GamerHub.mobile.android
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_reverseLayout = global::GamerHub.mobile.android.Resource.Styleable.RecyclerView_reverseLayout;
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_spanCount = global::GamerHub.mobile.android.Resource.Styleable.RecyclerView_spanCount;
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_stackFromEnd = global::GamerHub.mobile.android.Resource.Styleable.RecyclerView_stackFromEnd;
-			global::MvvmCross.Plugin.Color.Resource.Attribute.MvxBind = global::GamerHub.mobile.android.Resource.Attribute.MvxBind;
-			global::MvvmCross.Plugin.Color.Resource.Attribute.MvxDropDownItemTemplate = global::GamerHub.mobile.android.Resource.Attribute.MvxDropDownItemTemplate;
-			global::MvvmCross.Plugin.Color.Resource.Attribute.MvxGroupItemTemplate = global::GamerHub.mobile.android.Resource.Attribute.MvxGroupItemTemplate;
-			global::MvvmCross.Plugin.Color.Resource.Attribute.MvxItemTemplate = global::GamerHub.mobile.android.Resource.Attribute.MvxItemTemplate;
-			global::MvvmCross.Plugin.Color.Resource.Attribute.MvxLang = global::GamerHub.mobile.android.Resource.Attribute.MvxLang;
-			global::MvvmCross.Plugin.Color.Resource.Attribute.MvxTemplate = global::GamerHub.mobile.android.Resource.Attribute.MvxTemplate;
-			global::MvvmCross.Plugin.Color.Resource.Id.MvvmCrossTagId = global::GamerHub.mobile.android.Resource.Id.MvvmCrossTagId;
-			global::MvvmCross.Plugin.Color.Resource.Id.MvxBindingTagUnique = global::GamerHub.mobile.android.Resource.Id.MvxBindingTagUnique;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxBinding = global::GamerHub.mobile.android.Resource.Styleable.MvxBinding;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxBinding_MvxBind = global::GamerHub.mobile.android.Resource.Styleable.MvxBinding_MvxBind;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxBinding_MvxLang = global::GamerHub.mobile.android.Resource.Styleable.MvxBinding_MvxLang;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxControl = global::GamerHub.mobile.android.Resource.Styleable.MvxControl;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxControl_MvxTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxControl_MvxTemplate;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxExpandableListView = global::GamerHub.mobile.android.Resource.Styleable.MvxExpandableListView;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxListView = global::GamerHub.mobile.android.Resource.Styleable.MvxListView;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
-			global::MvvmCross.Plugin.Color.Resource.Styleable.MvxListView_MvxItemTemplate = global::GamerHub.mobile.android.Resource.Styleable.MvxListView_MvxItemTemplate;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::GamerHub.mobile.android.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::GamerHub.mobile.android.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::GamerHub.mobile.android.Resource.Attribute.font;
@@ -8990,28 +8823,37 @@ namespace GamerHub.mobile.android
 			public const int list_item = 2131230814;
 			
 			// aapt resource value: 0x7F08005F
-			public const int masked = 2131230815;
+			public const int login_input_id = 2131230815;
 			
 			// aapt resource value: 0x7F080060
-			public const int message = 2131230816;
+			public const int main_drawer_layout = 2131230816;
+			
+			// aapt resource value: 0x7F080061
+			public const int main_frame_layout = 2131230817;
+			
+			// aapt resource value: 0x7F080062
+			public const int masked = 2131230818;
+			
+			// aapt resource value: 0x7F080063
+			public const int message = 2131230819;
 			
 			// aapt resource value: 0x7F080003
 			public const int META = 2131230723;
 			
-			// aapt resource value: 0x7F080061
-			public const int middle = 2131230817;
-			
-			// aapt resource value: 0x7F080062
-			public const int mini = 2131230818;
-			
-			// aapt resource value: 0x7F080063
-			public const int mtrl_child_content_container = 2131230819;
-			
 			// aapt resource value: 0x7F080064
-			public const int mtrl_internal_children_alpha_tag = 2131230820;
+			public const int middle = 2131230820;
 			
 			// aapt resource value: 0x7F080065
-			public const int multiply = 2131230821;
+			public const int mini = 2131230821;
+			
+			// aapt resource value: 0x7F080066
+			public const int mtrl_child_content_container = 2131230822;
+			
+			// aapt resource value: 0x7F080067
+			public const int mtrl_internal_children_alpha_tag = 2131230823;
+			
+			// aapt resource value: 0x7F080068
+			public const int multiply = 2131230824;
 			
 			// aapt resource value: 0x7F080004
 			public const int MvvmCrossTagId = 2131230724;
@@ -9019,281 +8861,284 @@ namespace GamerHub.mobile.android
 			// aapt resource value: 0x7F080005
 			public const int MvxBindingTagUnique = 2131230725;
 			
-			// aapt resource value: 0x7F080066
-			public const int navigation_header_container = 2131230822;
-			
-			// aapt resource value: 0x7F080067
-			public const int never = 2131230823;
-			
-			// aapt resource value: 0x7F080068
-			public const int none = 2131230824;
-			
 			// aapt resource value: 0x7F080069
-			public const int normal = 2131230825;
+			public const int navigation_header_container = 2131230825;
 			
 			// aapt resource value: 0x7F08006A
-			public const int notification_background = 2131230826;
+			public const int never = 2131230826;
 			
 			// aapt resource value: 0x7F08006B
-			public const int notification_main_column = 2131230827;
+			public const int none = 2131230827;
 			
 			// aapt resource value: 0x7F08006C
-			public const int notification_main_column_container = 2131230828;
+			public const int normal = 2131230828;
 			
 			// aapt resource value: 0x7F08006D
-			public const int outline = 2131230829;
+			public const int notification_background = 2131230829;
 			
 			// aapt resource value: 0x7F08006E
-			public const int parallax = 2131230830;
+			public const int notification_main_column = 2131230830;
 			
 			// aapt resource value: 0x7F08006F
-			public const int parentPanel = 2131230831;
+			public const int notification_main_column_container = 2131230831;
 			
 			// aapt resource value: 0x7F080070
-			public const int parent_matrix = 2131230832;
+			public const int outline = 2131230832;
 			
 			// aapt resource value: 0x7F080071
-			public const int pin = 2131230833;
+			public const int parallax = 2131230833;
 			
 			// aapt resource value: 0x7F080072
-			public const int progress_circular = 2131230834;
+			public const int parentPanel = 2131230834;
 			
 			// aapt resource value: 0x7F080073
-			public const int progress_horizontal = 2131230835;
+			public const int parent_matrix = 2131230835;
 			
 			// aapt resource value: 0x7F080074
-			public const int radio = 2131230836;
+			public const int password_input_id = 2131230836;
 			
 			// aapt resource value: 0x7F080075
-			public const int right = 2131230837;
+			public const int pin = 2131230837;
 			
 			// aapt resource value: 0x7F080076
-			public const int right_icon = 2131230838;
+			public const int progress_circular = 2131230838;
 			
 			// aapt resource value: 0x7F080077
-			public const int right_side = 2131230839;
+			public const int progress_horizontal = 2131230839;
 			
 			// aapt resource value: 0x7F080078
-			public const int save_image_matrix = 2131230840;
+			public const int radio = 2131230840;
 			
 			// aapt resource value: 0x7F080079
-			public const int save_non_transition_alpha = 2131230841;
+			public const int right = 2131230841;
 			
 			// aapt resource value: 0x7F08007A
-			public const int save_scale_type = 2131230842;
+			public const int right_icon = 2131230842;
 			
 			// aapt resource value: 0x7F08007B
-			public const int screen = 2131230843;
+			public const int right_side = 2131230843;
 			
 			// aapt resource value: 0x7F08007C
-			public const int scroll = 2131230844;
-			
-			// aapt resource value: 0x7F080080
-			public const int scrollable = 2131230848;
+			public const int save_image_matrix = 2131230844;
 			
 			// aapt resource value: 0x7F08007D
-			public const int scrollIndicatorDown = 2131230845;
+			public const int save_non_transition_alpha = 2131230845;
 			
 			// aapt resource value: 0x7F08007E
-			public const int scrollIndicatorUp = 2131230846;
+			public const int save_scale_type = 2131230846;
 			
 			// aapt resource value: 0x7F08007F
-			public const int scrollView = 2131230847;
+			public const int screen = 2131230847;
 			
-			// aapt resource value: 0x7F080081
-			public const int search_badge = 2131230849;
-			
-			// aapt resource value: 0x7F080082
-			public const int search_bar = 2131230850;
-			
-			// aapt resource value: 0x7F080083
-			public const int search_button = 2131230851;
+			// aapt resource value: 0x7F080080
+			public const int scroll = 2131230848;
 			
 			// aapt resource value: 0x7F080084
-			public const int search_close_btn = 2131230852;
+			public const int scrollable = 2131230852;
+			
+			// aapt resource value: 0x7F080081
+			public const int scrollIndicatorDown = 2131230849;
+			
+			// aapt resource value: 0x7F080082
+			public const int scrollIndicatorUp = 2131230850;
+			
+			// aapt resource value: 0x7F080083
+			public const int scrollView = 2131230851;
 			
 			// aapt resource value: 0x7F080085
-			public const int search_edit_frame = 2131230853;
+			public const int search_badge = 2131230853;
 			
 			// aapt resource value: 0x7F080086
-			public const int search_go_btn = 2131230854;
+			public const int search_bar = 2131230854;
 			
 			// aapt resource value: 0x7F080087
-			public const int search_mag_icon = 2131230855;
+			public const int search_button = 2131230855;
 			
 			// aapt resource value: 0x7F080088
-			public const int search_plate = 2131230856;
+			public const int search_close_btn = 2131230856;
 			
 			// aapt resource value: 0x7F080089
-			public const int search_src_text = 2131230857;
+			public const int search_edit_frame = 2131230857;
 			
 			// aapt resource value: 0x7F08008A
-			public const int search_voice_btn = 2131230858;
-			
-			// aapt resource value: 0x7F08008C
-			public const int selected = 2131230860;
+			public const int search_go_btn = 2131230858;
 			
 			// aapt resource value: 0x7F08008B
-			public const int select_dialog_listview = 2131230859;
+			public const int search_mag_icon = 2131230859;
+			
+			// aapt resource value: 0x7F08008C
+			public const int search_plate = 2131230860;
+			
+			// aapt resource value: 0x7F08008D
+			public const int search_src_text = 2131230861;
+			
+			// aapt resource value: 0x7F08008E
+			public const int search_voice_btn = 2131230862;
+			
+			// aapt resource value: 0x7F080090
+			public const int selected = 2131230864;
+			
+			// aapt resource value: 0x7F08008F
+			public const int select_dialog_listview = 2131230863;
 			
 			// aapt resource value: 0x7F080006
 			public const int SHIFT = 2131230726;
 			
-			// aapt resource value: 0x7F08008D
-			public const int shortcut = 2131230861;
-			
-			// aapt resource value: 0x7F08008E
-			public const int showCustom = 2131230862;
-			
-			// aapt resource value: 0x7F08008F
-			public const int showHome = 2131230863;
-			
-			// aapt resource value: 0x7F080090
-			public const int showTitle = 2131230864;
-			
 			// aapt resource value: 0x7F080091
-			public const int smallLabel = 2131230865;
+			public const int shortcut = 2131230865;
 			
 			// aapt resource value: 0x7F080092
-			public const int snackbar_action = 2131230866;
+			public const int showCustom = 2131230866;
 			
 			// aapt resource value: 0x7F080093
-			public const int snackbar_text = 2131230867;
+			public const int showHome = 2131230867;
 			
 			// aapt resource value: 0x7F080094
-			public const int snap = 2131230868;
+			public const int showTitle = 2131230868;
 			
 			// aapt resource value: 0x7F080095
-			public const int snapMargins = 2131230869;
+			public const int smallLabel = 2131230869;
 			
 			// aapt resource value: 0x7F080096
-			public const int spacer = 2131230870;
+			public const int snackbar_action = 2131230870;
 			
 			// aapt resource value: 0x7F080097
-			public const int split_action_bar = 2131230871;
+			public const int snackbar_text = 2131230871;
 			
 			// aapt resource value: 0x7F080098
-			public const int src_atop = 2131230872;
+			public const int snap = 2131230872;
 			
 			// aapt resource value: 0x7F080099
-			public const int src_in = 2131230873;
+			public const int snapMargins = 2131230873;
 			
 			// aapt resource value: 0x7F08009A
-			public const int src_over = 2131230874;
+			public const int spacer = 2131230874;
 			
 			// aapt resource value: 0x7F08009B
-			public const int start = 2131230875;
+			public const int split_action_bar = 2131230875;
 			
 			// aapt resource value: 0x7F08009C
-			public const int stretch = 2131230876;
+			public const int src_atop = 2131230876;
 			
 			// aapt resource value: 0x7F08009D
-			public const int submenuarrow = 2131230877;
+			public const int src_in = 2131230877;
 			
 			// aapt resource value: 0x7F08009E
-			public const int submit_area = 2131230878;
+			public const int src_over = 2131230878;
+			
+			// aapt resource value: 0x7F08009F
+			public const int start = 2131230879;
+			
+			// aapt resource value: 0x7F0800A0
+			public const int stretch = 2131230880;
+			
+			// aapt resource value: 0x7F0800A1
+			public const int submenuarrow = 2131230881;
+			
+			// aapt resource value: 0x7F0800A2
+			public const int submit_area = 2131230882;
 			
 			// aapt resource value: 0x7F080007
 			public const int SYM = 2131230727;
 			
-			// aapt resource value: 0x7F08009F
-			public const int tabMode = 2131230879;
-			
-			// aapt resource value: 0x7F0800A0
-			public const int tag_transition_group = 2131230880;
-			
-			// aapt resource value: 0x7F0800A1
-			public const int tag_unhandled_key_event_manager = 2131230881;
-			
-			// aapt resource value: 0x7F0800A2
-			public const int tag_unhandled_key_listeners = 2131230882;
-			
 			// aapt resource value: 0x7F0800A3
-			public const int text = 2131230883;
+			public const int tabMode = 2131230883;
 			
 			// aapt resource value: 0x7F0800A4
-			public const int text2 = 2131230884;
-			
-			// aapt resource value: 0x7F0800A9
-			public const int textinput_counter = 2131230889;
-			
-			// aapt resource value: 0x7F0800AA
-			public const int textinput_error = 2131230890;
-			
-			// aapt resource value: 0x7F0800AB
-			public const int textinput_helper_text = 2131230891;
+			public const int tag_transition_group = 2131230884;
 			
 			// aapt resource value: 0x7F0800A5
-			public const int textSpacerNoButtons = 2131230885;
+			public const int tag_unhandled_key_event_manager = 2131230885;
 			
 			// aapt resource value: 0x7F0800A6
-			public const int textSpacerNoTitle = 2131230886;
+			public const int tag_unhandled_key_listeners = 2131230886;
 			
 			// aapt resource value: 0x7F0800A7
-			public const int textStart = 2131230887;
+			public const int text = 2131230887;
 			
 			// aapt resource value: 0x7F0800A8
-			public const int text_input_password_toggle = 2131230888;
-			
-			// aapt resource value: 0x7F0800AC
-			public const int time = 2131230892;
+			public const int text2 = 2131230888;
 			
 			// aapt resource value: 0x7F0800AD
-			public const int title = 2131230893;
+			public const int textinput_counter = 2131230893;
 			
 			// aapt resource value: 0x7F0800AE
-			public const int titleDividerNoCustom = 2131230894;
+			public const int textinput_error = 2131230894;
 			
 			// aapt resource value: 0x7F0800AF
-			public const int title_template = 2131230895;
+			public const int textinput_helper_text = 2131230895;
+			
+			// aapt resource value: 0x7F0800A9
+			public const int textSpacerNoButtons = 2131230889;
+			
+			// aapt resource value: 0x7F0800AA
+			public const int textSpacerNoTitle = 2131230890;
+			
+			// aapt resource value: 0x7F0800AB
+			public const int textStart = 2131230891;
+			
+			// aapt resource value: 0x7F0800AC
+			public const int text_input_password_toggle = 2131230892;
 			
 			// aapt resource value: 0x7F0800B0
-			public const int top = 2131230896;
+			public const int time = 2131230896;
 			
 			// aapt resource value: 0x7F0800B1
-			public const int topPanel = 2131230897;
+			public const int title = 2131230897;
 			
 			// aapt resource value: 0x7F0800B2
-			public const int touch_outside = 2131230898;
+			public const int titleDividerNoCustom = 2131230898;
 			
 			// aapt resource value: 0x7F0800B3
-			public const int transition_current_scene = 2131230899;
+			public const int title_template = 2131230899;
 			
 			// aapt resource value: 0x7F0800B4
-			public const int transition_layout_save = 2131230900;
+			public const int top = 2131230900;
 			
 			// aapt resource value: 0x7F0800B5
-			public const int transition_position = 2131230901;
+			public const int topPanel = 2131230901;
 			
 			// aapt resource value: 0x7F0800B6
-			public const int transition_scene_layoutid_cache = 2131230902;
+			public const int touch_outside = 2131230902;
 			
 			// aapt resource value: 0x7F0800B7
-			public const int transition_transform = 2131230903;
+			public const int transition_current_scene = 2131230903;
 			
 			// aapt resource value: 0x7F0800B8
-			public const int uniform = 2131230904;
+			public const int transition_layout_save = 2131230904;
 			
 			// aapt resource value: 0x7F0800B9
-			public const int unlabeled = 2131230905;
+			public const int transition_position = 2131230905;
 			
 			// aapt resource value: 0x7F0800BA
-			public const int up = 2131230906;
+			public const int transition_scene_layoutid_cache = 2131230906;
 			
 			// aapt resource value: 0x7F0800BB
-			public const int useLogo = 2131230907;
+			public const int transition_transform = 2131230907;
 			
 			// aapt resource value: 0x7F0800BC
-			public const int view_offset_helper = 2131230908;
+			public const int uniform = 2131230908;
 			
 			// aapt resource value: 0x7F0800BD
-			public const int visible = 2131230909;
+			public const int unlabeled = 2131230909;
 			
 			// aapt resource value: 0x7F0800BE
-			public const int withText = 2131230910;
+			public const int up = 2131230910;
 			
 			// aapt resource value: 0x7F0800BF
-			public const int wrap_content = 2131230911;
+			public const int useLogo = 2131230911;
+			
+			// aapt resource value: 0x7F0800C0
+			public const int view_offset_helper = 2131230912;
+			
+			// aapt resource value: 0x7F0800C1
+			public const int visible = 2131230913;
+			
+			// aapt resource value: 0x7F0800C2
+			public const int withText = 2131230914;
+			
+			// aapt resource value: 0x7F0800C3
+			public const int wrap_content = 2131230915;
 			
 			static Id()
 			{
@@ -9476,91 +9321,94 @@ namespace GamerHub.mobile.android
 			public const int abc_tooltip = 2131427355;
 			
 			// aapt resource value: 0x7F0B001C
-			public const int activity_main = 2131427356;
+			public const int browser_actions_context_menu_page = 2131427356;
 			
 			// aapt resource value: 0x7F0B001D
-			public const int browser_actions_context_menu_page = 2131427357;
+			public const int browser_actions_context_menu_row = 2131427357;
 			
 			// aapt resource value: 0x7F0B001E
-			public const int browser_actions_context_menu_row = 2131427358;
+			public const int design_bottom_navigation_item = 2131427358;
 			
 			// aapt resource value: 0x7F0B001F
-			public const int design_bottom_navigation_item = 2131427359;
+			public const int design_bottom_sheet_dialog = 2131427359;
 			
 			// aapt resource value: 0x7F0B0020
-			public const int design_bottom_sheet_dialog = 2131427360;
+			public const int design_layout_snackbar = 2131427360;
 			
 			// aapt resource value: 0x7F0B0021
-			public const int design_layout_snackbar = 2131427361;
+			public const int design_layout_snackbar_include = 2131427361;
 			
 			// aapt resource value: 0x7F0B0022
-			public const int design_layout_snackbar_include = 2131427362;
+			public const int design_layout_tab_icon = 2131427362;
 			
 			// aapt resource value: 0x7F0B0023
-			public const int design_layout_tab_icon = 2131427363;
+			public const int design_layout_tab_text = 2131427363;
 			
 			// aapt resource value: 0x7F0B0024
-			public const int design_layout_tab_text = 2131427364;
+			public const int design_menu_item_action_area = 2131427364;
 			
 			// aapt resource value: 0x7F0B0025
-			public const int design_menu_item_action_area = 2131427365;
+			public const int design_navigation_item = 2131427365;
 			
 			// aapt resource value: 0x7F0B0026
-			public const int design_navigation_item = 2131427366;
+			public const int design_navigation_item_header = 2131427366;
 			
 			// aapt resource value: 0x7F0B0027
-			public const int design_navigation_item_header = 2131427367;
+			public const int design_navigation_item_separator = 2131427367;
 			
 			// aapt resource value: 0x7F0B0028
-			public const int design_navigation_item_separator = 2131427368;
+			public const int design_navigation_item_subheader = 2131427368;
 			
 			// aapt resource value: 0x7F0B0029
-			public const int design_navigation_item_subheader = 2131427369;
+			public const int design_navigation_menu = 2131427369;
 			
 			// aapt resource value: 0x7F0B002A
-			public const int design_navigation_menu = 2131427370;
+			public const int design_navigation_menu_item = 2131427370;
 			
 			// aapt resource value: 0x7F0B002B
-			public const int design_navigation_menu_item = 2131427371;
+			public const int design_text_input_password_icon = 2131427371;
 			
 			// aapt resource value: 0x7F0B002C
-			public const int design_text_input_password_icon = 2131427372;
+			public const int Fragment_Login_View = 2131427372;
 			
 			// aapt resource value: 0x7F0B002D
-			public const int mtrl_layout_snackbar = 2131427373;
+			public const int MainView = 2131427373;
 			
 			// aapt resource value: 0x7F0B002E
-			public const int mtrl_layout_snackbar_include = 2131427374;
+			public const int mtrl_layout_snackbar = 2131427374;
 			
 			// aapt resource value: 0x7F0B002F
-			public const int notification_action = 2131427375;
+			public const int mtrl_layout_snackbar_include = 2131427375;
 			
 			// aapt resource value: 0x7F0B0030
-			public const int notification_action_tombstone = 2131427376;
+			public const int notification_action = 2131427376;
 			
 			// aapt resource value: 0x7F0B0031
-			public const int notification_template_custom_big = 2131427377;
+			public const int notification_action_tombstone = 2131427377;
 			
 			// aapt resource value: 0x7F0B0032
-			public const int notification_template_icon_group = 2131427378;
+			public const int notification_template_custom_big = 2131427378;
 			
 			// aapt resource value: 0x7F0B0033
-			public const int notification_template_part_chronometer = 2131427379;
+			public const int notification_template_icon_group = 2131427379;
 			
 			// aapt resource value: 0x7F0B0034
-			public const int notification_template_part_time = 2131427380;
+			public const int notification_template_part_chronometer = 2131427380;
 			
 			// aapt resource value: 0x7F0B0035
-			public const int select_dialog_item_material = 2131427381;
+			public const int notification_template_part_time = 2131427381;
 			
 			// aapt resource value: 0x7F0B0036
-			public const int select_dialog_multichoice_material = 2131427382;
+			public const int select_dialog_item_material = 2131427382;
 			
 			// aapt resource value: 0x7F0B0037
-			public const int select_dialog_singlechoice_material = 2131427383;
+			public const int select_dialog_multichoice_material = 2131427383;
 			
 			// aapt resource value: 0x7F0B0038
-			public const int support_simple_spinner_dropdown_item = 2131427384;
+			public const int select_dialog_singlechoice_material = 2131427384;
+			
+			// aapt resource value: 0x7F0B0039
+			public const int support_simple_spinner_dropdown_item = 2131427385;
 			
 			static Layout()
 			{
@@ -9745,31 +9593,37 @@ namespace GamerHub.mobile.android
 			public const int hide_bottom_view_on_scroll_behavior = 2131558448;
 			
 			// aapt resource value: 0x7F0D0031
-			public const int mtrl_chip_close_icon_content_description = 2131558449;
+			public const int login = 2131558449;
 			
 			// aapt resource value: 0x7F0D0032
-			public const int password_toggle_content_description = 2131558450;
+			public const int mtrl_chip_close_icon_content_description = 2131558450;
 			
 			// aapt resource value: 0x7F0D0033
-			public const int path_password_eye = 2131558451;
+			public const int password = 2131558451;
 			
 			// aapt resource value: 0x7F0D0034
-			public const int path_password_eye_mask_strike_through = 2131558452;
+			public const int password_toggle_content_description = 2131558452;
 			
 			// aapt resource value: 0x7F0D0035
-			public const int path_password_eye_mask_visible = 2131558453;
+			public const int path_password_eye = 2131558453;
 			
 			// aapt resource value: 0x7F0D0036
-			public const int path_password_strike_through = 2131558454;
+			public const int path_password_eye_mask_strike_through = 2131558454;
 			
 			// aapt resource value: 0x7F0D0037
-			public const int search_menu_title = 2131558455;
+			public const int path_password_eye_mask_visible = 2131558455;
 			
 			// aapt resource value: 0x7F0D0038
-			public const int status_bar_notification_info_overflow = 2131558456;
+			public const int path_password_strike_through = 2131558456;
 			
 			// aapt resource value: 0x7F0D0039
-			public const int view_scroll_translation_autohide_behavior = 2131558457;
+			public const int search_menu_title = 2131558457;
+			
+			// aapt resource value: 0x7F0D003A
+			public const int status_bar_notification_info_overflow = 2131558458;
+			
+			// aapt resource value: 0x7F0D003B
+			public const int view_scroll_translation_autohide_behavior = 2131558459;
 			
 			static String()
 			{
