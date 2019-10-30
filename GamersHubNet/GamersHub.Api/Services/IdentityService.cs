@@ -22,6 +22,31 @@ namespace GamersHub.Api.Services
             _jwtSettings = jwtSettings;
         }
 
+        public async Task<AuthenticationResult> LoginAsync(string email, string password)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null)
+            {
+                return new AuthenticationResult
+                {
+                    Errors = new[] { "User does not exist." }
+                };
+            }
+
+            var userHasValidPassword = await _userManager.CheckPasswordAsync(user, password);
+
+            if (!userHasValidPassword)
+            {
+                return new AuthenticationResult
+                {
+                    Errors = new[] { "Password does not match login." }
+                };
+            }
+
+            return GenerateAuthResultForUser(user);
+        }
+
         public async Task<AuthenticationResult> RegisterAsync(string email, string password)
         {
             var existingUser = await _userManager.FindByEmailAsync(email);
@@ -30,7 +55,7 @@ namespace GamersHub.Api.Services
             {
                 return new AuthenticationResult
                 {
-                    Errors = new[] {"User with this email already exists."}
+                    Errors = new[] { "User with this email already exists." }
                 };
             }
 
@@ -50,11 +75,16 @@ namespace GamersHub.Api.Services
                 };
             }
 
+            return GenerateAuthResultForUser(newUser);
+        }
+
+        private AuthenticationResult GenerateAuthResultForUser(IdentityUser newUser)
+        {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_jwtSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new []
+                Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Sub, newUser.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
