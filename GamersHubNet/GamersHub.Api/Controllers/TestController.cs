@@ -4,18 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GamersHub.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-
-    public class TestController : ControllerBase
+    public class TestController : Controller
     {
-        [HttpGet]
+        [HttpGet(ApiRoutes.Test.Get)]
         public IActionResult Get()
         {
             return Ok(new { name = "marcin" });
         }
 
-        [HttpGet("getAuth")]
+        [HttpGet(ApiRoutes.Test.GetAuth)]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult AuthGet()
         {

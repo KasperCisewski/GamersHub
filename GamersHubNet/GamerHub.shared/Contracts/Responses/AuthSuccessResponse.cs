@@ -1,4 +1,4 @@
-﻿namespace GamersHub.Api.Contracts.Responses
+﻿namespace GamersHub.Shared.Contracts.Responses
 {
     public class AuthSuccessResponse
     {

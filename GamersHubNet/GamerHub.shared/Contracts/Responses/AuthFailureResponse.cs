@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GamersHub.Api.Contracts.Responses
+namespace GamersHub.Shared.Contracts.Responses
 {
     public class AuthFailureResponse
     {
