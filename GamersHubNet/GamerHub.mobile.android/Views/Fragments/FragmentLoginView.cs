@@ -1,6 +1,9 @@
 ﻿using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Button;
+using Android.Support.Design.Widget;
 using Android.Views;
+using Android.Widget;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.ViewModels;
 using GamerHub.mobile.core.ViewModels.Login;
@@ -18,6 +21,11 @@ namespace GamerHub.mobile.android.Views.Fragments
         {
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = this.BindingInflate(Resource.Layout.Fragment_Login_View, null);
+
+            SetFontForView<TextInputEditText>(view, Resource.Id.login_input_id);
+            SetFontForView<TextInputEditText>(view, Resource.Id.password_input_id);
+            SetFontForView<Button>(view, Resource.Id.login_submit_id);
+            SetFontForView<TextView>(view, Resource.Id.login_remember_credentials_view);
 
             return view;
         }
