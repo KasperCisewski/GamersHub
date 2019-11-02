@@ -3,16 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamerHub.api", "GamerHub.api\GamerHub.api.csproj", "{5D9FF2F1-D3B5-49C0-B070-8BF681377FD2}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D726EE56-9E6B-4927-9F15-BD898ADECCDD} = {D726EE56-9E6B-4927-9F15-BD898ADECCDD}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerHub.shared", "GamerHub.shared\GamerHub.shared.csproj", "{D726EE56-9E6B-4927-9F15-BD898ADECCDD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerHub.mobile.core", "GamerHub.mobile.core\GamerHub.mobile.core.csproj", "{BEE4E0D2-6983-4FB7-8F2C-84C3EB6E13BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerHub.mobile.android", "GamerHub.mobile.android\GamerHub.mobile.android.csproj", "{908C1AAF-7DAF-40BC-BAC7-3A0B2A817242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamersHub.Api", "GamersHub.Api\GamersHub.Api.csproj", "{3A680765-9C0B-4693-8C4B-C6D53FAC08BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5D9FF2F1-D3B5-49C0-B070-8BF681377FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D9FF2F1-D3B5-49C0-B070-8BF681377FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D9FF2F1-D3B5-49C0-B070-8BF681377FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D9FF2F1-D3B5-49C0-B070-8BF681377FD2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D726EE56-9E6B-4927-9F15-BD898ADECCDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D726EE56-9E6B-4927-9F15-BD898ADECCDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D726EE56-9E6B-4927-9F15-BD898ADECCDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,6 +31,10 @@ Global
 		{908C1AAF-7DAF-40BC-BAC7-3A0B2A817242}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{908C1AAF-7DAF-40BC-BAC7-3A0B2A817242}.Release|Any CPU.Build.0 = Release|Any CPU
 		{908C1AAF-7DAF-40BC-BAC7-3A0B2A817242}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3A680765-9C0B-4693-8C4B-C6D53FAC08BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A680765-9C0B-4693-8C4B-C6D53FAC08BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A680765-9C0B-4693-8C4B-C6D53FAC08BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A680765-9C0B-4693-8C4B-C6D53FAC08BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
