@@ -3,13 +3,13 @@ using RestSharp.Authenticators;
 
 namespace GamerHub.mobile.core.Services.Http.Factory
 {
-    public class HttpClientServiceFactory : IHttpClientServiceFactory
+    public class HttpClientFactoryService : IHttpClientFactoryService
     {
         private readonly IPollyPolicyService _pollyPolicyService;
         private readonly IGlobalStateService _globalStateService;
-        private string _apiUrl; // get from app settings
+        private string _apiUrl = string.Empty; // get url from app settings
 
-        public HttpClientServiceFactory(
+        public HttpClientFactoryService(
             IPollyPolicyService pollyPolicyService,
             IGlobalStateService globalStateService)
         {
@@ -26,7 +26,6 @@ namespace GamerHub.mobile.core.Services.Http.Factory
 
             return new HttpClientService(client, _pollyPolicyService);
         }
-
 
         public HttpClientService GetNotAuthorizedClient()
         {

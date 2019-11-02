@@ -1,11 +1,10 @@
 ﻿using GamerHub.mobile.core.Models.Http;
-using GamerHub.mobile.core.Services.Base;
 using RestSharp;
 using System.Threading.Tasks;
 
 namespace GamerHub.mobile.core.Services.Http
 {
-    public interface IHttpClientService : IService
+    public interface IHttpClientService
     {
         Task<HttpResult<T>> ExecuteAsync<T>(IRestRequest request);
         Task<HttpResult<object>> ExecuteAsync(IRestRequest request);

@@ -29,7 +29,7 @@ namespace GamerHub.mobile.core.Services.Http
                 {
                     Success = false,
                     ErrorMessage = result.FinalException.Message,
-                    ErrorDataDictionary = new Dictionary<string, string>()
+                    ErrorData = new Dictionary<string, string>()
                 };
             }
 
