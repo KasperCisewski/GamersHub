@@ -42,6 +42,9 @@ namespace GamersHub.Api
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

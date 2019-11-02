@@ -1,15 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GamersHub.Api.Contracts;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GamersHub.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class TestController : ControllerBase
+    public class TestController : Controller
     {
-        [HttpGet]
+        [HttpGet(ApiRoutes.Test.Get)]
         public IActionResult Get()
         {
             return Ok(new { name = "marcin" });
+        }
+
+        [HttpGet(ApiRoutes.Test.GetAuth)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult AuthGet()
+        {
+            return Ok(new { name = "Tajne: marcin" });
         }
     }
 }
