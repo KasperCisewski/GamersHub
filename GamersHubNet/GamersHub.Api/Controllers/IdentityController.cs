@@ -1,4 +1,5 @@
-﻿using GamersHub.Api.Services;
+﻿using GamersHub.Api.Domain;
+using GamersHub.Api.Services;
 using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -28,16 +29,7 @@ namespace GamersHub.Api.Controllers
             }
 
             var authResponse = await _identityService.RegisterAsync(request.Email, request.Password);
-
-            if (!authResponse.Success)
-            {
-                return BadRequest(new AuthFailureResponse
-                {
-                    Errors = authResponse.Errors
-                });
-            }
-
-            return Ok(new AuthSuccessResponse { Token = authResponse.Token });
+            return CreateResponse(authResponse);
         }
 
         [HttpPost(ApiRoutes.Identity.Login)]
@@ -45,6 +37,19 @@ namespace GamersHub.Api.Controllers
         {
             var authResponse = await _identityService.LoginAsync(request.Email, request.Password);
 
+            return CreateResponse(authResponse);
+        }
+
+        [HttpPost(ApiRoutes.Identity.Refresh)]
+        public async Task<IActionResult> Login([FromBody] RefreshTokenRequest request)
+        {
+            var authResponse = await _identityService.RefreshTokenAsync(request.Token, request.RefreshToken);
+
+            return CreateResponse(authResponse);
+        }
+
+        private IActionResult CreateResponse(AuthenticationResult authResponse)
+        {
             if (!authResponse.Success)
             {
                 return BadRequest(new AuthFailureResponse
@@ -53,7 +58,11 @@ namespace GamersHub.Api.Controllers
                 });
             }
 
-            return Ok(new AuthSuccessResponse { Token = authResponse.Token });
+            return Ok(new AuthSuccessResponse
+            {
+                Token = authResponse.Token,
+                RefreshToken = authResponse.RefreshToken
+            });
         }
     }
 }
