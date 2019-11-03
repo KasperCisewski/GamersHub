@@ -10,24 +10,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <!--  <include
-            android:id="@+id/main_down_toolbar"
-            layout="@layout/_shared_down_toolbar" />-->
         <FrameLayout
             android:id="@+id/main_frame_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@mipmap/background"
-
             />
-        <!--         android:layout_below="@id/main_top_toolbar"-->
     </RelativeLayout>
-    <!--    <android.support.design.widget.NavigationView
-        android:id="@+id/main_drawer_navigation_view"
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
-        android:layout_gravity="start"
-        local:headerLayout="@layout/_shared_drawer_menu_header"
-        local:menu="@menu/drawer_menu" />-->
-
 </android.support.v4.widget.DrawerLayout>
