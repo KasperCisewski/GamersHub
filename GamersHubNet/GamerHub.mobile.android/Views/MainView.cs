@@ -8,7 +8,7 @@ using System.Net;
 
 namespace GamerHub.mobile.android.Views
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(MainLauncher = true)]
     public class MainView : MvxAppCompatActivity<MainViewModel>
     {
         protected override async void OnCreate(Bundle bundle)
