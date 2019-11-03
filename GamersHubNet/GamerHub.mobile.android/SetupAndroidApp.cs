@@ -2,7 +2,6 @@
 using Android.App;
 using Android.Runtime;
 
-
 namespace GamerHub.mobile.android
 {
 #if DEBUG
@@ -14,11 +13,6 @@ namespace GamerHub.mobile.android
     {
         public SetupAndroidApplication(IntPtr handle, JniHandleOwnership ownerShip) : base(handle, ownerShip)
         {
-        }
-
-        public override void OnCreate()
-        {
-            base.OnCreate();
         }
     }
 }

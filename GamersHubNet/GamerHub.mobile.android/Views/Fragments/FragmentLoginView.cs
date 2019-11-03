@@ -15,7 +15,6 @@ namespace GamerHub.mobile.android.Views.Fragments
     [Register("GamerHub.mobile.Android.Views.Fragments.FragmentLoginView")]
     public class FragmentLoginView : FragmentBase<LoginViewModel>
     {
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
