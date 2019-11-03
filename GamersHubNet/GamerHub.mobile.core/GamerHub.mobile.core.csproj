@@ -77,7 +77,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Infrastructure\App.cs" />
     <Compile Include="Models\Http\HttpResult.cs" />
     <Compile Include="Models\Messenger\UserHasBeenLogged.cs" />
@@ -107,6 +106,9 @@
       <Project>{D726EE56-9E6B-4927-9F15-BD898ADECCDD}</Project>
       <Name>GamerHub.shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,10 +1,9 @@
-﻿using GamerHub.mobile.core.Services.Base;
-using Polly;
+﻿using Polly;
 using RestSharp;
 
 namespace GamerHub.mobile.core.Services.Http
 {
-    public interface IPollyPolicyService : IService
+    public interface IPollyPolicyService
     {
         IAsyncPolicy GetHttpRequestPolicy(IRestRequest request);
     }

@@ -1,5 +1,6 @@
 ﻿using RestSharp;
 using RestSharp.Authenticators;
+using System;
 
 namespace GamerHub.mobile.core.Services.Http.Factory
 {
@@ -7,7 +8,8 @@ namespace GamerHub.mobile.core.Services.Http.Factory
     {
         private readonly IPollyPolicyService _pollyPolicyService;
         private readonly IGlobalStateService _globalStateService;
-        private string _apiUrl = string.Empty; // get url from app settings
+        private string _apiUrl ="http://10.0.2.2:5000/api/";
+ // get url from app settings
 
         public HttpClientFactoryService(
             IPollyPolicyService pollyPolicyService,

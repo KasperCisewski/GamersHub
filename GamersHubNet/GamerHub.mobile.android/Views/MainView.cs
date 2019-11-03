@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using GamerHub.mobile.core.ViewModels;
 using GamerHub.mobile.core.ViewModels.Login;
+using System.Net;
 
 namespace GamerHub.mobile.android.Views
 {
@@ -18,6 +19,10 @@ namespace GamerHub.mobile.android.Views
 
             Window.SetSoftInputMode(SoftInput.AdjustResize | SoftInput.StateHidden);
             Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
+
+#if DEBUG
+            ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
+#endif
 
             await ViewModel.ShowViewModel<LoginViewModel>();
         }

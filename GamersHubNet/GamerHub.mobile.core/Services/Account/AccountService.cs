@@ -1,4 +1,5 @@
 ﻿using GamerHub.mobile.core.Services.Http.Factory;
+using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using RestSharp;
 using System;
@@ -25,10 +26,10 @@ namespace GamerHub.mobile.core.Services.Account
             {
                 var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
-                var request = new RestRequest("api/v1/operatortaskpick/getpickdestinationstorage");
-
-                request.AddQueryParameter("userName", userName);
-                request.AddQueryParameter("password", password);
+                var request = new RestRequest("identity/login");
+                request.Method = Method.POST;
+                request.RequestFormat = DataFormat.Json;
+                request.AddJsonBody(new UserLoginRequest { Email = userName, Password = password });
 
                 var response = await client.ExecuteAsync(request);
 
