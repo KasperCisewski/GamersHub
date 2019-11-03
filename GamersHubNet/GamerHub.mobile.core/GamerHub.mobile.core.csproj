@@ -98,6 +98,10 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\GamerHub.shared\GamerHub.shared.csproj">
       <Project>{D726EE56-9E6B-4927-9F15-BD898ADECCDD}</Project>
       <Name>GamerHub.shared</Name>
