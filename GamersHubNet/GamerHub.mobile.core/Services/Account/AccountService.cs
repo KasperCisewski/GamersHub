@@ -2,7 +2,6 @@
 using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using RestSharp;
-using System;
 using System.Threading.Tasks;
 
 namespace GamerHub.mobile.core.Services.Account
@@ -22,7 +21,6 @@ namespace GamerHub.mobile.core.Services.Account
 
         public async Task<bool> LogInUserAsync(string userName, string password)
         {
-
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
             var request = new RestRequest("identity/login");
