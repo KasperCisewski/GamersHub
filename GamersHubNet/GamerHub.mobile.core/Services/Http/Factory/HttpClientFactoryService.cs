@@ -1,6 +1,5 @@
 ﻿using RestSharp;
 using RestSharp.Authenticators;
-using System;
 
 namespace GamerHub.mobile.core.Services.Http.Factory
 {
@@ -9,7 +8,7 @@ namespace GamerHub.mobile.core.Services.Http.Factory
         private readonly IPollyPolicyService _pollyPolicyService;
         private readonly IGlobalStateService _globalStateService;
         private string _apiUrl ="http://10.0.2.2:5000/api/";
- // get url from app settings
+        //TODO: get url from app settings -> https://www.andrewhoefling.com/Blog/Post/xamarin-app-configuration-control-your-app-settings?fbclid=IwAR1clIxqp4TM1xto0YzJg70duaLT8Tdwt5sY-maEYpvV0TnbiYzoWpShnIk
 
         public HttpClientFactoryService(
             IPollyPolicyService pollyPolicyService,
