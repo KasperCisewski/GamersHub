@@ -1,0 +1,8 @@
+﻿namespace GamerHub.mobile.core.Services.Http.Factory
+{
+    public interface IHttpClientFactoryService
+    {
+        IHttpClientService GetAuthorizedClient();
+        HttpClientService GetNotAuthorizedClient();
+    }
+}
