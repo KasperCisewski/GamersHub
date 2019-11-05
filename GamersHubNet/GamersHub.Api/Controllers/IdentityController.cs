@@ -17,6 +17,12 @@ namespace GamersHub.Api.Controllers
             _identityService = identityService;
         }
 
+        [HttpGet(ApiRoutes.Identity.UserWithEmailExists)]
+        public bool UserWithEmailExists(string email) => _identityService.UserWithEmailExists(email);
+
+        [HttpGet(ApiRoutes.Identity.UserWithUsernameExists)]
+        public bool UserWithUsernameExists(string username) => _identityService.UserWithUsernameExists(username);
+
         [HttpPost(ApiRoutes.Identity.Register)]
         public async Task<IActionResult> Register([FromBody] UserRegistrationRequest request)
         {
@@ -28,8 +34,17 @@ namespace GamersHub.Api.Controllers
                 });
             }
 
-            var authResponse = await _identityService.RegisterAsync(request.Email, request.Password);
-            return CreateResponse(authResponse);
+            var authResponse = await _identityService.RegisterAsync(request.Email, request.Password, request.Username);
+
+            if (!authResponse.Success)
+            {
+                return BadRequest(new AuthFailureResponse
+                {
+                    Errors = authResponse.Errors
+                });
+            }
+
+            return Ok(new AuthSuccessResponse { Token = authResponse.Token });
         }
 
         [HttpPost(ApiRoutes.Identity.Login)]
