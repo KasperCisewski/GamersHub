@@ -11,6 +11,10 @@
             public const string Register = Root + "/identity/register";
 
             public const string Refresh = Root + "/identity/refresh";
+
+            public const string UserWithEmailExists = Root + "/identity/userWithEmailExists/{email}";
+
+            public const string UserWithUsernameExists = Root + "/identity/userWithUsernameExists/{username}";
         }
 
         public static class Test
