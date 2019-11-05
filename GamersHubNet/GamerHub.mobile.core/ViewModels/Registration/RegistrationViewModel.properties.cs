@@ -2,11 +2,11 @@
 {
     public partial class RegistrationViewModel
     {
-        private string _login;
-        public string Login
+        private string _name;
+        public string Name
         {
-            get => _login;
-            set => SetProperty(ref _login, value);
+            get => _name;
+            set => SetProperty(ref _name, value);
         }
 
         private string _email;
@@ -36,11 +36,11 @@
             set => SetProperty(ref _isValidForm, value);
         }
 
-        private bool _isValidLogin;
-        public bool IsValidLogin
+        private bool _isValidName;
+        public bool IsValidName
         {
-            get => _isValidLogin;
-            set => SetProperty(ref _isValidLogin, value);
+            get => _isValidName;
+            set => SetProperty(ref _isValidName, value);
         }
 
         private bool _isValidEmail;

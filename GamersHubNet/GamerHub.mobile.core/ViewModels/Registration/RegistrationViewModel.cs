@@ -1,11 +1,6 @@
 ﻿using GamerHub.mobile.core.Models.LoginAndRegistration;
 using GamerHub.mobile.core.ViewModels.Base;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GamerHub.mobile.core.ViewModels.Registration
 {
@@ -18,7 +13,7 @@ namespace GamerHub.mobile.core.ViewModels.Registration
 
         protected override void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            IsValidForm = IsValidEmail && IsValidLogin && IsValidPassword && IsValidRepetablePassword;
+            IsValidForm = IsValidEmail && IsValidName && IsValidPassword && IsValidRepetablePassword;
         }
         public override void Prepare(LoginModel parameter)
         {
@@ -28,7 +23,7 @@ namespace GamerHub.mobile.core.ViewModels.Registration
             }
             else
             {
-                Login = parameter.UserEmailOrName;
+                Name = parameter.UserEmailOrName;
             }
         }
     }

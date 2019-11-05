@@ -12,14 +12,23 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/registration_name_input_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/boarder"
+            style="@style/TextInputLayoutStyle"
+            android:hint="@string/global_name"
+            local:MvxBind="Text Name"/>
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/registration_email_input_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/boarder"
             style="@style/TextInputLayoutStyle"
-            android:hint="@string/global_login"
-            local:MvxBind="Text Login"/>
+            android:hint="@string/global_email"
+            local:MvxBind="Text Email"/>
         <android.support.design.widget.TextInputEditText
             android:id="@+id/registration_password_input_id"
             style="@style/TextInputLayoutStyle"
@@ -44,9 +53,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/registration_error_text_view"/>
+            android:id="@+id/registration_error_text_view"
+            android:textColor="#8B0000"
+            local:MvxBind="Visible Is"
+         />
         <Button
-            android:id="@+id/login_submit_id"
+            android:id="@+id/registration_submit_button_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/ButtonStyle"

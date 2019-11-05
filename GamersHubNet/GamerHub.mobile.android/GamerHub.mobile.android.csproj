@@ -73,6 +73,7 @@
     <Compile Include="Services\ViewHistoryService.cs" />
     <Compile Include="Views\Fragments\Base\FragmentBase.cs" />
     <Compile Include="Views\Fragments\FragmentLoginView.cs" />
+    <Compile Include="Views\Fragments\FragmentRegistrationView.cs" />
     <Compile Include="Views\MainView.cs" />
   </ItemGroup>
   <ItemGroup>

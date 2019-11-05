@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\App.cs" />
+    <Compile Include="Infrastructure\ValueConverter\InvertBoolValueConverter.cs" />
     <Compile Include="Models\Http\HttpResult.cs" />
     <Compile Include="Models\LoginAndRegistration\LoginModel.cs" />
     <Compile Include="Models\Messenger\UserHasBeenLogged.cs" />
