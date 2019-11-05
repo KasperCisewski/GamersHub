@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace GamerHub.mobile.core.ViewModels.Registration
+﻿namespace GamerHub.mobile.core.ViewModels.Registration
 {
     public partial class RegistrationViewModel
     {
@@ -48,14 +45,14 @@ namespace GamerHub.mobile.core.ViewModels.Registration
         }
 
         private string _repeatablePassword;
-        public string repeatablePassword
+        public string RepeatablePassword
         {
             get => _repeatablePassword;
             set => SetProperty(ref _repeatablePassword, value);
         }
 
         private string _repeatablePasswordErrorMessage;
-        public string repeatablePasswordErrorMessage
+        public string RepeatablePasswordErrorMessage
         {
             get => _repeatablePasswordErrorMessage;
             set => SetProperty(ref _repeatablePasswordErrorMessage, value);
@@ -89,11 +86,11 @@ namespace GamerHub.mobile.core.ViewModels.Registration
             set => SetProperty(ref _isValidPassword, value);
         }
 
-        private bool _isValidrepeatablePassword;
-        public bool IsValidrepeatablePassword
+        private bool _isValidRepeatablePassword;
+        public bool IsValidRepeatablePassword
         {
-            get => _isValidrepeatablePassword;
-            set => SetProperty(ref _isValidrepeatablePassword, value);
+            get => _isValidRepeatablePassword;
+            set => SetProperty(ref _isValidRepeatablePassword, value);
         }
     }
 }

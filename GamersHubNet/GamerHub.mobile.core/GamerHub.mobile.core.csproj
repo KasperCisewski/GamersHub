@@ -91,6 +91,7 @@
     <Compile Include="Services\Http\PollyPolicyService.cs" />
     <Compile Include="Services\IGlobalStateService.cs" />
     <Compile Include="Services\IKeyboardService.cs" />
+    <Compile Include="Services\ILocalizationService.cs" />
     <Compile Include="Services\IViewHistoryService.cs" />
     <Compile Include="Services\Account\IAccountService.cs" />
     <Compile Include="Services\Account\AccountService.cs" />
