@@ -1,10 +1,11 @@
-﻿using MvvmCross;
+﻿using GamerHub.mobile.core.Services;
+using MvvmCross;
 using MvvmCross.Platforms.Android;
 using System;
 
 namespace GamerHub.mobile.android.Services
 {
-    public class LocalizationAndroid
+    public class LocalizationAndroid : ILocalizationService
     {
         public string GetString(string key)
         {

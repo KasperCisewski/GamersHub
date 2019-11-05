@@ -3,6 +3,7 @@ using GamerHub.mobile.core.Services;
 using GamerHub.mobile.core.Services.Account;
 using GamerHub.mobile.core.ViewModels.Base;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace GamerHub.mobile.core.ViewModels.Registration
@@ -27,57 +28,92 @@ namespace GamerHub.mobile.core.ViewModels.Registration
 
         public override void Prepare(LoginModel parameter)
         {
-            if (parameter.UserEmailOrName.Contains("@"))
+            if (!string.IsNullOrWhiteSpace(parameter.UserEmailOrName))
             {
-                Email = parameter.UserEmailOrName;
+                if (parameter.UserEmailOrName.Contains("@"))
+                {
+                    Email = parameter.UserEmailOrName;
+                }
+                else
+                {
+                    Name = parameter.UserEmailOrName;
+                }
             }
-            else
-            {
-                Name = parameter.UserEmailOrName;
-            }
+            IsValidEmail = true;
+            IsValidName = true;
+            IsValidPassword = true;
+            IsValidRepeatablePassword = true;
         }
 
         public async Task ValidName()
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrWhiteSpace(Name) && Name.Length < 3)
+            {
+                NameErrorMessage = _localizationService.GetString("name_is_too_short"); ;
+                IsValidName = false;
+                return;
+            }
+
+            var result = await _accountService.ValidateNameByCheckIfExistInApp(Name);
+            if (result)
+            {
+                NameErrorMessage = _localizationService.GetString("name_exist_in_system");
+                IsValidName = false;
+                return;
+            }
+
+            IsValidName = true;
         }
 
         public async Task ValidEmail()
         {
-            IsValidEmail = false;
-            EmailErrorMessage = string.Empty;
-            if (Email != null)
+            if (!string.IsNullOrWhiteSpace(Email) && Email.Length < 3)
             {
-                if (!Email.Contains("@"))
-                {
-                    EmailErrorMessage =
-                        LoginAndRegisterResources.NotValidEmailByNotContainAt;
-                    IsValidEmail = true;
-                    return;
-                }
-
-                if (Email.Length < 3)
-                {
-                    EmailErrorMessage =
-                        LoginAndRegisterResources.EmailIsTooShort;
-                    IsValidEmail = true;
-                    return;
-                }
-
-                var result = await _userService.ValidateEmailByCheckIfExistInApp(Email);
-                if (result)
-                {
-                    EmailErrorMessage =
-                        LoginAndRegisterResources.EmailAlreadyIsInApplication;
-                    IsValidEmail = true;
-                }
+                EmailErrorMessage = _localizationService.GetString("email_is_too_short"); ;
+                IsValidEmail = false;
+                return;
             }
+            if (!Email.Contains("@"))
+            {
+                EmailErrorMessage = _localizationService.GetString("email_should_contain_at");
+                IsValidEmail = false;
+                return;
+            }
+
+            var result = await _accountService.ValidateEmailByCheckIfExistInApp(Email);
+            if (result)
+            {
+                EmailErrorMessage = _localizationService.GetString("email_exist_in_system");
+                IsValidEmail = false;
+            }
+
+            IsValidEmail = true;
         }
 
         public void ValidPassword()
         {
+            if (!string.IsNullOrWhiteSpace(Password) && Password.Length < 7)
+            {
+                IsValidPassword = false;
+                PasswordErrorMessage = _localizationService.GetString("password_should_contain_more_letters");
+                return;
+            }
+
+            if (!Password.Any(char.IsDigit))
+            {
+                IsValidPassword = false;
+                PasswordErrorMessage = _localizationService.GetString("password_should_contain_digit");
+                return;
+            }
+
+            if (!Password.Any(char.IsUpper))
+            {
+                IsValidPassword = false;
+                PasswordErrorMessage = _localizationService.GetString("password_should_contain_upper_letter");
+                return;
+            }
             IsValidPassword = true;
-            if (!string.IsNullOrWhiteSpace(Password) && Password.Length)
+            ValidRepeatablePassword();
         }
 
         public void ValidRepeatablePassword()
@@ -87,15 +123,23 @@ namespace GamerHub.mobile.core.ViewModels.Registration
             if (Password != RepeatablePassword)
             {
                 IsValidRepeatablePassword = false;
-                messeageError = _localizationService.GetString("");
+                messeageError = _localizationService.GetString("repeatable_password_should_be_same");
             }
             if (string.IsNullOrWhiteSpace(RepeatablePassword))
             {
                 IsValidRepeatablePassword = false;
-                messeageError = _localizationService.GetString("");
+                messeageError = _localizationService.GetString("repeatable_password_could_not_be_emtpy");
             }
 
             RepeatablePasswordErrorMessage = messeageError;
+        }
+
+        private async Task SubmitRegistrationForm()
+        {
+            if (IsValidForm)
+            {
+                await _accountService.RegisterUser(Name, Email, Password);
+            }
         }
     }
 }

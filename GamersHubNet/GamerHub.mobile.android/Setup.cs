@@ -21,7 +21,7 @@ namespace GamerHub.mobile.android
             Mvx.IoCProvider.RegisterSingleton<IViewHistoryService>(() => new ViewHistoryService());
             Mvx.IoCProvider.RegisterType<IKeyboardService, KeyboardService>();
             Mvx.IoCProvider.RegisterType<IGlobalStateService, GlobalStateService>();
-            Mvx.IoCProvider.RegisterSingleton<ILocalizationService>(new LocalizationAndroid()));
+            Mvx.IoCProvider.RegisterSingleton<ILocalizationService>(new LocalizationAndroid());
 
 
             base.InitializeFirstChance();

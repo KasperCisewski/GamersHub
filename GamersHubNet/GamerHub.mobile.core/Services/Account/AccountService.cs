@@ -39,6 +39,21 @@ namespace GamerHub.mobile.core.Services.Account
 
             return false;
         }
+
+        public Task RegisterUser(string name, string email, string password)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> ValidateEmailByCheckIfExistInApp(string name)
+        {
+            return Task.FromResult(false);
+        }
+
+        public Task<bool> ValidateNameByCheckIfExistInApp(string email)
+        {
+            return Task.FromResult(false);
+        }
     }
 }
 

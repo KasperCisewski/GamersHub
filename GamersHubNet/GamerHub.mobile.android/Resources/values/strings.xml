@@ -14,5 +14,16 @@
 
   <!--Registration-->
   <string name="registration_password">Password</string>
-  <string name="registration_repeatable_password">repeatable password</string>
+  <string name="registration_repeatable_password">Repeatable password</string>
+
+  <string name="email_is_too_short">Email is too short</string>
+  <string name="email_should_contain_at">Email should contain @</string>
+  <string name="email_exist_in_system">Email is already exist in system</string>
+  <string name="name_is_too_short">Name is too short</string>
+  <string name="name_exist_in_system">Name is already exist in system</string>
+  <string name="password_should_contain_more_letters">Password should have more letters</string>
+  <string name="password_should_contain_digit">Password should contain 1 digit</string>
+  <string name="password_should_contain_upper_letter">Password should contain one big letter</string>
+  <string name="repeatable_password_should_be_same">Passwords should be the same</string>
+  <string name="repeatable_password_could_not_be_emtpy">Repeatable password could not be empty</string>
 </resources>

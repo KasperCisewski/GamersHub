@@ -1,4 +1,7 @@
-﻿namespace GamerHub.mobile.core.ViewModels.Registration
+﻿using MvvmCross.Commands;
+using System.Windows.Input;
+
+namespace GamerHub.mobile.core.ViewModels.Registration
 {
     public partial class RegistrationViewModel
     {
@@ -92,5 +95,7 @@
             get => _isValidRepeatablePassword;
             set => SetProperty(ref _isValidRepeatablePassword, value);
         }
+
+        public ICommand SubmitRegistrationFormCommand => new MvxAsyncCommand(SubmitRegistrationForm);
     }
 }

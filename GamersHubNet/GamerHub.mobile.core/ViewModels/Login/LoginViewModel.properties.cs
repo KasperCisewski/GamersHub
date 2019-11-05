@@ -29,6 +29,6 @@ namespace GamerHub.mobile.core.ViewModels.Login
 
         public ICommand LogInCommand => new MvxAsyncCommand(TryToLogIntoApp);
 
-        private ICommand GoToRegistrationViewCommand => new MvxAsyncCommand(GoToRegistrationView);
+        public ICommand GoToRegistrationViewCommand => new MvxAsyncCommand(GoToRegistrationView);
     }
 }
