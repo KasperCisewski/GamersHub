@@ -21,7 +21,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\GamerHub.shared\GamerHub.shared.csproj" />
+    <ProjectReference Include="..\GamerHub.shared\GamersHub.Shared.csproj" />
   </ItemGroup>
 
 </Project>

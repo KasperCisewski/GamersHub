@@ -1,6 +1,6 @@
-﻿namespace GamersHub.Shared.Contracts.Responses
+﻿namespace GamersHub.Shared.Contracts.Requests
 {
-    public class AuthSuccessResponse
+    public class RefreshTokenRequest
     {
         public string Token { get; set; }
         public string RefreshToken { get; set; }
