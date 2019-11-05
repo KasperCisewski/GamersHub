@@ -8,12 +8,7 @@ namespace GamerHub.mobile.core.Infrastructure.ValueConverter
     {
         protected override bool Convert(bool? value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value.HasValue)
-            {
-                return !value.Value;
-            }
-
-            return false;
+            return value.HasValue ? !value.Value : false;
         }
     }
 }

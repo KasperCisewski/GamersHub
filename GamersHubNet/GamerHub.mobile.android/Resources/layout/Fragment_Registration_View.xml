@@ -41,14 +41,14 @@
             local:MvxBind="Text Password"/>
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/registration_password_input_id"
+            android:id="@+id/registration_repeatable_password_input_id"
             style="@style/TextInputLayoutStyle"
             android:background="@drawable/boarder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:password="true"
-            android:hint="@string/registration_repetable_password"
+            android:hint="@string/registration_repeatable_password"
             local:MvxBind="Text Password"/>
         <TextView
             android:layout_width="match_parent"

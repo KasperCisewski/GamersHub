@@ -1,4 +1,7 @@
-﻿namespace GamerHub.mobile.core.ViewModels.Registration
+﻿using System;
+using System.Threading.Tasks;
+
+namespace GamerHub.mobile.core.ViewModels.Registration
 {
     public partial class RegistrationViewModel
     {
@@ -9,12 +12,27 @@
             set => SetProperty(ref _name, value);
         }
 
+        private string _nameErrorMessage;
+        public string NameErrorMessage
+        {
+            get => _nameErrorMessage;
+            set => SetProperty(ref _nameErrorMessage, value);
+        }
+
         private string _email;
         public string Email
         {
             get => _email;
             set => SetProperty(ref _email, value);
         }
+
+        private string _emailErrorMessage;
+        public string EmailErrorMessage
+        {
+            get => _emailErrorMessage;
+            set => SetProperty(ref _emailErrorMessage, value);
+        }
+
         private string _password;
         public string Password
         {
@@ -22,11 +40,25 @@
             set => SetProperty(ref _password, value);
         }
 
-        private string _repetablePassword;
-        public string RepetablePassword
+        private string _passwordErrorMessage;
+        public string PasswordErrorMessage
         {
-            get => _repetablePassword;
-            set => SetProperty(ref _repetablePassword, value);
+            get => _passwordErrorMessage;
+            set => SetProperty(ref _passwordErrorMessage, value);
+        }
+
+        private string _repeatablePassword;
+        public string repeatablePassword
+        {
+            get => _repeatablePassword;
+            set => SetProperty(ref _repeatablePassword, value);
+        }
+
+        private string _repeatablePasswordErrorMessage;
+        public string repeatablePasswordErrorMessage
+        {
+            get => _repeatablePasswordErrorMessage;
+            set => SetProperty(ref _repeatablePasswordErrorMessage, value);
         }
 
         private bool _isValidForm;
@@ -57,11 +89,11 @@
             set => SetProperty(ref _isValidPassword, value);
         }
 
-        private bool _isValidRepetablePassword;
-        public bool IsValidRepetablePassword
+        private bool _isValidrepeatablePassword;
+        public bool IsValidrepeatablePassword
         {
-            get => _isValidRepetablePassword;
-            set => SetProperty(ref _isValidRepetablePassword, value);
+            get => _isValidrepeatablePassword;
+            set => SetProperty(ref _isValidrepeatablePassword, value);
         }
     }
 }

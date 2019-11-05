@@ -8,9 +8,11 @@
   <string name="global_log_in">Log In</string>
   <string name="global_email">Email</string>
   <string name="global_sign_up">Sign up</string>
+  <string name="global_submit">Submit</string>
+  <string name="global_name">Name</string>
   <!---->
 
   <!--Registration-->
   <string name="registration_password">Password</string>
-  <string name="registration_repetable_password">Repetable password</string>
+  <string name="registration_repeatable_password">repeatable password</string>
 </resources>
