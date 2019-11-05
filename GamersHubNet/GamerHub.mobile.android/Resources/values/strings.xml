@@ -2,11 +2,14 @@
   <string name="app_name">Gamer Hub</string>
   <string name="action_settings">Settings</string>
 
-  <!--User global-->
+  <!--Global-->
   <string name="global_login">Login</string>
   <string name="global_password">Password</string>
   <string name="global_log_in">Log In</string>
   <string name="login_remember_credentials">Remember credentials</string>
   <string name="global_sign_up">Sign up</string>
   <!---->
+
+  <!--Registration-->
+  <string name="registration_repetable_password">Repetable password</string>
 </resources>

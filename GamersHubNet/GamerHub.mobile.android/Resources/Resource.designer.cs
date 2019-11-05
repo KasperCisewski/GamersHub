@@ -9396,43 +9396,46 @@ namespace GamerHub.mobile.android
 			public const int Fragment_Login_View = 2131427372;
 			
 			// aapt resource value: 0x7F0B002D
-			public const int MainView = 2131427373;
+			public const int Fragment_Registration_View = 2131427373;
 			
 			// aapt resource value: 0x7F0B002E
-			public const int mtrl_layout_snackbar = 2131427374;
+			public const int MainView = 2131427374;
 			
 			// aapt resource value: 0x7F0B002F
-			public const int mtrl_layout_snackbar_include = 2131427375;
+			public const int mtrl_layout_snackbar = 2131427375;
 			
 			// aapt resource value: 0x7F0B0030
-			public const int notification_action = 2131427376;
+			public const int mtrl_layout_snackbar_include = 2131427376;
 			
 			// aapt resource value: 0x7F0B0031
-			public const int notification_action_tombstone = 2131427377;
+			public const int notification_action = 2131427377;
 			
 			// aapt resource value: 0x7F0B0032
-			public const int notification_template_custom_big = 2131427378;
+			public const int notification_action_tombstone = 2131427378;
 			
 			// aapt resource value: 0x7F0B0033
-			public const int notification_template_icon_group = 2131427379;
+			public const int notification_template_custom_big = 2131427379;
 			
 			// aapt resource value: 0x7F0B0034
-			public const int notification_template_part_chronometer = 2131427380;
+			public const int notification_template_icon_group = 2131427380;
 			
 			// aapt resource value: 0x7F0B0035
-			public const int notification_template_part_time = 2131427381;
+			public const int notification_template_part_chronometer = 2131427381;
 			
 			// aapt resource value: 0x7F0B0036
-			public const int select_dialog_item_material = 2131427382;
+			public const int notification_template_part_time = 2131427382;
 			
 			// aapt resource value: 0x7F0B0037
-			public const int select_dialog_multichoice_material = 2131427383;
+			public const int select_dialog_item_material = 2131427383;
 			
 			// aapt resource value: 0x7F0B0038
-			public const int select_dialog_singlechoice_material = 2131427384;
+			public const int select_dialog_multichoice_material = 2131427384;
 			
 			// aapt resource value: 0x7F0B0039
-			public const int support_simple_spinner_dropdown_item = 2131427385;
+			public const int select_dialog_singlechoice_material = 2131427385;
+			
+			// aapt resource value: 0x7F0B003A
+			public const int support_simple_spinner_dropdown_item = 2131427386;
 			
 			static Layout()
 			{
@@ -9653,13 +9656,16 @@ namespace GamerHub.mobile.android
 			public const int path_password_strike_through = 2131558459;
 			
 			// aapt resource value: 0x7F0D003C
-			public const int search_menu_title = 2131558460;
+			public const int registration_repetable_password = 2131558460;
 			
 			// aapt resource value: 0x7F0D003D
-			public const int status_bar_notification_info_overflow = 2131558461;
+			public const int search_menu_title = 2131558461;
 			
 			// aapt resource value: 0x7F0D003E
-			public const int view_scroll_translation_autohide_behavior = 2131558462;
+			public const int status_bar_notification_info_overflow = 2131558462;
+			
+			// aapt resource value: 0x7F0D003F
+			public const int view_scroll_translation_autohide_behavior = 2131558463;
 			
 			static String()
 			{
