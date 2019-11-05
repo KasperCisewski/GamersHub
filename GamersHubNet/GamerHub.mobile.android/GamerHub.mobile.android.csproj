@@ -135,9 +135,9 @@
       <Project>{bee4e0d2-6983-4fb7-8f2c-84c3eb6e13bc}</Project>
       <Name>GamerHub.mobile.core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GamerHub.shared\GamerHub.shared.csproj">
+    <ProjectReference Include="..\GamerHub.shared\GamersHub.Shared.csproj">
       <Project>{d726ee56-9e6b-4927-9f15-bd898adeccdd}</Project>
-      <Name>GamerHub.shared</Name>
+      <Name>GamersHub.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
