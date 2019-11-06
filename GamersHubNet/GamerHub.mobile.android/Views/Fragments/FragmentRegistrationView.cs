@@ -60,6 +60,7 @@ namespace GamerHub.mobile.android.Views.Fragments
             SetFontForView<TextInputEditText>(view, _repeatablePasswordTextEdit.Id);
             SetFontForView<TextView>(view, Resource.Id.registration_error_text_view);
             SetFontForView<Button>(view, Resource.Id.registration_submit_button_id);
+            SetFontForView<TextView>(view, Resource.Id.app_info_text_view); 
 
             return view;
         }

@@ -1,4 +1,4 @@
-﻿namespace GamerHub.Shared.Api
+﻿namespace GamersHub.Shared.Api
 {
     public static class ApiRoutes
     {

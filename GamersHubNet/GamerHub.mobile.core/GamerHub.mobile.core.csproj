@@ -95,6 +95,8 @@
     <Compile Include="Services\IViewHistoryService.cs" />
     <Compile Include="Services\Account\IAccountService.cs" />
     <Compile Include="Services\Account\AccountService.cs" />
+    <Compile Include="Validators\Account\AccountValidator.cs" />
+    <Compile Include="Validators\Account\IAccountValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.properties.cs" />
@@ -107,7 +109,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GamerHub.shared\GamerHub.shared.csproj">
+    <ProjectReference Include="..\GamerHub.shared\GamersHub.Shared.csproj">
       <Project>{D726EE56-9E6B-4927-9F15-BD898ADECCDD}</Project>
       <Name>GamerHub.shared</Name>
     </ProjectReference>

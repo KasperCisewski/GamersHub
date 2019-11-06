@@ -1,5 +1,5 @@
 ﻿using GamerHub.mobile.core.Services.Http.Factory;
-using GamerHub.Shared.Api;
+using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using RestSharp;
@@ -31,9 +31,8 @@ namespace GamerHub.mobile.core.Services.Account
 
             var response = await client.ExecuteAsync(request);
 
-            if (response.Success && response.ResponseData is AuthSuccessResponse)
+            if (response.Success && response.ResponseData is AuthSuccessResponse result)
             {
-                var result = response.ResponseData as AuthSuccessResponse;
                 _globalStateService.UserData.Token = result.Token;
                 return true;
             }
@@ -52,9 +51,8 @@ namespace GamerHub.mobile.core.Services.Account
 
             var response = await client.ExecuteAsync(request);
 
-            if (response.Success && response.ResponseData is AuthSuccessResponse)
+            if (response.Success && response.ResponseData is AuthSuccessResponse result)
             {
-                var result = response.ResponseData as AuthSuccessResponse;
                 _globalStateService.UserData.Token = result.Token;
                 return true;
             }
@@ -62,7 +60,7 @@ namespace GamerHub.mobile.core.Services.Account
             return false;
         }
 
-        public async Task<bool> ValidateEmailByCheckIfExistInApp(string name)
+        public async Task<bool> CheckIfNameExist(string name)
         {
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
@@ -74,7 +72,7 @@ namespace GamerHub.mobile.core.Services.Account
             return response.ResponseData;
         }
 
-        public async Task<bool> ValidateNameByCheckIfExistInApp(string email)
+        public async Task<bool> CheckIfEmailExist(string email)
         {
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 

@@ -54,7 +54,7 @@ namespace GamerHub.mobile.core.ViewModels.Registration
                 return;
             }
 
-            var result = await _accountService.ValidateNameByCheckIfExistInApp(Name);
+            var result = await _accountService.CheckIfNameExist(Name);
             if (result)
             {
                 NameErrorMessage = _localizationService.GetString("name_exist_in_system");
@@ -80,7 +80,7 @@ namespace GamerHub.mobile.core.ViewModels.Registration
                 return;
             }
 
-            var result = await _accountService.ValidateEmailByCheckIfExistInApp(Email);
+            var result = await _accountService.CheckIfEmailExist(Email);
             if (result)
             {
                 EmailErrorMessage = _localizationService.GetString("email_exist_in_system");
@@ -112,6 +112,9 @@ namespace GamerHub.mobile.core.ViewModels.Registration
                 PasswordErrorMessage = _localizationService.GetString("password_should_contain_upper_letter");
                 return;
             }
+
+            //if(!Password.Any(char.))
+
             IsValidPassword = true;
             ValidRepeatablePassword();
         }
