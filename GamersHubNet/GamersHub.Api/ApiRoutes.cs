@@ -1,4 +1,4 @@
-﻿namespace GamersHub.Api.Contracts
+﻿namespace GamersHub.Api
 {
     public static class ApiRoutes
     {
