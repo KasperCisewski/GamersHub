@@ -1,4 +1,5 @@
 ﻿using GamerHub.mobile.core.Services.Http.Factory;
+using GamerHub.Shared.Api;
 using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using RestSharp;
@@ -23,7 +24,7 @@ namespace GamerHub.mobile.core.Services.Account
         {
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
-            var request = new RestRequest("identity/login");
+            var request = new RestRequest(ApiRoutes.Identity.Login);
             request.Method = Method.POST;
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(new UserLoginRequest { Email = userName, Password = password });
@@ -40,20 +41,49 @@ namespace GamerHub.mobile.core.Services.Account
             return false;
         }
 
-        public Task RegisterUser(string name, string email, string password)
+        public async Task<bool> RegisterUser(string userName, string email, string password)
         {
-            throw new System.NotImplementedException();
+            var client = _httpClientFactoryService.GetNotAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Identity.Register);
+            request.Method = Method.POST;
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(new UserRegistrationRequest { Email = email, Password = password, Username = userName });
+
+            var response = await client.ExecuteAsync(request);
+
+            if (response.Success && response.ResponseData is AuthSuccessResponse)
+            {
+                var result = response.ResponseData as AuthSuccessResponse;
+                _globalStateService.UserData.Token = result.Token;
+                return true;
+            }
+
+            return false;
         }
 
-        public Task<bool> ValidateEmailByCheckIfExistInApp(string name)
+        public async Task<bool> ValidateEmailByCheckIfExistInApp(string name)
         {
-            return Task.FromResult(false);
+            var client = _httpClientFactoryService.GetNotAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Identity.UserWithEmailExists);
+            request.Method = Method.GET;
+
+            var response = await client.ExecuteAsync<bool>(request);
+
+            return response.ResponseData;
         }
 
-        public Task<bool> ValidateNameByCheckIfExistInApp(string email)
+        public async Task<bool> ValidateNameByCheckIfExistInApp(string email)
         {
-            return Task.FromResult(false);
+            var client = _httpClientFactoryService.GetNotAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Identity.UserWithUsernameExists);
+            request.Method = Method.GET;
+
+            var response = await client.ExecuteAsync<bool>(request);
+
+            return response.ResponseData;
         }
     }
 }
-

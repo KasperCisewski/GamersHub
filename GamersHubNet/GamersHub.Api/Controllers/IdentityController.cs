@@ -5,6 +5,7 @@ using GamersHub.Shared.Contracts.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
+using GamerHub.Shared.Api;
 
 namespace GamersHub.Api.Controllers
 {

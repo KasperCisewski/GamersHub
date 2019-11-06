@@ -138,7 +138,13 @@ namespace GamerHub.mobile.core.ViewModels.Registration
         {
             if (IsValidForm)
             {
-                await _accountService.RegisterUser(Name, Email, Password);
+                var result = await _accountService.RegisterUser(Name, Email, Password);
+
+                if (result)
+                {
+                    //TODO: create Core of app, implement removing history
+                    //ShowViewModelAndRemoveHistory<GamerHubViewModel>();
+                }
             }
         }
     }
