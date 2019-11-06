@@ -59,17 +59,12 @@ namespace GamerHub.mobile.android.Views.Fragments
             SetFontForView<TextInputEditText>(view, _passwordTextEdit.Id);
             SetFontForView<TextInputEditText>(view, _repeatablePasswordTextEdit.Id);
             SetFontForView<TextView>(view, Resource.Id.registration_error_text_view);
-            //SetFontForView<TextView>(view, Resource.Id.registration_email_input_id);
-            //SetFontForView<TextView>(view, Resource.Id.registration_email_input_id);
-            //SetFontForView<TextView>(view, Resource.Id.registration_email_input_id);
             SetFontForView<Button>(view, Resource.Id.registration_submit_button_id);
-
-
 
             return view;
         }
 
-        public override async void OnResume()
+        public override void OnResume()
         {
             base.OnResume();
 
@@ -80,7 +75,6 @@ namespace GamerHub.mobile.android.Views.Fragments
         public override void OnStop()
         {
             base.OnStop();
-
             DisposeSubscriptions();
         }
 

@@ -23,7 +23,6 @@ namespace GamerHub.mobile.android
             Mvx.IoCProvider.RegisterType<IGlobalStateService, GlobalStateService>();
             Mvx.IoCProvider.RegisterSingleton<ILocalizationService>(new LocalizationAndroid());
 
-
             base.InitializeFirstChance();
         }
 
