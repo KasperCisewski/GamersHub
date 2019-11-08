@@ -74,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textAlignment="center"
             android:id="@+id/registration_error_text_view"
             android:textColor="#8B0000"
             local:MvxBind="Visible IsValidPassword, Converter=InvertBool;Text PasswordErrorMessage"

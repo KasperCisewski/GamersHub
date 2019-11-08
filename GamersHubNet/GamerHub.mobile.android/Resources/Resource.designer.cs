@@ -9686,43 +9686,46 @@ namespace GamerHub.mobile.android
 			public const int password_should_contain_more_letters = 2131558463;
 			
 			// aapt resource value: 0x7F0D0040
-			public const int password_should_contain_upper_letter = 2131558464;
+			public const int password_should_contain_non_alphanumeric_char = 2131558464;
 			
 			// aapt resource value: 0x7F0D0041
-			public const int password_toggle_content_description = 2131558465;
+			public const int password_should_contain_upper_letter = 2131558465;
 			
 			// aapt resource value: 0x7F0D0042
-			public const int path_password_eye = 2131558466;
+			public const int password_toggle_content_description = 2131558466;
 			
 			// aapt resource value: 0x7F0D0043
-			public const int path_password_eye_mask_strike_through = 2131558467;
+			public const int path_password_eye = 2131558467;
 			
 			// aapt resource value: 0x7F0D0044
-			public const int path_password_eye_mask_visible = 2131558468;
+			public const int path_password_eye_mask_strike_through = 2131558468;
 			
 			// aapt resource value: 0x7F0D0045
-			public const int path_password_strike_through = 2131558469;
+			public const int path_password_eye_mask_visible = 2131558469;
 			
 			// aapt resource value: 0x7F0D0046
-			public const int registration_password = 2131558470;
+			public const int path_password_strike_through = 2131558470;
 			
 			// aapt resource value: 0x7F0D0047
-			public const int registration_repeatable_password = 2131558471;
+			public const int registration_password = 2131558471;
 			
 			// aapt resource value: 0x7F0D0048
-			public const int repeatable_password_could_not_be_emtpy = 2131558472;
+			public const int registration_repeatable_password = 2131558472;
 			
 			// aapt resource value: 0x7F0D0049
-			public const int repeatable_password_should_be_same = 2131558473;
+			public const int repeatable_password_could_not_be_emtpy = 2131558473;
 			
 			// aapt resource value: 0x7F0D004A
-			public const int search_menu_title = 2131558474;
+			public const int repeatable_password_should_be_same = 2131558474;
 			
 			// aapt resource value: 0x7F0D004B
-			public const int status_bar_notification_info_overflow = 2131558475;
+			public const int search_menu_title = 2131558475;
 			
 			// aapt resource value: 0x7F0D004C
-			public const int view_scroll_translation_autohide_behavior = 2131558476;
+			public const int status_bar_notification_info_overflow = 2131558476;
+			
+			// aapt resource value: 0x7F0D004D
+			public const int view_scroll_translation_autohide_behavior = 2131558477;
 			
 			static String()
 			{
