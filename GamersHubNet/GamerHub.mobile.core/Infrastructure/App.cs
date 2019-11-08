@@ -6,6 +6,7 @@ namespace GamerHub.mobile.core.Infrastructure
         public override void Initialize()
         {
             CreatableTypes().EndingWith("Service").AsInterfaces().RegisterAsLazySingleton();
+            CreatableTypes().EndingWith("Validator").AsInterfaces().RegisterAsLazySingleton();
             CreatableTypes().EndingWith("ViewModel").AsTypes().RegisterAsDynamic();
         }
     }

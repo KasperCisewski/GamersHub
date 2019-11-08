@@ -27,7 +27,8 @@ namespace GamerHub.mobile.core.ViewModels.Login
             set => SetProperty(ref _saveCredentials, value);
         }
 
-        private ICommand _logIn;
-        public ICommand LogIn => new MvxAsyncCommand(TryToLogIntoApp);
+        public ICommand LogInCommand => new MvxAsyncCommand(TryToLogIntoApp);
+
+        public ICommand GoToRegistrationViewCommand => new MvxAsyncCommand(GoToRegistrationView);
     }
 }
