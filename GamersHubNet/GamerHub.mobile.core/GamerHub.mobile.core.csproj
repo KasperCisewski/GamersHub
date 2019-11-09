@@ -78,8 +78,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\App.cs" />
+    <Compile Include="Infrastructure\ValueConverter\InvertBoolValueConverter.cs" />
     <Compile Include="Models\Http\HttpResult.cs" />
+    <Compile Include="Models\LoginAndRegistration\LoginModel.cs" />
     <Compile Include="Models\Messenger\UserHasBeenLogged.cs" />
+    <Compile Include="Models\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Http\Factory\HttpClientFactoryService.cs" />
     <Compile Include="Services\Http\Factory\IHttpClientFactoryService.cs" />
@@ -89,13 +92,18 @@
     <Compile Include="Services\Http\PollyPolicyService.cs" />
     <Compile Include="Services\IGlobalStateService.cs" />
     <Compile Include="Services\IKeyboardService.cs" />
+    <Compile Include="Services\ILocalizationService.cs" />
     <Compile Include="Services\IViewHistoryService.cs" />
     <Compile Include="Services\Account\IAccountService.cs" />
     <Compile Include="Services\Account\AccountService.cs" />
+    <Compile Include="Validators\Account\AccountValidator.cs" />
+    <Compile Include="Validators\Account\IAccountValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.properties.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Registration\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\Registration\RegistrationViewModel.properties.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

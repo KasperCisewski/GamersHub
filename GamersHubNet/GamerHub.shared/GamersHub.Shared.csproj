@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ApiRoutes.cs" />
     <Compile Include="Contracts\Requests\RefreshTokenRequest.cs" />
     <Compile Include="Contracts\Requests\UserLoginRequest.cs" />
     <Compile Include="Contracts\Requests\UserRegistrationRequest.cs" />

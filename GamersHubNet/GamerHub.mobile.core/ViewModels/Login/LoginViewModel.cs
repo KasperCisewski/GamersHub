@@ -1,5 +1,7 @@
-﻿using GamerHub.mobile.core.Services.Account;
+﻿using GamerHub.mobile.core.Models.LoginAndRegistration;
+using GamerHub.mobile.core.Services.Account;
 using GamerHub.mobile.core.ViewModels.Base;
+using GamerHub.mobile.core.ViewModels.Registration;
 using System.Threading.Tasks;
 
 namespace GamerHub.mobile.core.ViewModels.Login
@@ -13,6 +15,14 @@ namespace GamerHub.mobile.core.ViewModels.Login
             )
         {
             _accountService = accountService;
+        }
+
+        private async Task GoToRegistrationView()
+        {
+            await ShowViewModel<RegistrationViewModel, LoginModel>(new LoginModel
+            {
+                UserEmailOrName = Login
+            });
         }
 
         private async Task TryToLogIntoApp()
