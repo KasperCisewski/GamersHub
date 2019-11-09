@@ -44,17 +44,24 @@ namespace GamerHub.mobile.core.Services.Account
         {
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Identity.Register);
-            request.Method = Method.POST;
-            request.RequestFormat = DataFormat.Json;
+            var request = new RestRequest(ApiRoutes.Identity.Register)
+            {
+                Method = Method.POST,
+                RequestFormat = DataFormat.Json
+            };
             request.AddJsonBody(new UserRegistrationRequest { Email = email, Password = password, Username = userName });
 
-            var response = await client.ExecuteAsync(request);
+            //authResposne do przejrzenia
+            var response = await client.ExecuteAsync<AuthResponse>(request);
 
             if (response.Success && response.ResponseData is AuthSuccessResponse result)
             {
                 _globalStateService.UserData.Token = result.Token;
                 return true;
+            }
+            else
+            {
+                var resultFailure = response.ResponseData as AuthFailureResponse;
             }
 
             return false;
@@ -64,8 +71,9 @@ namespace GamerHub.mobile.core.Services.Account
         {
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Identity.UserWithEmailExists);
+            var request = new RestRequest(ApiRoutes.Identity.UserWithUsernameExists);
             request.Method = Method.GET;
+            request.AddQueryParameter("username", name);
 
             var response = await client.ExecuteAsync<bool>(request);
 
@@ -76,8 +84,9 @@ namespace GamerHub.mobile.core.Services.Account
         {
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Identity.UserWithUsernameExists);
+            var request = new RestRequest(ApiRoutes.Identity.UserWithEmailExists);
             request.Method = Method.GET;
+            request.AddQueryParameter("email", email);
 
             var response = await client.ExecuteAsync<bool>(request);
 

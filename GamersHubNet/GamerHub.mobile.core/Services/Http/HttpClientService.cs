@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using GamerHub.mobile.core.Models.Http;
+﻿using GamerHub.mobile.core.Models.Http;
 using RestSharp;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GamerHub.mobile.core.Services.Http
 {
@@ -33,7 +33,7 @@ namespace GamerHub.mobile.core.Services.Http
                 };
             }
 
-            return result.Result ?? new HttpResult<T>();
+            return result.Result;
         }
 
         public async Task<HttpResult<object>> ExecuteAsync(IRestRequest request)
@@ -43,13 +43,18 @@ namespace GamerHub.mobile.core.Services.Http
 
         private async Task<HttpResult<T>> ExecuteAndThrowIfError<T>(IRestRequest request)
         {
-            var response = await _restClient.ExecuteTaskAsync<HttpResult<T>>(request);
+            var response = await _restClient.ExecuteTaskAsync<T>(request);
             if (response.ErrorException != null)
             {
                 throw response.ErrorException;
             }
-
-            return response.Data;
+            
+            return new HttpResult<T>
+            {
+                // czy jest jakis code inny który będziemy obslugiwać 
+                Success = response.StatusCode == System.Net.HttpStatusCode.OK,
+                ResponseData = response.Data
+            };
         }
     }
 }

@@ -54,7 +54,7 @@ namespace GamerHub.mobile.core.ViewModels.Registration
 
         public async Task ValidEmail()
         {
-            var validationResult = await _accountValidator.ValidName(Name);
+            var validationResult = await _accountValidator.ValidEmail(Email);
             IsValidEmail = validationResult.IsValidate;
             EmailErrorMessage = validationResult.ErrorMessage;
         }
