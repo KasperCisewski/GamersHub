@@ -102,7 +102,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GamerHub.shared\GamerHub.shared.csproj">
+    <ProjectReference Include="..\GamerHub.shared\GamersHub.Shared.csproj">
       <Project>{D726EE56-9E6B-4927-9F15-BD898ADECCDD}</Project>
       <Name>GamerHub.shared</Name>
     </ProjectReference>
