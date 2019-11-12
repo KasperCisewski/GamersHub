@@ -1,9 +1,11 @@
-﻿using GamersHub.Api.Services;
+﻿using GamersHub.Api.Domain;
+using GamersHub.Api.Services;
 using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
+using GamersHub.Shared.Api;
 
 namespace GamersHub.Api.Controllers
 {
@@ -16,6 +18,12 @@ namespace GamersHub.Api.Controllers
             _identityService = identityService;
         }
 
+        [HttpGet(ApiRoutes.Identity.UserWithEmailExists)]
+        public bool UserWithEmailExists(string email) => _identityService.UserWithEmailExists(email);
+
+        [HttpGet(ApiRoutes.Identity.UserWithUsernameExists)]
+        public bool UserWithUsernameExists(string username) => _identityService.UserWithUsernameExists(username);
+
         [HttpPost(ApiRoutes.Identity.Register)]
         public async Task<IActionResult> Register([FromBody] UserRegistrationRequest request)
         {
@@ -27,7 +35,7 @@ namespace GamersHub.Api.Controllers
                 });
             }
 
-            var authResponse = await _identityService.RegisterAsync(request.Email, request.Password);
+            var authResponse = await _identityService.RegisterAsync(request.Email, request.Password, request.Username);
 
             if (!authResponse.Success)
             {
@@ -45,6 +53,19 @@ namespace GamersHub.Api.Controllers
         {
             var authResponse = await _identityService.LoginAsync(request.Email, request.Password);
 
+            return CreateResponse(authResponse);
+        }
+
+        [HttpPost(ApiRoutes.Identity.Refresh)]
+        public async Task<IActionResult> Login([FromBody] RefreshTokenRequest request)
+        {
+            var authResponse = await _identityService.RefreshTokenAsync(request.Token, request.RefreshToken);
+
+            return CreateResponse(authResponse);
+        }
+
+        private IActionResult CreateResponse(AuthenticationResult authResponse)
+        {
             if (!authResponse.Success)
             {
                 return BadRequest(new AuthFailureResponse
@@ -53,7 +74,11 @@ namespace GamersHub.Api.Controllers
                 });
             }
 
-            return Ok(new AuthSuccessResponse { Token = authResponse.Token });
+            return Ok(new AuthSuccessResponse
+            {
+                Token = authResponse.Token,
+                RefreshToken = authResponse.RefreshToken
+            });
         }
     }
 }
