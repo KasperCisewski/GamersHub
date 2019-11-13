@@ -1,7 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout
+    android:id="@+id/profile_frame"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-</LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+        <TextView
+            android:id="@+id/app_info_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="55dp"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:text="@string/app_name"/>
+    </LinearLayout>
+</RelativeLayout>
