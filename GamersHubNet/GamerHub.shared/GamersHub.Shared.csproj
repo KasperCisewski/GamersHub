@@ -55,7 +55,6 @@
     <Compile Include="Contracts\Requests\UserLoginRequest.cs" />
     <Compile Include="Contracts\Requests\UserRegistrationRequest.cs" />
     <Compile Include="Contracts\Responses\AuthFailureResponse.cs" />
-    <Compile Include="Contracts\Responses\AuthResponse.cs" />
     <Compile Include="Contracts\Responses\AuthSuccessResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,7 +2,7 @@
 
 namespace GamersHub.Shared.Contracts.Responses
 {
-    public class AuthFailureResponse : AuthResponse
+    public class AuthFailureResponse
     {
         public IEnumerable<string> Errors { get; set; }
     }

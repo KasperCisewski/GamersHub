@@ -2,6 +2,7 @@
 using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
+using Newtonsoft.Json;
 using RestSharp;
 using System.Threading.Tasks;
 
@@ -29,16 +30,13 @@ namespace GamerHub.mobile.core.Services.Account
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(new UserLoginRequest { Email = userName, Password = password });
 
-            var response = await client.ExecuteAsync<AuthResponse>(request);
+            var response = await client.ExecuteAsync<string>(request);
 
             if (response.Success && response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                var resultModel = response.ResponseData as AuthSuccessResponse;
-                if (resultModel != null)
-                {
-                    _globalStateService.UserData.Token = resultModel.Token;
-                    return true;
-                }
+                var responseModel = JsonConvert.DeserializeObject<AuthSuccessResponse>(response.ResponseData);
+                _globalStateService.UserData.Token = responseModel.Token;
+                return true;
             }
 
             return false;
@@ -55,11 +53,12 @@ namespace GamerHub.mobile.core.Services.Account
             };
             request.AddJsonBody(new UserRegistrationRequest { Email = email, Password = password, Username = userName });
 
-            var response = await client.ExecuteAsync<AuthResponse>(request);
+            var response = await client.ExecuteAsync<string>(request);
 
-            if (response.Success && response.ResponseData is AuthSuccessResponse result)
+            if (response.Success && response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                _globalStateService.UserData.Token = result.Token;
+                var responseModel = JsonConvert.DeserializeObject<AuthSuccessResponse>(response.ResponseData);
+                _globalStateService.UserData.Token = responseModel.Token;
                 return true;
             }
             //TODO: obsługa błędów
