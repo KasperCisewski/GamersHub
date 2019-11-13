@@ -29,12 +29,16 @@ namespace GamerHub.mobile.core.Services.Account
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(new UserLoginRequest { Email = userName, Password = password });
 
-            var response = await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync<AuthResponse>(request);
 
-            if (response.Success && response.ResponseData is AuthSuccessResponse result)
+            if (response.Success && response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                _globalStateService.UserData.Token = result.Token;
-                return true;
+                var resultModel = response.ResponseData as AuthSuccessResponse;
+                if (resultModel != null)
+                {
+                    _globalStateService.UserData.Token = resultModel.Token;
+                    return true;
+                }
             }
 
             return false;
@@ -51,7 +55,6 @@ namespace GamerHub.mobile.core.Services.Account
             };
             request.AddJsonBody(new UserRegistrationRequest { Email = email, Password = password, Username = userName });
 
-            //authResposne do przejrzenia
             var response = await client.ExecuteAsync<AuthResponse>(request);
 
             if (response.Success && response.ResponseData is AuthSuccessResponse result)
@@ -59,10 +62,7 @@ namespace GamerHub.mobile.core.Services.Account
                 _globalStateService.UserData.Token = result.Token;
                 return true;
             }
-            else
-            {
-                var resultFailure = response.ResponseData as AuthFailureResponse;
-            }
+            //TODO: obsługa błędów
 
             return false;
         }
@@ -71,8 +71,10 @@ namespace GamerHub.mobile.core.Services.Account
         {
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Identity.UserWithUsernameExists);
-            request.Method = Method.GET;
+            var request = new RestRequest(ApiRoutes.Identity.UserWithUsernameExists)
+            {
+                Method = Method.GET
+            };
             request.AddQueryParameter("username", name);
 
             var response = await client.ExecuteAsync<bool>(request);
@@ -84,8 +86,10 @@ namespace GamerHub.mobile.core.Services.Account
         {
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Identity.UserWithEmailExists);
-            request.Method = Method.GET;
+            var request = new RestRequest(ApiRoutes.Identity.UserWithEmailExists)
+            {
+                Method = Method.GET
+            };
             request.AddQueryParameter("email", email);
 
             var response = await client.ExecuteAsync<bool>(request);

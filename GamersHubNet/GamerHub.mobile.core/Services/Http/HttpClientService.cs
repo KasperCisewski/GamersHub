@@ -48,11 +48,11 @@ namespace GamerHub.mobile.core.Services.Http
             {
                 throw response.ErrorException;
             }
-            
+
             return new HttpResult<T>
             {
-                // czy jest jakis code inny który będziemy obslugiwać 
-                Success = response.StatusCode == System.Net.HttpStatusCode.OK,
+                StatusCode = response.StatusCode,
+                Success = true,
                 ResponseData = response.Data
             };
         }
