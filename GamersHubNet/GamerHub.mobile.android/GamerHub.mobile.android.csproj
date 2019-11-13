@@ -76,8 +76,12 @@
     <Compile Include="Services\KeyboardService.cs" />
     <Compile Include="Services\ViewHistoryService.cs" />
     <Compile Include="Views\Fragments\Base\FragmentBase.cs" />
+    <Compile Include="Views\Fragments\FragmentGamesView.cs" />
+    <Compile Include="Views\Fragments\FragmentHomeView.cs" />
     <Compile Include="Views\Fragments\FragmentLoginView.cs" />
+    <Compile Include="Views\Fragments\FragmentProfileView.cs" />
     <Compile Include="Views\Fragments\FragmentRegistrationView.cs" />
+    <Compile Include="Views\Fragments\FragmentSearchView.cs" />
     <Compile Include="Views\MainView.cs" />
   </ItemGroup>
   <ItemGroup>

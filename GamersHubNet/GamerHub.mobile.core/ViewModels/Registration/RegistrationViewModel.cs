@@ -2,6 +2,7 @@
 using GamerHub.mobile.core.Services.Account;
 using GamerHub.mobile.core.Validators.Account;
 using GamerHub.mobile.core.ViewModels.Base;
+using GamerHub.mobile.core.ViewModels.CoreApp.Home;
 using System.ComponentModel;
 using System.Threading.Tasks;
 
@@ -85,8 +86,7 @@ namespace GamerHub.mobile.core.ViewModels.Registration
 
                 if (result)
                 {
-                    //TODO: create Core of app, implement removing history
-                    //ShowViewModelAndRemoveHistory<GamerHubViewModel>();
+                    await ShowViewModelAndRemoveHistory<HomeViewModel>();
                 }
             }
         }

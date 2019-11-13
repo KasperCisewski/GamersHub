@@ -99,6 +99,14 @@
     <Compile Include="Validators\Account\AccountValidator.cs" />
     <Compile Include="Validators\Account\IAccountValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Home\HomeViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Profile\ProfileViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Profile\ProfileViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.Properties.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.properties.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
