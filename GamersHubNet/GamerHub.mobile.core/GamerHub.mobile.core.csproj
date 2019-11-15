@@ -45,6 +45,9 @@
     <Reference Include="MvvmCross.Plugin.Messenger, Version=6.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Plugin.Messenger.6.3.1\lib\netstandard2.0\MvvmCross.Plugin.Messenger.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Plugin.Settings, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\net45\Plugin.Settings.dll</HintPath>
     </Reference>

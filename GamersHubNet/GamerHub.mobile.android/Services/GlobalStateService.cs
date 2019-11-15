@@ -19,7 +19,7 @@ namespace GamerHub.mobile.android.Services
         private AuthSuccessResponse _userData;
         public AuthSuccessResponse UserData
         {
-            get => _userData;
+            get => _userData ?? new AuthSuccessResponse();
             set
             {
                 lock (Lock)
