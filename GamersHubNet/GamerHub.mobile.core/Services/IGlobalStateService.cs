@@ -1,8 +1,9 @@
-﻿using GamerHub.mobile.core.Services.Base;
+﻿using GamersHub.Shared.Contracts.Responses;
 
 namespace GamerHub.mobile.core.Services
 {
-    public interface IGlobalStateService : IService
+    public interface IGlobalStateService 
     {
+        AuthSuccessResponse UserData { set; get; }
     }
 }
