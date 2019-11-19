@@ -1,11 +1,18 @@
 ﻿using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
+using Android.Text;
 using Android.Views;
+using GamerHub.mobile.android.Constants;
+using GamerHub.mobile.android.Infrastructure.Extensions;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.ViewModels;
 using GamerHub.mobile.core.ViewModels.CoreApp.Search;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
+using System;
+using System.Reactive;
+using System.Reactive.Linq;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {
@@ -13,12 +20,47 @@ namespace GamerHub.mobile.android.Views.Fragments
     [Register("GamerHub.mobile.Android.Views.Fragments.FragmentSearchView")]
     public class FragmentSearchView : FragmentBase<SearchViewModel>
     {
+        private TextInputEditText _searchTextEdit;
+        private IObservable<EventPattern<TextChangedEventArgs>> _searchTextChangedObservable;
+        private IDisposable _searchTextChangedSubscription;
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = this.BindingInflate(Resource.Layout.Fragment_Search_View, null);
 
+            _searchTextEdit = view.FindViewById<TextInputEditText>(Resource.Id.search_input_id);
+            _searchTextChangedObservable = this.InitObservableFromEvent<TextChangedEventArgs, SearchViewModel>(_searchTextEdit, "TextChanged");
+
+            SetFontForView<TextInputEditText>(view, _searchTextEdit.Id);
+
             return view;
+        }
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            ConfigureSubscriptions();
+            _searchTextEdit.RequestFocus();
+        }
+
+        public override void OnStop()
+        {
+            base.OnStop();
+            DisposeSubscriptions();
+        }
+
+        public void ConfigureSubscriptions()
+        {
+            _searchTextChangedSubscription =
+                _searchTextChangedObservable.Throttle(TimeSpan.FromMilliseconds(UIConstants.DefaultFilterThrottleMiliSeconds))
+                    .Subscribe(async e =>
+                    {
+                        //await ViewModel.ValidName();
+                    });
+        }
+        public void DisposeSubscriptions()
+        {
+            _searchTextChangedSubscription.DisposeIfNotNull();
         }
     }
 }
