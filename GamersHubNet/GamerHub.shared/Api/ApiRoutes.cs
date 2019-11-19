@@ -12,9 +12,9 @@
 
             public const string Refresh = Root + "/identity/refresh";
 
-            public const string UserWithEmailExists = Root + "/identity/userWithEmailExists/{email}";
+            public const string UserWithEmailExists = Root + "/identity/userWithEmailExists";
 
-            public const string UserWithUsernameExists = Root + "/identity/userWithUsernameExists/{username}";
+            public const string UserWithUsernameExists = Root + "/identity/userWithUsernameExists";
         }
 
         public static class Test
