@@ -56,14 +56,13 @@
     <Compile Include="Contracts\Requests\UserRegistrationRequest.cs" />
     <Compile Include="Contracts\Responses\AuthFailureResponse.cs" />
     <Compile Include="Contracts\Responses\AuthSuccessResponse.cs" />
+    <Compile Include="Data\Enum\GameCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
