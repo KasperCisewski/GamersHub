@@ -13,7 +13,7 @@ namespace GamersHub.Api.Data
         }
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
-        public DbSet<GameImage> Screenshots { get; set; }
+        public DbSet<GameImage> GameImages { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Metatag> Metatags { get; set; }
 

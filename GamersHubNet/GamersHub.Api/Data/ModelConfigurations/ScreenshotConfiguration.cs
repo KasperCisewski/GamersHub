@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace GamersHub.Api.Data.ModelConfigurations
 {
-    public class ScreenshotConfiguration : IEntityTypeConfiguration<GameImage>
+    public class GameImageConfiguration : IEntityTypeConfiguration<GameImage>
     {
         public void Configure(EntityTypeBuilder<GameImage> builder)
         {
