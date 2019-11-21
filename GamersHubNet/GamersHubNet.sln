@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamersHub.Shared", "GamerHub.shared\GamersHub.Shared.csproj", "{D726EE56-9E6B-4927-9F15-BD898ADECCDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamersHub.Shared", "GamerHub.Shared\GamersHub.Shared.csproj", "{D726EE56-9E6B-4927-9F15-BD898ADECCDD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerHub.mobile.core", "GamerHub.mobile.core\GamerHub.mobile.core.csproj", "{BEE4E0D2-6983-4FB7-8F2C-84C3EB6E13BC}"
 EndProject
