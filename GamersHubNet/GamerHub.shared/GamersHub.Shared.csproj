@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Api\ApiRoutes.cs" />
     <Compile Include="Contracts\Requests\Base\BasePagingListRequest.cs" />
+    <Compile Include="Data\Enums\GameCategory.cs" />
     <Compile Include="Model\GameModel.cs" />
     <Compile Include="Contracts\Requests\RefreshTokenRequest.cs" />
     <Compile Include="Contracts\Requests\SearchModelRequest.cs" />
@@ -60,7 +61,6 @@
     <Compile Include="Contracts\Responses\AuthFailureResponse.cs" />
     <Compile Include="Contracts\Responses\AuthSuccessResponse.cs" />
     <Compile Include="Contracts\Responses\SearchGameResponse.cs" />
-    <Compile Include="Data\Enums\GameCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

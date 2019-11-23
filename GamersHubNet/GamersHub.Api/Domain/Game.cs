@@ -1,4 +1,4 @@
-﻿using GamersHub.Shared.Data.Enum;
+﻿using GamersHub.Shared.Data.Enums;
 using System;
 using System.Collections.Generic;
 
