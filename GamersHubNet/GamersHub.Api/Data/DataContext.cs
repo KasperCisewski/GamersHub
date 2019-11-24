@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace GamersHub.Api.Data
 {
-    public class DataContext : IdentityDbContext
+    public class DataContext : IdentityDbContext<GamersHubUser>
     {
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
