@@ -6,6 +6,6 @@ namespace GamerHub.mobile.core.Services.Search
 {
     public interface ISearchService
     {
-        List<GameResponseModel> GetSearchGamesModels(SearchGameRequest searchGameRequest);
+        List<GameModelWithImage> GetSearchGamesModels(SearchGameRequest searchGameRequest);
     }
 }

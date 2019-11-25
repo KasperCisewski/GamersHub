@@ -6,7 +6,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
 {
     public partial class HomeViewModel : BaseViewModel
     {
-        private async Task OpenGame(GameResponseModel arg)
+        private async Task OpenGame(GameModelWithImage arg)
         {
             throw new System.NotImplementedException();
         }

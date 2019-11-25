@@ -6,7 +6,7 @@ namespace GamerHub.mobile.core.Services.Search
 {
     public class SearchService : ISearchService
     {
-        public List<GameResponseModel> GetSearchGamesModels(SearchGameRequest searchGameRequest)
+        public List<GameModelWithImage> GetSearchGamesModels(SearchGameRequest searchGameRequest)
         {
             throw new System.NotImplementedException();
         }

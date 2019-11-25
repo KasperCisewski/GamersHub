@@ -7,36 +7,36 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
 {
     public partial class HomeViewModel
     {
-        private ObservableCollection<GameResponseModel> _comingSoonGames = new ObservableCollection<GameResponseModel>();
+        private ObservableCollection<GameModelWithImage> _comingSoonGames = new ObservableCollection<GameModelWithImage>();
 
-        public ObservableCollection<GameResponseModel> ComingSoonGames
+        public ObservableCollection<GameModelWithImage> ComingSoonGames
         {
             get => _comingSoonGames;
             set => SetProperty(ref _comingSoonGames, value);
         }
-        private ObservableCollection<GameResponseModel> _brandNewGames = new ObservableCollection<GameResponseModel>();
+        private ObservableCollection<GameModelWithImage> _brandNewGames = new ObservableCollection<GameModelWithImage>();
 
-        public ObservableCollection<GameResponseModel> BrandNewGames
+        public ObservableCollection<GameModelWithImage> BrandNewGames
         {
             get => _brandNewGames;
             set => SetProperty(ref _brandNewGames, value);
         }
-        private ObservableCollection<GameResponseModel> _hottestGames = new ObservableCollection<GameResponseModel>();
+        private ObservableCollection<GameModelWithImage> _hottestGames = new ObservableCollection<GameModelWithImage>();
 
-        public ObservableCollection<GameResponseModel> HottestGames
+        public ObservableCollection<GameModelWithImage> HottestGames
         {
             get => _hottestGames;
             set => SetProperty(ref _hottestGames, value);
         }
-        private ObservableCollection<GameResponseModel> _onSaleGames = new ObservableCollection<GameResponseModel>();
+        private ObservableCollection<GameModelWithImage> _onSaleGames = new ObservableCollection<GameModelWithImage>();
 
-        public ObservableCollection<GameResponseModel> OnSaleGames
+        public ObservableCollection<GameModelWithImage> OnSaleGames
         {
             get => _onSaleGames;
             set => SetProperty(ref _onSaleGames, value);
         }
 
         private ICommand _clickGame;
-        public ICommand ClickGame => _clickGame ?? (_clickGame = new MvxAsyncCommand<GameResponseModel>(OpenGame));
+        public ICommand ClickGame => _clickGame ?? (_clickGame = new MvxAsyncCommand<GameModelWithImage>(OpenGame));
     }
 }

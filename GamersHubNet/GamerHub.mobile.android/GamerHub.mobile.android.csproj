@@ -76,7 +76,11 @@
     <Compile Include="Services\KeyboardService.cs" />
     <Compile Include="Services\ViewHistoryService.cs" />
     <Compile Include="Views\Fragments\Base\FragmentBase.cs" />
+    <Compile Include="Views\Fragments\FragmentGamePricesView.cs" />
+    <Compile Include="Views\Fragments\FragmentGameScreenshotsView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesView.cs" />
+    <Compile Include="Views\Fragments\FragmentGameVideoView.cs" />
+    <Compile Include="Views\Fragments\FragmentGameView.cs" />
     <Compile Include="Views\Fragments\FragmentHomeView.cs" />
     <Compile Include="Views\Fragments\FragmentLoginView.cs" />
     <Compile Include="Views\Fragments\FragmentProfileView.cs" />
@@ -329,6 +333,26 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Fragment_Shared_Menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Game_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Game_Screenshots_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Game_Video_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Game_Prices_View.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

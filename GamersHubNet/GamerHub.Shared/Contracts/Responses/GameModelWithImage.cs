@@ -2,7 +2,7 @@
 
 namespace GamersHub.Shared.Contracts.Responses
 {
-    public class GameResponseModel : GameModel
+    public class GameModelWithImage : GameModel
     {
         public byte[] ImageTitle { get; set; }
     }
