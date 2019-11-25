@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using GamerHub.shared.Contracts.Requests;
-using GamerHub.shared.Contracts.Responses;
+using GamersHub.Shared.Contracts.Responses;
 
 namespace GamerHub.mobile.core.Services.Search
 {
     public class SearchService : ISearchService
     {
-        public List<SearchGameResponse> GetSearchGamesModels(SearchGameRequest searchGameRequest)
+        public List<GameResponseModel> GetSearchGamesModels(SearchGameRequest searchGameRequest)
         {
             throw new System.NotImplementedException();
         }

@@ -112,6 +112,7 @@
     <Compile Include="ViewModels\CoreApp\Profile\ProfileViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Shared\SharedMenuViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.properties.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

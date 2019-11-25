@@ -1,7 +1,7 @@
-﻿using GamerHub.shared.Data.Enums;
-using System;
+﻿using System;
+using GamersHub.Shared.Data.Enums;
 
-namespace GamerHub.shared.Contracts.Requests
+namespace GamersHub.Shared.Model
 {
     public abstract class GameModel
     {

@@ -1,8 +1,8 @@
-﻿using GamerHub.shared.Contracts.Requests;
+﻿using GamersHub.Shared.Model;
 
-namespace GamerHub.shared.Contracts.Responses
+namespace GamersHub.Shared.Contracts.Responses
 {
-    public class SearchGameResponse : GameModel
+    public class GameResponseModel : GameModel
     {
         public byte[] ImageTitle { get; set; }
     }

@@ -4,7 +4,7 @@
   "MultiProjectConfigurations": {
     "mobile + web": {
       "Projects": {
-        "GamerHub.mobile.android": {},
+        "GamerHub.Mobile.Android": {},
         "GamersHub.Api": {}
       }
     }
