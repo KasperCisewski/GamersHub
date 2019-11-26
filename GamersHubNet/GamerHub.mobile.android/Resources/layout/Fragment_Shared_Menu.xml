@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
+    android:gravity="bottom"
     android:layout_alignParentBottom="true"
     android:background="@android:color/black"
     android:weightSum="4">
@@ -20,7 +20,7 @@
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/home"
+            android:src="@drawable/home"
             local:MvxBind="Click GoToHomeViewCommand"/>
         <TextView
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/games"
+            android:src="@drawable/games"
             local:MvxBind="Click GoToGamesViewCommand"/>
         <TextView
             android:layout_width="match_parent"
@@ -56,7 +56,7 @@
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/search"
+            android:src="@drawable/search"
             local:MvxBind="Click GoToSearchViewCommand"/>
         <TextView
             android:layout_width="match_parent"
@@ -74,7 +74,7 @@
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/profileicon"
+            android:src="@drawable/profileicon"
             local:MvxBind="Click GoToProfileViewCommand"/>
         <TextView
             android:layout_width="match_parent"

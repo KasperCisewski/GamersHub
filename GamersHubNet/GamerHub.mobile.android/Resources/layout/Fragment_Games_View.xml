@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/games_frame"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_above="@id/shared_menu_toolbar">
+
+    >
     <include
         android:id="@+id/shared_menu_toolbar"
         layout="@layout/fragment_shared_menu"/>
-</FrameLayout>
+</RelativeLayout>

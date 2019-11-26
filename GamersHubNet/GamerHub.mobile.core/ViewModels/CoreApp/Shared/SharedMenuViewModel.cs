@@ -11,7 +11,6 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Shared
 {
     public class SharedMenuViewModel : BaseViewModel
     {
-
         public ICommand GoToHomeViewCommand => new MvxAsyncCommand(GoToHomeView);
         public ICommand GoToGamesViewCommand => new MvxAsyncCommand(GoToGamesView);
         public ICommand GoToSearchViewCommand => new MvxAsyncCommand(GoToSearchView);

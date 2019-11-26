@@ -4,9 +4,10 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <include
+  <include
         android:id="@+id/shared_menu_toolbar"
-        layout="@layout/fragment_shared_menu"/>
+        layout="@layout/fragment_shared_menu"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -51,12 +52,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_game_to_wish_list"
-                local:MvxBind="Text Description"/>
+                local:MvxBind="Click AddGameToVault"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_game_to_wish_list"
-                local:MvxBind="Text Description"/>
+                android:text="@string/add_game_to_vault"
+                local:MvxBind="Click AddGameToVault"/>
         </LinearLayout>
         <android.support.v4.view.ViewPager
             android:id="@+id/game_view_main_with_view_pager"
