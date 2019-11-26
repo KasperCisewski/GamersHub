@@ -86,7 +86,6 @@
     <Compile Include="Views\Fragments\FragmentProfileView.cs" />
     <Compile Include="Views\Fragments\FragmentRegistrationView.cs" />
     <Compile Include="Views\Fragments\FragmentSearchView.cs" />
-    <Compile Include="Views\Fragments\FragmentSharedMenu.cs" />
     <Compile Include="Views\MainView.cs" />
   </ItemGroup>
   <ItemGroup>
