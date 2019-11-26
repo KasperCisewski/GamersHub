@@ -1,4 +1,5 @@
-﻿using GamerHub.mobile.core.Services.Dependency;
+﻿using Android.Graphics;
+using GamerHub.mobile.core.Services.Dependency;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamersHub.Shared.Contracts.Responses;
 
@@ -20,6 +21,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
         }
         public override void Prepare(FullDescriptionGameModel parameter)
         {
+            Bitmap = (Bitmap)Android.Graphics.Bitmap.FromArray(parameter.ImageTitle);
             GameScreenshotsViewModel.Prepare(parameter);
             GameVideoViewModel.Prepare(parameter);
             GamePricesViewModel.Prepare(parameter);
