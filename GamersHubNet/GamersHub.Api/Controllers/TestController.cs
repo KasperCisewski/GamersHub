@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using GamersHub.Shared.Api;
-using GamersHub.Shared.Api;
 
 namespace GamersHub.Api.Controllers
 {
