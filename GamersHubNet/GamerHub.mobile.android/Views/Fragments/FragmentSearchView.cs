@@ -13,7 +13,9 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 using System;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
+using GamerHub.mobile.android.Views.Components;
+using GamerHub.mobile.core.Infrastructure;
+using MvvmCross.Droid.Support.V7.RecyclerView;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {
@@ -21,6 +23,8 @@ namespace GamerHub.mobile.android.Views.Fragments
     [Register("GamerHub.mobile.Android.Views.Fragments.FragmentSearchView")]
     public class FragmentSearchView : FragmentBase<SearchViewModel>
     {
+        private MvxRecyclerView _recyclerView;
+        private RecyclerViewOnScrollListener _scrollListener;
         private TextInputEditText _searchTextEdit;
         private IObservable<EventPattern<TextChangedEventArgs>> _searchTextChangedObservable;
         private IDisposable _searchTextChangedSubscription;
@@ -36,6 +40,16 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             return view;
         }
+
+        public override void OnStart()
+        {
+            base.OnStart();
+            _recyclerView = View.FindViewById<MvxRecyclerView>(Resource.Id.recycler_search_games_list_view);
+            _scrollListener = new RecyclerViewOnScrollListener(StaticAppSettings.PullDataPageSize / 2);
+            _scrollListener.LoadMoreEvent += _scrollListener_LoadMoreEvent;
+            _recyclerView.AddOnScrollListener(_scrollListener);
+        }
+
         public override void OnResume()
         {
             base.OnResume();
@@ -62,7 +76,7 @@ namespace GamerHub.mobile.android.Views.Fragments
 
         private void _scrollListener_LoadMoreEvent(object sender, EventArgs e)
         {
-             SearchForGames(false);
+            SearchForGames(false);
         }
 
         private void SearchForGames(bool replace)

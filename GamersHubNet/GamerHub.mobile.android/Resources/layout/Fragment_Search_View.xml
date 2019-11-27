@@ -20,11 +20,12 @@
             style="@style/TextInputLayoutStyle"
             local:MvxBind="Text SearchText"/>
     </LinearLayout>
-  <MvvmCross.Platforms.Android.Binding.Views.MvxGridView
+    <MvvmCross.Platforms.Android.Binding.Views.MvxGridView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:numColumns="2"
         android:fillViewport="true"
+        android:id="@+id/recycler_search_games_list_view"
         android:layout_below="@id/search_input_layout"
         android:layout_above="@id/shared_menu_toolbar"
         android:scrollbars="vertical"
