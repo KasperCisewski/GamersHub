@@ -17,6 +17,11 @@
             public const string UserWithUsernameExists = Root + "/identity/userWithUsernameExists";
         }
 
+        public static class Search
+        {
+            public const string SearchGames = Root + "/search/searchgames";
+        }
+
         public static class Test
         {
             public const string Get = Root + "/test";

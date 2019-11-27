@@ -18,6 +18,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Search
         {
             _searchService = searchService;
         }
+
         public async Task SearchGames(bool replace)
         {
             if (replace)

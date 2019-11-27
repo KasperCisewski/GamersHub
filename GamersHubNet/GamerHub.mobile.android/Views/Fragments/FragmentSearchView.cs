@@ -61,6 +61,7 @@ namespace GamerHub.mobile.android.Views.Fragments
         public override void OnStop()
         {
             base.OnStop();
+            _scrollListener.LoadMoreEvent -= _scrollListener_LoadMoreEvent;
             DisposeSubscriptions();
         }
 
