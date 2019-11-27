@@ -19,6 +19,11 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
             base.Prepare();
         }
 
+        public override Task Initialize()
+        {
+            return base.Initialize();
+        }
+
         private async Task OpenGame(GameModelWithImage arg)
         {
             throw new System.NotImplementedException();

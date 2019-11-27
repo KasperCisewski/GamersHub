@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">Gamer Hub</string>
+  <string name="app_name">GamersHub</string>
   <string name="action_settings">Settings</string>
   <!--Global-->
   <string name="global_login">Login</string>

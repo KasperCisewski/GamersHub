@@ -8,7 +8,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Games
 {
     public partial class GamesViewModel
     {
-        private ObservableCollection<GameCategoryModel> _categoryList;
+        private ObservableCollection<GameCategoryModel> _categoryList = new ObservableCollection<GameCategoryModel>();
 
         public ObservableCollection<GameCategoryModel> CategoryList
         {

@@ -37,7 +37,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Games
 
         private async Task OpenGamesChosenForUser()
         {
-            await ShowViewModel<GamesChosenForUserViewModel>();
+           await ShowViewModel<GamesChosenForUserViewModel>();
         }
     }
 }
