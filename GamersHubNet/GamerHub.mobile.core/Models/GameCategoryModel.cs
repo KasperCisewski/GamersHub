@@ -5,7 +5,6 @@ namespace GamerHub.mobile.core.Models
 {
     public class GameCategoryModel
     {
-        public string ImageUrl { get; set; }
         public int ImageId { get; set; }
         public GameCategory GameCategory { get; set; }
 
@@ -15,8 +14,8 @@ namespace GamerHub.mobile.core.Models
             )
         {
             GameCategory = gameCategory;
-            ImageUrl = gameCategory.ToString();
-            ImageId = resourceService.GetDrawableId(ImageUrl);
+            var imageUrl = gameCategory.ToString();
+            ImageId = resourceService.GetDrawableId(imageUrl);
         }
     }
 }

@@ -13,6 +13,7 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 using System;
 using System.Reactive;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {
@@ -53,11 +54,26 @@ namespace GamerHub.mobile.android.Views.Fragments
         {
             _searchTextChangedSubscription =
                 _searchTextChangedObservable.Throttle(TimeSpan.FromMilliseconds(UIConstants.DefaultFilterThrottleMiliSeconds))
-                    .Subscribe(async e =>
-                    {
-                        await ViewModel.SearchGames(true);
-                    });
+                    .Subscribe(e =>
+                   {
+                       SearchForGames(true);
+                   });
         }
+
+        private void _scrollListener_LoadMoreEvent(object sender, EventArgs e)
+        {
+             SearchForGames(false);
+        }
+
+        private void SearchForGames(bool replace)
+        {
+            Activity.RunOnUiThread(async () =>
+            {
+                await ViewModel.SearchGames(replace);
+                ViewModel.HideKeyboard();
+            });
+        }
+
         public void DisposeSubscriptions()
         {
             _searchTextChangedSubscription.DisposeIfNotNull();

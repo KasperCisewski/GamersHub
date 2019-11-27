@@ -1,7 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Game;
 using GamerHub.mobile.core.ViewModels.Base;
-using GamersHub.Shared.Contracts.Responses;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
 {
@@ -24,9 +25,10 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
             return base.Initialize();
         }
 
-        private async Task OpenGame(GameModelWithImage arg)
+
+        private async Task OpenGame(GameWithImageRowModel arg)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

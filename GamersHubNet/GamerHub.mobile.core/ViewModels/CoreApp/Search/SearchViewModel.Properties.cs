@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using GamersHub.Shared.Contracts.Responses;
+using GamerHub.mobile.core.Models;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Search
 {
@@ -13,9 +13,9 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Search
             set => SetProperty(ref _searchText, value);
         }
 
-        private ObservableCollection<GameModelWithImage> _gamesSearchList = new ObservableCollection<GameModelWithImage>();
+        private ObservableCollection<GameWithImageRowModel> _gamesSearchList = new ObservableCollection<GameWithImageRowModel>();
 
-        public ObservableCollection<GameModelWithImage> GamesSearchList
+        public ObservableCollection<GameWithImageRowModel> GamesSearchList
         {
             get => _gamesSearchList;
             set => SetProperty(ref _gamesSearchList, value);
