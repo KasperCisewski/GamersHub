@@ -41,7 +41,8 @@
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/gameschosenforyou"/>
+                    android:src="@drawable/gameschosenforyou"
+                    local:MvxBind="Click ClickGamesChosenForUser"/>
             </LinearLayout>
             <MvvmCross.Platforms.Android.Binding.Views.MvxGridView
                 android:layout_width="match_parent"

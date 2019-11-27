@@ -113,6 +113,10 @@
     <Compile Include="Validators\Account\AccountValidator.cs" />
     <Compile Include="Validators\Account\IAccountValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesChosenForUserViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesChosenForUserViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.cs" />
