@@ -69,6 +69,7 @@
     <Compile Include="Infrastructure\Extensions\ObjectExtensions.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Services\LocalizationAndroid.cs" />
+    <Compile Include="Services\ResourceAndroidService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SetupAndroidApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -366,6 +367,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GamesChosenForYou.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Game_Category_Row_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

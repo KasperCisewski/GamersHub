@@ -7,6 +7,11 @@
         Strategy,
         Racing,
         Survival,
-        Adventure
+        Adventure,
+        RPG,
+        Simulation,
+        Fighting,
+        Logic,
+        Sports
     }
 }
