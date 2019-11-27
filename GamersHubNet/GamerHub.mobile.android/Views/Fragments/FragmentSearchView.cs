@@ -55,7 +55,7 @@ namespace GamerHub.mobile.android.Views.Fragments
                 _searchTextChangedObservable.Throttle(TimeSpan.FromMilliseconds(UIConstants.DefaultFilterThrottleMiliSeconds))
                     .Subscribe(async e =>
                     {
-                        //await ViewModel.ValidName();
+                        await ViewModel.SearchGames(true);
                     });
         }
         public void DisposeSubscriptions()
