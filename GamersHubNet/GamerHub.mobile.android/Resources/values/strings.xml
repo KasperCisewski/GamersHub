@@ -28,4 +28,8 @@
   <string name="add_game_to_wish_list">Add to wishlist</string>
   <string name="add_game_to_vault">Add to vault</string>
   <!-- Game view end-->
+  <!--Game Video view start-->
+  <string name="btnPlay">Play</string>
+  <string name="txtSkipVideo">Skip Video,Proceed to chapter >></string>
+  <!--Game Video end-->
 </resources>

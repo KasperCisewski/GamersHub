@@ -91,6 +91,8 @@
     <Compile Include="Models\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Dependency\DependencyService.cs" />
+    <Compile Include="Services\Game\GameService.cs" />
+    <Compile Include="Services\Game\IGameService.cs" />
     <Compile Include="Services\Http\Factory\HttpClientFactoryService.cs" />
     <Compile Include="Services\Http\Factory\IHttpClientFactoryService.cs" />
     <Compile Include="Services\Http\HttpClientService.cs" />
