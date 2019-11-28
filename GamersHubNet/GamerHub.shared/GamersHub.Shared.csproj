@@ -53,7 +53,10 @@
     <Compile Include="Api\ApiRoutes.cs" />
     <Compile Include="Contracts\Requests\Base\BasePagingListRequest.cs" />
     <Compile Include="Contracts\Responses\FullDescriptionGameModel.cs" />
+    <Compile Include="Contracts\Responses\PriceModel.cs" />
+    <Compile Include="Contracts\Responses\ScreenShotModel.cs" />
     <Compile Include="Data\Enums\GameCategory.cs" />
+    <Compile Include="Data\Enums\HomeGamesCategory.cs" />
     <Compile Include="Model\GameModel.cs" />
     <Compile Include="Contracts\Requests\RefreshTokenRequest.cs" />
     <Compile Include="Contracts\Requests\SearchModelRequest.cs" />

@@ -14,7 +14,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            local:MvxBind="Bitmap ImageBitmap"/>
+            local:MvxBind="Bitmap GeneralImage"/>
         <TextView
             android:id="@+id/game_title"
             android:layout_width="match_parent"
@@ -52,12 +52,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_game_to_wish_list"
-                local:MvxBind="Click AddGameToVault"/>
+                local:MvxBind="Click AddGameToWishListCommand"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_game_to_vault"
-                local:MvxBind="Click AddGameToVault"/>
+                local:MvxBind="Click AddGameToVaultCommand"/>
         </LinearLayout>
         <android.support.v4.view.ViewPager
             android:id="@+id/game_view_main_with_view_pager"

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Android.Graphics;
 using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Dependency;
 using GamerHub.mobile.core.Services.Game;
@@ -8,7 +9,6 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 {
     public partial class GameViewModel : BaseViewModel<GameWithImageRowModel>
     {
-        private readonly IDependencyService _dependencyService;
         private readonly IGameService _gameService;
         public GameScreenshotsViewModel GameScreenshotsViewModel { get; }
         public GameVideoViewModel GameVideoViewModel { get; }
@@ -18,22 +18,35 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             IDependencyService dependencyService,
             IGameService gameService)
         {
-            _dependencyService = dependencyService;
             _gameService = gameService;
-            GameScreenshotsViewModel = _dependencyService.Resolve<GameScreenshotsViewModel>();
-            GameVideoViewModel = _dependencyService.Resolve<GameVideoViewModel>();
-            GamePricesViewModel = _dependencyService.Resolve<GamePricesViewModel>();
+            GameScreenshotsViewModel = dependencyService.Resolve<GameScreenshotsViewModel>();
+            GameVideoViewModel = dependencyService.Resolve<GameVideoViewModel>();
+            GamePricesViewModel = dependencyService.Resolve<GamePricesViewModel>();
         }
         public override void Prepare(GameWithImageRowModel parameter)
         {
+            GameModel = parameter;
             GameScreenshotsViewModel.Prepare(parameter);
             GameVideoViewModel.Prepare(parameter);
             GamePricesViewModel.Prepare(parameter);
         }
 
-        public override Task Initialize()
+        public override async Task Initialize()
         {
-            return base.Initialize();
+            var fullGameModel = await _gameService.GetFullGameModel(GameModel.Id);
+            Description = fullGameModel.Description;
+            ReleaseDate = fullGameModel.ReleaseDate;
+            GeneralImage = (Bitmap)Bitmap.FromArray(fullGameModel.GeneralImage);
+        }
+
+        private async Task AddGameToWishList()
+        {
+            await _gameService.AddGameToWishList(GameModel.Id);
+        }
+
+        private async Task AddGameToVault()
+        {
+            await _gameService.AddGameToVault(GameModel.Id);
         }
     }
 }

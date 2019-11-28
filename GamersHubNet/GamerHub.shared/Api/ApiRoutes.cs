@@ -22,6 +22,17 @@
             public const string SearchGames = Root + "/search/searchgames";
         }
 
+        public static class Games
+        {
+            public const string GetGamesForHomeScreen = Root + "/games/getGamesForHomeScreen";
+            public const string AddGameToWishList = Root + "/games/addGameToWishList";
+            public const string AddGameToVault = Root + "/games/addGameToVault";
+            public const string GetScreenshotsForGame = Root + "/games/GetScreenShotsForGame";
+            public const string GetPricesForGame = Root + "/games/getPricesForGame";
+            public const string GetVideoUrl = Root + "/games/getVideoUrl";
+
+        }
+
         public static class Test
         {
             public const string Get = Root + "/test";
