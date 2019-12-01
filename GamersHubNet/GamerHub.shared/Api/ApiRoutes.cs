@@ -30,7 +30,6 @@
             public const string GetScreenshotsForGame = Root + "/games/GetScreenShotsForGame";
             public const string GetPricesForGame = Root + "/games/getPricesForGame";
             public const string GetVideoUrl = Root + "/games/getVideoUrl";
-
         }
 
         public static class Test
