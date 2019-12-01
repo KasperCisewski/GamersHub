@@ -16,5 +16,7 @@ namespace GamersHub.Api.Domain
         public GameImage CoverGameImage { get; set; }
         public List<Video> Videos { get; set; }
         public GameCategory GameCategory { get; set; }
+        public ICollection<UserGame> UserGames { get; set; }
+        public ICollection<WishListEntry> WishlistEntries { get; set; }
     }
 }

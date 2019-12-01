@@ -15,13 +15,13 @@ namespace GamersHub.Api.Services
 {
     public class IdentityService : IIdentityService
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<GamersHubUser> _userManager;
         private readonly DataContext _dataContext;
         private readonly JwtSettings _jwtSettings;
         private readonly TokenValidationParameters _tokenValidationParameters;
         
         public IdentityService(
-            UserManager<IdentityUser> userManager,
+            UserManager<GamersHubUser> userManager,
             DataContext dataContext,
             JwtSettings jwtSettings,
             TokenValidationParameters tokenValidationParameters)
@@ -157,7 +157,7 @@ namespace GamersHub.Api.Services
                 }
             }
 
-            var newUser = new IdentityUser
+            var newUser = new GamersHubUser
             {
                 Email = email,
                 UserName = username

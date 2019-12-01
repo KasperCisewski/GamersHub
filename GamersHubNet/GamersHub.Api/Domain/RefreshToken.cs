@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 
 namespace GamersHub.Api.Domain
 {
@@ -14,6 +11,6 @@ namespace GamersHub.Api.Domain
         public bool Used { get; set; }
         public bool Invalidated { get; set; }
         public string UserId { get; set; }
-        public IdentityUser User { get; set; }
+        public GamersHubUser User { get; set; }
     }
 }

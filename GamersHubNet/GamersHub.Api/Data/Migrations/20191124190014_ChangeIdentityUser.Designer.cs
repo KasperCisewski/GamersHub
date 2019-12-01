@@ -4,33 +4,22 @@ using GamersHub.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GamersHub.Api.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191124190014_ChangeIdentityUser")]
+    partial class ChangeIdentityUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("GamersHub.Api.Domain.Friendship", b =>
-                {
-                    b.Property<string>("CurrentUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("FriendId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("CurrentUserId", "FriendId");
-
-                    b.ToTable("Friendships");
-                });
 
             modelBuilder.Entity("GamersHub.Api.Domain.Game", b =>
                 {
@@ -50,6 +39,12 @@ namespace GamersHub.Api.Data.Migrations
                     b.Property<int>("GameCategory")
                         .HasColumnType("int");
 
+                    b.Property<string>("GamersHubUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("GamersHubUserId1")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(200)")
@@ -62,7 +57,11 @@ namespace GamersHub.Api.Data.Migrations
 
                     b.HasIndex("CoverGameImageId");
 
-                    b.ToTable("Games");
+                    b.HasIndex("GamersHubUserId");
+
+                    b.HasIndex("GamersHubUserId1");
+
+                    b.ToTable("Game");
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.GameImage", b =>
@@ -125,7 +124,7 @@ namespace GamersHub.Api.Data.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("GameOffers");
+                    b.ToTable("GameOffer");
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.GamersHubUser", b =>
@@ -146,6 +145,9 @@ namespace GamersHub.Api.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("GamersHubUserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -181,6 +183,8 @@ namespace GamersHub.Api.Data.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GamersHubUserId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -259,22 +263,7 @@ namespace GamersHub.Api.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Stores");
-                });
-
-            modelBuilder.Entity("GamersHub.Api.Domain.UserGame", b =>
-                {
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("GameId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserGame");
+                    b.ToTable("Store");
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.Video", b =>
@@ -295,21 +284,6 @@ namespace GamersHub.Api.Data.Migrations
                     b.HasIndex("GameId");
 
                     b.ToTable("Videos");
-                });
-
-            modelBuilder.Entity("GamersHub.Api.Domain.WishListEntry", b =>
-                {
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("GameId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("WishListEntry");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -452,6 +426,14 @@ namespace GamersHub.Api.Data.Migrations
                     b.HasOne("GamersHub.Api.Domain.GameImage", "CoverGameImage")
                         .WithMany()
                         .HasForeignKey("CoverGameImageId");
+
+                    b.HasOne("GamersHub.Api.Domain.GamersHubUser", null)
+                        .WithMany("Games")
+                        .HasForeignKey("GamersHubUserId");
+
+                    b.HasOne("GamersHub.Api.Domain.GamersHubUser", null)
+                        .WithMany("WishList")
+                        .HasForeignKey("GamersHubUserId1");
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.GameImage", b =>
@@ -476,25 +458,17 @@ namespace GamersHub.Api.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("GamersHub.Api.Domain.GamersHubUser", b =>
+                {
+                    b.HasOne("GamersHub.Api.Domain.GamersHubUser", null)
+                        .WithMany("Friends")
+                        .HasForeignKey("GamersHubUserId");
+                });
+
             modelBuilder.Entity("GamersHub.Api.Domain.RefreshToken", b =>
                 {
                     b.HasOne("GamersHub.Api.Domain.GamersHubUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("GamersHub.Api.Domain.UserGame", b =>
-                {
-                    b.HasOne("GamersHub.Api.Domain.Game", "Game")
-                        .WithMany("UserGames")
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GamersHub.Api.Domain.GamersHubUser", "User")
-                        .WithMany("Games")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -505,21 +479,6 @@ namespace GamersHub.Api.Data.Migrations
                     b.HasOne("GamersHub.Api.Domain.Game", null)
                         .WithMany("Videos")
                         .HasForeignKey("GameId");
-                });
-
-            modelBuilder.Entity("GamersHub.Api.Domain.WishListEntry", b =>
-                {
-                    b.HasOne("GamersHub.Api.Domain.Game", "Game")
-                        .WithMany("WishlistEntries")
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GamersHub.Api.Domain.GamersHubUser", "User")
-                        .WithMany("WishList")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
