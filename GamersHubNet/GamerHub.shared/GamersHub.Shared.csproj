@@ -51,19 +51,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiRoutes.cs" />
+    <Compile Include="Contracts\Requests\Base\BasePagingListRequest.cs" />
+    <Compile Include="Contracts\Responses\FullDescriptionGameModel.cs" />
+    <Compile Include="Contracts\Responses\PriceModel.cs" />
+    <Compile Include="Contracts\Responses\ScreenShotModel.cs" />
+    <Compile Include="Data\Enums\GameCategory.cs" />
+    <Compile Include="Data\Enums\HomeGamesCategory.cs" />
+    <Compile Include="Model\GameModel.cs" />
     <Compile Include="Contracts\Requests\RefreshTokenRequest.cs" />
+    <Compile Include="Contracts\Requests\SearchModelRequest.cs" />
     <Compile Include="Contracts\Requests\UserLoginRequest.cs" />
     <Compile Include="Contracts\Requests\UserRegistrationRequest.cs" />
     <Compile Include="Contracts\Responses\AuthFailureResponse.cs" />
     <Compile Include="Contracts\Responses\AuthSuccessResponse.cs" />
+    <Compile Include="Contracts\Responses\GameModelWithImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

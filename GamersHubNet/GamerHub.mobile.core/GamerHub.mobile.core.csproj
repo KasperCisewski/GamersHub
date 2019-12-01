@@ -36,6 +36,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
     <Reference Include="MvvmCross, Version=6.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.6.3.1\lib\net461\MvvmCross.dll</HintPath>
     </Reference>
@@ -81,27 +84,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\App.cs" />
+    <Compile Include="Infrastructure\StaticAppSettings.cs" />
     <Compile Include="Infrastructure\ValueConverter\InvertBoolValueConverter.cs" />
+    <Compile Include="Models\GameCategoryModel.cs" />
+    <Compile Include="Models\GameWithImageRowModel.cs" />
     <Compile Include="Models\Http\HttpResult.cs" />
     <Compile Include="Models\LoginAndRegistration\LoginModel.cs" />
     <Compile Include="Models\Messenger\UserHasBeenLogged.cs" />
     <Compile Include="Models\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Dependency\DependencyService.cs" />
+    <Compile Include="Services\Game\GameService.cs" />
+    <Compile Include="Services\Game\IGameService.cs" />
     <Compile Include="Services\Http\Factory\HttpClientFactoryService.cs" />
     <Compile Include="Services\Http\Factory\IHttpClientFactoryService.cs" />
     <Compile Include="Services\Http\HttpClientService.cs" />
     <Compile Include="Services\Http\IHttpClientService.cs" />
     <Compile Include="Services\Http\IPollyPolicyService.cs" />
     <Compile Include="Services\Http\PollyPolicyService.cs" />
+    <Compile Include="Services\Dependency\IDependencyService.cs" />
     <Compile Include="Services\IGlobalStateService.cs" />
     <Compile Include="Services\IKeyboardService.cs" />
     <Compile Include="Services\ILocalizationService.cs" />
     <Compile Include="Services\IViewHistoryService.cs" />
     <Compile Include="Services\Account\IAccountService.cs" />
     <Compile Include="Services\Account\AccountService.cs" />
+    <Compile Include="Services\Resource\IResourceService.cs" />
+    <Compile Include="Services\Search\ISearchService.cs" />
+    <Compile Include="Services\Search\SearchService.cs" />
     <Compile Include="Validators\Account\AccountValidator.cs" />
     <Compile Include="Validators\Account\IAccountValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesChosenForUserViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesChosenForUserViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GameVideoViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GameVideoViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GameViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GameViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Home\HomeViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Profile\ProfileViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Profile\ProfileViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.Properties.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.properties.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

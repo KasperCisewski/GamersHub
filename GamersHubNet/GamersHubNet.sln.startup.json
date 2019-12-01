@@ -1,0 +1,12 @@
+﻿{
+  "Version": 3,
+  "ListAllProjects": true,
+  "MultiProjectConfigurations": {
+    "mobile + web": {
+      "Projects": {
+        "GamerHub.Mobile.Android": {},
+        "GamersHub.Api": {}
+      }
+    }
+  }
+}
