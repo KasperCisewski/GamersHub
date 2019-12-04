@@ -59,7 +59,7 @@
     <Compile Include="Data\Enums\HomeGamesCategory.cs" />
     <Compile Include="Model\GameModel.cs" />
     <Compile Include="Contracts\Requests\RefreshTokenRequest.cs" />
-    <Compile Include="Contracts\Requests\SearchModelRequest.cs" />
+    <Compile Include="Contracts\Requests\SearchGameRequest.cs" />
     <Compile Include="Contracts\Requests\UserLoginRequest.cs" />
     <Compile Include="Contracts\Requests\UserRegistrationRequest.cs" />
     <Compile Include="Contracts\Responses\AuthFailureResponse.cs" />
