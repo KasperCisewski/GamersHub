@@ -17,13 +17,11 @@ namespace GamersHub.Api.Data.ModelConfigurations
             builder.Property(x => x.Data)
                 .IsRequired();
 
-            builder.Ignore(x => x.Length);
+            builder.Property(x => x.Length)
+                .IsRequired();
 
-            builder.Ignore(x => x.Width);
-
-            builder.Ignore(x => x.Height);
-
-            builder.Ignore(x => x.ContentType);
+            builder.Property(x => x.ContentType)
+                .IsRequired();
         }
     }
 }
