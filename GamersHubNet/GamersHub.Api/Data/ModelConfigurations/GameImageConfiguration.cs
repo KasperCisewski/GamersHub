@@ -12,23 +12,18 @@ namespace GamersHub.Api.Data.ModelConfigurations
 
             builder.Property(x => x.FileName)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(1000);
 
             builder.Property(x => x.Data)
                 .IsRequired();
 
-            builder.Property(x => x.Length)
-                .IsRequired();
+            builder.Ignore(x => x.Length);
 
-            builder.Property(x => x.Width)
-                .IsRequired();
+            builder.Ignore(x => x.Width);
 
-            builder.Property(x => x.Height)
-                .IsRequired();
+            builder.Ignore(x => x.Height);
 
-            builder.Property(x => x.ContentType)
-                .IsRequired()
-                .HasMaxLength(50);
+            builder.Ignore(x => x.ContentType);
         }
     }
 }
