@@ -22,6 +22,11 @@
             public const string SearchGames = Root + "/search/searchgames";
         }
 
+        public static class GameImages
+        {
+            public const string AddGameImage = Root + "/images/add";
+        }
+
         public static class Games
         {
             public const string GetGamesForHomeScreen = Root + "/games/getGamesForHomeScreen";
