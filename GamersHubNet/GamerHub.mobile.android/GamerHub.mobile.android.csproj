@@ -88,6 +88,7 @@
     <Compile Include="Views\Fragments\FragmentProfileView.cs" />
     <Compile Include="Views\Fragments\FragmentRegistrationView.cs" />
     <Compile Include="Views\Fragments\FragmentSearchView.cs" />
+    <Compile Include="Views\Fragments\GamesCategoryView.cs" />
     <Compile Include="Views\MainView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -410,7 +411,11 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Games_Category_List.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

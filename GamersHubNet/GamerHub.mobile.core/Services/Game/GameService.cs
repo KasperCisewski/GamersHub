@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using GamerHub.mobile.core.Services.Http.Factory;
 using GamersHub.Shared.Api;
+using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using GamersHub.Shared.Data.Enums;
 using RestSharp;
@@ -116,6 +117,23 @@ namespace GamerHub.mobile.core.Services.Game
             request.AddQueryParameter("gameId", gameId.ToString());
 
             var response = await client.ExecuteAsync<string>(request);
+
+            return response.ResponseData;
+        }
+
+        public async Task<List<GameModelWithImage>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest)
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Games.GetGamesByCategory)
+            {
+                Method = Method.GET
+            };
+            request.AddQueryParameter("gameCategory", gameCategoryRequest.GameCategory.ToString());
+            request.AddQueryParameter("take", gameCategoryRequest.Take.ToString());
+            request.AddQueryParameter("skip", gameCategoryRequest.Skip.ToString());
+
+            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
 
             return response.ResponseData;
         }

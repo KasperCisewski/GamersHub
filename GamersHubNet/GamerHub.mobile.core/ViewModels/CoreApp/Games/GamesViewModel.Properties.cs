@@ -1,16 +1,15 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using GamerHub.mobile.core.Models;
-using GamersHub.Shared.Contracts.Responses;
 using MvvmCross.Commands;
+using MvvmCross.ViewModels;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Games
 {
     public partial class GamesViewModel
     {
-        private ObservableCollection<GameCategoryModel> _categoryList = new ObservableCollection<GameCategoryModel>();
+        private MvxObservableCollection<GameCategoryModel> _categoryList = new MvxObservableCollection<GameCategoryModel>();
 
-        public ObservableCollection<GameCategoryModel> CategoryList
+        public MvxObservableCollection<GameCategoryModel> CategoryList
         {
             get => _categoryList;
             set => SetProperty(ref _categoryList, value);

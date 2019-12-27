@@ -20,7 +20,7 @@
             style="@style/TextInputLayoutStyle"
             local:MvxBind="Text SearchText"/>
     </LinearLayout>
-    <MvvmCross.Platforms.Android.Binding.Views.MvxGridView
+   <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:numColumns="2"

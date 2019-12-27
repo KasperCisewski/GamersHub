@@ -22,6 +22,11 @@
             public const string SearchGames = Root + "/search/searchgames";
         }
 
+        public static class GameImages
+        {
+            public const string AddGameImage = Root + "/images/add";
+        }
+
         public static class Games
         {
             public const string GetGamesForHomeScreen = Root + "/games/getGamesForHomeScreen";
@@ -30,6 +35,7 @@
             public const string GetScreenshotsForGame = Root + "/games/GetScreenShotsForGame";
             public const string GetPricesForGame = Root + "/games/getPricesForGame";
             public const string GetVideoUrl = Root + "/games/getVideoUrl";
+            public const string GetGamesByCategory = Root + "/games/getGamesByCategory";
         }
 
         public static class Test

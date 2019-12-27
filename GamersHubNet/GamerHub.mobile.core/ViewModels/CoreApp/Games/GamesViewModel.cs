@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using GamerHub.mobile.core.Models;
-using GamerHub.mobile.core.Services;
 using GamerHub.mobile.core.Services.Resource;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamersHub.Shared.Data.Enums;
@@ -10,15 +9,12 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Games
 {
     public partial class GamesViewModel : BaseViewModel
     {
-        private readonly IGlobalStateService _globalStateService;
         private readonly IResourceService _resourceService;
 
         public GamesViewModel(
-            IGlobalStateService globalStateService,
             IResourceService resourceService
             )
         {
-            _globalStateService = globalStateService;
             _resourceService = resourceService;
         }
 
