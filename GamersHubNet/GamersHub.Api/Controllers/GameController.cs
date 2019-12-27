@@ -2,6 +2,7 @@
 using GamersHub.Api.Domain;
 using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Responses;
+using GamersHub.Shared.Data.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -85,6 +86,59 @@ namespace GamersHub.Api.Controllers
             }
 
             return Ok(game.VideoUrl);
+        }
+
+        [HttpGet(ApiRoutes.Games.GetGamesForHomeScreen)]
+        public async Task<IEnumerable<GameModelWithImage>> GetHomeScreenGames(HomeGamesCategory homeGamesCategory)
+        {
+            // TODO: better way of selecting games for home screen
+
+            var games = new List<Game>();
+            switch (homeGamesCategory)
+            {
+                case HomeGamesCategory.ComingSoon:
+                    games = await _dataContext.Games
+                        .AsNoTracking()
+                        .Skip(0)
+                        .Take(10)
+                        .Include(x => x.CoverGameImage)
+                        .ToListAsync();
+                    break;
+                case HomeGamesCategory.BrancNew:
+                    games = await _dataContext.Games
+                        .AsNoTracking()
+                        .Skip(10)
+                        .Take(10)
+                        .Include(x => x.CoverGameImage)
+                        .ToListAsync();
+                    break;
+                case HomeGamesCategory.Hottest:
+                    games = await _dataContext.Games
+                        .AsNoTracking()
+                        .Skip(20)
+                        .Take(10)
+                        .Include(x => x.CoverGameImage)
+                        .ToListAsync();
+                    break;
+                case HomeGamesCategory.OnSale:
+                    games = await _dataContext.Games
+                        .AsNoTracking()
+                        .Skip(30)
+                        .Take(10)
+                        .Include(x => x.CoverGameImage)
+                        .ToListAsync();
+                    break;
+                default:
+                    break;
+            }
+            
+            return games.Select(x => new GameModelWithImage
+            {
+                Id = x.Id,
+                Category = x.GameCategory,
+                Title = x.Name,
+                ImageBytes = x.CoverGameImage.Data.ToList()
+            });
         }
     }
 }
