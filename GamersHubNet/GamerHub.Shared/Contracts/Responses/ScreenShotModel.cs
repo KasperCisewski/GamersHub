@@ -2,6 +2,6 @@
 {
     public class ScreenShotModel
     {
-        public byte[] ScreenShotImage { get; set; }
+        public byte[] ImageContent { get; set; }
     }
 }
