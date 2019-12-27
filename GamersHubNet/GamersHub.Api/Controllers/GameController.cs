@@ -71,5 +71,20 @@ namespace GamersHub.Api.Controllers
 
             return Ok(priceModels);
         }
+
+        [HttpGet(ApiRoutes.Games.GetVideoUrl)]
+        public async Task<IActionResult> GetGameVideoUrl(Guid gameId)
+        {
+            var game = await _dataContext.Games
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == gameId);
+
+            if (game == null)
+            {
+                return BadRequest("There is no game with given id");
+            }
+
+            return Ok(game.VideoUrl);
+        }
     }
 }
