@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using GamerHub.mobile.core.Services.Http.Factory;
 using GamersHub.Shared.Api;
+using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using GamersHub.Shared.Data.Enums;
 using RestSharp;
@@ -118,6 +119,11 @@ namespace GamerHub.mobile.core.Services.Game
             var response = await client.ExecuteAsync<string>(request);
 
             return response.ResponseData;
+        }
+
+        public Task<List<GameModelWithImage>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest)
+        {
+            throw new NotImplementedException();
         }
     }
 }
