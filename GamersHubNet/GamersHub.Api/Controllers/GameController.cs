@@ -66,8 +66,8 @@ namespace GamersHub.Api.Controllers
 
             var priceModels = new List<PriceModel>
             {
-                new PriceModel(){CoverImage = game.CoverGameImage.Data, Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
-                new PriceModel(){CoverImage = game.CoverGameImage.Data, Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
+                new PriceModel {CoverImage = game.CoverGameImage.Data, Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
+                new PriceModel {CoverImage = game.CoverGameImage.Data, Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
             };
 
             return Ok(priceModels);
@@ -131,7 +131,7 @@ namespace GamersHub.Api.Controllers
                 default:
                     break;
             }
-            
+
             return games.Select(x => new GameModelWithImage
             {
                 Id = x.Id,
@@ -139,6 +139,30 @@ namespace GamersHub.Api.Controllers
                 Title = x.Name,
                 ImageBytes = x.CoverGameImage.Data.ToList()
             });
+        }
+
+        [HttpGet(ApiRoutes.Games.GetFullGameDescription)]
+        public async Task<IActionResult> GetFullDescriptionForGame(Guid gameId)
+        {
+            var game = await _dataContext.Games
+                .AsNoTracking()
+                .Include(x => x.CoverGameImage)
+                .FirstOrDefaultAsync(x => x.Id == gameId);
+
+            if (game == null)
+            {
+                return BadRequest("There is no game with given id");
+            }
+
+            var model = new FullDescriptionGameModel
+            {
+                Description = game.Description,
+                GeneralImage = game.CoverGameImage.Data.ToList(),
+                Title = game.Name,
+                ReleaseDate = game.ReleaseDate
+            };
+
+            return Ok(model);
         }
     }
 }

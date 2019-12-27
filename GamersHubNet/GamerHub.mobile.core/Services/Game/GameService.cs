@@ -39,7 +39,7 @@ namespace GamerHub.mobile.core.Services.Game
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetGamesForHomeScreen)
+            var request = new RestRequest(ApiRoutes.Games.GetFullGameDescription)
             {
                 Method = Method.GET
             };
