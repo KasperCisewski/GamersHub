@@ -4,14 +4,16 @@ using GamersHub.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GamersHub.Api.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191227093110_ChangeVideoUrl")]
+    partial class ChangeVideoUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,6 +56,9 @@ namespace GamersHub.Api.Data.Migrations
 
                     b.Property<DateTime?>("ReleaseDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("VideoUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -267,26 +272,6 @@ namespace GamersHub.Api.Data.Migrations
                     b.ToTable("UserGame");
                 });
 
-            modelBuilder.Entity("GamersHub.Api.Domain.Video", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("GameId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("VideoUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameId");
-
-                    b.ToTable("Videos");
-                });
-
             modelBuilder.Entity("GamersHub.Api.Domain.WishListEntry", b =>
                 {
                     b.Property<Guid>("GameId")
@@ -488,13 +473,6 @@ namespace GamersHub.Api.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("GamersHub.Api.Domain.Video", b =>
-                {
-                    b.HasOne("GamersHub.Api.Domain.Game", null)
-                        .WithMany("Videos")
-                        .HasForeignKey("GameId");
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.WishListEntry", b =>
