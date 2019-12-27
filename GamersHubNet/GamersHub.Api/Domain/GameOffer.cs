@@ -10,5 +10,6 @@ namespace GamersHub.Api.Domain
         public Game Game { get; set; }
         public Guid StoreId { get; set; }
         public Store Store { get; set; }
+        public string OfferUrl { get; set; }
     }
 }

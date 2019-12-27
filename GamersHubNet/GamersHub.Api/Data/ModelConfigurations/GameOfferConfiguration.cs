@@ -16,6 +16,10 @@ namespace GamersHub.Api.Data.ModelConfigurations
 
             builder.Property(x => x.Price)
                 .IsRequired();
+
+            builder.Property(x => x.OfferUrl)
+                .IsRequired()
+                .HasMaxLength(1000);
         }
     }
 }
