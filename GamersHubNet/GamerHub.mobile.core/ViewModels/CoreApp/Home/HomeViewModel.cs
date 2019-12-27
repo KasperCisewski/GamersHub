@@ -19,11 +19,12 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
 
         public override async Task Initialize()
         {
-            var hottestGames = await _gameService.GetGames(HomeGamesCategory.Hottest);
+            KeyboardService.HideKeyboard();
 
-            foreach (var game in hottestGames)
+            var comingSoonGames = await _gameService.GetGames(HomeGamesCategory.ComingSoon);
+            foreach (var game in comingSoonGames)
             {
-                HottestGames.Add(new GameWithImageRowModel(game));
+                ComingSoonGames.Add(new GameWithImageRowModel(game));
             }
 
             var brandNewGames = await _gameService.GetGames(HomeGamesCategory.BrancNew);
@@ -32,10 +33,10 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
                 BrandNewGames.Add(new GameWithImageRowModel(game));
             }
 
-            var comingSoonGames = await _gameService.GetGames(HomeGamesCategory.ComingSoon);
-            foreach (var game in comingSoonGames)
+            var hottestGames = await _gameService.GetGames(HomeGamesCategory.Hottest);
+            foreach (var game in hottestGames)
             {
-                ComingSoonGames.Add(new GameWithImageRowModel(game));
+                HottestGames.Add(new GameWithImageRowModel(game));
             }
 
             var onSaleGames = await _gameService.GetGames(HomeGamesCategory.OnSale);
