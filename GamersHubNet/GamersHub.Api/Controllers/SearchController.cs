@@ -36,7 +36,7 @@ namespace GamersHub.Api.Controllers
                 Id = x.Id,
                 Category = x.GameCategory,
                 Title = x.Name,
-                ImageTitle = x.CoverGameImage.Data
+                ImageBytes = x.CoverGameImage.Data.ToList()
             });
         }
     }

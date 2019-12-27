@@ -29,7 +29,7 @@ namespace GamerHub.mobile.core.Services.Search
             {
                 Method = Method.GET
             };
-            request.AddQueryParameter("searchText", searchGameRequest.SearchGameText);
+            request.AddQueryParameter("searchGameText", searchGameRequest.SearchGameText);
             request.AddQueryParameter("take", searchGameRequest.Take.ToString());
             request.AddQueryParameter("skip", searchGameRequest.Skip.ToString());
 

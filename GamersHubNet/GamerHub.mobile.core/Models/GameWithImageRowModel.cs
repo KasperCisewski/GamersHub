@@ -14,7 +14,7 @@ namespace GamerHub.mobile.core.Models
         public GameWithImageRowModel(
             GameModelWithImage model)
         {
-            ImageBitmap = (Bitmap)Bitmap.FromArray(model.ImageTitle);
+            ImageBitmap = BitmapFactory.DecodeByteArray(model.ImageBytes.ToArray(), 0, model.ImageBytes.Count);
             Id = model.Id;
             Category = model.Category;
             Title = model.Title;

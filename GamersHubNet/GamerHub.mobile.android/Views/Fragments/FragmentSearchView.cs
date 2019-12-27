@@ -13,9 +13,12 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 using System;
 using System.Reactive;
 using System.Reactive.Linq;
+using Android.Support.V7.Widget;
 using GamerHub.mobile.android.Views.Components;
 using GamerHub.mobile.core.Infrastructure;
+using MvvmCross;
 using MvvmCross.Droid.Support.V7.RecyclerView;
+using MvvmCross.Platforms.Android;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {
@@ -32,6 +35,11 @@ namespace GamerHub.mobile.android.Views.Fragments
         {
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = this.BindingInflate(Resource.Layout.Fragment_Search_View, null);
+
+            var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.recycler_search_games_list_view);
+
+            var layoutManager = new GridLayoutManager(Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity, 2);
+            recyclerView.SetLayoutManager(layoutManager);
 
             _searchTextEdit = view.FindViewById<TextInputEditText>(Resource.Id.search_input_id);
             _searchTextChangedObservable = this.InitObservableFromEvent<TextChangedEventArgs, SearchViewModel>(_searchTextEdit, "TextChanged");
