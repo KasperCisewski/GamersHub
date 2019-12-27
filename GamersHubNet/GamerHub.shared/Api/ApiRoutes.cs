@@ -35,6 +35,7 @@
             public const string GetScreenshotsForGame = Root + "/games/GetScreenShotsForGame";
             public const string GetPricesForGame = Root + "/games/getPricesForGame";
             public const string GetVideoUrl = Root + "/games/getVideoUrl";
+            public const string GetGamesByCategory = Root + "/games/getGamesByCategory";
         }
 
         public static class Test

@@ -121,9 +121,21 @@ namespace GamerHub.mobile.core.Services.Game
             return response.ResponseData;
         }
 
-        public Task<List<GameModelWithImage>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest)
+        public async Task<List<GameModelWithImage>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest)
         {
-            throw new NotImplementedException();
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Games.GetGamesByCategory)
+            {
+                Method = Method.GET
+            };
+            request.AddQueryParameter("gameCategory", gameCategoryRequest.GameCategory.ToString());
+            request.AddQueryParameter("take", gameCategoryRequest.Take.ToString());
+            request.AddQueryParameter("skip", gameCategoryRequest.Skip.ToString());
+
+            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
+
+            return response.ResponseData;
         }
     }
 }
