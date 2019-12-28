@@ -9,12 +9,13 @@ using GamerHub.mobile.core.ViewModels.CoreApp.Game;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
+using MvvmCross.Plugin.Messenger;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {
     [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.main_frame_layout, true)]
     [Register("GamerHub.mobile.Android.Views.Fragments.FragmentGameView")]
-    public class FragmentGameView : FragmentBase<GameViewModel>
+    public class FragmentGameView : FragmentBase<GameViewModel>, ViewPager.IOnPageChangeListener
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -47,9 +48,26 @@ namespace GamerHub.mobile.android.Views.Fragments
                     )
                 };
                 pager.Adapter = new MvxFragmentPagerAdapter(Activity, ChildFragmentManager, fragments);
+                pager.AddOnPageChangeListener(this);
             }
 
             return view;
+        }
+
+        public void OnPageScrollStateChanged(int state)
+        {
+        }
+
+        public void OnPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+        {
+        }
+
+        public void OnPageSelected(int position)
+        {
+            if (position == 1)
+            {
+                 ViewModel.GameVideoViewModel.GetYoutubeVideo();
+            }
         }
     }
 }

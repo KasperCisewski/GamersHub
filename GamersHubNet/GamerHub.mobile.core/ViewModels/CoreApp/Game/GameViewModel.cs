@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Android.Graphics;
 using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Dependency;
@@ -38,6 +37,9 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             Description = fullGameModel.Description;
             ReleaseDate = fullGameModel.ReleaseDate;
             GeneralImage = BitmapFactory.DecodeByteArray(fullGameModel.GeneralImage.ToArray(), 0, fullGameModel.GeneralImage.Count);
+            await GameVideoViewModel.Initialize();
+            await GameScreenshotsViewModel.Initialize();
+            await GamePricesViewModel.Initialize();
         }
 
         private async Task AddGameToWishList()

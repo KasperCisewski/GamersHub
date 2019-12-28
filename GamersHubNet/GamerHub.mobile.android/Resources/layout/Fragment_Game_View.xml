@@ -5,72 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
   <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            local:MvxBind="Bitmap GeneralImage"/>
-        <TextView
-            android:id="@+id/game_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="55dp"
-            android:layout_marginTop="12dp"
-            android:textAlignment="center"
-            local:MvxBind="Text Title"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:paddingRight="10dp"
-                local:MvxBind="Text GameCategoryText"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:paddingLeft="10dp"
-                local:MvxBind="Text ReleaseDate"/>
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            local:MvxBind="Text Description"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_game_to_wish_list"
-                local:MvxBind="Click AddGameToWishListCommand"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_game_to_vault"
-                local:MvxBind="Click AddGameToVaultCommand"/>
-        </LinearLayout>
-        <android.support.v4.view.ViewPager
-            android:id="@+id/game_view_main_with_view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            local:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:fillViewport="true"
-            android:gravity="top">
-            <android.support.v4.view.PagerTabStrip
+            android:orientation="vertical">
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryDark" />
-        </android.support.v4.view.ViewPager>
-    </LinearLayout>
+                local:MvxBind="Bitmap GeneralImage"/>
+            <TextView
+                android:id="@+id/game_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="55dp"
+                android:layout_marginTop="12dp"
+                android:textAlignment="center"
+                local:MvxBind="Text Title"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    local:MvxBind="Text GameCategoryText"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="10dp"
+                    local:MvxBind="Text ReleaseDate"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Text Description"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_game_to_wish_list"
+                    local:MvxBind="Click AddGameToWishListCommand"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_game_to_vault"
+                    local:MvxBind="Click AddGameToVaultCommand"/>
+            </LinearLayout>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/game_view_main_with_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                local:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:fillViewport="true"
+                android:gravity="top">
+                <android.support.v4.view.PagerTabStrip
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark" />
+            </android.support.v4.view.ViewPager>
+        </LinearLayout>
   <include
-    android:id="@+id/shared_menu_toolbar"
-    layout="@layout/fragment_shared_menu"
+        android:id="@+id/shared_menu_toolbar"
+        layout="@layout/fragment_shared_menu"
   />
 </RelativeLayout>

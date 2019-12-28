@@ -90,6 +90,7 @@
     <Compile Include="Models\GameWithImageRowModel.cs" />
     <Compile Include="Models\Http\HttpResult.cs" />
     <Compile Include="Models\LoginAndRegistration\LoginModel.cs" />
+    <Compile Include="Models\Messenger\OpenVideoCardView.cs" />
     <Compile Include="Models\Messenger\UserHasBeenLogged.cs" />
     <Compile Include="Models\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

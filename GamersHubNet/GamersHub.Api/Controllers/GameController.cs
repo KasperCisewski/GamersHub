@@ -34,7 +34,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest("There is no game with given id");
             }
 
-            var screenShotModels = game.GameImages.Select(x => new ScreenShotModel { ImageContent = x.Data });
+            var screenShotModels = game.GameImages.Select(x => new ScreenShotModel { ImageContent = x.Data.ToList() });
 
             return Ok(screenShotModels);
         }
@@ -57,7 +57,7 @@ namespace GamersHub.Api.Controllers
 
             //var priceModels = game.GameOffers.Select(x => new PriceModel
             //{
-            //    CoverImage = game.CoverGameImage.Data,
+            //    CoverImage = game.CoverGameImage.Data.ToList(),
             //    Description = game.Description,
             //    Price = x.Price,
             //    OfferUrl = x.OfferUrl,
@@ -66,8 +66,8 @@ namespace GamersHub.Api.Controllers
 
             var priceModels = new List<PriceModel>
             {
-                new PriceModel {CoverImage = game.CoverGameImage.Data, Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
-                new PriceModel {CoverImage = game.CoverGameImage.Data, Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
+                new PriceModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
+                new PriceModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
             };
 
             return Ok(priceModels);
