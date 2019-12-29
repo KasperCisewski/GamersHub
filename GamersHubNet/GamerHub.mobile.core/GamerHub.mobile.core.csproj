@@ -87,6 +87,7 @@
     <Compile Include="Infrastructure\StaticAppSettings.cs" />
     <Compile Include="Infrastructure\ValueConverter\InvertBoolValueConverter.cs" />
     <Compile Include="Models\GameCategoryModel.cs" />
+    <Compile Include="Models\GameOfferRowModel.cs" />
     <Compile Include="Models\GameWithImageRowModel.cs" />
     <Compile Include="Models\Http\HttpResult.cs" />
     <Compile Include="Models\LoginAndRegistration\LoginModel.cs" />

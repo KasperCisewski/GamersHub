@@ -66,8 +66,8 @@ namespace GamersHub.Api.Controllers
 
             var priceModels = new List<PriceModel>
             {
-                new PriceModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
-                new PriceModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = game.Description, OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
+                new PriceModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = game.Description.Take(5).ToString(), OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
+                new PriceModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = game.Description.Take(5).ToString(), OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
             };
 
             return Ok(priceModels);

@@ -1,10 +1,8 @@
 ﻿using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Webkit;
-using Android.Widget;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.Models.Messenger;
 using GamerHub.mobile.core.ViewModels;
