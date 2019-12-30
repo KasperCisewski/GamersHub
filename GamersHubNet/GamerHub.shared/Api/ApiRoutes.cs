@@ -38,6 +38,17 @@
             public const string GetGamesByCategory = Root + "/games/getGamesByCategory";
         }
 
+        public static class Profile
+        {
+            public const string GetUserProfileInformation = Root + "/profile/getUserProfileInformation";
+            public const string GetUserFriends = Root + "/profile/getUserFriends";
+            public const string SearchUsers = Root + "/profile/searchUsers";
+            public const string GetGamesInVault = Root + "/profile/getGamesInVault";
+            public const string GetWishListGames = Root + "/profile/getWishListGames";
+            //TODO Marcel ma to zrobić, jakiś jego model stworzyć obrazek
+            public const string GetHeatMap = Root + "/profile/getHeatMap";
+        }
+
         public static class Test
         {
             public const string Get = Root + "/test";
