@@ -1,4 +1,4 @@
-﻿using GamerHub.shared.Contracts.Requests.Base;
+﻿using GamersHub.Shared.Contracts.Requests.Base;
 
 namespace GamerHub.shared.Contracts.Requests
 {
