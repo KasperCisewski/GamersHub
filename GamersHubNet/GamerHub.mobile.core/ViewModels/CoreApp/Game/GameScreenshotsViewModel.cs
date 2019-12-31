@@ -22,7 +22,12 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 
         public override async Task Initialize()
         {
-            var screenShotList = await _gameService.GetScreenShotsForGame(GameModel.Id);
+            var screenshotList = await _gameService.GetScreenShotsForGame(GameModel.Id);
+
+            foreach (var screenshot in screenshotList)
+            {
+                GameScreenshots.Add(new GameScreenshotRowModel(screenshot.ImageContent));
+            }
         }
     }
 }

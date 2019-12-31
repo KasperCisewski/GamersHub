@@ -38,7 +38,7 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.recycler_search_games_list_view);
 
-            var layoutManager = new GridLayoutManager(Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity, 2);
+            var layoutManager = new GridLayoutManager(Context, 2);
             recyclerView.SetLayoutManager(layoutManager);
 
             _searchTextEdit = view.FindViewById<TextInputEditText>(Resource.Id.search_input_id);

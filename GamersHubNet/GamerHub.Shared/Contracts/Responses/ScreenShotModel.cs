@@ -1,7 +1,9 @@
-﻿namespace GamersHub.Shared.Contracts.Responses
+﻿using System.Collections.Generic;
+
+namespace GamersHub.Shared.Contracts.Responses
 {
     public class ScreenShotModel
     {
-        public byte[] ImageContent { get; set; }
+        public List<byte> ImageContent { get; set; }
     }
 }

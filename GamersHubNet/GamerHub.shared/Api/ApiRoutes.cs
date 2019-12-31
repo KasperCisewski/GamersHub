@@ -36,6 +36,7 @@
             public const string GetPricesForGame = Root + "/games/getPricesForGame";
             public const string GetVideoUrl = Root + "/games/getVideoUrl";
             public const string GetGamesByCategory = Root + "/games/getGamesByCategory";
+            public const string GetFullGameDescription = Root + "/games/getFullGameDescription";
         }
 
         public static class Profile
