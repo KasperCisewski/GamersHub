@@ -26,8 +26,8 @@ namespace GamerHub.mobile.android.Views.Fragments
             var view = this.BindingInflate(Resource.Layout.Fragment_Game_Video_View, null);
 
             var metrics = Resources.DisplayMetrics;
-            _displayWidth = (FnConvertPixelsToDp(metrics.WidthPixels) + 200);
-            _displayHeight = (FnConvertPixelsToDp(metrics.HeightPixels)) / (2);
+            _displayWidth = (ConvertPixelsToDp(metrics.WidthPixels) + 200);
+            _displayHeight = (ConvertPixelsToDp(metrics.HeightPixels)) / (2);
             ConfigureEvents();
 
             return view;
@@ -71,11 +71,11 @@ namespace GamerHub.mobile.android.Views.Fragments
         {
             var view = this.BindingInflate(Resource.Layout.Fragment_Game_Video_View, null);
             var strUrl = ViewModel.VideoUrl;
-            var id = FnGetVideoID(strUrl);
+            var id = GetVideoID(strUrl);
 
             if (!string.IsNullOrEmpty(id))
             {
-                strUrl = string.Format("http://youtube.com/embed/{0}", id);
+                strUrl = $"http://youtube.com/embed/{id}";
             }
 
             var myWebView = view.FindViewById<WebView>(Resource.Id.video_View);
@@ -90,7 +90,6 @@ namespace GamerHub.mobile.android.Views.Fragments
             settings.SetRenderPriority(WebSettings.RenderPriority.High);
             settings.BuiltInZoomControls = false;
 
-            settings.JavaScriptCanOpenWindowsAutomatically = true;
             myWebView.SetWebChromeClient(new WebChromeClient());
             settings.AllowFileAccess = true;
             settings.SetPluginState(WebSettings.PluginState.On);
@@ -102,7 +101,7 @@ namespace GamerHub.mobile.android.Views.Fragments
             myWebView.Reload();
         }
 
-        private string FnGetVideoID(string strVideoUrl)
+        private string GetVideoID(string strVideoUrl)
         {
             const string regExpPattern = @"youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)";
             var regEx = new Regex(regExpPattern);
@@ -110,7 +109,7 @@ namespace GamerHub.mobile.android.Views.Fragments
             return match.Success ? match.Groups[1].Value : null;
         }
 
-        private int FnConvertPixelsToDp(float pixelValue)
+        private int ConvertPixelsToDp(float pixelValue)
         {
             var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
             return dp;
