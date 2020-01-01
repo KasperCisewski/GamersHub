@@ -113,6 +113,7 @@
     <Compile Include="Services\Account\IAccountService.cs" />
     <Compile Include="Services\Account\AccountService.cs" />
     <Compile Include="Services\Profile\IProfileService.cs" />
+    <Compile Include="Services\Profile\ProfileService.cs" />
     <Compile Include="Services\Resource\IResourceService.cs" />
     <Compile Include="Services\Search\ISearchService.cs" />
     <Compile Include="Services\Search\SearchService.cs" />
