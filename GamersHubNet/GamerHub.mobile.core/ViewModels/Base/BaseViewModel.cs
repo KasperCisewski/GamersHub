@@ -8,6 +8,7 @@ using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.ViewModels.CoreApp.Games;
 using GamerHub.mobile.core.ViewModels.CoreApp.Home;
 using GamerHub.mobile.core.ViewModels.CoreApp.Profile;
@@ -74,6 +75,12 @@ namespace GamerHub.mobile.core.ViewModels.Base
             await ShowViewModel<T>();
         }
 
+        public async Task ShowViewModelAndRemoveHistory<T, TK>(TK param) where T : BaseViewModel<TK>
+        {
+            ViewHistoryService.ClearHistory();
+            await ShowViewModel<T, TK>(param);
+        }
+
         public override void ViewDestroy(bool viewFinishing = true)
         {
             base.ViewDestroy(viewFinishing);
@@ -101,7 +108,7 @@ namespace GamerHub.mobile.core.ViewModels.Base
 
         private async Task GoToProfileView()
         {
-            await ShowViewModelAndRemoveHistory<ProfileViewModel>();
+            await ShowViewModelAndRemoveHistory<ProfileViewModel, ProfileUserModel>(new ProfileUserModel());
         }
     }
 }
