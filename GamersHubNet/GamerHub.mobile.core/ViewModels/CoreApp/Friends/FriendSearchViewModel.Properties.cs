@@ -31,7 +31,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
             set => SetProperty(ref _friendsSearchList, value);
         }
 
-        private ICommand _clickGame;
-        public ICommand ClickGame => _clickGame ?? (_clickGame = new MvxAsyncCommand<UserProfile>(ShowFriend));
+        private ICommand _showFriendCommand;
+        public ICommand ShowFriendCommand => _showFriendCommand ?? (_showFriendCommand = new MvxAsyncCommand<UserProfile>(ShowFriend));
     }
 }
