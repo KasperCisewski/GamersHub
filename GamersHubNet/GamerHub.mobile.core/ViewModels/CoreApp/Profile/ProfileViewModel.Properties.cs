@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Windows.Input;
 using Android.Graphics;
-using GamerHub.mobile.core.Models;
 using MvvmCross.Commands;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile

@@ -1,9 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Android.Graphics;
 using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.ViewModels.Base;
+using GamerHub.mobile.core.ViewModels.CoreApp.FriendsList;
+using GamerHub.mobile.core.ViewModels.CoreApp.GamesVault;
+using GamerHub.mobile.core.ViewModels.CoreApp.Settings;
+using GamerHub.mobile.core.ViewModels.CoreApp.WishList;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
 {
@@ -19,8 +22,8 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
 
         public override void Prepare(ProfileUserModel parameter)
         {
-            IsOtherUserProfile = parameter.UserId != Guid.Empty;
-            UserId = IsOtherUserProfile ? parameter.UserId : (Guid?)null;
+            IsOtherUserProfile = parameter.UserId != null;
+            UserId = IsOtherUserProfile ? parameter.UserId : null;
         }
 
         public override async Task Initialize()
@@ -32,22 +35,25 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
 
         private async Task GoToGamesVault()
         {
-            throw new NotImplementedException();
+            await ShowViewModel<GamesVaultViewModel, ProfileUserModel>(new ProfileUserModel
+            {
+                UserId = _userId
+            });
         }
 
         private async Task GoToWishList()
         {
-            throw new NotImplementedException();
+            await ShowViewModel<WishListViewModel>();
         }
 
         private async Task GoToFriendsList()
         {
-            throw new NotImplementedException();
+            await ShowViewModel<FriendsListViewModel>();
         }
 
         private async Task GoToSettings()
         {
-            throw new NotImplementedException();
+            await ShowViewModel<SettingsViewModel>();
         }
     }
 }
