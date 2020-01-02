@@ -16,13 +16,13 @@
         android:orientation="vertical"
         android:gravity="top">
         <TextView
-            android:id="@+id/app_info_text_view"
+            android:id="@+id/profile_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="55dp"
+            android:textSize="45dp"
             android:layout_marginTop="12dp"
             android:textAlignment="center"
-            android:text="@string/app_name"/>
+            android:text="@string/profile_profile"/>
         <ScrollView
             android:id="@+id/profile_scroll_view_id"
             android:layout_width="match_parent"
@@ -40,6 +40,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/profile_username_id"
                     android:layout_gravity="center_horizontal"
                     local:MvxBind="Text UserName"/>
                 <LinearLayout

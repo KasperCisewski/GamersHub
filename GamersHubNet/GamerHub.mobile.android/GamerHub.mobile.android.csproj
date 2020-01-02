@@ -78,8 +78,10 @@
     <Compile Include="Services\ViewHistoryService.cs" />
     <Compile Include="Views\Components\RecyclerViewOnScrollListener.cs" />
     <Compile Include="Views\Fragments\Base\FragmentBase.cs" />
+    <Compile Include="Views\Fragments\FragmentFriendsListView.cs" />
     <Compile Include="Views\Fragments\FragmentGamePricesView.cs" />
     <Compile Include="Views\Fragments\FragmentGameScreenshotsView.cs" />
+    <Compile Include="Views\Fragments\FragmentGamesVaultView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesView.cs" />
     <Compile Include="Views\Fragments\FragmentGameVideoView.cs" />
     <Compile Include="Views\Fragments\FragmentGameView.cs" />
@@ -88,7 +90,9 @@
     <Compile Include="Views\Fragments\FragmentProfileView.cs" />
     <Compile Include="Views\Fragments\FragmentRegistrationView.cs" />
     <Compile Include="Views\Fragments\FragmentSearchView.cs" />
-    <Compile Include="Views\Fragments\GamesCategoryView.cs" />
+    <Compile Include="Views\Fragments\FragmentSettingsView.cs" />
+    <Compile Include="Views\Fragments\FragmentWishListView.cs" />
+    <Compile Include="Views\Fragments\FragmentGamesCategoryView.cs" />
     <Compile Include="Views\MainView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -443,6 +447,31 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\WishList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Settings_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_WishList_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Games_Vault_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Friends_List_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Friends_List_Row_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

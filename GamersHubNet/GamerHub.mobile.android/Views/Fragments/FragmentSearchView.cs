@@ -16,9 +16,7 @@ using System.Reactive.Linq;
 using Android.Support.V7.Widget;
 using GamerHub.mobile.android.Views.Components;
 using GamerHub.mobile.core.Infrastructure;
-using MvvmCross;
 using MvvmCross.Droid.Support.V7.RecyclerView;
-using MvvmCross.Platforms.Android;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {

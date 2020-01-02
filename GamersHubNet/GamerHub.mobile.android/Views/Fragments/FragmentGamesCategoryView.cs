@@ -1,16 +1,21 @@
 ﻿using System;
 using Android.OS;
+using Android.Runtime;
 using Android.Views;
 using GamerHub.mobile.android.Views.Components;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.Infrastructure;
+using GamerHub.mobile.core.ViewModels;
 using GamerHub.mobile.core.ViewModels.CoreApp.Games;
 using MvvmCross.Droid.Support.V7.RecyclerView;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
+using MvvmCross.Platforms.Android.Presenters.Attributes;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {
-    public class GamesCategoryView : FragmentBase<GamesCategoryViewModel>
+    [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.main_frame_layout, true)]
+    [Register("GamerHub.mobile.Android.Views.Fragments.FragmentGamesCategoryView")]
+    public class FragmentGamesCategoryView : FragmentBase<GamesCategoryViewModel>
     {
         private MvxRecyclerView _recyclerView;
         private RecyclerViewOnScrollListener _scrollListener;
