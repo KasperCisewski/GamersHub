@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
 using Android.Graphics;
 using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Profile;
@@ -20,8 +19,8 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
 
         public override void Prepare(ProfileUserModel parameter)
         {
-            IsUserProfile = parameter.UserId != Guid.Empty;
-            UserId = IsUserProfile ? parameter.UserId : (Guid?)null;
+            IsOtherUserProfile = parameter.UserId != Guid.Empty;
+            UserId = IsOtherUserProfile ? parameter.UserId : (Guid?)null;
         }
 
         public override async Task Initialize()
@@ -29,6 +28,26 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
             var model = await _profileService.GetUserProfileInformation(_userId);
             UserName = model.UserName;
             ProfileImageBitmap = BitmapFactory.DecodeByteArray(model.ProfileImageContent.ToArray(), 0, model.ProfileImageContent.Count);
+        }
+
+        private async Task GoToGamesVault()
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task GoToWishList()
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task GoToFriendsList()
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task GoToSettings()
+        {
+            throw new NotImplementedException();
         }
     }
 }

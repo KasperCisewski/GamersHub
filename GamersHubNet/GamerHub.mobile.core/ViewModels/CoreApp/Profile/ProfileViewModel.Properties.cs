@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Windows.Input;
 using Android.Graphics;
+using GamerHub.mobile.core.Models;
+using MvvmCross.Commands;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
 {
@@ -21,12 +24,12 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
             set => SetProperty(ref _userId, value);
         }
 
-        private bool _isUserProfile;
+        private bool _isOtherUserProfile;
 
-        public bool IsUserProfile
+        public bool IsOtherUserProfile
         {
-            get => _isUserProfile;
-            set => SetProperty(ref _isUserProfile, value);
+            get => _isOtherUserProfile;
+            set => SetProperty(ref _isOtherUserProfile, value);
         }
 
         private Bitmap _profileImageBitmap;
@@ -36,5 +39,17 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
             get => _profileImageBitmap;
             set => SetProperty(ref _profileImageBitmap, value);
         }
+
+        private IMvxAsyncCommand _goToGamesVaultCommand;
+        public IMvxAsyncCommand GoToGamesVaultCommand => _goToGamesVaultCommand ?? (_goToGamesVaultCommand = new MvxAsyncCommand(GoToGamesVault));
+
+        private IMvxAsyncCommand _goToWishListCommand;
+        public IMvxAsyncCommand GoToWishListCommand => _goToWishListCommand ?? (_goToWishListCommand = new MvxAsyncCommand(GoToWishList));
+
+        private IMvxAsyncCommand _goToFriendsList;
+        public IMvxAsyncCommand GoToFriendsListCommand => _goToFriendsList ?? (_goToFriendsList = new MvxAsyncCommand(GoToFriendsList));
+
+        private IMvxAsyncCommand _goToSettings;
+        public IMvxAsyncCommand GoToSettingsCommand => _goToSettings ?? (_goToSettings = new MvxAsyncCommand(GoToSettings));
     }
 }

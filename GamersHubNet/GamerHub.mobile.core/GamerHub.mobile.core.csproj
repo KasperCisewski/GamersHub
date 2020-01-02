@@ -121,6 +121,10 @@
     <Compile Include="Validators\Account\AccountValidator.cs" />
     <Compile Include="Validators\Account\IAccountValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\FriendsList\FriendsListViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\FriendsList\FriendsListViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesChosenForUserViewModel.cs" />
@@ -141,6 +145,10 @@
     <Compile Include="ViewModels\CoreApp\Profile\ProfileViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Settings\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Settings\SettingsViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\WishList\WishListViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\WishList\WishListViewModel.Properties.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.properties.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
