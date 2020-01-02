@@ -78,6 +78,7 @@
     <Compile Include="Services\ViewHistoryService.cs" />
     <Compile Include="Views\Components\RecyclerViewOnScrollListener.cs" />
     <Compile Include="Views\Fragments\Base\FragmentBase.cs" />
+    <Compile Include="Views\Fragments\FragmentFriendSearchView.cs" />
     <Compile Include="Views\Fragments\FragmentFriendsListView.cs" />
     <Compile Include="Views\Fragments\FragmentGamePricesView.cs" />
     <Compile Include="Views\Fragments\FragmentGameScreenshotsView.cs" />
@@ -470,6 +471,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Fragment_Friends_List_Row_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Friend_Search_View.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
