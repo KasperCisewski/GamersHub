@@ -1,4 +1,6 @@
 ﻿using System;
+using GamersHub.Shared.Contracts.Responses;
+using MvvmCross.ViewModels;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.GamesVault
 {
@@ -18,6 +20,14 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.GamesVault
         {
             get => _isOtherUserProfile;
             set => SetProperty(ref _isOtherUserProfile, value);
+        }
+
+        private MvxObservableCollection<GameModelWithImage> _gamesList = new MvxObservableCollection<GameModelWithImage>();
+
+        public MvxObservableCollection<GameModelWithImage> GamesList
+        {
+            get => _gamesList;
+            set => SetProperty(ref _gamesList, value);
         }
     }
 }

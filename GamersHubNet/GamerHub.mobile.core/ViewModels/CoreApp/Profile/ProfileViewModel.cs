@@ -3,10 +3,10 @@ using Android.Graphics;
 using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.ViewModels.Base;
-using GamerHub.mobile.core.ViewModels.CoreApp.FriendsList;
 using GamerHub.mobile.core.ViewModels.CoreApp.GamesVault;
 using GamerHub.mobile.core.ViewModels.CoreApp.Settings;
 using GamerHub.mobile.core.ViewModels.CoreApp.WishList;
+using FriendsListViewModel = GamerHub.mobile.core.ViewModels.CoreApp.Friends.FriendsListViewModel;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
 {

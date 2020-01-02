@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:local="http://schemas.android.com/apk/res-auto"
@@ -17,8 +17,8 @@
     android:id="@+id/friend_list_recycler_view"
     android:layout_above="@id/shared_menu_toolbar"
     android:scrollbars="vertical"
-    local:MvxItemTemplate="@layout/fragment_game_row_view"
-    local:MvxBind="ItemsSource GamesList; ItemClick ClickGame" />
+    local:MvxItemTemplate="@layout/fragment_friends_list_row_view"
+    local:MvxBind="ItemsSource FriendsList; ItemClick ShowFriendCommand" />
   <include
     android:id="@+id/shared_menu_toolbar"
     layout="@layout/fragment_shared_menu"

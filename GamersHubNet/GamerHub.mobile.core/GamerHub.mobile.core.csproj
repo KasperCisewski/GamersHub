@@ -121,8 +121,10 @@
     <Compile Include="Validators\Account\AccountValidator.cs" />
     <Compile Include="Validators\Account\IAccountValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
-    <Compile Include="ViewModels\CoreApp\FriendsList\FriendsListViewModel.cs" />
-    <Compile Include="ViewModels\CoreApp\FriendsList\FriendsListViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Friends\FriendSearchViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Friends\FriendSearchViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Friends\FriendsListViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Friends\FriendsListViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.cs" />
