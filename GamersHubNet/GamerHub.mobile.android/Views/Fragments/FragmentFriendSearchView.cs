@@ -29,7 +29,6 @@ namespace GamerHub.mobile.android.Views.Fragments
         private TextInputEditText _searchTextEdit;
         private IObservable<EventPattern<TextChangedEventArgs>> _searchTextChangedObservable;
         private IDisposable _searchTextChangedSubscription;
-        //ShowFriendCommand
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
