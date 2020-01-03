@@ -54,10 +54,5 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Games
         {
             await ShowViewModel<GameViewModel, GameWithImageRowModel>(arg);
         }
-
-        public override Task Initialize()
-        {
-            return base.Initialize();
-        }
     }
 }
