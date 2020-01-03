@@ -1,5 +1,7 @@
 ﻿using System;
-using GamersHub.Shared.Contracts.Responses;
+using System.Windows.Input;
+using GamerHub.mobile.core.Models;
+using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.GamesVault
@@ -22,12 +24,18 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.GamesVault
             set => SetProperty(ref _isOtherUserProfile, value);
         }
 
-        private MvxObservableCollection<GameModelWithImage> _gamesList = new MvxObservableCollection<GameModelWithImage>();
+        private MvxObservableCollection<GameWithImageRowModel> _gamesList = new MvxObservableCollection<GameWithImageRowModel>();
 
-        public MvxObservableCollection<GameModelWithImage> GamesList
+        public MvxObservableCollection<GameWithImageRowModel> GamesList
         {
             get => _gamesList;
             set => SetProperty(ref _gamesList, value);
         }
+
+        private ICommand _clickGame;
+        public ICommand ClickGame => _clickGame ?? (_clickGame = new MvxAsyncCommand<GameWithImageRowModel>(OpenGame));
+
+        private ICommand _goToHeatMapCommand;
+        public ICommand GoToHeatMapCommand => _goToHeatMapCommand ?? (_goToHeatMapCommand = new MvxAsyncCommand(OpenHeatMap));
     }
 }

@@ -5,7 +5,6 @@ using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.Profile;
 using GamersHub.Shared.Contracts.Requests;
-using GamersHub.Shared.Contracts.Responses;
 using MvvmCross.ViewModels;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
@@ -25,7 +24,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
             if (replace)
             {
                 FetchedPages = 0;
-                FriendsSearchList = new MvxObservableCollection<UserProfile>();
+                FriendsSearchList = new MvxObservableCollection<UserProfileModel>();
             }
 
             var listRowModels = await _profileService.SearchUsers(new SearchFriendsRequest
@@ -39,14 +38,14 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
             {
                 foreach (var rowModel in listRowModels)
                 {
-                    FriendsSearchList.Add(rowModel);
+                    FriendsSearchList.Add(new UserProfileModel(rowModel));
                 }
 
                 FetchedPages++;
             }
         }
 
-        private async Task ShowFriend(UserProfile arg)
+        private async Task ShowFriend(UserProfileModel arg)
         {
             await ShowViewModel<ProfileViewModel, ProfileUserModel>(new ProfileUserModel
             {

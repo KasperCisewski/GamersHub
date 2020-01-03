@@ -13,6 +13,6 @@ namespace GamerHub.mobile.core.Services.Profile
         Task<List<UserProfile>> SearchUsers(SearchFriendsRequest searchFriendsRequest);
         Task<List<GameModelWithImage>> GetGamesInVault(Guid? userId);
         Task<List<GameModelWithImage>> GetWishListGames();
-        Task<List<byte>> GetHeatMap();
+        Task<List<byte>> GetHeatMap(Guid? userId);
     }
 }

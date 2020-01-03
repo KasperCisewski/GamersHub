@@ -17,6 +17,7 @@
   <string name="profile_settings">Settings</string>
   <string name="profile_vault">Vault</string>
   <string name="profile_friends">Friends</string>
+  <string name="profile_friend_list_search_friend">Add Friend</string>
   <!--Profile end-->
   <!--Registration start-->
   <string name="registration_password">Password</string>

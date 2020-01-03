@@ -1,26 +1,32 @@
 
 <RelativeLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:local="http://schemas.android.com/apk/res-auto"
-  android:orientation="vertical"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
-  <TextView
-    android:id="@+id/wishlist_text_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/profile_friends"/>
-  <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true"
-    android:id="@+id/friend_list_recycler_view"
-    android:layout_above="@id/shared_menu_toolbar"
-    android:scrollbars="vertical"
-    local:MvxItemTemplate="@layout/fragment_friends_list_row_view"
-    local:MvxBind="ItemsSource FriendsList; ItemClick ShowFriendCommand" />
-  <include
-    android:id="@+id/shared_menu_toolbar"
-    layout="@layout/fragment_shared_menu"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/wishlist_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_friends"/>
+    <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:id="@+id/friend_list_recycler_view"
+        android:layout_above="@id/shared_menu_toolbar"
+        android:scrollbars="vertical"
+        local:MvxItemTemplate="@layout/fragment_friends_list_row_view"
+        local:MvxBind="ItemsSource FriendsList; ItemClick ShowFriendCommand" />
+    <Button
+        android:id="@+id/search_friend_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_friend_list_search_friend"
+        local:MvxBind="Click GoToFriendSearchCommand"/>
+    <include
+        android:id="@+id/shared_menu_toolbar"
+        layout="@layout/fragment_shared_menu"
   />
 </RelativeLayout>

@@ -94,7 +94,7 @@ namespace GamerHub.mobile.core.Services.Profile
             return response.ResponseData;
         }
 
-        public async Task<List<byte>> GetHeatMap()
+        public async Task<List<byte>> GetHeatMap(Guid? userId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -102,6 +102,8 @@ namespace GamerHub.mobile.core.Services.Profile
             {
                 Method = Method.GET
             };
+
+            request.AddQueryParameter("userId", userId?.ToString());
 
             var response = await client.ExecuteAsync<List<byte>>(request);
 

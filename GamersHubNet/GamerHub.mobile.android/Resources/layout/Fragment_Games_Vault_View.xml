@@ -19,6 +19,12 @@
     android:scrollbars="vertical"
     local:MvxItemTemplate="@layout/fragment_game_row_view"
     local:MvxBind="ItemsSource GamesList; ItemClick ClickGame" />
+  <Button
+    android:id="@+id/search_friend_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/profile_vault_games_list_heatmap"
+    local:MvxBind="Click GoToFriendSearchCommand"/>
   <include
     android:id="@+id/shared_menu_toolbar"
     layout="@layout/fragment_shared_menu"

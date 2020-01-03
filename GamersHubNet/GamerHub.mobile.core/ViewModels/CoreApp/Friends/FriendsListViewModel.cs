@@ -3,7 +3,6 @@ using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.Profile;
-using GamersHub.Shared.Contracts.Responses;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
 {
@@ -21,18 +20,18 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
         {
             var userFriends = await _profileService.GetUserFriends();
 
-            foreach (var friend in userFriends)
+            foreach (var friendModel in userFriends)
             {
-                FriendsList.Add(friend);
+                FriendsList.Add(new UserProfileModel(friendModel));
             }
         }
 
         private async Task GoToFriendSearch()
         {
-            throw new System.NotImplementedException();
+            await ShowViewModel<FriendSearchViewModel>();
         }
 
-        private async Task ShowFriend(UserProfile arg)
+        private async Task ShowFriend(UserProfileModel arg)
         {
             await ShowViewModel<ProfileViewModel, ProfileUserModel>(new ProfileUserModel
             {
