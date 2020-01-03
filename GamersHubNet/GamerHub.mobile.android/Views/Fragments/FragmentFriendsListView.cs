@@ -4,12 +4,12 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.ViewModels;
+using GamerHub.mobile.core.ViewModels.CoreApp.Friends;
 using MvvmCross;
 using MvvmCross.Droid.Support.V7.RecyclerView;
 using MvvmCross.Platforms.Android;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
-using FriendsListViewModel = GamerHub.mobile.core.ViewModels.CoreApp.Friends.FriendsListViewModel;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {

@@ -82,6 +82,7 @@
     <Compile Include="Views\Fragments\FragmentFriendsListView.cs" />
     <Compile Include="Views\Fragments\FragmentGamePricesView.cs" />
     <Compile Include="Views\Fragments\FragmentGameScreenshotsView.cs" />
+    <Compile Include="Views\Fragments\FragmentGamesVaultHeatMapView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesVaultView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesView.cs" />
     <Compile Include="Views\Fragments\FragmentGameVideoView.cs" />
@@ -476,6 +477,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Fragment_Friend_Search_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Games_Vault_Heat_Map_View.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

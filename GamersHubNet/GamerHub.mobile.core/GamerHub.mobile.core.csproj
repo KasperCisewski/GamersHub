@@ -125,6 +125,8 @@
     <Compile Include="ViewModels\CoreApp\Friends\FriendSearchViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Friends\FriendsListViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Friends\FriendsListViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultHeatMapViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultHeatMapViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.cs" />
