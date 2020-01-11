@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GamersHub.Api.Controllers
 {
@@ -19,6 +20,7 @@ namespace GamersHub.Api.Controllers
         }
 
         [HttpPost(ApiRoutes.GameImages.AddGameImage)]
+        [Authorize]
         public async Task<IActionResult> AddGameImage(AddGameImageRequest request)
         {
             if (request.Image == null || request.Image.Length == 0)
@@ -42,7 +44,7 @@ namespace GamersHub.Api.Controllers
                 ContentType = request.Image.ContentType
             };
 
-            using (var ms = new MemoryStream())
+            await using (var ms = new MemoryStream())
             {
                 await request.Image.CopyToAsync(ms);
                 gameImage.Data = ms.ToArray();

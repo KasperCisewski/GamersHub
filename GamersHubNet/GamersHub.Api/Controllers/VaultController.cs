@@ -5,6 +5,7 @@ using GamersHub.Shared.Api;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using GamersHub.Api.Domain;
+using GamersHub.Api.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,8 +22,10 @@ namespace GamersHub.Api.Controllers
 
         [HttpPost(ApiRoutes.Games.AddGameToVault)]
         [Authorize]
-        public async Task<IActionResult> AddGame(string userId, Guid gameId)
+        public async Task<IActionResult> AddGame(Guid gameId)
         {
+            var userId = HttpContext.GetUserId();
+
             var user = await _dataContext.Users
                 .Include(x => x.Games)
                 .SingleOrDefaultAsync(x => x.Id == userId);

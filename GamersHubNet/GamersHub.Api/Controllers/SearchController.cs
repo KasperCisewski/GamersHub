@@ -61,5 +61,21 @@ namespace GamersHub.Api.Controllers
                 ImageBytes = x.CoverGameImage.Data.ToList()
             });
         }
+
+        [HttpGet(ApiRoutes.Profile.SearchUsers)]
+        public async Task<IEnumerable<UserProfile>> SearchUsers([FromQuery] SearchFriendsRequest searchFriendsRequest)
+        {
+            return await _dataContext.Users
+                .AsNoTracking()
+                .Where(x => x.UserName.Contains(searchFriendsRequest.SearchUserNameText))
+                .Skip(searchFriendsRequest.Skip)
+                .Take(searchFriendsRequest.Take == default ? 10 : searchFriendsRequest.Take)
+                .Select(x => new UserProfile
+                {
+                    Id = x.Id,
+                    ProfileImageContent = null,
+                    UserName = x.UserName
+                }).ToListAsync();
+        }
     }
 }

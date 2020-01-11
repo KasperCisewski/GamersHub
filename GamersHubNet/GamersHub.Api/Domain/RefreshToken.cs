@@ -10,7 +10,7 @@ namespace GamersHub.Api.Domain
         public DateTime ExpiryDate { get; set; }
         public bool Used { get; set; }
         public bool Invalidated { get; set; }
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
         public GamersHubUser User { get; set; }
     }
 }
