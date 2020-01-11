@@ -14,7 +14,7 @@ namespace GamersHub.DbSeeder
     {
         static async Task Main(string[] args)
         {
-            using var dbContext = SetUpDbConnection();
+            await using var dbContext = SetUpDbConnection();
 
             await SeedGames(dbContext);
 
@@ -49,10 +49,10 @@ namespace GamersHub.DbSeeder
 
         private static DataContext SetUpDbConnection()
         {
-            var connectionstring = "Server=(localdb)\\mssqllocaldb;Database=aspnet-GamersHub;Trusted_Connection=True;MultipleActiveResultSets=true";
+            const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=aspnet-GamersHub;Trusted_Connection=True;MultipleActiveResultSets=true";
 
             var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
-            optionsBuilder.UseSqlServer(connectionstring);
+            optionsBuilder.UseSqlServer(connectionString);
             var dbContext = new DataContext(optionsBuilder.Options);
             return dbContext;
         }
@@ -74,9 +74,9 @@ namespace GamersHub.DbSeeder
             foreach (var path in filePaths)
             {
                 var fileInfo = new FileInfo(path);
-                byte[] data = new byte[fileInfo.Length];
+                var data = new byte[fileInfo.Length];
 
-                using (FileStream fs = fileInfo.OpenRead())
+                using (var fs = fileInfo.OpenRead())
                 {
                     fs.Read(data, 0, data.Length);
                 }
@@ -96,9 +96,9 @@ namespace GamersHub.DbSeeder
         private static void SeedCoverPhoto(Game game)
         {
             var fileInfo = new FileInfo($"CoverPhotos\\Photos\\{game.Name.Replace(":"," ")}.jpg");
-            byte[] data = new byte[fileInfo.Length];
+            var data = new byte[fileInfo.Length];
 
-            using (FileStream fs = fileInfo.OpenRead())
+            using (var fs = fileInfo.OpenRead())
             {
                 fs.Read(data, 0, data.Length);
             }
