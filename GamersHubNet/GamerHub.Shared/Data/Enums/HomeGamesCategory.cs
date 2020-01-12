@@ -3,7 +3,7 @@
     public enum HomeGamesCategory
     {
         ComingSoon,
-        BrancNew,
+        BrandNew,
         Hottest,
         OnSale
     }

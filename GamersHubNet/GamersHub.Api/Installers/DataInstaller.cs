@@ -1,4 +1,5 @@
-﻿using GamersHub.Api.Data;
+﻿using System;
+using GamersHub.Api.Data;
 using GamersHub.Api.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,7 @@ namespace GamersHub.Api.Installers
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<GamersHubUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<GamersHubUser, IdentityRole<Guid>>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<DataContext>();
         }
     }

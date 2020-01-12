@@ -1,8 +1,10 @@
-﻿namespace GamersHub.Api.Domain
+﻿using System;
+
+namespace GamersHub.Api.Domain
 {
     public class Friendship
     {
-        public string CurrentUserId { get; set; }
-        public string FriendId{ get; set; }
+        public Guid CurrentUserId { get; set; }
+        public Guid FriendId{ get; set; }
     }
 }

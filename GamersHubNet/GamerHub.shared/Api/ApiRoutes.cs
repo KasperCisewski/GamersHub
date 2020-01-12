@@ -49,12 +49,5 @@
             //TODO Marcel ma to zrobić, jakiś jego model stworzyć obrazek
             public const string GetHeatMap = Root + "/profile/getHeatMap";
         }
-
-        public static class Test
-        {
-            public const string Get = Root + "/test";
-
-            public const string GetAuth = Root + "/test/getAuth";
-        }
     }
 }

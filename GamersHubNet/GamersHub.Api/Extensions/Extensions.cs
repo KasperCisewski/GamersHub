@@ -1,18 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using Microsoft.AspNetCore.Http;
 using System.Linq;
 
 namespace GamersHub.Api.Extensions
 {
     public static class Extensions
     {
-        public static string GetUserId(this HttpContext httpContext)
+        public static Guid GetUserId(this HttpContext httpContext)
         {
-            if (httpContext.User == null)
-            {
-                return string.Empty;
-            }
-
-            return httpContext.User.Claims.Single(x => x.Type == "id").Value;
+            return httpContext.User == null
+                ? Guid.Empty
+                : Guid.Parse(httpContext.User.Claims.Single(x => x.Type == "id").Value);
         }
     }
 }
