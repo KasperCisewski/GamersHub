@@ -7,6 +7,12 @@ using MvvmCross.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using GamerHub.mobile.core.ViewModels.CoreApp.Games;
+using GamerHub.mobile.core.ViewModels.CoreApp.Home;
+using GamerHub.mobile.core.ViewModels.CoreApp.Profile;
+using GamerHub.mobile.core.ViewModels.CoreApp.Search;
+using MvvmCross.Commands;
 
 namespace GamerHub.mobile.core.ViewModels.Base
 {
@@ -72,6 +78,30 @@ namespace GamerHub.mobile.core.ViewModels.Base
         {
             base.ViewDestroy(viewFinishing);
             PropertyChanged -= OnPropertyChanged;
+        }
+
+        public ICommand GoToHomeViewCommand => new MvxAsyncCommand(GoToHomeView);
+        public ICommand GoToGamesViewCommand => new MvxAsyncCommand(GoToGamesView);
+        public ICommand GoToSearchViewCommand => new MvxAsyncCommand(GoToSearchView);
+        public ICommand GoToProfileViewCommand => new MvxAsyncCommand(GoToProfileView);
+        private async Task GoToHomeView()
+        {
+            await ShowViewModelAndRemoveHistory<HomeViewModel>();
+        }
+
+        private async Task GoToGamesView()
+        {
+            await ShowViewModelAndRemoveHistory<GamesViewModel>();
+        }
+
+        private async Task GoToSearchView()
+        {
+            await ShowViewModelAndRemoveHistory<SearchViewModel>();
+        }
+
+        private async Task GoToProfileView()
+        {
+            await ShowViewModelAndRemoveHistory<ProfileViewModel>();
         }
     }
 }

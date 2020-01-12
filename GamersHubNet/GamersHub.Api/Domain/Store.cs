@@ -2,9 +2,9 @@
 
 namespace GamersHub.Api.Domain
 {
-    public class Video
+    public class Store
     {
         public Guid Id { get; set; }
-        public string VideoUrl { get; set; }
+        public string Name { get; set; }
     }
 }

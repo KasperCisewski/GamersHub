@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace GamersHub.Api.Data
 {
-    public class DataContext : IdentityDbContext
+    public class DataContext : IdentityDbContext<GamersHubUser>
     {
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
@@ -13,9 +13,12 @@ namespace GamersHub.Api.Data
         }
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
-        public DbSet<GameImage> GameImages { get; set; }
-        public DbSet<Video> Videos { get; set; }
+        public DbSet<Store> Stores { get; set; }
         public DbSet<Metatag> Metatags { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<GameOffer> GameOffers { get; set; }
+        public DbSet<GameImage> GameImages { get; set; }
+        public DbSet<Friendship> Friendships { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

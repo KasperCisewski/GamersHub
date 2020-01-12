@@ -4,14 +4,15 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace GamersHub.Api.Data.ModelConfigurations
 {
-    public class VideoConfiguration : IEntityTypeConfiguration<Video>
+    public class StoreConfiguration : IEntityTypeConfiguration<Store>
     {
-        public void Configure(EntityTypeBuilder<Video> builder)
+        public void Configure(EntityTypeBuilder<Store> builder)
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.VideoUrl)
-                .IsRequired();
+            builder.Property(x => x.Name)
+                .IsRequired()
+                .HasMaxLength(100);
         }
     }
 }
