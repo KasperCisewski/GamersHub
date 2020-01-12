@@ -1,13 +1,15 @@
-﻿using GamersHub.Api.Domain;
+﻿using System;
+using GamersHub.Api.Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Microsoft.AspNetCore.Identity;
 
 namespace GamersHub.Api.Data
 {
-    public class DataContext : IdentityDbContext<GamersHubUser>
+    public class DataContext : IdentityDbContext<GamersHubUser, IdentityRole<Guid>, Guid>
     {
-        public DataContext(DbContextOptions<DataContext> options)
+        public DataContext(DbContextOptions options)
             : base(options)
         {
         }

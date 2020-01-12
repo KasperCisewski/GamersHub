@@ -104,7 +104,7 @@ namespace GamersHub.Api.Controllers
                         .Include(x => x.CoverGameImage)
                         .ToListAsync();
                     break;
-                case HomeGamesCategory.BrancNew:
+                case HomeGamesCategory.BrandNew:
                     games = await _dataContext.Games
                         .AsNoTracking()
                         .Skip(10)
