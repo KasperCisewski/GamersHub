@@ -1,8 +1,8 @@
 ﻿using Android.OS;
 using Android.Runtime;
-using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
 using Android.Views;
+using Android.Widget;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.ViewModels;
 using GamerHub.mobile.core.ViewModels.CoreApp.WishList;
@@ -28,8 +28,8 @@ namespace GamerHub.mobile.android.Views.Fragments
             var layoutManager = new GridLayoutManager(Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity, 2);
             recyclerView.SetLayoutManager(layoutManager);
 
-            SetFontForView<TextInputEditText>(view, Resource.Id.wishlist_text_view);
-            
+            SetFontForView<TextView>(view, Resource.Id.wishlist_text_view);
+
             return view;
         }
     }
