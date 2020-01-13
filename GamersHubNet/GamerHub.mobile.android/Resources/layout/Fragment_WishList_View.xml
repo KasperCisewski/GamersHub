@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:local="http://schemas.android.com/apk/res-auto"
@@ -9,16 +9,17 @@
     android:id="@+id/wishlist_text_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center"
     android:text="@string/profile_wish_list"/>
   <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="true"
     android:id="@+id/games_wish_list_recycler_view"
-    android:layout_above="@id/shared_menu_toolbar"
+    android:layout_below="@id/wishlist_text_view"
     android:scrollbars="vertical"
     local:MvxItemTemplate="@layout/fragment_game_row_view"
-    local:MvxBind="ItemsSource GamesList; ItemClick ClickGame" />
+    local:MvxBind="ItemsSource WishList; ItemClick ClickGame" />
   <include
     android:id="@+id/shared_menu_toolbar"
     layout="@layout/fragment_shared_menu"

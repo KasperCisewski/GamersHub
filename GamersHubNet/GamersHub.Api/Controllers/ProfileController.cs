@@ -6,14 +6,12 @@ using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
 using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Responses;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ProfileController : Controller
     {
         private readonly DataContext _dataContext;
