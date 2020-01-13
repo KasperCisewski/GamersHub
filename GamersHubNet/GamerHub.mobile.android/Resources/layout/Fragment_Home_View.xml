@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
@@ -8,10 +8,11 @@
     android:layout_height="match_parent"
     >
     <LinearLayout
+        android:id="@+id/home_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:layout_above="@id/games_scroll_view_id"
         android:gravity="top">
         <TextView
             android:id="@+id/app_info_text_view"
@@ -22,53 +23,46 @@
             android:textAlignment="center"
             android:text="@string/app_name"/>
     </LinearLayout>
-    <include
-        android:id="@+id/shared_menu_toolbar"
-        layout="@layout/fragment_shared_menu"/>
     <ScrollView
-        android:id="@+id/games_scroll_view_id"
+        android:id="@+id/home_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:gravity="top"
-        android:layout_alignParentBottom="true"
-        android:layout_above="@id/shared_menu_toolbar">
+        android:layout_below="@id/home_linear_layout">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <MvvmCross.Platforms.Android.Binding.Views.MvxGridView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:numColumns="2"/>
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
                 android:id="@+id/coming_soon_games_recycler_view"
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource ComingSoonGames; ItemClick ClickGame" />
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
                 android:id="@+id/brand_new_games_recycler_view"
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource BrandNewGames; ItemClick ClickGame" />
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
                 android:id="@+id/hottest_games_recycler_view"
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource HottestGames; ItemClick ClickGame" />
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
                 android:id="@+id/on_sale_games_games_recycler_view"
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource OnSaleGames; ItemClick ClickGame" />
         </LinearLayout>
     </ScrollView>
+    <include
+        android:id="@+id/shared_menu_toolbar"
+        layout="@layout/fragment_shared_menu"/>
 </RelativeLayout>

@@ -104,9 +104,11 @@
     <Compile Include="Contracts\Requests\AddGameImageRequest.cs" />
     <Compile Include="Contracts\Requests\Base\BasePagingListRequest.cs" />
     <Compile Include="Contracts\Requests\GameCategoryRequest.cs" />
+    <Compile Include="Contracts\Requests\SearchFriendsRequest.cs" />
     <Compile Include="Contracts\Responses\FullDescriptionGameModel.cs" />
     <Compile Include="Contracts\Responses\PriceModel.cs" />
     <Compile Include="Contracts\Responses\ScreenShotModel.cs" />
+    <Compile Include="Contracts\Responses\UserProfile.cs" />
     <Compile Include="Data\Enums\GameCategory.cs" />
     <Compile Include="Data\Enums\HomeGamesCategory.cs" />
     <Compile Include="Model\GameModel.cs" />

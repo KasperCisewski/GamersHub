@@ -203,7 +203,7 @@ namespace GamersHub.Api.Services
                 jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256,
                     StringComparison.InvariantCultureIgnoreCase);
 
-        private async Task<AuthenticationResult> GenerateAuthResultForUserAsync(IdentityUser user)
+        private async Task<AuthenticationResult> GenerateAuthResultForUserAsync(IdentityUser<Guid> user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_jwtSettings.Secret);
@@ -214,7 +214,7 @@ namespace GamersHub.Api.Services
                     new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                    new Claim("id", user.Id)
+                    new Claim("id", user.Id.ToString())
                 }),
                 Expires = DateTime.UtcNow.Add(_jwtSettings.TokenLifetime),
                 SigningCredentials = new SigningCredentials(

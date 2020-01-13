@@ -1,17 +1,15 @@
 ﻿using CsvHelper.Configuration;
-using CsvHelper.TypeConversion;
 using GamersHub.Api.Domain;
 using GamersHub.Shared.Data.Enums;
-using System;
 using System.Globalization;
 
 namespace GamersHub.DbSeeder
 {
-    class GameMap : ClassMap<Game>
+    internal sealed class GameMap : ClassMap<Game>
     {
         public GameMap()
         {
-            CultureInfo en = new CultureInfo("en-US");
+            var en = new CultureInfo("en-US");
 
             Map(m => m.Name).Name("Titile");
             Map(m => m.GameCategory).Name("Genre").TypeConverter<GameCategoryEnumConverter<GameCategory>>();

@@ -16,9 +16,7 @@ using System.Reactive.Linq;
 using Android.Support.V7.Widget;
 using GamerHub.mobile.android.Views.Components;
 using GamerHub.mobile.core.Infrastructure;
-using MvvmCross;
 using MvvmCross.Droid.Support.V7.RecyclerView;
-using MvvmCross.Platforms.Android;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {
@@ -38,7 +36,7 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.recycler_search_games_list_view);
 
-            var layoutManager = new GridLayoutManager(Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity, 2);
+            var layoutManager = new GridLayoutManager(Context, 2);
             recyclerView.SetLayoutManager(layoutManager);
 
             _searchTextEdit = view.FindViewById<TextInputEditText>(Resource.Id.search_input_id);

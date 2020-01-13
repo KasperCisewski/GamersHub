@@ -1,7 +1,7 @@
 <resources>
+  <!--Global start-->
   <string name="app_name">GamersHub</string>
   <string name="action_settings">Settings</string>
-  <!--Global-->
   <string name="global_login">Login</string>
   <string name="global_password">Password</string>
   <string name="global_log_in">Log In</string>
@@ -10,6 +10,16 @@
   <string name="global_submit">Submit</string>
   <string name="global_name">Name</string>
   <string name="global_games">Games</string>
+  <!--Global end-->
+  <!--Profile start-->
+  <string name="profile_profile">Profile</string>
+  <string name="profile_wish_list">WishList</string>
+  <string name="profile_settings">Settings</string>
+  <string name="profile_vault">Vault</string>
+  <string name="profile_friends">Friends</string>
+  <string name="profile_friend_list_search_friend">Add Friend</string>
+  <string name="profile_vault_games_list_heatmap">HeatMap</string>
+  <!--Profile end-->
   <!--Registration start-->
   <string name="registration_password">Password</string>
   <string name="registration_repeatable_password">Repeatable password</string>

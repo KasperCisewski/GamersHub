@@ -39,7 +39,7 @@ namespace GamerHub.mobile.core.Services.Game
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetGamesForHomeScreen)
+            var request = new RestRequest(ApiRoutes.Games.GetFullGameDescription)
             {
                 Method = Method.GET
             };
@@ -56,7 +56,7 @@ namespace GamerHub.mobile.core.Services.Game
 
             var request = new RestRequest(ApiRoutes.Games.AddGameToWishList)
             {
-                Method = Method.PUT
+                Method = Method.POST
             };
             request.AddQueryParameter("gameId", gameId.ToString());
 
@@ -69,7 +69,7 @@ namespace GamerHub.mobile.core.Services.Game
 
             var request = new RestRequest(ApiRoutes.Games.AddGameToVault)
             {
-                Method = Method.PUT
+                Method = Method.POST
             };
             request.AddQueryParameter("gameId", gameId.ToString());
 

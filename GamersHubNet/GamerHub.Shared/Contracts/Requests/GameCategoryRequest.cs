@@ -1,5 +1,4 @@
-﻿using GamerHub.shared.Contracts.Requests.Base;
-using GamerHub.shared.Contracts.Requests.Base;
+﻿using GamersHub.Shared.Contracts.Requests.Base;
 using GamersHub.Shared.Data.Enums;
 
 namespace GamersHub.Shared.Contracts.Requests

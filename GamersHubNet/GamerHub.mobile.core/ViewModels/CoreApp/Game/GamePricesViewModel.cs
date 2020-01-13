@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Android.Graphics;
 using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Game;
 using GamerHub.mobile.core.ViewModels.Base;
@@ -22,7 +21,12 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 
         public override async Task Initialize()
         {
-            var getPricesModelsForGame = await _gameService.GetPricesModelsForGame(GameModel.Id);
+            var getPricesApiModelsForGame = await _gameService.GetPricesModelsForGame(GameModel.Id);
+
+            foreach (var priceApiModel in getPricesApiModelsForGame)
+            {
+                GameOffers.Add(new GameOfferRowModel(priceApiModel.CoverImage, GameModel.Title, priceApiModel.Description, priceApiModel.Price, priceApiModel.ShopName, priceApiModel.OfferUrl));
+            }
         }
     }
 }

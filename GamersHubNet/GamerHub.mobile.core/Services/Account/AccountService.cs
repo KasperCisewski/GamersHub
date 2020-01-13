@@ -35,7 +35,7 @@ namespace GamerHub.mobile.core.Services.Account
             if (response.Success && response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var responseModel = JsonConvert.DeserializeObject<AuthSuccessResponse>(response.ResponseData);
-                _globalStateService.UserData.Token = responseModel.Token;
+                _globalStateService.UserData = responseModel;
                 return true;
             }
 
