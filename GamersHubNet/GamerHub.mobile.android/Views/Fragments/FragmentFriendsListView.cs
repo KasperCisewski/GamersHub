@@ -2,6 +2,7 @@
 using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
+using Android.Widget;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.ViewModels;
 using GamerHub.mobile.core.ViewModels.CoreApp.Friends;
@@ -20,12 +21,15 @@ namespace GamerHub.mobile.android.Views.Fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-            var view = this.BindingInflate(Resource.Layout.Fragment_WishList_View, null);
+            var view = this.BindingInflate(Resource.Layout.Fragment_Friends_List_View, null);
 
             var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.friend_list_recycler_view);
 
             var layoutManager = new GridLayoutManager(Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity, 3);
             recyclerView.SetLayoutManager(layoutManager);
+
+            SetFontForView<TextView>(view, Resource.Id.friends_text_view);
+            SetFontForView<Button>(view, Resource.Id.search_friend_button);
 
             return view;
         }

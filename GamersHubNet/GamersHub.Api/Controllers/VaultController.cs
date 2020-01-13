@@ -43,7 +43,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest("No game with given id found");
             }
 
-            if (user.Games.Any(x => x.Game.Id == gameId))
+            if (user.Games.Any(x => x.GameId == gameId))
             {
                 return BadRequest("Game already in the vault");
             }

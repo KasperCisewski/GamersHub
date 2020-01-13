@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Android.Graphics;
 using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Profile;
+using GamerHub.mobile.core.Services.Resource;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.GamesVault;
 using GamerHub.mobile.core.ViewModels.CoreApp.Settings;
@@ -13,11 +15,14 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
     public partial class ProfileViewModel : BaseViewModel<ProfileUserModel>
     {
         private readonly IProfileService _profileService;
+        private readonly IResourceService _resourceService;
 
         public ProfileViewModel(
-            IProfileService profileService)
+            IProfileService profileService,
+            IResourceService resourceService)
         {
             _profileService = profileService;
+            _resourceService = resourceService;
         }
 
         public override void Prepare(ProfileUserModel parameter)
@@ -30,7 +35,18 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
         {
             var model = await _profileService.GetUserProfileInformation(_userId);
             UserName = model.UserName;
-            ProfileImageBitmap = BitmapFactory.DecodeByteArray(model.ProfileImageContent.ToArray(), 0, model.ProfileImageContent.Count);
+            //TODO
+            if (model.ProfileImageContent != null && model.ProfileImageContent.Any())
+            {
+                ProfileImageBitmap = BitmapFactory.DecodeByteArray(model.ProfileImageContent.ToArray(), 0, model.ProfileImageContent.Count);
+            }
+            else
+            {
+                var profileImageId = _resourceService.GetDrawableId("ProfileImage");
+                var resource = _resourceService.GetResources();
+
+                ProfileImageBitmap = BitmapFactory.DecodeResource(resource, profileImageId);
+            }
         }
 
         private async Task GoToGamesVault()

@@ -27,7 +27,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
                 ComingSoonGames.Add(new GameWithImageRowModel(game));
             }
 
-            var brandNewGames = await _gameService.GetGames(HomeGamesCategory.BrancNew);
+            var brandNewGames = await _gameService.GetGames(HomeGamesCategory.BrandNew);
             foreach (var game in brandNewGames)
             {
                 BrandNewGames.Add(new GameWithImageRowModel(game));

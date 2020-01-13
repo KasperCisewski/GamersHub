@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.View;
 using Android.Views;
+using Android.Widget;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.ViewModels;
 using GamerHub.mobile.core.ViewModels.CoreApp.Game;
@@ -51,6 +52,13 @@ namespace GamerHub.mobile.android.Views.Fragments
                 pager.AddOnPageChangeListener(this);
             }
 
+            SetFontForView<TextView>(view, Resource.Id.release_date_text);
+            SetFontForView<TextView>(view, Resource.Id.game_category_text);
+            SetFontForView<TextView>(view, Resource.Id.description_text);
+            SetFontForView<TextView>(view, Resource.Id.game_title);
+            SetFontForView<Button>(view, Resource.Id.button_add_game_to_vault);
+            SetFontForView<Button>(view, Resource.Id.button_add_game_to_wish_list);
+
             return view;
         }
 
@@ -66,7 +74,7 @@ namespace GamerHub.mobile.android.Views.Fragments
         {
             if (position == 1)
             {
-                 ViewModel.GameVideoViewModel.GetYoutubeVideo();
+                ViewModel.GameVideoViewModel.GetYoutubeVideo();
             }
         }
     }

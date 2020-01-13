@@ -36,6 +36,8 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             var fullGameModel = await _gameService.GetFullGameModel(GameModel.Id);
             Description = fullGameModel.Description;
             ReleaseDate = fullGameModel.ReleaseDate;
+            Title = fullGameModel.Title;
+            GameCategoryText = GameModel.Category.ToString();
             GeneralImage = BitmapFactory.DecodeByteArray(fullGameModel.GeneralImage.ToArray(), 0, fullGameModel.GeneralImage.Count);
             await GameVideoViewModel.Initialize();
             await GameScreenshotsViewModel.Initialize();
