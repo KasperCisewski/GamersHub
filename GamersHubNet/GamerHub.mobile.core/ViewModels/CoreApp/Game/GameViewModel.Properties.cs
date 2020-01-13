@@ -32,6 +32,22 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             set => SetProperty(ref _releaseDate, value);
         }
 
+        private string _title;
+
+        public string Title
+        {
+            get => _title;
+            set => SetProperty(ref _title, value);
+        }
+
+        private string _gameCategoryText;
+
+        public string GameCategoryText
+        {
+            get => _gameCategoryText;
+            set => SetProperty(ref _gameCategoryText, value);
+        }
+
         private Bitmap _generalImage;
 
         public Bitmap GeneralImage
