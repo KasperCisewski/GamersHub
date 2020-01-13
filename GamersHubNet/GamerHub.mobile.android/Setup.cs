@@ -6,7 +6,10 @@ using MvvmCross.ViewModels;
 using GamerHub.mobile.android.Services;
 using GamerHub.mobile.core.Services;
 using GamerHub.mobile.core.Infrastructure;
+using GamerHub.mobile.core.Services.Http;
+using GamerHub.mobile.core.Services.Http.Factory;
 using GamerHub.mobile.core.Services.Resource;
+using MvvmCross.Plugin.Messenger;
 
 namespace GamerHub.mobile.android
 {
@@ -21,7 +24,8 @@ namespace GamerHub.mobile.android
         {
             Mvx.IoCProvider.RegisterSingleton<IViewHistoryService>(() => new ViewHistoryService());
             Mvx.IoCProvider.RegisterType<IKeyboardService, KeyboardService>();
-            Mvx.IoCProvider.RegisterType<IGlobalStateService, GlobalStateService>();
+            Mvx.IoCProvider.RegisterType<IHttpClientFactoryService>(() => new HttpClientFactoryService(Mvx.IoCProvider.Resolve<IPollyPolicyService>(), Mvx.IoCProvider.Resolve<IGlobalStateService>()));
+            Mvx.IoCProvider.RegisterSingleton<IGlobalStateService>(() => new GlobalStateService(new MvxMessengerHub()));
             Mvx.IoCProvider.RegisterSingleton<ILocalizationService>(new LocalizationAndroid());
             Mvx.IoCProvider.RegisterSingleton<IResourceService>(new ResourceAndroidService());
 

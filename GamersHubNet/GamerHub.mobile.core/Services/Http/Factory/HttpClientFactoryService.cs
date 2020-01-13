@@ -25,6 +25,8 @@ namespace GamerHub.mobile.core.Services.Http.Factory
                 Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_globalStateService.UserData.Token, "Bearer")
             };
 
+            client.AddDefaultHeader("Authorization", $"Bearer {_globalStateService.UserData.Token}");
+
             return new HttpClientService(client, _pollyPolicyService);
         }
 

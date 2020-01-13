@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Android;
+using Android.Content.Res;
 using Android.Graphics;
 using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Profile;
@@ -30,7 +33,16 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
         {
             var model = await _profileService.GetUserProfileInformation(_userId);
             UserName = model.UserName;
-            ProfileImageBitmap = BitmapFactory.DecodeByteArray(model.ProfileImageContent.ToArray(), 0, model.ProfileImageContent.Count);
+            //TODO
+            if (model.ProfileImageContent != null && model.ProfileImageContent.Any())
+            {
+                ProfileImageBitmap = BitmapFactory.DecodeByteArray(model.ProfileImageContent.ToArray(), 0, model.ProfileImageContent.Count);
+            }
+            else
+            {
+                var profileImageId = (int)typeof(Resource.Drawable).GetField("ProfileImage.png").GetValue(null);
+                ProfileImageBitmap = BitmapFactory.DecodeResource(Resources.System, profileImageId);
+            }
         }
 
         private async Task GoToGamesVault()
