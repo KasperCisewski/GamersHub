@@ -42,6 +42,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/profile_username_id"
                     android:gravity="center"
+                    android:textSize="25dp"
+                    android:layout_margin="4dp"
                     local:MvxBind="Text UserName"/>
                 <LinearLayout
                     android:layout_width="match_parent"

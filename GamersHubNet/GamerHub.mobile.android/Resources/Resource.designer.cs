@@ -9351,25 +9351,28 @@ namespace GamerHub.mobile.android
 			public const int useLogo = 2131230959;
 			
 			// aapt resource value: 0x7F0800F0
-			public const int video_View = 2131230960;
+			public const int vault_text_view = 2131230960;
 			
 			// aapt resource value: 0x7F0800F1
-			public const int view_offset_helper = 2131230961;
+			public const int video_View = 2131230961;
 			
 			// aapt resource value: 0x7F0800F2
-			public const int visible = 2131230962;
+			public const int view_offset_helper = 2131230962;
 			
 			// aapt resource value: 0x7F0800F3
-			public const int web_view_container = 2131230963;
+			public const int visible = 2131230963;
 			
 			// aapt resource value: 0x7F0800F4
-			public const int wishlist_text_view = 2131230964;
+			public const int web_view_container = 2131230964;
 			
 			// aapt resource value: 0x7F0800F5
-			public const int withText = 2131230965;
+			public const int wishlist_text_view = 2131230965;
 			
 			// aapt resource value: 0x7F0800F6
-			public const int wrap_content = 2131230966;
+			public const int withText = 2131230966;
+			
+			// aapt resource value: 0x7F0800F7
+			public const int wrap_content = 2131230967;
 			
 			static Id()
 			{

@@ -10,6 +10,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
+    android:textSize="55dp"
+    android:layout_marginTop="12dp"
+    android:layout_margin="4dp"
     android:text="@string/profile_wish_list"/>
   <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
     android:layout_width="match_parent"
