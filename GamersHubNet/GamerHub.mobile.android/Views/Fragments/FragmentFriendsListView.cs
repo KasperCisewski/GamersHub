@@ -20,7 +20,7 @@ namespace GamerHub.mobile.android.Views.Fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-            var view = this.BindingInflate(Resource.Layout.Fragment_WishList_View, null);
+            var view = this.BindingInflate(Resource.Layout.Fragment_Friends_List_View, null);
 
             var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.friend_list_recycler_view);
 
