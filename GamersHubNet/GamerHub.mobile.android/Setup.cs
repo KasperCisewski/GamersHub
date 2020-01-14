@@ -22,6 +22,7 @@ namespace GamerHub.mobile.android
 
         protected override void InitializeFirstChance()
         {
+            Mvx.IoCProvider.RegisterType<INotificationService>(() => new NotificationService());
             Mvx.IoCProvider.RegisterSingleton<IViewHistoryService>(() => new ViewHistoryService());
             Mvx.IoCProvider.RegisterType<IKeyboardService, KeyboardService>();
             Mvx.IoCProvider.RegisterType<IHttpClientFactoryService>(() => new HttpClientFactoryService(Mvx.IoCProvider.Resolve<IPollyPolicyService>(), Mvx.IoCProvider.Resolve<IGlobalStateService>()));

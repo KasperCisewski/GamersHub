@@ -69,6 +69,7 @@
     <Compile Include="Infrastructure\Extensions\ObjectExtensions.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Services\LocalizationAndroid.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\ResourceAndroidService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SetupAndroidApp.cs" />

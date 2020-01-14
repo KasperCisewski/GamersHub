@@ -46,12 +46,16 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 
         private async Task AddGameToWishList()
         {
-            await _gameService.AddGameToWishList(GameModel.Id);
+            var result = await _gameService.AddGameToWishList(GameModel.Id);
+
+            NotificationService.Notify(result ? "Add game to wish list" : "Something was wrong");
         }
 
         private async Task AddGameToVault()
         {
-            await _gameService.AddGameToVault(GameModel.Id);
+            var result = await _gameService.AddGameToVault(GameModel.Id);
+
+            NotificationService.Notify(result ? "Add game to vault" : "Something was wrong");
         }
     }
 }
