@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Android;
-using Android.Content.Res;
 using Android.Graphics;
 using GamersHub.Shared.Contracts.Responses;
+using IResourceService = GamerHub.mobile.core.Services.Resource.IResourceService;
 
 namespace GamerHub.mobile.core.Models
 {
@@ -13,7 +12,8 @@ namespace GamerHub.mobile.core.Models
         public Guid Id { get; set; }
         public string UserName { get; set; }
         public UserProfileModel(
-            UserProfile model)
+            UserProfile model,
+            IResourceService resourceService)
         {
             //TODO
             if (model.ProfileImageContent != null && model.ProfileImageContent.Any())
@@ -22,8 +22,10 @@ namespace GamerHub.mobile.core.Models
             }
             else
             {
-                var profileImageId = (int)typeof(Resource.Drawable).GetField("ProfileImage.png").GetValue(null);
-                ImageBitmap = BitmapFactory.DecodeResource(Resources.System, profileImageId);
+                var profileImageId = resourceService.GetDrawableId("ProfileImage");
+                var resource = resourceService.GetResources();
+
+                ImageBitmap = BitmapFactory.DecodeResource(resource, profileImageId);
             }
             Id = model.Id;
             UserName = model.UserName;

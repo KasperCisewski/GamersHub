@@ -9,8 +9,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <ImageView
-          android:layout_marginTop="15dp"
-          android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             local:MvxBind="Bitmap GeneralImage"/>
         <TextView
@@ -46,14 +46,18 @@
                 android:textColor="#FF0000"
                 local:MvxBind="Text ReleaseDate"/>
         </LinearLayout>
-        <TextView
-            android:id="@+id/description_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:textSize="23dp"
-            android:layout_margin="4dp"
-            local:MvxBind="Text Description"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <TextView
+                android:id="@+id/description_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="23dp"
+                android:layout_margin="4dp"
+                local:MvxBind="Text Description"/>
+        </ScrollView>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
