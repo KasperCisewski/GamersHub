@@ -40,6 +40,10 @@ namespace GamerHub.mobile.core.ViewModels.Base
 
         [MvxInject]
         public IMvxNavigationService NavigationService { get; set; }
+
+        [MvxInject]
+        public INotificationService NotificationService { get; set; }
+
         public Action InitView { get; set; }
 
         protected BaseViewModel()

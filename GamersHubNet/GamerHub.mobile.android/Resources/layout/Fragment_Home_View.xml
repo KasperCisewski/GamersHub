@@ -31,12 +31,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="4">
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
                 android:id="@+id/coming_soon_games_recycler_view"
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource ComingSoonGames; ItemClick ClickGame" />
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
@@ -44,6 +46,7 @@
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource BrandNewGames; ItemClick ClickGame" />
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
@@ -51,6 +54,7 @@
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource HottestGames; ItemClick ClickGame" />
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
@@ -58,6 +62,7 @@
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource OnSaleGames; ItemClick ClickGame" />
         </LinearLayout>

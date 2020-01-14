@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using GamerHub.mobile.core.Services.Http.Factory;
 using GamersHub.Shared.Api;
@@ -50,7 +51,7 @@ namespace GamerHub.mobile.core.Services.Game
             return response.ResponseData;
         }
 
-        public async Task AddGameToWishList(Guid gameId)
+        public async Task<bool> AddGameToWishList(Guid gameId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -60,10 +61,12 @@ namespace GamerHub.mobile.core.Services.Game
             };
             request.AddQueryParameter("gameId", gameId.ToString());
 
-            await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
         }
 
-        public async Task AddGameToVault(Guid gameId)
+        public async Task<bool> AddGameToVault(Guid gameId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -74,6 +77,10 @@ namespace GamerHub.mobile.core.Services.Game
             request.AddQueryParameter("gameId", gameId.ToString());
 
             await client.ExecuteAsync(request);
+
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
         }
 
         public async Task<List<ScreenShotModel>> GetScreenShotsForGame(Guid gameId)

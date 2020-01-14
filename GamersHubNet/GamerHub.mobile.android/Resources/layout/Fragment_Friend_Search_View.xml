@@ -28,7 +28,7 @@
     android:layout_above="@id/shared_menu_toolbar"
     android:scrollbars="vertical"
     local:MvxItemTemplate="@layout/fragment_friends_list_row_view"
-    local:MvxBind="ItemsSource FriendsSearchList; Click ShowFriendCommand"/>
+    local:MvxBind="ItemsSource FriendsSearchList; ItemClick ShowFriendCommand"/>
   <include
     android:id="@+id/shared_menu_toolbar"
     layout="@layout/fragment_shared_menu"/>
