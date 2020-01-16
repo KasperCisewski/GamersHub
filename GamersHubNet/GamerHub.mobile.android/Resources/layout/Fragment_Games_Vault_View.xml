@@ -32,6 +32,5 @@
         local:MvxBind="Click GoToFriendSearchCommand"/>
     <include
         android:id="@+id/shared_menu_toolbar"
-        layout="@layout/fragment_shared_menu"
-  />
+        layout="@layout/fragment_shared_menu"/>
 </RelativeLayout>

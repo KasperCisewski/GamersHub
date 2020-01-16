@@ -82,6 +82,7 @@
     <Compile Include="Views\Fragments\FragmentFriendSearchView.cs" />
     <Compile Include="Views\Fragments\FragmentFriendsListView.cs" />
     <Compile Include="Views\Fragments\FragmentGamePricesView.cs" />
+    <Compile Include="Views\Fragments\FragmentGamesChosenForUser.cs" />
     <Compile Include="Views\Fragments\FragmentGameScreenshotsView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesVaultHeatMapView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesVaultView.cs" />
@@ -491,6 +492,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\button_black.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Fragment_Games_Chosen_For_User.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
