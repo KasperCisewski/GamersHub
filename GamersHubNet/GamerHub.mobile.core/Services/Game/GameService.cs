@@ -76,8 +76,6 @@ namespace GamerHub.mobile.core.Services.Game
             };
             request.AddQueryParameter("gameId", gameId.ToString());
 
-            await client.ExecuteAsync(request);
-
             var response = await client.ExecuteAsync(request);
 
             return response.StatusCode == HttpStatusCode.OK;

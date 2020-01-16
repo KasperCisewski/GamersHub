@@ -31,6 +31,7 @@
             android:background="@drawable/boarder"
             style="@style/TextInputLayoutStyle"
             android:hint="@string/global_name"
+            android:maxLines="1"
             local:MvxBind="Text Name"/>
         <TextView
             android:layout_width="match_parent"
@@ -49,6 +50,7 @@
             android:background="@drawable/boarder"
             style="@style/TextInputLayoutStyle"
             android:hint="@string/global_email"
+            android:maxLines="1"
             local:MvxBind="Text Email"/>
         <TextView
             android:layout_width="match_parent"
@@ -67,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textAlignment="center"
+            android:maxLines="1"
             android:password="true"
             android:hint="@string/global_password"
             local:MvxBind="Text Password"/>

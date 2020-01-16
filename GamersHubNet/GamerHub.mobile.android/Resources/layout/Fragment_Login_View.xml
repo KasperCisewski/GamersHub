@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/boarder"
+            android:maxLines="1"
             style="@style/TextInputLayoutStyle"
             android:hint="@string/global_login"
             local:MvxBind="Text Login"/>
@@ -41,6 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:password="true"
+            android:maxLines="1"
+            android:imeOptions="actionSend"
             android:hint="@string/global_password"
             local:MvxBind="Text Password"/>
         <Button
