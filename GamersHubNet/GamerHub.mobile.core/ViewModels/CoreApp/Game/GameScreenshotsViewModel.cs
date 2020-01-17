@@ -29,5 +29,10 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
                 GameScreenshots.Add(new GameScreenshotRowModel(screenshot.ImageContent));
             }
         }
+
+        private async Task OpenGameScreenshot(GameScreenshotRowModel parameter)
+        {
+            await ShowViewModel<GameScreenshotRowZoomableViewModel, GameScreenshotRowModel>(parameter);
+        }
     }
 }

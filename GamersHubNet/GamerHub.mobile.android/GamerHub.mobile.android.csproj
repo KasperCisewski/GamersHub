@@ -78,6 +78,7 @@
     <Compile Include="Services\KeyboardService.cs" />
     <Compile Include="Services\ViewHistoryService.cs" />
     <Compile Include="Views\Components\RecyclerViewOnScrollListener.cs" />
+    <Compile Include="Views\FragmentGameScreenshotRowZoomableView.cs" />
     <Compile Include="Views\Fragments\Base\FragmentBase.cs" />
     <Compile Include="Views\Fragments\FragmentFriendSearchView.cs" />
     <Compile Include="Views\Fragments\FragmentFriendsListView.cs" />
@@ -166,6 +167,9 @@
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.PhotoView">
+      <Version>2.1.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
       <Version>28.0.0.1</Version>
