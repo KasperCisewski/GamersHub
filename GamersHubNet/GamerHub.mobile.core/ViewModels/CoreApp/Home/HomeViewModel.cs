@@ -15,7 +15,6 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
             IGameService gameService)
         {
             _gameService = gameService;
-            //IsVisibleBackButton = false;
         }
 
         public override async Task Initialize()
