@@ -1,0 +1,17 @@
+{
+    "genres": {
+        "IdUser" : 1,
+        "Action": 2,
+        "Shooter":5,  
+        "Strategy": 2,
+        "Racing":5,
+        "Survival": 2,
+        "Adventure":5,
+        "RPG": 2,
+        "Simulation":5,
+        "Fighting": 2,
+        "Logic":5,
+        "Sports": 2,
+		"Arcade":5 
+    }
+}
