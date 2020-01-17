@@ -4,5 +4,5 @@
   xmlns:local="http://schemas.android.com/apk/res-auto"
   android:layout_width="45dp"
   android:layout_height="45dp"
-  android:background="@drawable/abc_ic_arrow_drop_right_black_24dp"
+  android:background="@drawable/button_back_arrow"
   local:MvxBind="Visible IsVisibleBackButton; Click BackPressedCommand"/>
