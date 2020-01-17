@@ -15,7 +15,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="top">
-        <TextView
+      <include
+        android:id="@+id/shared_back_button"
+        layout="@layout/shared_back_button"/>
+      <TextView
             android:id="@+id/profile_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

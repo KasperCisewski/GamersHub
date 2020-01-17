@@ -29,6 +29,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
         {
             IsOtherUserProfile = parameter.UserId != null;
             UserId = IsOtherUserProfile ? parameter.UserId : null;
+            IsVisibleBackButton = IsOtherUserProfile;
         }
 
         public override async Task Initialize()

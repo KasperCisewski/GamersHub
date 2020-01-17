@@ -1,4 +1,5 @@
-﻿using MvvmCross.Droid.Support.V7.AppCompat;
+﻿using System.Linq;
+using MvvmCross.Droid.Support.V7.AppCompat;
 using Android.App;
 using Android.OS;
 using Android.Views;
@@ -26,5 +27,19 @@ namespace GamerHub.mobile.android.Views
 
             await ViewModel.ShowViewModel<LoginViewModel>();
         }
+
+        //public override void OnBackPressed()
+        //{
+        //    var lastFragment = SupportFragmentManager?.Fragments?.FirstOrDefault(f => f != null && f.IsVisible);
+
+        //    if (lastFragment is IFragmentWithBackButtonImplementationBase)
+        //    {
+        //        ((IFragmentWithBackButtonImplementationBase)lastFragment).BackPressed(BackPressed);
+        //    }
+        //    else
+        //    {
+        //        base.OnBackPressed();
+        //    }
+        //}
     }
 }

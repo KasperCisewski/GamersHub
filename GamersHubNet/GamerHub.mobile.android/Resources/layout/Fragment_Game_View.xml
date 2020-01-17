@@ -8,8 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <include
+            android:id="@+id/shared_back_button"
+            layout="@layout/shared_back_button"/>
         <ImageView
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             local:MvxBind="Bitmap GeneralImage"/>

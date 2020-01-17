@@ -10,7 +10,10 @@
     android:layout_height="wrap_content"
     android:id="@+id/search_friends_layout"
     android:gravity="top"
-    android:orientation="horizontal">
+    android:orientation="vertical">
+    <include
+      android:id="@+id/shared_back_button"
+      layout="@layout/shared_back_button"/>
     <android.support.design.widget.TextInputEditText
       android:id="@+id/search_friend_input_id"
       android:layout_width="match_parent"
