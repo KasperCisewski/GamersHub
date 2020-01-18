@@ -37,25 +37,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
     </Reference>
     <Reference Include="MvvmCross, Version=6.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.6.3.1\lib\net461\MvvmCross.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\.nuget\packages\mvvmcross\6.3.1\lib\monoandroid90\MvvmCross.dll</HintPath>
     </Reference>
     <Reference Include="MvvmCross.Plugin.Color, Version=6.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Plugin.Color.6.3.1\lib\net461\MvvmCross.Plugin.Color.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\.nuget\packages\mvvmcross.plugin.color\6.3.1\lib\monoandroid90\MvvmCross.Plugin.Color.dll</HintPath>
     </Reference>
     <Reference Include="MvvmCross.Plugin.Messenger, Version=6.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Plugin.Messenger.6.3.1\lib\netstandard2.0\MvvmCross.Plugin.Messenger.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\.nuget\packages\mvvmcross.plugin.messenger\6.3.1\lib\netstandard2.0\MvvmCross.Plugin.Messenger.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Settings, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\net45\Plugin.Settings.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\.nuget\packages\xam.plugins.settings\3.1.1\lib\MonoAndroid10\Plugin.Settings.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Settings.Abstractions, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\net45\Plugin.Settings.Abstractions.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\.nuget\packages\xam.plugins.settings\3.1.1\lib\MonoAndroid10\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc, processorArchitecture=MSIL">
       <HintPath>..\packages\Polly.7.1.1\lib\netstandard2.0\Polly.dll</HintPath>
