@@ -17,5 +17,6 @@ namespace GamerHub.mobile.core.Services.Game
         Task<List<PriceModel>> GetPricesModelsForGame(Guid gameId);
         Task<string> GetVideoUrlForGame(Guid gameId);
         Task<List<GameModelWithImage>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest);
+        Task<List<GameModelWithImage>> GetGamesForUser();
     }
 }

@@ -37,6 +37,7 @@
             public const string GetVideoUrl = Root + "/games/getVideoUrl";
             public const string GetGamesByCategory = Root + "/games/getGamesByCategory";
             public const string GetFullGameDescription = Root + "/games/getFullGameDescription";
+            public const string GetGamesForUser = Root + "/games/getGamesForUser";
         }
 
         public static class Profile

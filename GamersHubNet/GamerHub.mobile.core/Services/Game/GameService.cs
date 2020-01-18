@@ -142,5 +142,19 @@ namespace GamerHub.mobile.core.Services.Game
 
             return response.ResponseData;
         }
+
+        public async Task<List<GameModelWithImage>> GetGamesForUser()
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Games.GetGamesForUser)
+            {
+                Method = Method.GET
+            };
+
+            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
+
+            return response.ResponseData;
+        }
     }
 }
