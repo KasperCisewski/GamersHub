@@ -37,6 +37,8 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             Description = fullGameModel.Description;
             ReleaseDate = fullGameModel.ReleaseDate;
             Title = fullGameModel.Title;
+            IsUserHasGameInVault = fullGameModel.IsUserHasGameInVault;
+            IsUserHasGameInWishList = fullGameModel.IsUserHasGameInWishList;
             GameCategoryText = GameModel.Category.ToString();
             GeneralImage = BitmapFactory.DecodeByteArray(fullGameModel.GeneralImage.ToArray(), 0, fullGameModel.GeneralImage.Count);
             await GameVideoViewModel.Initialize();
@@ -48,14 +50,60 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
         {
             var result = await _gameService.AddGameToWishList(GameModel.Id);
 
-            NotificationService.Notify(result ? "Add game to wish list" : "Something was wrong");
+            if (result)
+            {
+                IsUserHasGameInWishList = true;
+                NotificationService.Notify("Add game to wish list");
+            }
+            else
+            {
+                NotificationService.Notify("Something was wrong");
+            }
         }
 
         private async Task AddGameToVault()
         {
             var result = await _gameService.AddGameToVault(GameModel.Id);
 
-            NotificationService.Notify(result ? "Add game to vault" : "Something was wrong");
+            if (result)
+            {
+                IsUserHasGameInVault = true;
+                NotificationService.Notify("Add game to vault");
+            }
+            else
+            {
+                NotificationService.Notify("Something was wrong");
+            }
+        }
+
+        private async Task DeleteGameFromVault()
+        {
+            var result = await _gameService.DeleteGameFromVault(GameModel.Id);
+
+            if (result)
+            {
+                IsUserHasGameInVault = false;
+                NotificationService.Notify("Delete game from vault");
+            }
+            else
+            {
+                NotificationService.Notify("Something was wrong");
+            }
+        }
+
+        private async Task DeleteGameFromWishList()
+        {
+            var result = await _gameService.DeleteGameFromWishList(GameModel.Id);
+
+            if (result)
+            {
+                IsUserHasGameInWishList = false;
+                NotificationService.Notify("Delete game from wish list");
+            }
+            else
+            {
+                NotificationService.Notify("Something was wrong");
+            }
         }
     }
 }

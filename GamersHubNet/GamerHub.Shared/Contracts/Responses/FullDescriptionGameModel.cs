@@ -9,5 +9,7 @@ namespace GamersHub.Shared.Contracts.Responses
         public string Description { get; set; }
         public DateTime? ReleaseDate { get; set; }
         public List<byte> GeneralImage { get; set; }
+        public bool IsUserHasGameInVault { get; set; }
+        public bool IsUserHasGameInWishList { get; set; }
     }
 }

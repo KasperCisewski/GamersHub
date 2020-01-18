@@ -81,6 +81,36 @@ namespace GamerHub.mobile.core.Services.Game
             return response.StatusCode == HttpStatusCode.OK;
         }
 
+        public async Task<bool> DeleteGameFromVault(Guid gameId)
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Games.DeleteGameFromVault)
+            {
+                Method = Method.POST
+            };
+            request.AddQueryParameter("gameId", gameId.ToString());
+
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
+        }
+
+        public async Task<bool> DeleteGameFromWishList(Guid gameId)
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Games.DeleteGameFromWishList)
+            {
+                Method = Method.POST
+            };
+            request.AddQueryParameter("gameId", gameId.ToString());
+
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
+        }
+
         public async Task<List<ScreenShotModel>> GetScreenShotsForGame(Guid gameId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();

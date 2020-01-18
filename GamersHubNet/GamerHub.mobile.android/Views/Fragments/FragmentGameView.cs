@@ -58,6 +58,8 @@ namespace GamerHub.mobile.android.Views.Fragments
             SetFontForView<TextView>(view, Resource.Id.game_title);
             SetFontForView<Button>(view, Resource.Id.button_add_game_to_vault);
             SetFontForView<Button>(view, Resource.Id.button_add_game_to_wish_list);
+            SetFontForView<Button>(view,Resource.Id.delete_game_from_wish_list);
+            SetFontForView<Button>(view, Resource.Id.delete_game_from_vault);
 
             return view;
         }
