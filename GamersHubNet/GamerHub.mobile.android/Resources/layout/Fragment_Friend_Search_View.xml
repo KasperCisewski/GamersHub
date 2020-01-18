@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:local="http://schemas.android.com/apk/res-auto"
-  android:orientation="vertical"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content">
-  <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/search_friends_layout"
-    android:gravity="top"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
     <include
-      android:id="@+id/shared_back_button"
-      layout="@layout/shared_back_button"/>
+        android:id="@+id/shared_back_button"
+        layout="@layout/shared_back_button"/>
     <android.support.design.widget.TextInputEditText
-      android:id="@+id/search_friend_input_id"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:background="@drawable/boarder"
-      style="@style/TextInputLayoutStyle"
-      local:MvxBind="Text SearchUserNameText"/>
-  </LinearLayout>
-  <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true"
-    android:id="@+id/search_friends_list_recycler_view"
-    android:layout_below="@id/search_friends_layout"
-    android:layout_above="@id/shared_menu_toolbar"
-    android:scrollbars="vertical"
-    local:MvxItemTemplate="@layout/fragment_friends_list_row_view"
-    local:MvxBind="ItemsSource FriendsSearchList; ItemClick ShowFriendCommand"/>
-  <include
-    android:id="@+id/shared_menu_toolbar"
-    layout="@layout/fragment_shared_menu"/>
+        android:id="@+id/search_friend_input_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boarder"
+        style="@style/TextInputLayoutStyle"
+        local:MvxBind="Text SearchUserNameText"/>
+    <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:id="@+id/search_friends_list_recycler_view"
+        android:layout_below="@id/search_friend_input_id"
+        android:layout_above="@id/shared_menu_toolbar"
+        android:scrollbars="vertical"
+        local:MvxItemTemplate="@layout/fragment_friends_list_row_view"
+        local:MvxBind="ItemsSource FriendsSearchList; ItemClick ShowFriendCommand"/>
+    <include
+        android:id="@+id/shared_menu_toolbar"
+        layout="@layout/fragment_shared_menu"/>
 </RelativeLayout>

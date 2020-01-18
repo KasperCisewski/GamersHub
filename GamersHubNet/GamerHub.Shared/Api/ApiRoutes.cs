@@ -48,6 +48,8 @@
             public const string GetWishListGames = Root + "/profile/getWishListGames";
             //TODO Marcel ma to zrobić, jakiś jego model stworzyć obrazek
             public const string GetHeatMap = Root + "/profile/getHeatMap";
+            public const string AddToFriendList = Root + "/profile/addToFriendList";
+            public const string DeleteFromFriendList = Root + "/profile/deleteFriendFromFriendList";
         }
     }
 }
