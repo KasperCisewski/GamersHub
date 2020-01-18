@@ -37,8 +37,8 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             Description = fullGameModel.Description;
             ReleaseDate = fullGameModel.ReleaseDate;
             Title = fullGameModel.Title;
-            IsUserHasGameInVault = fullGameModel.IsUserHasGameInVault;
-            IsUserHasGameInWishList = fullGameModel.IsUserHasGameInWishList;
+            UserHasGameInVault = fullGameModel.UserHasGameInVault;
+            UserHasGameOnWishList = fullGameModel.UserHasGameOnWishList;
             GameCategoryText = GameModel.Category.ToString();
             GeneralImage = BitmapFactory.DecodeByteArray(fullGameModel.GeneralImage.ToArray(), 0, fullGameModel.GeneralImage.Count);
             await GameVideoViewModel.Initialize();
@@ -52,7 +52,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 
             if (result)
             {
-                IsUserHasGameInWishList = true;
+                UserHasGameOnWishList = true;
                 NotificationService.Notify("Add game to wish list");
             }
             else
@@ -67,7 +67,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 
             if (result)
             {
-                IsUserHasGameInVault = true;
+                UserHasGameInVault = true;
                 NotificationService.Notify("Add game to vault");
             }
             else
@@ -82,7 +82,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 
             if (result)
             {
-                IsUserHasGameInVault = false;
+                UserHasGameInVault = false;
                 NotificationService.Notify("Delete game from vault");
             }
             else
@@ -97,7 +97,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 
             if (result)
             {
-                IsUserHasGameInWishList = false;
+                UserHasGameOnWishList = false;
                 NotificationService.Notify("Delete game from wish list");
             }
             else

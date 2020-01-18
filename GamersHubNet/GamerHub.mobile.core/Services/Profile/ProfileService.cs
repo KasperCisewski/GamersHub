@@ -116,10 +116,13 @@ namespace GamerHub.mobile.core.Services.Profile
 
             var request = new RestRequest(ApiRoutes.Profile.DeleteFromFriendList)
             {
-                Method = Method.POST
+                Method = Method.DELETE
             };
 
-            request.AddQueryParameter("userId", userId.ToString());
+            request.AddJsonBody(new
+            {
+                UserId = userId
+            });
 
             var response = await client.ExecuteAsync<bool>(request);
 
@@ -135,7 +138,10 @@ namespace GamerHub.mobile.core.Services.Profile
                 Method = Method.POST
             };
 
-            request.AddQueryParameter("userId", userId.ToString());
+            request.AddJsonBody(new
+            {
+                UserId = userId
+            });
 
             var response = await client.ExecuteAsync<bool>(request);
 

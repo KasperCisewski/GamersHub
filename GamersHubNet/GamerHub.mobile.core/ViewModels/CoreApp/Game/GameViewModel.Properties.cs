@@ -56,20 +56,20 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             set => SetProperty(ref _generalImage, value);
         }
 
-        private bool _isUserHasGameInVault;
+        private bool _userHasGameInVault;
 
-        public bool IsUserHasGameInVault
+        public bool UserHasGameInVault
         {
-            get => _isUserHasGameInVault;
-            set => SetProperty(ref _isUserHasGameInVault, value);
+            get => _userHasGameInVault;
+            set => SetProperty(ref _userHasGameInVault, value);
         }
 
-        private bool _isUserHasGameInWishList;
+        private bool _userHasGameOnWishList;
 
-        public bool IsUserHasGameInWishList
+        public bool UserHasGameOnWishList
         {
-            get => _isUserHasGameInWishList;
-            set => SetProperty(ref _isUserHasGameInWishList, value);
+            get => _userHasGameOnWishList;
+            set => SetProperty(ref _userHasGameOnWishList, value);
         }
 
         private ICommand _addGameToWishListCommand;

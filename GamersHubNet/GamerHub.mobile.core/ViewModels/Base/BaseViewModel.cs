@@ -97,7 +97,6 @@ namespace GamerHub.mobile.core.ViewModels.Base
         public ICommand GoToSearchViewCommand => new MvxAsyncCommand(GoToSearchView);
         public ICommand GoToProfileViewCommand => new MvxAsyncCommand(GoToProfileView);
 
-
         private void BackPressed()
         {
             NavigationService.Close(this);

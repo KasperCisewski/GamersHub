@@ -59,7 +59,11 @@ namespace GamerHub.mobile.core.Services.Game
             {
                 Method = Method.POST
             };
-            request.AddQueryParameter("gameId", gameId.ToString());
+
+            request.AddJsonBody(new
+            {
+                GameId = gameId
+            });
 
             var response = await client.ExecuteAsync(request);
 
@@ -74,7 +78,11 @@ namespace GamerHub.mobile.core.Services.Game
             {
                 Method = Method.POST
             };
-            request.AddQueryParameter("gameId", gameId.ToString());
+
+            request.AddJsonBody(new
+            {
+                GameId = gameId.ToString()
+            });
 
             var response = await client.ExecuteAsync(request);
 
@@ -87,9 +95,13 @@ namespace GamerHub.mobile.core.Services.Game
 
             var request = new RestRequest(ApiRoutes.Games.DeleteGameFromVault)
             {
-                Method = Method.POST
+                Method = Method.DELETE
             };
-            request.AddQueryParameter("gameId", gameId.ToString());
+
+            request.AddJsonBody(new
+            {
+                GameId = gameId
+            });
 
             var response = await client.ExecuteAsync(request);
 
@@ -102,9 +114,13 @@ namespace GamerHub.mobile.core.Services.Game
 
             var request = new RestRequest(ApiRoutes.Games.DeleteGameFromWishList)
             {
-                Method = Method.POST
+                Method = Method.DELETE
             };
-            request.AddQueryParameter("gameId", gameId.ToString());
+
+            request.AddJsonBody(new
+            {
+                GameId = gameId
+            });
 
             var response = await client.ExecuteAsync(request);
 
