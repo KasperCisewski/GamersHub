@@ -29,12 +29,14 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
         {
             IsOtherUserProfile = parameter.UserId != null;
             UserId = IsOtherUserProfile ? parameter.UserId : null;
+            IsVisibleBackButton = IsOtherUserProfile;
         }
 
         public override async Task Initialize()
         {
             var model = await _profileService.GetUserProfileInformation(_userId);
             UserName = model.UserName;
+            IsUserFriend = model.IsUserFriend;
             //TODO
             if (model.ProfileImageContent != null && model.ProfileImageContent.Any())
             {
@@ -46,6 +48,36 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
                 var resource = _resourceService.GetResources();
 
                 ProfileImageBitmap = BitmapFactory.DecodeResource(resource, profileImageId);
+            }
+        }
+
+        private async Task AddToFriendList()
+        {
+            var result = await _profileService.AddFriendToFriendList(UserId.Value);
+
+            if (result)
+            {
+                IsUserFriend = true;
+                NotificationService.Notify($"Successfully added {UserName} to friend list");
+            }
+            else
+            {
+                NotificationService.Notify( "Something was wrong");
+            }
+        }
+
+        private async Task DeleteFriendFromFriendList()
+        {
+            var result = await _profileService.DeleteFromFriendList(UserId.Value);
+
+            if (result)
+            {
+                IsUserFriend = false;
+                NotificationService.Notify($"Successfully deleted {UserName} from friend list");
+            }
+            else
+            {
+                NotificationService.Notify("Something was wrong");
             }
         }
 

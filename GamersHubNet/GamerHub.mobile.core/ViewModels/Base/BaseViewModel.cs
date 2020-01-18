@@ -91,10 +91,17 @@ namespace GamerHub.mobile.core.ViewModels.Base
             PropertyChanged -= OnPropertyChanged;
         }
 
+        public ICommand BackPressedCommand => new MvxCommand(BackPressed);
         public ICommand GoToHomeViewCommand => new MvxAsyncCommand(GoToHomeView);
         public ICommand GoToGamesViewCommand => new MvxAsyncCommand(GoToGamesView);
         public ICommand GoToSearchViewCommand => new MvxAsyncCommand(GoToSearchView);
         public ICommand GoToProfileViewCommand => new MvxAsyncCommand(GoToProfileView);
+
+        private void BackPressed()
+        {
+            NavigationService.Close(this);
+        }
+
         private async Task GoToHomeView()
         {
             await ShowViewModelAndRemoveHistory<HomeViewModel>();
@@ -113,6 +120,14 @@ namespace GamerHub.mobile.core.ViewModels.Base
         private async Task GoToProfileView()
         {
             await ShowViewModelAndRemoveHistory<ProfileViewModel, ProfileUserModel>(new ProfileUserModel());
+        }
+
+        private bool _isVisibleBackButton = true;
+
+        public bool IsVisibleBackButton
+        {
+            get => _isVisibleBackButton;
+            set => SetProperty(ref _isVisibleBackButton, value);
         }
     }
 }

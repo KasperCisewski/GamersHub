@@ -14,6 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@mipmap/background"
-            />
+            >
+<!--            <ImageButton
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/abc_ic_arrow_drop_right_black_24dp"
+                local:MvxBind="Visible IsVisibleBackButton; Click BackPressedCommand"/>-->
+        </FrameLayout>
     </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>

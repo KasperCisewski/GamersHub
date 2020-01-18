@@ -8,8 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <include
+            android:id="@+id/shared_back_button"
+            layout="@layout/shared_back_button"/>
         <ImageView
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             local:MvxBind="Bitmap GeneralImage"/>
@@ -72,7 +75,25 @@
                 android:background="#000000"
                 android:layout_margin="4dp"
                 android:textSize="27dp"
-                local:MvxBind="Click AddGameToWishListCommand"/>
+                local:MvxBind="Click AddGameToWishListCommand; Visible UserHasGameOnWishList, Converter=InvertBool"/>
+            <Button
+              android:id="@+id/delete_game_from_wish_list"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/add_game_to_wish_list"
+              android:background="#000000"
+              android:layout_margin="4dp"
+              android:textSize="27dp"
+              local:MvxBind="Click DeleteGameFromWishListCommand; Visible UserHasGameOnWishList"/>
+            <Button
+              android:id="@+id/delete_game_from_vault"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/add_game_to_vault"
+              android:background="#FF0000"
+              android:layout_margin="4dp"
+              android:textSize="27dp"
+              local:MvxBind="Click DeleteGameFromVaultCommand; Visible UserHasGameInVault"/>
             <Button
                 android:id="@+id/button_add_game_to_vault"
                 android:layout_width="wrap_content"
@@ -81,7 +102,7 @@
                 android:background="#FF0000"
                 android:layout_margin="4dp"
                 android:textSize="27dp"
-                local:MvxBind="Click AddGameToVaultCommand"/>
+                local:MvxBind="Click AddGameToVaultCommand; Visible UserHasGameInVault, Converter=InvertBool"/>
         </LinearLayout>
         <android.support.v4.view.ViewPager
             android:id="@+id/game_view_main_with_view_pager"

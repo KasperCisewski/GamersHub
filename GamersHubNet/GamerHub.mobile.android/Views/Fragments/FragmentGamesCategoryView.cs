@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
+using Android.Widget;
 using GamerHub.mobile.android.Views.Components;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.Infrastructure;
@@ -31,6 +32,8 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             var layoutManager = new GridLayoutManager(Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity, 2);
             recyclerView.SetLayoutManager(layoutManager);
+
+            SetFontForView<TextView>(view, Resource.Id.title_text_view);
 
             return view;
         }

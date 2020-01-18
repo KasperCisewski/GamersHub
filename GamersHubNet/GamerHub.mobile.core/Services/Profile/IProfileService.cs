@@ -14,5 +14,7 @@ namespace GamerHub.mobile.core.Services.Profile
         Task<List<GameModelWithImage>> GetGamesInVault(Guid? userId);
         Task<List<GameModelWithImage>> GetWishListGames();
         Task<List<byte>> GetHeatMap(Guid? userId);
+        Task<bool> DeleteFromFriendList(Guid userId);
+        Task<bool> AddFriendToFriendList(Guid userId);
     }
 }

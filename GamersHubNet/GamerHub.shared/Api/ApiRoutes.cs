@@ -37,6 +37,9 @@
             public const string GetVideoUrl = Root + "/games/getVideoUrl";
             public const string GetGamesByCategory = Root + "/games/getGamesByCategory";
             public const string GetFullGameDescription = Root + "/games/getFullGameDescription";
+            public const string GetGamesForUser = Root + "/games/getGamesForUser";
+            public const string DeleteGameFromVault = Root + "/games/deleteGameFromVault";
+            public const string DeleteGameFromWishList = Root + "/games/deleteGameFromWishList";
         }
 
         public static class Profile
@@ -48,6 +51,8 @@
             public const string GetWishListGames = Root + "/profile/getWishListGames";
             //TODO Marcel ma to zrobić, jakiś jego model stworzyć obrazek
             public const string GetHeatMap = Root + "/profile/getHeatMap";
+            public const string AddToFriendList = Root + "/profile/addToFriendList";
+            public const string DeleteFromFriendList = Root + "/profile/deleteFriendFromFriendList";
         }
     }
 }

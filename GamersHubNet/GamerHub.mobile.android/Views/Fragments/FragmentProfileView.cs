@@ -21,6 +21,8 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             SetFontForView<TextView>(view, Resource.Id.profile_text_view);
             SetFontForView<TextView>(view, Resource.Id.profile_username_id);
+            SetFontForView<Button>(view, Resource.Id.delete_friend_button);
+            SetFontForView<Button>(view, Resource.Id.add_friend_button);
 
             return view;
         }

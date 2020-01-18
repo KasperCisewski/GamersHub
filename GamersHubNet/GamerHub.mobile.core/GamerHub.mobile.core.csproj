@@ -139,6 +139,7 @@
     <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GameScreenshotRowZoomableViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameVideoViewModel.cs" />
@@ -164,6 +165,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <Compile Include="ViewModels\CoreApp\Game\GameScreenshotRowZoomableViewModel.Properties.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GamerHub.shared\GamersHub.Shared.csproj">

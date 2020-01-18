@@ -56,6 +56,22 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             set => SetProperty(ref _generalImage, value);
         }
 
+        private bool _userHasGameInVault;
+
+        public bool UserHasGameInVault
+        {
+            get => _userHasGameInVault;
+            set => SetProperty(ref _userHasGameInVault, value);
+        }
+
+        private bool _userHasGameOnWishList;
+
+        public bool UserHasGameOnWishList
+        {
+            get => _userHasGameOnWishList;
+            set => SetProperty(ref _userHasGameOnWishList, value);
+        }
+
         private ICommand _addGameToWishListCommand;
 
         public ICommand AddGameToWishListCommand => _addGameToWishListCommand ?? (_addGameToWishListCommand = new MvxAsyncCommand(AddGameToWishList));
@@ -63,5 +79,13 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
         private ICommand _addGameToVaultCommand;
 
         public ICommand AddGameToVaultCommand => _addGameToVaultCommand ?? (_addGameToVaultCommand = new MvxAsyncCommand(AddGameToVault));
+
+        private ICommand _deleteGameFromWishListCommand;
+
+        public ICommand DeleteGameFromWishListCommand => _deleteGameFromWishListCommand ?? (_deleteGameFromWishListCommand = new MvxAsyncCommand(DeleteGameFromWishList));
+
+        private ICommand _deleteGameFromVaultCommand;
+
+        public ICommand DeleteGameFromVaultCommand => _deleteGameFromVaultCommand ?? (_deleteGameFromVaultCommand = new MvxAsyncCommand(DeleteGameFromVault));
     }
 }

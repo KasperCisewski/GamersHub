@@ -38,6 +38,20 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
             set => SetProperty(ref _profileImageBitmap, value);
         }
 
+        private bool _isUserFriend;
+
+        public bool IsUserFriend
+        {
+            get => _isUserFriend;
+            set => SetProperty(ref _isUserFriend, value);
+        }
+
+        private IMvxAsyncCommand _addToFriendListCommand;
+        public IMvxAsyncCommand AddToFriendListCommand => _addToFriendListCommand ?? (_addToFriendListCommand = new MvxAsyncCommand(AddToFriendList));
+
+        private IMvxAsyncCommand _deleteFriendCommand;
+        public IMvxAsyncCommand DeleteFriendCommand => _deleteFriendCommand ?? (_deleteFriendCommand = new MvxAsyncCommand(DeleteFriendFromFriendList));
+
         private IMvxAsyncCommand _goToGamesVaultCommand;
         public IMvxAsyncCommand GoToGamesVaultCommand => _goToGamesVaultCommand ?? (_goToGamesVaultCommand = new MvxAsyncCommand(GoToGamesVault));
 

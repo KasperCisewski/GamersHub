@@ -109,5 +109,43 @@ namespace GamerHub.mobile.core.Services.Profile
 
             return response.ResponseData;
         }
+
+        public async Task<bool> DeleteFromFriendList(Guid userId)
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Profile.DeleteFromFriendList)
+            {
+                Method = Method.DELETE
+            };
+
+            request.AddJsonBody(new
+            {
+                UserId = userId
+            });
+
+            var response = await client.ExecuteAsync<bool>(request);
+
+            return response.ResponseData;
+        }
+
+        public async Task<bool> AddFriendToFriendList(Guid userId)
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Profile.AddToFriendList)
+            {
+                Method = Method.POST
+            };
+
+            request.AddJsonBody(new
+            {
+                UserId = userId
+            });
+
+            var response = await client.ExecuteAsync<bool>(request);
+
+            return response.ResponseData;
+        }
     }
 }

@@ -5,34 +5,27 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <include
-    android:id="@+id/shared_back_button"
-    layout="@layout/shared_back_button"/>
-  <TextView
-        android:id="@+id/vault_text_view"
+    <include
+        android:id="@+id/shared_back_button"
+        layout="@layout/shared_back_button"/>
+    <TextView
+        android:id="@+id/title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="55dp"
         android:layout_marginTop="12dp"
         android:layout_margin="4dp"
-        android:text="@string/profile_vault"/>
+        android:text="Games for you"/>
     <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
-        android:id="@+id/games_vault_recycler_view"
-        android:layout_below="@id/vault_text_view"
+        android:id="@+id/games_chosen_for_user_recycler_view"
+        android:layout_below="@id/title_text_view"
         android:scrollbars="vertical"
         local:MvxItemTemplate="@layout/fragment_game_row_view"
         local:MvxBind="ItemsSource GamesList; ItemClick ClickGame" />
-    <Button
-        android:id="@+id/search_friend_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/shared_menu_toolbar"
-        android:text="@string/profile_vault_games_list_heatmap"
-        local:MvxBind="Click GoToFriendSearchCommand"/>
     <include
         android:id="@+id/shared_menu_toolbar"
         layout="@layout/fragment_shared_menu"/>
