@@ -341,3 +341,6 @@ healthchecksdb
 
 #images Folder
 WebScraping\PhotosScrapper\images/
+/GamersHubNet/GamersHub.Api/PythonScripts/train_data_reviews.pkl
+/GamersHubNet/GamersHub.Api/PythonScripts/game_id_df.pkl
+*.txt
