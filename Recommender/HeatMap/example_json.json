@@ -1,17 +1,17 @@
 {
+    "userId": "a8fc1110-840f-4bec-25ec-08d796c1e856",
     "genres": {
-        "IdUser" : 1,
-        "Action": 2,
-        "Shooter":5,  
-        "Strategy": 2,
-        "Racing":5,
-        "Survival": 2,
-        "Adventure":5,
-        "RPG": 2,
-        "Simulation":5,
-        "Fighting": 2,
-        "Logic":5,
-        "Sports": 2,
-		"Arcade":5 
+      "Action": 4,
+      "Strategy": 6,
+      "RPG": 2,
+      "Adventure": 2,
+      "Arcade": 0,
+      "Shooter": 0,
+      "Racing": 0,
+      "Survival": 0,
+      "Simulation": 0,
+      "Fighting": 0,
+      "Logic": 0,
+      "Sports": 0
     }
-}
+  }

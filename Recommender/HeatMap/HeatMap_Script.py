@@ -3,11 +3,38 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from math import pi
 import json
+import requests as req
+import sys
 
+profile = sys.argv[1]
+
+response = req.get("https://localhost:5001/api/profile/getUserGenres?userId=" + profile)
+#response =("https://localhost:5001/api/profile/getUserGenres?userId=" + profile)
+#print(response)
+
+##Uncomment below function when used with req
+#data = json.loads(response.text)
+#df = pd.DataFrame({
+#'IdUser': data['userId'],
+#'Action': data['genres']['Action'],
+#'Shooter': data['genres']['Shooter'],
+#'Strategy': data['genres']['Strategy'],
+#'Racing': data['genres']['Racing'],
+#'Survival': data['genres']['Survival'],
+#'Adventure': data['genres']['Adventure'],
+#'RPG': data['genres']['RPG'],
+#'Simulation': data['genres']['Simulation'],
+#'Fighting': data['genres']['Fighting'],
+#'Logic': data['genres']['Logic'],
+#'Sports': data['genres']['Sports'],
+#'Arcade': data['genres']['Arcade']
+#}, index=[0])
+
+##Comment Below Function when used with req
 with open('example_json.json') as json_file:
     data = json.load(json_file)
     df = pd.DataFrame({
-    'IdUser': data['genres']['IdUser'],
+    'IdUser': data['userId'],
     'Action': data['genres']['Action'],
     'Shooter': data['genres']['Shooter'],
     'Strategy': data['genres']['Strategy'],
@@ -55,4 +82,4 @@ ax.set_facecolor('purple')
 
 # Fill area
 ax.fill(angles, values, 'b', alpha=0.0)
-plt.savefig('heatplot.png', transparent=True)
+plt.savefig('heatplot.png', transparent=False)
