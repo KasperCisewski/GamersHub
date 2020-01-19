@@ -11,6 +11,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 import requests as req
 import json 
 import sys
+import pandas as pd
 
 
 # In[13]:
@@ -84,8 +85,17 @@ for games in data['games']:
     games_list.append(games)
 list_of_games= get_game(games_list)
 
+Final =pd.read_csv('Final.csv', sep=';')
+
+final_list=[]
+for games in list_ofgames:
+    print(games)
+    if Final['Titile'].str.contains(games).any():
+        final_list.append(games)
+
+
 with open('list_of_games.txt', 'w') as f:
-    for item in list_of_games:
+    for item in final_list:
         f.write("%s\n" % item)
 
 #with open('jsongames.json') as json_file:
