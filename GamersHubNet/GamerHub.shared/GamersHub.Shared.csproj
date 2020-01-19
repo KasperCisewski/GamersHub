@@ -106,6 +106,7 @@
     <Compile Include="Contracts\Requests\GameCategoryRequest.cs" />
     <Compile Include="Contracts\Requests\SearchFriendsRequest.cs" />
     <Compile Include="Contracts\Responses\FullDescriptionGameModel.cs" />
+    <Compile Include="Contracts\Responses\GenresStatisticsModel.cs" />
     <Compile Include="Contracts\Responses\PriceModel.cs" />
     <Compile Include="Contracts\Responses\ScreenShotModel.cs" />
     <Compile Include="Contracts\Responses\UserProfile.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Contracts\Responses\AuthFailureResponse.cs" />
     <Compile Include="Contracts\Responses\AuthSuccessResponse.cs" />
     <Compile Include="Contracts\Responses\GameModelWithImage.cs" />
+    <Compile Include="Model\GenreStatisticModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
