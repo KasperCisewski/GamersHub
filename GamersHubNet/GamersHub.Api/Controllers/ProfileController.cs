@@ -4,6 +4,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using GamersHub.Api.Data;
+using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
 using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Responses;
@@ -27,17 +28,22 @@ namespace GamersHub.Api.Controllers
         [Authorize]
         public async Task<UserProfile> GetUserProfile(Guid? userId)
         {
+            var currentUserId = HttpContext.GetUserId();
             if (userId == null)
-                userId = HttpContext.GetUserId();
+                userId = currentUserId;
 
             var user = await _dataContext.Users.FindAsync(userId);
+
+            var isFriend = await _dataContext.Friendships
+                .AnyAsync(x => x.CurrentUserId == currentUserId && x.FriendId == userId);
 
             return new UserProfile
             {
                 Id = user.Id,
                 UserName = user.UserName,
                 //TODO 
-                ProfileImageContent = null
+                ProfileImageContent = null,
+                IsUserFriend = isFriend
             };
         }
 
@@ -60,7 +66,8 @@ namespace GamersHub.Api.Controllers
                 {
                     Id = x.Id,
                     ProfileImageContent = null,
-                    UserName = x.UserName
+                    UserName = x.UserName,
+                    IsUserFriend = true
                 }).ToListAsync();
 
             return friends;
@@ -163,6 +170,52 @@ namespace GamersHub.Api.Controllers
             var gamesNames = user.Games.Select(x => x.Game.Name);
 
             return Json(new { games = gamesNames });
+        }
+
+        [HttpPost(ApiRoutes.Profile.AddToFriendList)]
+        [Authorize]
+        public async Task<IActionResult> AddToFriendList(Guid userId)
+        {
+            var currentUserId = HttpContext.GetUserId();
+
+            var userExists = await _dataContext.Users.AnyAsync(x => x.Id == userId);
+
+            if (!userExists)
+                return BadRequest("User with given id does not exist");
+
+            var friendship = new Friendship { CurrentUserId = currentUserId, FriendId = userId };
+            var friendshipReversed = new Friendship { CurrentUserId = userId, FriendId = currentUserId };
+
+            _dataContext.Friendships.Add(friendship);
+            _dataContext.Friendships.Add(friendshipReversed);
+
+            await _dataContext.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpDelete(ApiRoutes.Profile.DeleteFromFriendList)]
+        [Authorize]
+        public async Task<IActionResult> DeleteFromFriendList(Guid userId)
+        {
+            var currentUserId = HttpContext.GetUserId();
+
+            var userExists = await _dataContext.Users.AnyAsync(x => x.Id == userId);
+
+            if (!userExists)
+                return BadRequest("User with given id does not exist");
+
+            var friendship = await _dataContext.Friendships
+                .SingleOrDefaultAsync(x => x.CurrentUserId == currentUserId && x.FriendId == userId);
+            var friendshipReversed = await _dataContext.Friendships
+                .SingleOrDefaultAsync(x => x.CurrentUserId == userId && x.FriendId == currentUserId);
+
+            _dataContext.Friendships.Remove(friendship);
+            _dataContext.Friendships.Remove(friendshipReversed);
+
+            await _dataContext.SaveChangesAsync();
+
+            return Ok();
         }
     }
 }

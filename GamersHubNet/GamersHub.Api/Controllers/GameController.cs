@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GamersHub.Api.Extensions;
 
 namespace GamersHub.Api.Controllers
 {
@@ -93,44 +94,30 @@ namespace GamersHub.Api.Controllers
         {
             // TODO: better way of selecting games for home screen
 
-            var games = new List<Game>();
-            switch (homeGamesCategory)
+            var games = homeGamesCategory switch
             {
-                case HomeGamesCategory.ComingSoon:
-                    games = await _dataContext.Games
-                        .AsNoTracking()
-                        .Skip(0)
-                        .Take(10)
-                        .Include(x => x.CoverGameImage)
-                        .ToListAsync();
-                    break;
-                case HomeGamesCategory.BrandNew:
-                    games = await _dataContext.Games
-                        .AsNoTracking()
-                        .Skip(10)
-                        .Take(10)
-                        .Include(x => x.CoverGameImage)
-                        .ToListAsync();
-                    break;
-                case HomeGamesCategory.Hottest:
-                    games = await _dataContext.Games
-                        .AsNoTracking()
-                        .Skip(20)
-                        .Take(10)
-                        .Include(x => x.CoverGameImage)
-                        .ToListAsync();
-                    break;
-                case HomeGamesCategory.OnSale:
-                    games = await _dataContext.Games
-                        .AsNoTracking()
-                        .Skip(30)
-                        .Take(10)
-                        .Include(x => x.CoverGameImage)
-                        .ToListAsync();
-                    break;
-                default:
-                    break;
-            }
+                HomeGamesCategory.ComingSoon => await _dataContext.Games.AsNoTracking()
+                    .Skip(0)
+                    .Take(10)
+                    .Include(x => x.CoverGameImage)
+                    .ToListAsync(),
+                HomeGamesCategory.BrandNew => await _dataContext.Games.AsNoTracking()
+                    .Skip(10)
+                    .Take(10)
+                    .Include(x => x.CoverGameImage)
+                    .ToListAsync(),
+                HomeGamesCategory.Hottest => await _dataContext.Games.AsNoTracking()
+                    .Skip(20)
+                    .Take(10)
+                    .Include(x => x.CoverGameImage)
+                    .ToListAsync(),
+                HomeGamesCategory.OnSale => await _dataContext.Games.AsNoTracking()
+                    .Skip(30)
+                    .Take(10)
+                    .Include(x => x.CoverGameImage)
+                    .ToListAsync(),
+                _ => new List<Game>()
+            };
 
             return games.Select(x => new GameModelWithImage
             {
@@ -154,12 +141,22 @@ namespace GamersHub.Api.Controllers
                 return BadRequest("There is no game with given id");
             }
 
+            var userId = HttpContext.GetUserId();
+            var user = userId != Guid.Empty
+                ? await _dataContext.Users
+                    .Include(x => x.Games)
+                    .Include(x => x.WishList)
+                    .SingleOrDefaultAsync(x => x.Id == userId)
+                : null;
+
             var model = new FullDescriptionGameModel
             {
                 Description = game.Description,
                 GeneralImage = game.CoverGameImage.Data.ToList(),
                 Title = game.Name,
-                ReleaseDate = game.ReleaseDate
+                ReleaseDate = game.ReleaseDate,
+                UserHasGameInVault = user != null && user.Games.Any(x => x.GameId == gameId),
+                UserHasGameOnWishList = user != null && user.WishList.Any(x => x.GameId == gameId)
             };
 
             return Ok(model);
