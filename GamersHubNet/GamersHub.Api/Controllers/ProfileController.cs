@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
 using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Responses;
+using GamersHub.Shared.Data.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -116,6 +118,51 @@ namespace GamersHub.Api.Controllers
                 ImageBytes = x.CoverGameImage.Data.ToList(),
                 Title = x.Name
             });
+        }
+
+        [HttpGet(ApiRoutes.Profile.GetUserGenres)]
+        [Authorize]
+        public async Task<IActionResult> GetUserGenres(Guid? userId)
+        {
+            if (userId == null)
+                userId = HttpContext.GetUserId();
+
+            var user = await _dataContext.Users
+                .Include(x => x.Games)
+                .SingleOrDefaultAsync(x => x.Id == userId);
+
+            var userGames = user.Games.Select(x => x.GameId);
+
+            var games = await _dataContext.Games
+                .Where(x => userGames.Contains(x.Id))
+                .ToListAsync();
+
+            var countedGenres = games
+                .GroupBy(x => x.GameCategory)
+                .Select(g => new { GenreName = g.Key.ToString(), GenreCount = g.Count() })
+                .ToDictionary(x => x.GenreName, x => x.GenreCount);
+
+            Enum.GetNames(typeof(GameCategory)).ToImmutableList()
+                .ForEach(x => countedGenres.TryAdd(x, 0));
+
+            return Json(new { userId, genres = countedGenres });
+        }
+
+        [HttpGet(ApiRoutes.Profile.GetUserGamesNames)]
+        [Authorize]
+        public async Task<IActionResult> GetUserGamesNames(Guid? userId)
+        {
+            if (userId == null)
+                userId = HttpContext.GetUserId();
+
+            var user = await _dataContext.Users
+                .Include(x => x.Games)
+                    .ThenInclude(x => x.Game)
+                .SingleOrDefaultAsync(x => x.Id == userId);
+
+            var gamesNames = user.Games.Select(x => x.Game.Name);
+
+            return Json(new { games = gamesNames });
         }
     }
 }
