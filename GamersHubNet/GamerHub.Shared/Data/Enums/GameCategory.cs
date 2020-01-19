@@ -3,6 +3,7 @@
     public enum GameCategory
     {
         Action,
+        Arcade,
         Shooter,
         Strategy,
         Racing,
@@ -12,7 +13,6 @@
         Simulation,
         Fighting,
         Logic,
-        Sports,
-        Arcade
+        Sports
     }
 }
