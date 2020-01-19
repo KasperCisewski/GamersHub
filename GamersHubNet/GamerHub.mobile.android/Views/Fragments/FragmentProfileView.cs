@@ -1,6 +1,7 @@
 ﻿using Android.OS;
 using Android.Runtime;
 using Android.Views;
+using Android.Widget;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.ViewModels;
 using GamerHub.mobile.core.ViewModels.CoreApp.Profile;
@@ -17,6 +18,11 @@ namespace GamerHub.mobile.android.Views.Fragments
         {
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = this.BindingInflate(Resource.Layout.Fragment_Profile_View, null);
+
+            SetFontForView<TextView>(view, Resource.Id.profile_text_view);
+            SetFontForView<TextView>(view, Resource.Id.profile_username_id);
+            SetFontForView<Button>(view, Resource.Id.delete_friend_button);
+            SetFontForView<Button>(view, Resource.Id.add_friend_button);
 
             return view;
         }

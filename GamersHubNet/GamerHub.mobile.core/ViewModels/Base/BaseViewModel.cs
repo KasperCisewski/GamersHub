@@ -8,6 +8,7 @@ using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.ViewModels.CoreApp.Games;
 using GamerHub.mobile.core.ViewModels.CoreApp.Home;
 using GamerHub.mobile.core.ViewModels.CoreApp.Profile;
@@ -39,6 +40,10 @@ namespace GamerHub.mobile.core.ViewModels.Base
 
         [MvxInject]
         public IMvxNavigationService NavigationService { get; set; }
+
+        [MvxInject]
+        public INotificationService NotificationService { get; set; }
+
         public Action InitView { get; set; }
 
         protected BaseViewModel()
@@ -74,16 +79,29 @@ namespace GamerHub.mobile.core.ViewModels.Base
             await ShowViewModel<T>();
         }
 
+        public async Task ShowViewModelAndRemoveHistory<T, TK>(TK param) where T : BaseViewModel<TK>
+        {
+            ViewHistoryService.ClearHistory();
+            await ShowViewModel<T, TK>(param);
+        }
+
         public override void ViewDestroy(bool viewFinishing = true)
         {
             base.ViewDestroy(viewFinishing);
             PropertyChanged -= OnPropertyChanged;
         }
 
+        public ICommand BackPressedCommand => new MvxCommand(BackPressed);
         public ICommand GoToHomeViewCommand => new MvxAsyncCommand(GoToHomeView);
         public ICommand GoToGamesViewCommand => new MvxAsyncCommand(GoToGamesView);
         public ICommand GoToSearchViewCommand => new MvxAsyncCommand(GoToSearchView);
         public ICommand GoToProfileViewCommand => new MvxAsyncCommand(GoToProfileView);
+
+        private void BackPressed()
+        {
+            NavigationService.Close(this);
+        }
+
         private async Task GoToHomeView()
         {
             await ShowViewModelAndRemoveHistory<HomeViewModel>();
@@ -101,7 +119,15 @@ namespace GamerHub.mobile.core.ViewModels.Base
 
         private async Task GoToProfileView()
         {
-            await ShowViewModelAndRemoveHistory<ProfileViewModel>();
+            await ShowViewModelAndRemoveHistory<ProfileViewModel, ProfileUserModel>(new ProfileUserModel());
+        }
+
+        private bool _isVisibleBackButton = true;
+
+        public bool IsVisibleBackButton
+        {
+            get => _isVisibleBackButton;
+            set => SetProperty(ref _isVisibleBackButton, value);
         }
     }
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+        <TextView
+            android:id="@+id/app_info_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="55dp"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:text="@string/app_name"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/login_input_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/boarder"
+            android:maxLines="1"
+            style="@style/TextInputLayoutStyle"
+            android:hint="@string/global_login"
+            local:MvxBind="Text Login"/>
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/password_input_id"
+            style="@style/TextInputLayoutStyle"
+            android:background="@drawable/boarder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:password="true"
+            android:maxLines="1"
+            android:imeOptions="actionSend"
+            android:hint="@string/global_password"
+            local:MvxBind="Text Password"/>
+        <Button
+            android:id="@+id/login_submit_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonStyle"
+            android:background="@drawable/button_boarder"
+            android:text="@string/global_log_in"
+            local:MvxBind="Click LogInCommand"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+        <Button
+            android:id="@+id/login_sign_up_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonStyle"
+            android:background="@drawable/button_empty_background"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp"
+            android:text="@string/global_sign_up"
+            local:MvxBind="Click GoToRegistrationViewCommand"/>
+    </LinearLayout>
+</RelativeLayout>

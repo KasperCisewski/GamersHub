@@ -6,13 +6,25 @@
   android:orientation="vertical"
   android:layout_width="match_parent"
   android:layout_height="wrap_content">
+  <include
+    android:id="@+id/shared_back_button"
+    layout="@layout/shared_back_button"/>
+  <TextView
+    android:id="@+id/title_text_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:textSize="55dp"
+    android:layout_marginTop="12dp"
+    android:layout_margin="4dp"
+    local:MvxBind="Text CategoryName"/>
   <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:numColumns="2"
     android:fillViewport="true"
     android:id="@+id/recycler_games_category_list_view"
-    android:layout_below="@id/game_category_list"
+    android:layout_below="@id/title_text_view"
     android:layout_above="@id/shared_menu_toolbar"
     android:scrollbars="vertical"
     local:MvxItemTemplate="@layout/fragment_game_row_view"

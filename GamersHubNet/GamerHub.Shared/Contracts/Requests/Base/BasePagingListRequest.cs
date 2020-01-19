@@ -1,4 +1,4 @@
-﻿namespace GamerHub.shared.Contracts.Requests.Base
+﻿namespace GamersHub.Shared.Contracts.Requests.Base
 {
     public abstract class BasePagingListRequest
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using GamerHub.mobile.core.Services.Http.Factory;
 using GamersHub.Shared.Api;
@@ -39,7 +40,7 @@ namespace GamerHub.mobile.core.Services.Game
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetGamesForHomeScreen)
+            var request = new RestRequest(ApiRoutes.Games.GetFullGameDescription)
             {
                 Method = Method.GET
             };
@@ -50,30 +51,80 @@ namespace GamerHub.mobile.core.Services.Game
             return response.ResponseData;
         }
 
-        public async Task AddGameToWishList(Guid gameId)
+        public async Task<bool> AddGameToWishList(Guid gameId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
             var request = new RestRequest(ApiRoutes.Games.AddGameToWishList)
             {
-                Method = Method.PUT
+                Method = Method.POST
             };
-            request.AddQueryParameter("gameId", gameId.ToString());
 
-            await client.ExecuteAsync(request);
+            request.AddJsonBody(new
+            {
+                GameId = gameId
+            });
+
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
         }
 
-        public async Task AddGameToVault(Guid gameId)
+        public async Task<bool> AddGameToVault(Guid gameId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
             var request = new RestRequest(ApiRoutes.Games.AddGameToVault)
             {
-                Method = Method.PUT
+                Method = Method.POST
             };
-            request.AddQueryParameter("gameId", gameId.ToString());
 
-            await client.ExecuteAsync(request);
+            request.AddJsonBody(new
+            {
+                GameId = gameId.ToString()
+            });
+
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
+        }
+
+        public async Task<bool> DeleteGameFromVault(Guid gameId)
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Games.DeleteGameFromVault)
+            {
+                Method = Method.DELETE
+            };
+
+            request.AddJsonBody(new
+            {
+                GameId = gameId
+            });
+
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
+        }
+
+        public async Task<bool> DeleteGameFromWishList(Guid gameId)
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Games.DeleteGameFromWishList)
+            {
+                Method = Method.DELETE
+            };
+
+            request.AddJsonBody(new
+            {
+                GameId = gameId
+            });
+
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
         }
 
         public async Task<List<ScreenShotModel>> GetScreenShotsForGame(Guid gameId)
@@ -132,6 +183,20 @@ namespace GamerHub.mobile.core.Services.Game
             request.AddQueryParameter("gameCategory", gameCategoryRequest.GameCategory.ToString());
             request.AddQueryParameter("take", gameCategoryRequest.Take.ToString());
             request.AddQueryParameter("skip", gameCategoryRequest.Skip.ToString());
+
+            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
+
+            return response.ResponseData;
+        }
+
+        public async Task<List<GameModelWithImage>> GetGamesForUser()
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Games.GetGamesForUser)
+            {
+                Method = Method.GET
+            };
 
             var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
 

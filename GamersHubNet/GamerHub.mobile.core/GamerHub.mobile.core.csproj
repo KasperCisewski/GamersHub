@@ -87,10 +87,15 @@
     <Compile Include="Infrastructure\StaticAppSettings.cs" />
     <Compile Include="Infrastructure\ValueConverter\InvertBoolValueConverter.cs" />
     <Compile Include="Models\GameCategoryModel.cs" />
+    <Compile Include="Models\GameOfferRowModel.cs" />
+    <Compile Include="Models\GameScreenshotRowModel.cs" />
     <Compile Include="Models\GameWithImageRowModel.cs" />
     <Compile Include="Models\Http\HttpResult.cs" />
     <Compile Include="Models\LoginAndRegistration\LoginModel.cs" />
+    <Compile Include="Models\Messenger\OpenVideoCardView.cs" />
     <Compile Include="Models\Messenger\UserHasBeenLogged.cs" />
+    <Compile Include="Models\ProfileUserModel.cs" />
+    <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="Models\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Dependency\DependencyService.cs" />
@@ -106,15 +111,26 @@
     <Compile Include="Services\IGlobalStateService.cs" />
     <Compile Include="Services\IKeyboardService.cs" />
     <Compile Include="Services\ILocalizationService.cs" />
+    <Compile Include="Services\INotificationService.cs" />
     <Compile Include="Services\IViewHistoryService.cs" />
     <Compile Include="Services\Account\IAccountService.cs" />
     <Compile Include="Services\Account\AccountService.cs" />
+    <Compile Include="Services\Profile\IProfileService.cs" />
+    <Compile Include="Services\Profile\ProfileService.cs" />
     <Compile Include="Services\Resource\IResourceService.cs" />
     <Compile Include="Services\Search\ISearchService.cs" />
     <Compile Include="Services\Search\SearchService.cs" />
     <Compile Include="Validators\Account\AccountValidator.cs" />
     <Compile Include="Validators\Account\IAccountValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Friends\FriendSearchViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Friends\FriendSearchViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Friends\FriendsListViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Friends\FriendsListViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultHeatMapViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultHeatMapViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\GamesVault\GamesVaultViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesCategoryViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesChosenForUserViewModel.cs" />
@@ -123,6 +139,7 @@
     <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Game\GameScreenshotRowZoomableViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameVideoViewModel.cs" />
@@ -135,6 +152,10 @@
     <Compile Include="ViewModels\CoreApp\Profile\ProfileViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Search\SearchViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\Settings\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\Settings\SettingsViewModel.Properties.cs" />
+    <Compile Include="ViewModels\CoreApp\WishList\WishListViewModel.cs" />
+    <Compile Include="ViewModels\CoreApp\WishList\WishListViewModel.Properties.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.properties.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -144,6 +165,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <Compile Include="ViewModels\CoreApp\Game\GameScreenshotRowZoomableViewModel.Properties.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GamerHub.shared\GamersHub.Shared.csproj">

@@ -22,6 +22,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Games
         public override void Prepare(GameCategoryModel parameter)
         {
             GameCategoryModel = parameter;
+            CategoryName = GameCategoryModel.GameCategory.ToString();
         }
 
         public async Task SearchGames(bool replace)
@@ -53,11 +54,6 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Games
         private async Task OpenGame(GameWithImageRowModel arg)
         {
             await ShowViewModel<GameViewModel, GameWithImageRowModel>(arg);
-        }
-
-        public override Task Initialize()
-        {
-            return base.Initialize();
         }
     }
 }

@@ -1,9 +1,13 @@
 ﻿using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.Widget;
 using Android.Views;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.ViewModels;
 using GamerHub.mobile.core.ViewModels.CoreApp.Game;
+using MvvmCross;
+using MvvmCross.Droid.Support.V7.RecyclerView;
+using MvvmCross.Platforms.Android;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 
@@ -18,6 +22,10 @@ namespace GamerHub.mobile.android.Views.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = this.BindingInflate(Resource.Layout.Fragment_Game_Screenshots_View, null);
 
+            var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.game_screenshot_recycler_view);
+
+            var layoutManager = new GridLayoutManager(Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity, 2);
+            recyclerView.SetLayoutManager(layoutManager);
             return view;
         }
     }

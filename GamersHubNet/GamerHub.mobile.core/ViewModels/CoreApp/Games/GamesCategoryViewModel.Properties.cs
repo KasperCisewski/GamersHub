@@ -17,6 +17,14 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Games
             set => SetProperty(ref _fetchedPages, value);
         }
 
+        private string _categoryName;
+
+        public string CategoryName
+        {
+            get => _categoryName;
+            set => SetProperty(ref _categoryName, value);
+        }
+
         private MvxObservableCollection<GameWithImageRowModel> _gamesList = new MvxObservableCollection<GameWithImageRowModel>();
 
         public MvxObservableCollection<GameWithImageRowModel> GamesList
