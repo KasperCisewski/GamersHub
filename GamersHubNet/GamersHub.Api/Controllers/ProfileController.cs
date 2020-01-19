@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using GamersHub.Api.Data;
 using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
+using GamersHub.Api.PythonScripts;
 using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Responses;
 using GamersHub.Shared.Data.Enums;
+using GamersHub.Shared.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -128,7 +132,6 @@ namespace GamersHub.Api.Controllers
         }
 
         [HttpGet(ApiRoutes.Profile.GetUserGenres)]
-        [Authorize]
         public async Task<IActionResult> GetUserGenres(Guid? userId)
         {
             if (userId == null)
@@ -156,7 +159,6 @@ namespace GamersHub.Api.Controllers
         }
 
         [HttpGet(ApiRoutes.Profile.GetUserGamesNames)]
-        [Authorize]
         public async Task<IActionResult> GetUserGamesNames(Guid? userId)
         {
             if (userId == null)
@@ -216,6 +218,61 @@ namespace GamersHub.Api.Controllers
             await _dataContext.SaveChangesAsync();
 
             return Ok();
+        }
+
+        [HttpGet(ApiRoutes.Profile.GetHeatMap)]
+        [Authorize]
+        public List<byte> GetHeatMap(Guid? userId)
+        {
+            if (userId == null)
+                userId = HttpContext.GetUserId();
+
+            PythonScriptRunner.RunScript("PythonScripts/heatmap.py", userId.Value.ToString());
+
+            var fileInfo = new FileInfo("heatplot.png");
+
+            var data = new byte[fileInfo.Length];
+
+            using (var fs = fileInfo.OpenRead())
+            {
+                fs.Read(data, 0, data.Length);
+            }
+
+            fileInfo.Delete();
+
+            return data.ToList();
+        }
+
+        [HttpGet(ApiRoutes.Profile.GetRecommendedGames)]
+        [Authorize]
+        public async Task<IEnumerable<GameModelWithImage>> GetRecommendedGames(Guid? userId)
+        {
+            if (userId == null)
+                userId = HttpContext.GetUserId();
+
+            PythonScriptRunner.RunScript("PythonScripts/recommender.py", userId.Value.ToString());
+
+            var lines = System.IO.File.ReadAllLines("list_of_games.txt");
+
+            var recommendedGames = new List<Game>();
+
+            foreach (var line in lines)
+            {
+                var game = await _dataContext.Games
+                    .Include(x => x.CoverGameImage)
+                    .SingleOrDefaultAsync(x => x.Name == line);
+
+                if(game != null)
+                    recommendedGames.Add(game);
+            }
+
+            return recommendedGames.Select(x => new GameModelWithImage
+            {
+                Category = x.GameCategory,
+                Id = x.Id,
+                ImageBytes = x.CoverGameImage.Data.ToList(),
+                Title = x.Name
+            });
         }
     }
 }
