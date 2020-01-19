@@ -66,7 +66,7 @@ def get_game(names):
                 game = game_id_df.Title[r]
                 if game not in games:
                     games.append(game)
-    print(games)
+    return(games)
 
 
 # In[21]:
@@ -82,12 +82,20 @@ data = json.loads(response.text)
 games_list = []
 for games in data['games']:
     games_list.append(games)
-get_game(games_list)
+list_of_games= get_game(games_list)
+
+with open('list_of_games.txt', 'w') as f:
+    for item in list_of_games:
+        f.write("%s\n" % item)
 
 #with open('jsongames.json') as json_file:
 #    data = json.load(json_file)
 #games_list = []
 #for games in data['games']:
 #    games_list.append(games)
-#games_list
-#get_game(games_list)
+
+#list_of_games= get_game(games_list)
+
+#with open('list_of_games.txt', 'w') as f:
+#    for item in list_of_games:
+#        f.write("%s\n" % item)
