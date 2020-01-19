@@ -13,41 +13,41 @@ response = req.get("https://localhost:5001/api/profile/getUserGenres?userId=" + 
 #print(response)
 
 ##Uncomment below function when used with req
-#data = json.loads(response.text)
-#df = pd.DataFrame({
-#'IdUser': data['userId'],
-#'Action': data['genres']['Action'],
-#'Shooter': data['genres']['Shooter'],
-#'Strategy': data['genres']['Strategy'],
-#'Racing': data['genres']['Racing'],
-#'Survival': data['genres']['Survival'],
-#'Adventure': data['genres']['Adventure'],
-#'RPG': data['genres']['RPG'],
-#'Simulation': data['genres']['Simulation'],
-#'Fighting': data['genres']['Fighting'],
-#'Logic': data['genres']['Logic'],
-#'Sports': data['genres']['Sports'],
-#'Arcade': data['genres']['Arcade']
-#}, index=[0])
+data = json.loads(response.text)
+df = pd.DataFrame({
+'IdUser': data['userId'],
+'Action': data['genres']['Action'],
+'Shooter': data['genres']['Shooter'],
+'Strategy': data['genres']['Strategy'],
+'Racing': data['genres']['Racing'],
+'Survival': data['genres']['Survival'],
+'Adventure': data['genres']['Adventure'],
+'RPG': data['genres']['RPG'],
+'Simulation': data['genres']['Simulation'],
+'Fighting': data['genres']['Fighting'],
+'Logic': data['genres']['Logic'],
+'Sports': data['genres']['Sports'],
+'Arcade': data['genres']['Arcade']
+}, index=[0])
 
 ##Comment Below Function when used with req
-with open('example_json.json') as json_file:
-    data = json.load(json_file)
-    df = pd.DataFrame({
-    'IdUser': data['userId'],
-    'Action': data['genres']['Action'],
-    'Shooter': data['genres']['Shooter'],
-    'Strategy': data['genres']['Strategy'],
-    'Racing': data['genres']['Racing'],
-    'Survival': data['genres']['Survival'],
-    'Adventure': data['genres']['Adventure'],
-    'RPG': data['genres']['RPG'],
-    'Simulation': data['genres']['Simulation'],
-    'Fighting': data['genres']['Fighting'],
-    'Logic': data['genres']['Logic'],
-    'Sports': data['genres']['Sports'],
-    'Arcade': data['genres']['Arcade']
-    }, index=[0])
+#with open('example_json.json') as json_file:
+#    data = json.load(json_file)
+#    df = pd.DataFrame({
+#    'IdUser': data['userId'],
+#    'Action': data['genres']['Action'],
+#    'Shooter': data['genres']['Shooter'],
+#    'Strategy': data['genres']['Strategy'],
+#    'Racing': data['genres']['Racing'],
+#    'Survival': data['genres']['Survival'],
+ #   'Adventure': data['genres']['Adventure'],
+ #   'RPG': data['genres']['RPG'],
+  #  'Simulation': data['genres']['Simulation'],
+   # 'Fighting': data['genres']['Fighting'],
+    #'Logic': data['genres']['Logic'],
+    #'Sports': data['genres']['Sports'],
+    #'Arcade': data['genres']['Arcade']
+    #}, index=[0])
 
 # Set data
 # number of variable
