@@ -8,6 +8,9 @@ import pickle as pkl
 from sklearn.neighbors import NearestNeighbors
 from sklearn.decomposition import TruncatedSVD, NMF, LatentDirichletAllocation
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+import requests as req
+import json 
+import sys
 
 
 # In[13]:
@@ -69,6 +72,22 @@ def get_game(names):
 # In[21]:
 
 
-gamess = ['Titanfall 2', 'Battlefield: Bad Company','Battlefield 3']
-get_game(gamess)
+#gamess = ['Titanfall 2', 'Battlefield: Bad Company','Battlefield 3']
+#get_game(gamess)
 
+profile = sys.argv[1]
+response = req.get("https://localhost:5001/api/profile/getUserGamesNames?userId=" + profile)
+
+data = json.loads(response.text)
+games_list = []
+for games in data['games']:
+    games_list.append(games)
+get_game(games_list)
+
+#with open('jsongames.json') as json_file:
+#    data = json.load(json_file)
+#games_list = []
+#for games in data['games']:
+#    games_list.append(games)
+#games_list
+#get_game(games_list)
