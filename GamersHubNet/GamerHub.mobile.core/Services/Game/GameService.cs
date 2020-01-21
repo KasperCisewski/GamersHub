@@ -193,7 +193,7 @@ namespace GamerHub.mobile.core.Services.Game
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetGamesForUser)
+            var request = new RestRequest(ApiRoutes.Profile.GetRecommendedGames)
             {
                 Method = Method.GET
             };

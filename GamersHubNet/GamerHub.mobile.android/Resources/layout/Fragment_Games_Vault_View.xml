@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/shared_menu_toolbar"
         android:text="@string/profile_vault_games_list_heatmap"
-        local:MvxBind="Click GoToFriendSearchCommand"/>
+        local:MvxBind="Click GoToHeatMapCommand"/>
     <include
         android:id="@+id/shared_menu_toolbar"
         layout="@layout/fragment_shared_menu"/>

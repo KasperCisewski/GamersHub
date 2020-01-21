@@ -82,4 +82,4 @@ ax.set_facecolor('purple')
 
 # Fill area
 ax.fill(angles, values, 'b', alpha=0.0)
-plt.savefig('heatplot.png', transparent=False)
+plt.savefig('heatplot.png', transparent=True)

@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:local="http://schemas.android.com/apk/res-auto"
-  android:orientation="vertical"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content">
-  <include
-    android:id="@+id/shared_back_button"
-    layout="@layout/shared_back_button"/>
-  <ImageView
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_vertical|center_horizontal"
-    android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true"
-    local:MvxBind="Bitmap HeatMapBitmap"/>
-</LinearLayout>
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/shared_back_button"
+        layout="@layout/shared_back_button"/>
+    <TextView
+        android:id="@+id/title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="55dp"
+        android:layout_marginTop="12dp"
+        android:layout_margin="4dp"
+        android:text="Heatmap"/>
+    <TextView
+        android:id="@+id/description_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_text_view"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:minLines="3"
+        android:layout_marginTop="12dp"
+        android:layout_margin="4dp"
+        android:textColor="#FF0000"
+        android:text="Based on the games you have in your vault, We prepared heatmap of games you like"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_centerVertical="true"
+        android:alpha="50"
+        android:layout_centerHorizontal="true"
+        local:MvxBind="Bitmap HeatMapBitmap"/>
+</RelativeLayout>
