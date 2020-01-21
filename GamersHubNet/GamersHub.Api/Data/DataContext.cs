@@ -21,6 +21,8 @@ namespace GamersHub.Api.Data
         public DbSet<GameOffer> GameOffers { get; set; }
         public DbSet<GameImage> GameImages { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
+        public DbSet<GeneratedHeatmap> GeneratedHeatMaps { get; set; }
+        public DbSet<GamesRecommendation> GamesRecommendations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
