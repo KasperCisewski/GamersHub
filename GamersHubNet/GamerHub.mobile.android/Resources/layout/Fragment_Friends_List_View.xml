@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:fillViewport="true"
         android:id="@+id/friend_list_recycler_view"
-        android:layout_below="@id/wishlist_text_view"
+        android:layout_below="@id/friends_text_view"
         android:scrollbars="vertical"
         local:MvxItemTemplate="@layout/fragment_friends_list_row_view"
         local:MvxBind="ItemsSource FriendsList; ItemClick ShowFriendCommand" />

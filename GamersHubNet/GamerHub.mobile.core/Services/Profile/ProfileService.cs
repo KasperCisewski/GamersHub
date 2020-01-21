@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using GamerHub.mobile.core.Services.Http.Factory;
 using GamersHub.Shared.Api;
@@ -124,9 +125,9 @@ namespace GamerHub.mobile.core.Services.Profile
                 UserId = userId
             });
 
-            var response = await client.ExecuteAsync<bool>(request);
+            var response = await client.ExecuteAsync(request);
 
-            return response.ResponseData;
+            return response.StatusCode == HttpStatusCode.OK;
         }
 
         public async Task<bool> AddFriendToFriendList(Guid userId)
@@ -143,9 +144,9 @@ namespace GamerHub.mobile.core.Services.Profile
                 UserId = userId
             });
 
-            var response = await client.ExecuteAsync<bool>(request);
+            var response = await client.ExecuteAsync(request);
 
-            return response.ResponseData;
+            return response.StatusCode == HttpStatusCode.OK;
         }
     }
 }
