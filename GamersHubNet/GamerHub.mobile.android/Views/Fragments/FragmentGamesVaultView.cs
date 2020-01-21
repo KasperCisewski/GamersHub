@@ -30,9 +30,15 @@ namespace GamerHub.mobile.android.Views.Fragments
             recyclerView.SetLayoutManager(layoutManager);
 
             SetFontForView<TextView>(view, Resource.Id.vault_text_view);
-            SetFontForView<Button>(view,Resource.Id.search_friend_button);
+            SetFontForView<Button>(view, Resource.Id.search_friend_button);
 
             return view;
+        }
+
+        public override async void OnResume()
+        {
+            base.OnResume();
+            await ViewModel.FillGamesVault();
         }
     }
 }

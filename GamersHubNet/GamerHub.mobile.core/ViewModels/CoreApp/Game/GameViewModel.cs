@@ -53,7 +53,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             if (result)
             {
                 UserHasGameOnWishList = true;
-                NotificationService.Notify("Add game to wish list");
+                NotificationService.Notify("Added game to wish list");
             }
             else
             {
@@ -68,7 +68,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             if (result)
             {
                 UserHasGameInVault = true;
-                NotificationService.Notify("Add game to vault");
+                NotificationService.Notify("Added game to vault");
             }
             else
             {
@@ -83,7 +83,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             if (result)
             {
                 UserHasGameInVault = false;
-                NotificationService.Notify("Delete game from vault");
+                NotificationService.Notify("Deleted game from vault");
             }
             else
             {
@@ -98,7 +98,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             if (result)
             {
                 UserHasGameOnWishList = false;
-                NotificationService.Notify("Delete game from wish list");
+                NotificationService.Notify("Deleted game from wish list");
             }
             else
             {

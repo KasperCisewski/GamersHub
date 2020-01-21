@@ -3,6 +3,7 @@ using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.Game;
+using MvvmCross.ViewModels;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.GamesVault
 {
@@ -22,8 +23,10 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.GamesVault
             UserId = IsOtherUserProfile ? parameter.UserId : null;
         }
 
-        public override async Task Initialize()
+        public async Task FillGamesVault()
         {
+            GamesList = new MvxObservableCollection<GameWithImageRowModel>();
+
             var gamesInVault = await _profileService.GetGamesInVault(_userId);
 
             foreach (var game in gamesInVault)

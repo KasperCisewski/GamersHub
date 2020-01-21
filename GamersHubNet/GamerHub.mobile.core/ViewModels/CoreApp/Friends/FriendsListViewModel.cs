@@ -4,6 +4,7 @@ using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.Services.Resource;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.Profile;
+using MvvmCross.ViewModels;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
 {
@@ -20,8 +21,9 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
             _resourceService = resourceService;
         }
 
-        public override async Task Initialize()
+        public async Task FillFriendsList()
         {
+            FriendsList = new MvxObservableCollection<UserProfileModel>();
             var userFriends = await _profileService.GetUserFriends();
 
             foreach (var friendModel in userFriends)

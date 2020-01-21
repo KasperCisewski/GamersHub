@@ -32,5 +32,11 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             return view;
         }
+
+        public override async void OnResume()
+        {
+            base.OnResume();
+            await ViewModel.FillGamesVault();
+        }
     }
 }
