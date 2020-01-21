@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
+using GamersHub.Shared.Contracts.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,7 +23,7 @@ namespace GamersHub.Api.Controllers
 
         [HttpPost(ApiRoutes.Games.AddGameToWishList)]
         [Authorize]
-        public async Task<IActionResult> AddGame(Guid gameId)
+        public async Task<IActionResult> AddGame([FromBody] AddGameVaultOrWishListRequest request)
         {
             var userId = HttpContext.GetUserId();
 
@@ -36,14 +37,14 @@ namespace GamersHub.Api.Controllers
             }
 
             var game = await _dataContext.Games
-                .SingleOrDefaultAsync(x => x.Id == gameId);
+                .SingleOrDefaultAsync(x => x.Id == request.GameId);
 
             if (game == null)
             {
                 return BadRequest("No game with given id found");
             }
 
-            if (user.WishList.Any(x => x.GameId == gameId))
+            if (user.WishList.Any(x => x.GameId == request.GameId))
             {
                 return BadRequest("Game already on the wishlist");
             }
@@ -55,6 +56,35 @@ namespace GamersHub.Api.Controllers
             };
 
             user.WishList.Add(wishListEntry);
+
+            await _dataContext.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpDelete(ApiRoutes.Games.DeleteGameFromWishList)]
+        [Authorize]
+        public async Task<IActionResult> DeleteGameFromVault(DeleteGameRequest request)
+        {
+            var userId = HttpContext.GetUserId();
+
+            var user = await _dataContext.Users
+                .Include(x => x.WishList)
+                .SingleOrDefaultAsync(x => x.Id == userId);
+
+            if (user == null)
+            {
+                return BadRequest("No user with given id found");
+            }
+
+            if (user.WishList.All(x => x.GameId != request.GameId))
+            {
+                return BadRequest("User does not have this game in vault");
+            }
+
+            var userGame = user.WishList.SingleOrDefault(x => x.GameId == request.GameId);
+
+            user.WishList.Remove(userGame);
 
             await _dataContext.SaveChangesAsync();
 
