@@ -4,14 +4,16 @@ using GamersHub.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GamersHub.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200121103051_AddCachingRecommendedGames")]
+    partial class AddCachingRecommendedGames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,6 +49,9 @@ namespace GamersHub.Api.Migrations
                     b.Property<int>("GameCategory")
                         .HasColumnType("int");
 
+                    b.Property<Guid?>("GamesRecommendationId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(200)")
@@ -61,6 +66,8 @@ namespace GamersHub.Api.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CoverGameImageId");
+
+                    b.HasIndex("GamesRecommendationId");
 
                     b.ToTable("Games");
                 });
@@ -243,27 +250,6 @@ namespace GamersHub.Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Metatags");
-                });
-
-            modelBuilder.Entity("GamersHub.Api.Domain.RecommendationEntry", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("GamesRecommendationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameId");
-
-                    b.HasIndex("GamesRecommendationId");
-
-                    b.ToTable("RecommendationEntry");
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.RefreshToken", b =>
@@ -482,6 +468,10 @@ namespace GamersHub.Api.Migrations
                     b.HasOne("GamersHub.Api.Domain.GameImage", "CoverGameImage")
                         .WithMany()
                         .HasForeignKey("CoverGameImageId");
+
+                    b.HasOne("GamersHub.Api.Domain.GamesRecommendation", null)
+                        .WithMany("RecommendedGames")
+                        .HasForeignKey("GamesRecommendationId");
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.GameImage", b =>
@@ -504,19 +494,6 @@ namespace GamersHub.Api.Migrations
                         .HasForeignKey("StoreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("GamersHub.Api.Domain.RecommendationEntry", b =>
-                {
-                    b.HasOne("GamersHub.Api.Domain.Game", "Game")
-                        .WithMany()
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GamersHub.Api.Domain.GamesRecommendation", null)
-                        .WithMany("RecommendedGames")
-                        .HasForeignKey("GamesRecommendationId");
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.RefreshToken", b =>

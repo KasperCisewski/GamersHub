@@ -4,14 +4,16 @@ using GamersHub.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GamersHub.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200121104530_FixCachingRecommendation")]
+    partial class FixCachingRecommendation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,21 +249,18 @@ namespace GamersHub.Api.Migrations
 
             modelBuilder.Entity("GamersHub.Api.Domain.RecommendationEntry", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("GameId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("GamesRecommendationId")
+                    b.Property<Guid>("GamesRecommendationId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.Property<Guid>("GameId1")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasIndex("GameId");
+                    b.HasKey("GameId", "GamesRecommendationId");
 
-                    b.HasIndex("GamesRecommendationId");
+                    b.HasIndex("GameId1");
 
                     b.ToTable("RecommendationEntry");
                 });
@@ -508,15 +507,17 @@ namespace GamersHub.Api.Migrations
 
             modelBuilder.Entity("GamersHub.Api.Domain.RecommendationEntry", b =>
                 {
-                    b.HasOne("GamersHub.Api.Domain.Game", "Game")
-                        .WithMany()
+                    b.HasOne("GamersHub.Api.Domain.GamesRecommendation", "GamesRecommendation")
+                        .WithMany("RecommendedGames")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GamersHub.Api.Domain.GamesRecommendation", null)
-                        .WithMany("RecommendedGames")
-                        .HasForeignKey("GamesRecommendationId");
+                    b.HasOne("GamersHub.Api.Domain.Game", "Game")
+                        .WithMany()
+                        .HasForeignKey("GameId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.RefreshToken", b =>

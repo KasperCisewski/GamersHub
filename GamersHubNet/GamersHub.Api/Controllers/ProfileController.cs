@@ -223,10 +223,19 @@ namespace GamersHub.Api.Controllers
 
         [HttpGet(ApiRoutes.Profile.GetHeatMap)]
         [Authorize]
-        public List<byte> GetHeatMap(Guid? userId)
+        public async Task<List<byte>> GetHeatMap(Guid? userId)
         {
             if (userId == null)
                 userId = HttpContext.GetUserId();
+
+            var existingActualHeatMap = await _dataContext.GeneratedHeatMaps
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.UserId == userId.Value && x.GeneratedAt > DateTime.Now.AddDays(-1));
+
+            if (existingActualHeatMap != null)
+            {
+                return existingActualHeatMap.HeatMap.ToList();
+            }
 
             PythonScriptRunner.RunScript("PythonScripts/heatmap.py", userId.Value.ToString());
 
@@ -234,12 +243,17 @@ namespace GamersHub.Api.Controllers
 
             var data = new byte[fileInfo.Length];
 
-            using (var fs = fileInfo.OpenRead())
+            await using (var fs = fileInfo.OpenRead())
             {
                 fs.Read(data, 0, data.Length);
             }
 
             fileInfo.Delete();
+
+            _dataContext.GeneratedHeatMaps.Add(new GeneratedHeatmap
+                {HeatMap = data, UserId = userId.Value, GeneratedAt = DateTime.Now});
+
+            await _dataContext.SaveChangesAsync();
 
             return data.ToList();
         }
@@ -250,6 +264,29 @@ namespace GamersHub.Api.Controllers
         {
             if (userId == null)
                 userId = HttpContext.GetUserId();
+
+            var yesterday = DateTime.Now.AddDays(-1);
+            var existingActualRecommendation = await _dataContext.GamesRecommendations
+                .AsNoTracking()
+                .Include(x => x.RecommendedGames)
+                .FirstOrDefaultAsync(x => x.UserId == userId.Value && x.GeneratedAt > yesterday);
+
+            if (existingActualRecommendation != null)
+            {
+                var recommendedGamesIds = existingActualRecommendation.RecommendedGames.Select(x => x.GameId);
+                var games = await _dataContext.Games
+                    .Include(x => x.CoverGameImage)
+                    .Where(x => recommendedGamesIds.Contains(x.Id))
+                    .ToListAsync();
+
+                return games.Select(x => new GameModelWithImage
+                {
+                    Category = x.GameCategory,
+                    Id = x.Id,
+                    ImageBytes = x.CoverGameImage.Data.ToList(),
+                    Title = x.Name
+                }); ;
+            }
 
             PythonScriptRunner.RunScript("PythonScripts/recommender.py", userId.Value.ToString());
 
@@ -266,6 +303,17 @@ namespace GamersHub.Api.Controllers
                 if(game != null)
                     recommendedGames.Add(game);
             }
+
+            var gamesRecommendation = new GamesRecommendation
+            {
+                GeneratedAt = DateTime.Now,
+                UserId = userId.Value,
+                RecommendedGames = recommendedGames
+                    .Select(x => new RecommendationEntry {Game = x}).ToList()
+            };
+
+            _dataContext.GamesRecommendations.Add(gamesRecommendation);
+            await _dataContext.SaveChangesAsync();
 
             return recommendedGames.Select(x => new GameModelWithImage
             {
