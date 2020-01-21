@@ -39,7 +39,6 @@ namespace GamersHub.Api
             app.UseSwagger(option => option.RouteTemplate = swaggerOptions.JsonRoute);
             app.UseSwaggerUI(option => option.SwaggerEndpoint(swaggerOptions.UIEndpoint, swaggerOptions.Description));
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseAuthentication();

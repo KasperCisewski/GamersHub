@@ -343,4 +343,4 @@ healthchecksdb
 WebScraping\PhotosScrapper\images/
 /GamersHubNet/GamersHub.Api/PythonScripts/train_data_reviews.pkl
 /GamersHubNet/GamersHub.Api/PythonScripts/game_id_df.pkl
-/GamersHubNet/GamersHub.Api/list_of_games.txt
+*.txt

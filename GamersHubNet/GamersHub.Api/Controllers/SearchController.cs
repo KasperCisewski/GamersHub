@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GamersHub.Api.Extensions;
 using GamersHub.Shared.Contracts.Requests;
 
 namespace GamersHub.Api.Controllers
@@ -65,7 +66,7 @@ namespace GamersHub.Api.Controllers
         [HttpGet(ApiRoutes.Profile.SearchUsers)]
         public async Task<IEnumerable<UserProfile>> SearchUsers([FromQuery] SearchFriendsRequest searchFriendsRequest)
         {
-            return await _dataContext.Users
+            var users = await _dataContext.Users
                 .AsNoTracking()
                 .Where(x => x.UserName.Contains(searchFriendsRequest.SearchUserNameText))
                 .Skip(searchFriendsRequest.Skip)
@@ -74,8 +75,18 @@ namespace GamersHub.Api.Controllers
                 {
                     Id = x.Id,
                     ProfileImageContent = null,
-                    UserName = x.UserName
+                    UserName = x.UserName,
                 }).ToListAsync();
+
+            var currentUserId = HttpContext.GetUserId();
+
+            foreach (var user in users)
+            {
+                user.IsUserFriend = await _dataContext.Friendships
+                    .AnyAsync(x => x.CurrentUserId == currentUserId && x.FriendId == user.Id);
+            }
+
+            return users;
         }
     }
 }

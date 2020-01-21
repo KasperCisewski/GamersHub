@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiRoutes.cs" />
+    <Compile Include="Contracts\Requests\AddDeleteFromFriendListRequest.cs" />
     <Compile Include="Contracts\Requests\AddGameImageRequest.cs" />
     <Compile Include="Contracts\Requests\AddGameVaultOrWishListRequest.cs" />
     <Compile Include="Contracts\Requests\Base\BasePagingListRequest.cs" />

@@ -64,7 +64,7 @@ namespace GamersHub.Api.Controllers
 
         [HttpDelete(ApiRoutes.Games.DeleteGameFromVault)]
         [Authorize]
-        public async Task<IActionResult> DeleteGameFromVault(DeleteGameRequest request)
+        public async Task<IActionResult> DeleteGameFromVault([FromBody] DeleteGameRequest request)
         {
             var userId = HttpContext.GetUserId();
 

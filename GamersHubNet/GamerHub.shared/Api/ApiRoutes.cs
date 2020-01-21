@@ -49,8 +49,10 @@
             public const string SearchUsers = Root + "/profile/searchUsers";
             public const string GetGamesInVault = Root + "/profile/getGamesInVault";
             public const string GetWishListGames = Root + "/profile/getWishListGames";
-            //TODO Marcel ma to zrobić, jakiś jego model stworzyć obrazek
+            public const string GetUserGenres = Root + "/profile/getUserGenres";
+            public const string GetUserGamesNames = Root + "/profile/getUserGamesNames";
             public const string GetHeatMap = Root + "/profile/getHeatMap";
+            public const string GetRecommendedGames = Root + "/profile/getRecommendedGames";
             public const string AddToFriendList = Root + "/profile/addToFriendList";
             public const string DeleteFromFriendList = Root + "/profile/deleteFriendFromFriendList";
         }
