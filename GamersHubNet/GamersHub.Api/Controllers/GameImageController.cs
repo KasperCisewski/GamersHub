@@ -21,7 +21,7 @@ namespace GamersHub.Api.Controllers
 
         [HttpPost(ApiRoutes.GameImages.AddGameImage)]
         [Authorize]
-        public async Task<IActionResult> AddGameImage(AddGameImageRequest request)
+        public async Task<IActionResult> AddGameImage([FromBody] AddGameImageRequest request)
         {
             if (request.Image == null || request.Image.Length == 0)
             {

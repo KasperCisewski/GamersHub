@@ -10,6 +10,7 @@ using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.PythonScripts;
 using GamersHub.Shared.Api;
+using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using GamersHub.Shared.Data.Enums;
 using GamersHub.Shared.Model;
@@ -176,17 +177,17 @@ namespace GamersHub.Api.Controllers
 
         [HttpPost(ApiRoutes.Profile.AddToFriendList)]
         [Authorize]
-        public async Task<IActionResult> AddToFriendList(Guid userId)
+        public async Task<IActionResult> AddToFriendList([FromBody] AddDeleteFromFriendListRequest request)
         {
             var currentUserId = HttpContext.GetUserId();
 
-            var userExists = await _dataContext.Users.AnyAsync(x => x.Id == userId);
+            var userExists = await _dataContext.Users.AnyAsync(x => x.Id == request.UserId);
 
             if (!userExists)
                 return BadRequest("User with given id does not exist");
 
-            var friendship = new Friendship { CurrentUserId = currentUserId, FriendId = userId };
-            var friendshipReversed = new Friendship { CurrentUserId = userId, FriendId = currentUserId };
+            var friendship = new Friendship { CurrentUserId = currentUserId, FriendId = request.UserId };
+            var friendshipReversed = new Friendship { CurrentUserId = request.UserId, FriendId = currentUserId };
 
             _dataContext.Friendships.Add(friendship);
             _dataContext.Friendships.Add(friendshipReversed);
@@ -198,19 +199,19 @@ namespace GamersHub.Api.Controllers
 
         [HttpDelete(ApiRoutes.Profile.DeleteFromFriendList)]
         [Authorize]
-        public async Task<IActionResult> DeleteFromFriendList(Guid userId)
+        public async Task<IActionResult> DeleteFromFriendList([FromBody] AddDeleteFromFriendListRequest request)
         {
             var currentUserId = HttpContext.GetUserId();
 
-            var userExists = await _dataContext.Users.AnyAsync(x => x.Id == userId);
+            var userExists = await _dataContext.Users.AnyAsync(x => x.Id == request.UserId);
 
             if (!userExists)
                 return BadRequest("User with given id does not exist");
 
             var friendship = await _dataContext.Friendships
-                .SingleOrDefaultAsync(x => x.CurrentUserId == currentUserId && x.FriendId == userId);
+                .SingleOrDefaultAsync(x => x.CurrentUserId == currentUserId && x.FriendId == request.UserId);
             var friendshipReversed = await _dataContext.Friendships
-                .SingleOrDefaultAsync(x => x.CurrentUserId == userId && x.FriendId == currentUserId);
+                .SingleOrDefaultAsync(x => x.CurrentUserId == request.UserId && x.FriendId == currentUserId);
 
             _dataContext.Friendships.Remove(friendship);
             _dataContext.Friendships.Remove(friendshipReversed);
