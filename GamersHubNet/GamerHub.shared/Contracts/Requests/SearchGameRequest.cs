@@ -1,6 +1,6 @@
 ﻿using GamersHub.Shared.Contracts.Requests.Base;
 
-namespace GamerHub.shared.Contracts.Requests
+namespace GamersHub.Shared.Contracts.Requests
 {
     public class SearchGameRequest : BasePagingListRequest
     {

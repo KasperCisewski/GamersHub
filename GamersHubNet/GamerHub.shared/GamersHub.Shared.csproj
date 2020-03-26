@@ -108,20 +108,20 @@
     <Compile Include="Contracts\Requests\DeleteGameRequest.cs" />
     <Compile Include="Contracts\Requests\GameCategoryRequest.cs" />
     <Compile Include="Contracts\Requests\SearchFriendsRequest.cs" />
-    <Compile Include="Contracts\Responses\FullDescriptionGameModel.cs" />
-    <Compile Include="Contracts\Responses\PriceModel.cs" />
-    <Compile Include="Contracts\Responses\ScreenShotModel.cs" />
-    <Compile Include="Contracts\Responses\UserProfile.cs" />
-    <Compile Include="Data\Enums\GameCategory.cs" />
-    <Compile Include="Data\Enums\HomeGamesCategory.cs" />
-    <Compile Include="Model\GameModel.cs" />
+    <Compile Include="Contracts\Responses\FullGameDescriptionResponse.cs" />
+    <Compile Include="Contracts\Responses\GameOfferResponse.cs" />
+    <Compile Include="Contracts\Responses\ScreenShotResponse.cs" />
+    <Compile Include="Contracts\Responses\UserProfileResponse.cs" />
+    <Compile Include="Enums\GameCategory.cs" />
+    <Compile Include="Enums\HomeGamesCategory.cs" />
+    <Compile Include="Contracts\Responses\GameResponse.cs" />
     <Compile Include="Contracts\Requests\RefreshTokenRequest.cs" />
     <Compile Include="Contracts\Requests\SearchGameRequest.cs" />
     <Compile Include="Contracts\Requests\UserLoginRequest.cs" />
     <Compile Include="Contracts\Requests\UserRegistrationRequest.cs" />
     <Compile Include="Contracts\Responses\AuthFailureResponse.cs" />
     <Compile Include="Contracts\Responses\AuthSuccessResponse.cs" />
-    <Compile Include="Contracts\Responses\GameModelWithImage.cs" />
+    <Compile Include="Contracts\Responses\GameWithImageResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
