@@ -35,7 +35,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest("There is no game with given id");
             }
 
-            var screenShotModels = game.GameImages.Select(x => new ScreenShotModel { ImageContent = x.Data.ToList() });
+            var screenShotModels = game.GameImages.Select(x => new ScreenShotResponse { ImageContent = x.Data.ToList() });
 
             return Ok(screenShotModels);
         }
@@ -56,7 +56,7 @@ namespace GamersHub.Api.Controllers
 
             // TODO
 
-            //var priceModels = game.GameOffers.Select(x => new PriceModel
+            //var priceModels = game.GameOffers.Select(x => new GameOfferResponse
             //{
             //    CoverImage = game.CoverGameImage.Data.ToList(),
             //    Description = game.Description,
@@ -65,10 +65,10 @@ namespace GamersHub.Api.Controllers
             //    ShopName = x.Store.Name
             //});
 
-            var priceModels = new List<PriceModel>
+            var priceModels = new List<GameOfferResponse>
             {
-                new PriceModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = "Standard edition", OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
-                new PriceModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = "Exclusive edition", OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
+                new GameOfferResponse {CoverImage = game.CoverGameImage.Data.ToList(), Description = "Standard edition", OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
+                new GameOfferResponse {CoverImage = game.CoverGameImage.Data.ToList(), Description = "Exclusive edition", OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
             };
 
             return Ok(priceModels);
@@ -90,7 +90,7 @@ namespace GamersHub.Api.Controllers
         }
 
         [HttpGet(ApiRoutes.Games.GetGamesForHomeScreen)]
-        public async Task<IEnumerable<GameModelWithImage>> GetHomeScreenGames(HomeGamesCategory homeGamesCategory)
+        public async Task<IEnumerable<GameWithImageResponse>> GetHomeScreenGames(HomeGamesCategory homeGamesCategory)
         {
             // TODO: better way of selecting games for home screen
 
@@ -119,7 +119,7 @@ namespace GamersHub.Api.Controllers
                 _ => new List<Game>()
             };
 
-            return games.Select(x => new GameModelWithImage
+            return games.Select(x => new GameWithImageResponse
             {
                 Id = x.Id,
                 Category = x.GameCategory,
@@ -149,7 +149,7 @@ namespace GamersHub.Api.Controllers
                     .SingleOrDefaultAsync(x => x.Id == userId)
                 : null;
 
-            var model = new FullDescriptionGameModel
+            var model = new FullGameDescriptionResponse
             {
                 Description = game.Description,
                 GeneralImage = game.CoverGameImage.Data.ToList(),

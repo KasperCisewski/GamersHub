@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using GamersHub.Shared.Model;
 
 namespace GamersHub.Shared.Contracts.Responses
 {
-    public class GameModelWithImage : GameModel
+    public class GameWithImageResponse : GameResponse
     {
         public List<byte> ImageBytes { get; set; }
     }

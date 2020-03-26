@@ -1,5 +1,4 @@
-﻿using GamerHub.shared.Contracts.Requests;
-using GamersHub.Api.Data;
+﻿using GamersHub.Api.Data;
 using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +21,7 @@ namespace GamersHub.Api.Controllers
         }
 
         [HttpGet(ApiRoutes.Search.SearchGames)]
-        public async Task<IEnumerable<GameModelWithImage>> SearchGames([FromQuery] SearchGameRequest searchGameRequest)
+        public async Task<IEnumerable<GameWithImageResponse>> SearchGames([FromQuery] SearchGameRequest searchGameRequest)
         {
             var games = await _dataContext.Games
                 .AsNoTracking()
@@ -33,7 +32,7 @@ namespace GamersHub.Api.Controllers
                 .Take(searchGameRequest.Take == default ? 10 : searchGameRequest.Take)
                 .ToArrayAsync();
 
-            return games.Select(x => new GameModelWithImage
+            return games.Select(x => new GameWithImageResponse
             {
                 Id = x.Id,
                 Category = x.GameCategory,
@@ -44,7 +43,7 @@ namespace GamersHub.Api.Controllers
 
 
         [HttpGet(ApiRoutes.Games.GetGamesByCategory)]
-        public async Task<IEnumerable<GameModelWithImage>> GetGames([FromQuery] GameCategoryRequest gameCategoryRequest)
+        public async Task<IEnumerable<GameWithImageResponse>> GetGames([FromQuery] GameCategoryRequest gameCategoryRequest)
         {
             var games = await _dataContext.Games
                 .AsNoTracking()
@@ -54,7 +53,7 @@ namespace GamersHub.Api.Controllers
                 .Take(gameCategoryRequest.Take == default ? 10 : gameCategoryRequest.Take)
                 .ToArrayAsync();
 
-            return games.Select(x => new GameModelWithImage
+            return games.Select(x => new GameWithImageResponse
             {
                 Id = x.Id,
                 Category = x.GameCategory,
@@ -64,14 +63,14 @@ namespace GamersHub.Api.Controllers
         }
 
         [HttpGet(ApiRoutes.Profile.SearchUsers)]
-        public async Task<IEnumerable<UserProfile>> SearchUsers([FromQuery] SearchFriendsRequest searchFriendsRequest)
+        public async Task<IEnumerable<UserProfileResponse>> SearchUsers([FromQuery] SearchFriendsRequest searchFriendsRequest)
         {
             var users = await _dataContext.Users
                 .AsNoTracking()
                 .Where(x => x.UserName.Contains(searchFriendsRequest.SearchUserNameText))
                 .Skip(searchFriendsRequest.Skip)
                 .Take(searchFriendsRequest.Take == default ? 10 : searchFriendsRequest.Take)
-                .Select(x => new UserProfile
+                .Select(x => new UserProfileResponse
                 {
                     Id = x.Id,
                     ProfileImageContent = null,

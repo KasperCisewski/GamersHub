@@ -5,7 +5,7 @@ using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Services.Search;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.Game;
-using GamerHub.shared.Contracts.Requests;
+using GamersHub.Shared.Contracts.Requests;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Search
 {
