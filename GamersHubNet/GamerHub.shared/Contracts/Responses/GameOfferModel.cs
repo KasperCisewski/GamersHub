@@ -2,7 +2,7 @@
 
 namespace GamersHub.Shared.Contracts.Responses
 {
-    public class PriceModel
+    public class GameOfferModel
     {
         public List<byte> CoverImage { get; set; }
         public string OfferUrl { get; set; }
