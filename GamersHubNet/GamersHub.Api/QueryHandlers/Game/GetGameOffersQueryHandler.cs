@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.Queries;
+using GamersHub.Api.Queries.Game;
 using GamersHub.Api.ValidationRules;
 using GamersHub.Shared.Contracts.Responses;
 using Gybs;
@@ -14,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.QueryHandlers
 {
-    internal class GetGameOffersQueryHandler : IQueryHandler<GetGameOffersQuery, IReadOnlyCollection<GameOfferModel>>
+    internal class GetGameOffersQueryHandler : IQueryHandler<GetGameOffersQuery, IReadOnlyCollection<GameOfferResponse>>
     {
         private readonly DataContext _dataContext;
         private readonly IValidator _validator;
@@ -27,13 +28,13 @@ namespace GamersHub.Api.QueryHandlers
             _dataContext = dataContext;
         }
 
-        public async Task<IResult<IReadOnlyCollection<GameOfferModel>>> HandleAsync(GetGameOffersQuery query)
+        public async Task<IResult<IReadOnlyCollection<GameOfferResponse>>> HandleAsync(GetGameOffersQuery query)
         {
             var validationResult = await IsValidAsync(query);
 
             if (validationResult.HasFailed())
             {
-                return validationResult.Map<IReadOnlyCollection<GameOfferModel>>();
+                return validationResult.Map<IReadOnlyCollection<GameOfferResponse>>();
             }
 
             var game = await _dataContext.Games
@@ -43,10 +44,10 @@ namespace GamersHub.Api.QueryHandlers
                 .FirstOrDefaultAsync(x => x.Id == query.GameId);
 
             // TODO implement fetching real offers
-            var gameOffers = new List<GameOfferModel>
+            var gameOffers = new List<GameOfferResponse>
             {
-                new GameOfferModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = "Standard edition", OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
-                new GameOfferModel {CoverImage = game.CoverGameImage.Data.ToList(), Description = "Exclusive edition", OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
+                new GameOfferResponse {CoverImage = game.CoverGameImage.Data.ToList(), Description = "Standard edition", OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 102.50M, ShopName = "Green man gaming" },
+                new GameOfferResponse {CoverImage = game.CoverGameImage.Data.ToList(), Description = "Exclusive edition", OfferUrl = "https://www.greenmangaming.com/games/world-of-final-fantasy-pc/", Price = 12.50M, ShopName = "Green man gaming" },
             };
 
             return gameOffers.ToSuccessfulResult();

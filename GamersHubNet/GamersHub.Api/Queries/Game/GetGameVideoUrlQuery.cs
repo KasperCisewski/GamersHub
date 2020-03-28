@@ -1,7 +1,7 @@
 ﻿using System;
 using Gybs.Logic.Cqrs;
 
-namespace GamersHub.Api.Queries
+namespace GamersHub.Api.Queries.Game
 {
     public class GetGameVideoUrlQuery : IQuery<string>
     {

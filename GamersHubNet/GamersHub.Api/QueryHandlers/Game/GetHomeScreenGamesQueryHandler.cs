@@ -5,6 +5,7 @@ using GamersHub.Api.Data;
 using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.Queries;
+using GamersHub.Api.Queries.Game;
 using GamersHub.Shared.Contracts.Responses;
 using GamersHub.Shared.Data.Enums;
 using Gybs;
@@ -15,7 +16,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.QueryHandlers
 {
-    internal class GetHomeScreenGamesQueryHandler : IQueryHandler<GetHomeScreenGamesQuery, IReadOnlyCollection<GameModelWithImage>>
+    internal class GetHomeScreenGamesQueryHandler : IQueryHandler<GetHomeScreenGamesQuery, IReadOnlyCollection<GameWithImageResponse>>
     {
         private readonly DataContext _dataContext;
         private readonly IValidator _validator;
@@ -28,13 +29,13 @@ namespace GamersHub.Api.QueryHandlers
             _dataContext = dataContext;
         }
 
-        public async Task<IResult<IReadOnlyCollection<GameModelWithImage>>> HandleAsync(GetHomeScreenGamesQuery query)
+        public async Task<IResult<IReadOnlyCollection<GameWithImageResponse>>> HandleAsync(GetHomeScreenGamesQuery query)
         {
             var validationResult = await IsValidAsync(query);
 
             if (validationResult.HasFailed())
             {
-                return validationResult.Map<IReadOnlyCollection<GameModelWithImage>>();
+                return validationResult.Map<IReadOnlyCollection<GameWithImageResponse>>();
             }
 
             var games = query.HomeGamesCategory switch
@@ -63,7 +64,7 @@ namespace GamersHub.Api.QueryHandlers
             };
 
             return games
-                .Select(x => new GameModelWithImage
+                .Select(x => new GameWithImageResponse
                 {
                     Id = x.Id,
                     Category = x.GameCategory,

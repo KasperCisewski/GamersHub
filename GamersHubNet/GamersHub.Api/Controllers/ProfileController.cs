@@ -1,325 +1,206 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using GamersHub.Api.Data;
+using GamersHub.Api.Commands;
 using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.PythonScripts;
+using GamersHub.Api.Queries.Profile;
 using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
-using GamersHub.Shared.Data.Enums;
+using Gybs.Logic.Operations.Factory;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.Controllers
 {
     public class ProfileController : Controller
     {
-        private readonly DataContext _dataContext;
+        private readonly IOperationFactory _operationFactory;
 
-        public ProfileController(DataContext dataContext)
+        public ProfileController(IOperationFactory operationFactory)
         {
-            _dataContext = dataContext;
+            _operationFactory = operationFactory;
         }
 
-        [HttpGet(ApiRoutes.Profile.GetUserProfileInformation)]
+        [HttpGet(ApiRoutes.Profile.ProfileRoot)]
         [Authorize]
-        public async Task<UserProfileResponse> GetUserProfile(Guid? userId)
+        public async Task<IActionResult> GetUserProfile(Guid? userId)
         {
-            var currentUserId = HttpContext.GetUserId();
-            if (userId == null)
-                userId = currentUserId;
-
-            var user = await _dataContext.Users.FindAsync(userId);
-
-            var isFriend = await _dataContext.Friendships
-                .AnyAsync(x => x.CurrentUserId == currentUserId && x.FriendId == userId);
-
-            return new UserProfileResponse
+            var result = await _operationFactory.Create<GetUserProfileQuery>(x =>
             {
-                Id = user.Id,
-                UserName = user.UserName,
-                //TODO 
-                ProfileImageContent = null,
-                IsUserFriend = isFriend
-            };
+                x.UserId = userId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
 
         [HttpGet(ApiRoutes.Profile.GetUserFriends)]
         [Authorize]
-        public async Task<IEnumerable<UserProfileResponse>> GetUserFriends(Guid? userId)
+        public async Task<IActionResult> GetUserFriends(Guid? userId)
         {
-            if (userId == null)
-                userId = HttpContext.GetUserId();
+            var result = await _operationFactory.Create<GetUserFriendsQuery>(x =>
+            {
+                x.UserId = userId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
 
-            var friendIds = _dataContext.Friendships
-                .AsNoTracking()
-                .Where(x => x.CurrentUserId == userId)
-                .Select(x => x.FriendId);
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
 
-            var friends = await _dataContext.Users
-                .AsNoTracking()
-                .Where(x => friendIds.Contains(x.Id))
-                .Select(x => new UserProfileResponse
-                {
-                    Id = x.Id,
-                    ProfileImageContent = null,
-                    UserName = x.UserName,
-                    IsUserFriend = true
-                }).ToListAsync();
-
-            return friends;
+            return Ok(result);
         }
 
         [HttpGet(ApiRoutes.Profile.GetGamesInVault)]
         [Authorize]
-        public async Task<IEnumerable<GameWithImageResponse>> GetGamesInVault(Guid? userId)
+        public async Task<IActionResult> GetVaultGames(Guid? userId)
         {
-            if (userId == null)
-                userId = HttpContext.GetUserId();
-
-            var user = await _dataContext.Users
-                    .Include(x => x.Games)
-                    .SingleOrDefaultAsync(x => x.Id == userId);
-
-            var userGames = user.Games.Select(x => x.GameId);
-
-            var games = await _dataContext.Games
-                .Include(x => x.CoverGameImage)
-                .Where(x => userGames.Contains(x.Id))
-                .ToListAsync();
-
-            return games.Select(x => new GameWithImageResponse
+            var result = await _operationFactory.Create<GetVaultGamesQuery>(x =>
             {
-                Category = x.GameCategory,
-                Id = x.Id,
-                ImageBytes = x.CoverGameImage.Data.ToList(),
-                Title = x.Name
-            });
+                x.UserId = userId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
 
         [HttpGet(ApiRoutes.Profile.GetWishListGames)]
         [Authorize]
-        public async Task<IEnumerable<GameWithImageResponse>> GetGamesOnWishList(Guid? userId)
+        public async Task<IActionResult> GetGamesOnWishList(Guid? userId)
         {
-            if (userId == null)
-                userId = HttpContext.GetUserId();
-
-            var user = await _dataContext.Users
-                .Include(x => x.WishList)
-                .SingleOrDefaultAsync(x => x.Id == userId);
-
-            var userGames = user.WishList.Select(x => x.GameId);
-
-            var games = await _dataContext.Games
-                .Include(x => x.CoverGameImage)
-                .Where(x => userGames.Contains(x.Id))
-                .ToListAsync();
-
-            return games.Select(x => new GameWithImageResponse
+            var result = await _operationFactory.Create<GetWishListGamesQuery>(x =>
             {
-                Category = x.GameCategory,
-                Id = x.Id,
-                ImageBytes = x.CoverGameImage.Data.ToList(),
-                Title = x.Name
-            });
+                x.UserId = userId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
 
         [HttpGet(ApiRoutes.Profile.GetUserGenres)]
         public async Task<IActionResult> GetUserGenres(Guid? userId)
         {
-            if (userId == null)
-                userId = HttpContext.GetUserId();
+            var result = await _operationFactory.Create<GetUserGenresQuery>(x =>
+            {
+                x.UserId = userId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
 
-            var user = await _dataContext.Users
-                .Include(x => x.Games)
-                .SingleOrDefaultAsync(x => x.Id == userId);
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
 
-            var userGames = user.Games.Select(x => x.GameId);
-
-            var games = await _dataContext.Games
-                .Where(x => userGames.Contains(x.Id))
-                .ToListAsync();
-
-            var countedGenres = games
-                .GroupBy(x => x.GameCategory)
-                .Select(g => new { GenreName = g.Key.ToString(), GenreCount = g.Count() })
-                .ToDictionary(x => x.GenreName, x => x.GenreCount);
-
-            Enum.GetNames(typeof(GameCategory)).ToImmutableList()
-                .ForEach(x => countedGenres.TryAdd(x, 0));
-
-            return Json(new { userId, genres = countedGenres });
+            return Json(new { result.Data.Item1, genres = result.Data.Item2 });
         }
 
         [HttpGet(ApiRoutes.Profile.GetUserGamesNames)]
         public async Task<IActionResult> GetUserGamesNames(Guid? userId)
         {
-            if (userId == null)
-                userId = HttpContext.GetUserId();
+            var result = await _operationFactory.Create<GetUserGamesNamesQuery>(x =>
+            {
+                x.UserId = userId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
 
-            var user = await _dataContext.Users
-                .Include(x => x.Games)
-                    .ThenInclude(x => x.Game)
-                .SingleOrDefaultAsync(x => x.Id == userId);
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
 
-            var gamesNames = user.Games.Select(x => x.Game.Name);
-
-            return Json(new { games = gamesNames });
+            return Json(new { games = result.Data });
         }
 
-        [HttpPost(ApiRoutes.Profile.AddToFriendList)]
+        [HttpPost(ApiRoutes.Profile.UserFriendsRoot)]
         [Authorize]
-        public async Task<IActionResult> AddToFriendList([FromBody] AddDeleteFromFriendListRequest request)
+        public async Task<IActionResult> AddFriend([FromBody] AddDeleteFriendRequest request)
         {
-            var currentUserId = HttpContext.GetUserId();
+            var result = await _operationFactory.Create<AddFriendCommand>(x =>
+            {
+                x.UserId = request.UserId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
 
-            var userExists = await _dataContext.Users.AnyAsync(x => x.Id == request.UserId);
-
-            if (!userExists)
-                return BadRequest("User with given id does not exist");
-
-            var friendship = new Friendship { CurrentUserId = currentUserId, FriendId = request.UserId };
-            var friendshipReversed = new Friendship { CurrentUserId = request.UserId, FriendId = currentUserId };
-
-            _dataContext.Friendships.Add(friendship);
-            _dataContext.Friendships.Add(friendshipReversed);
-
-            await _dataContext.SaveChangesAsync();
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
 
             return Ok();
         }
 
-        [HttpDelete(ApiRoutes.Profile.DeleteFromFriendList)]
+        [HttpDelete(ApiRoutes.Profile.UserFriendsRoot)]
         [Authorize]
-        public async Task<IActionResult> DeleteFromFriendList([FromBody] AddDeleteFromFriendListRequest request)
+        public async Task<IActionResult> DeleteFromFriendList([FromBody] AddDeleteFriendRequest request)
         {
-            var currentUserId = HttpContext.GetUserId();
+            var result = await _operationFactory.Create<DeleteFriendCommand>(x =>
+            {
+                x.UserId = request.UserId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
 
-            var userExists = await _dataContext.Users.AnyAsync(x => x.Id == request.UserId);
-
-            if (!userExists)
-                return BadRequest("User with given id does not exist");
-
-            var friendship = await _dataContext.Friendships
-                .SingleOrDefaultAsync(x => x.CurrentUserId == currentUserId && x.FriendId == request.UserId);
-            var friendshipReversed = await _dataContext.Friendships
-                .SingleOrDefaultAsync(x => x.CurrentUserId == request.UserId && x.FriendId == currentUserId);
-
-            _dataContext.Friendships.Remove(friendship);
-            _dataContext.Friendships.Remove(friendshipReversed);
-
-            await _dataContext.SaveChangesAsync();
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
 
             return Ok();
         }
 
         [HttpGet(ApiRoutes.Profile.GetHeatMap)]
         [Authorize]
-        public async Task<List<byte>> GetHeatMap(Guid? userId)
+        public async Task<IActionResult> GetHeatMap(Guid? userId)
         {
-            if (userId == null)
-                userId = HttpContext.GetUserId();
-
-            var existingActualHeatMap = await _dataContext.GeneratedHeatMaps
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.UserId == userId.Value && x.GeneratedAt > DateTime.Now.AddDays(-1));
-
-            if (existingActualHeatMap != null)
+            var result = await _operationFactory.Create<GetHeatMapCommand>(x =>
             {
-                return existingActualHeatMap.HeatMap.ToList();
+                x.UserId = userId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
             }
 
-            PythonScriptRunner.RunScript("PythonScripts/heatmap.py", userId.Value.ToString());
-
-            var fileInfo = new FileInfo("heatplot.png");
-
-            var data = new byte[fileInfo.Length];
-
-            await using (var fs = fileInfo.OpenRead())
-            {
-                fs.Read(data, 0, data.Length);
-            }
-
-            fileInfo.Delete();
-
-            _dataContext.GeneratedHeatMaps.Add(new GeneratedHeatmap
-                {HeatMap = data, UserId = userId.Value, GeneratedAt = DateTime.Now});
-
-            await _dataContext.SaveChangesAsync();
-
-            return data.ToList();
+            return Ok(result);
         }
 
         [HttpGet(ApiRoutes.Profile.GetRecommendedGames)]
         [Authorize]
-        public async Task<IEnumerable<GameWithImageResponse>> GetRecommendedGames(Guid? userId)
+        public async Task<IActionResult> GetRecommendedGames(Guid? userId)
         {
-            if (userId == null)
-                userId = HttpContext.GetUserId();
-
-            var yesterday = DateTime.Now.AddDays(-1);
-            var existingActualRecommendation = await _dataContext.GamesRecommendations
-                .AsNoTracking()
-                .Include(x => x.RecommendedGames)
-                .FirstOrDefaultAsync(x => x.UserId == userId.Value && x.GeneratedAt > yesterday);
-
-            if (existingActualRecommendation != null)
+            var result = await _operationFactory.Create<GetRecommendedGamesCommand>(x =>
             {
-                var recommendedGamesIds = existingActualRecommendation.RecommendedGames.Select(x => x.GameId);
-                var games = await _dataContext.Games
-                    .Include(x => x.CoverGameImage)
-                    .Where(x => recommendedGamesIds.Contains(x.Id))
-                    .ToListAsync();
+                x.UserId = userId;
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
 
-                return games.Select(x => new GameWithImageResponse
-                {
-                    Category = x.GameCategory,
-                    Id = x.Id,
-                    ImageBytes = x.CoverGameImage.Data.ToList(),
-                    Title = x.Name
-                }); ;
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
             }
 
-            PythonScriptRunner.RunScript("PythonScripts/recommender.py", userId.Value.ToString());
-
-            var lines = System.IO.File.ReadAllLines("list_of_games.txt");
-
-            var recommendedGames = new List<Game>();
-
-            foreach (var line in lines)
-            {
-                var game = await _dataContext.Games
-                    .Include(x => x.CoverGameImage)
-                    .SingleOrDefaultAsync(x => x.Name == line);
-
-                if(game != null)
-                    recommendedGames.Add(game);
-            }
-
-            var gamesRecommendation = new GamesRecommendation
-            {
-                GeneratedAt = DateTime.Now,
-                UserId = userId.Value,
-                RecommendedGames = recommendedGames
-                    .Select(x => new RecommendationEntry {Game = x}).ToList()
-            };
-
-            _dataContext.GamesRecommendations.Add(gamesRecommendation);
-            await _dataContext.SaveChangesAsync();
-
-            return recommendedGames.Select(x => new GameWithImageResponse
-            {
-                Category = x.GameCategory,
-                Id = x.Id,
-                ImageBytes = x.CoverGameImage.Data.ToList(),
-                Title = x.Name
-            });
+            return Ok(result);
         }
     }
 }

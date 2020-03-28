@@ -62,7 +62,7 @@ namespace GamersHub.Api.Controllers
             });
         }
 
-        [HttpGet(ApiRoutes.Profile.SearchUsers)]
+        [HttpGet(ApiRoutes.Search.SearchUsers)]
         public async Task<IEnumerable<UserProfileResponse>> SearchUsers([FromQuery] SearchFriendsRequest searchFriendsRequest)
         {
             var users = await _dataContext.Users

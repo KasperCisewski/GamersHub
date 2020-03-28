@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.Queries;
+using GamersHub.Api.Queries.Game;
 using GamersHub.Api.ValidationRules;
 using GamersHub.Shared.Contracts.Responses;
 using Gybs;
@@ -13,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.QueryHandlers
 {
-    internal class GetFullGameDescriptionQueryHandler : IQueryHandler<GetFullGameDescriptionQuery, FullDescriptionGameModel>
+    internal class GetFullGameDescriptionQueryHandler : IQueryHandler<GetFullGameDescriptionQuery, FullGameDescriptionResponse>
     {
         private readonly DataContext _dataContext;
         private readonly IValidator _validator;
@@ -26,13 +27,13 @@ namespace GamersHub.Api.QueryHandlers
             _dataContext = dataContext;
         }
 
-        public async Task<IResult<FullDescriptionGameModel>> HandleAsync(GetFullGameDescriptionQuery query)
+        public async Task<IResult<FullGameDescriptionResponse>> HandleAsync(GetFullGameDescriptionQuery query)
         {
             var validationResult = await IsValidAsync(query);
 
             if (validationResult.HasFailed())
             {
-                return validationResult.Map<FullDescriptionGameModel>();
+                return validationResult.Map<FullGameDescriptionResponse>();
             }
 
             var game = await _dataContext.Games
@@ -40,7 +41,7 @@ namespace GamersHub.Api.QueryHandlers
                 .Include(x => x.CoverGameImage)
                 .FirstOrDefaultAsync(x => x.Id == query.GameId);
 
-            var model = new FullDescriptionGameModel
+            var model = new FullGameDescriptionResponse
             {
                 Description = game.Description,
                 GeneralImage = game.CoverGameImage.Data.ToList(),
