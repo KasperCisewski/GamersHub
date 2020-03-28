@@ -26,42 +26,68 @@
         android:id="@+id/home_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/home_linear_layout">
+        android:layout_below="@id/home_linear_layout"
+        android:layout_above="@+id/shared_menu_toolbar">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="4">
+            android:padding="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/home_coming_soon_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textSize="25dp"
+                android:text="COMING SOON"/>
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
                 android:id="@+id/coming_soon_games_recycler_view"
                 android:scrollbars="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_gravity="left"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource ComingSoonGames; ItemClick ClickGame" />
+            <TextView
+                android:id="@+id/home_brand_new_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textSize="25dp"
+                android:text="BRAND NEW"/>
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
                 android:id="@+id/brand_new_games_recycler_view"
                 android:scrollbars="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource BrandNewGames; ItemClick ClickGame" />
+            <TextView
+                android:id="@+id/home_hottest_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textSize="25dp"
+                android:text="HOTTEST"/>
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
                 android:id="@+id/hottest_games_recycler_view"
                 android:scrollbars="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource HottestGames; ItemClick ClickGame" />
+            <TextView
+                android:id="@+id/home_on_sale_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textSize="25dp"
+                android:text="ON SALE"/>
             <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
                 android:id="@+id/on_sale_games_games_recycler_view"
                 android:scrollbars="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 local:MvxItemTemplate="@layout/fragment_game_row_view"
                 local:MvxBind="ItemsSource OnSaleGames; ItemClick ClickGame" />
         </LinearLayout>

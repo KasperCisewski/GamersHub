@@ -10,7 +10,6 @@ using GamerHub.mobile.core.ViewModels.CoreApp.Game;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
-using MvvmCross.Plugin.Messenger;
 
 namespace GamerHub.mobile.android.Views.Fragments
 {
@@ -48,6 +47,7 @@ namespace GamerHub.mobile.android.Views.Fragments
                     ViewModel.GamePricesViewModel
                     )
                 };
+
                 pager.Adapter = new MvxFragmentPagerAdapter(Activity, ChildFragmentManager, fragments);
                 pager.AddOnPageChangeListener(this);
             }
@@ -58,7 +58,7 @@ namespace GamerHub.mobile.android.Views.Fragments
             SetFontForView<TextView>(view, Resource.Id.game_title);
             SetFontForView<Button>(view, Resource.Id.button_add_game_to_vault);
             SetFontForView<Button>(view, Resource.Id.button_add_game_to_wish_list);
-            SetFontForView<Button>(view,Resource.Id.delete_game_from_wish_list);
+            SetFontForView<Button>(view, Resource.Id.delete_game_from_wish_list);
             SetFontForView<Button>(view, Resource.Id.delete_game_from_vault);
 
             return view;

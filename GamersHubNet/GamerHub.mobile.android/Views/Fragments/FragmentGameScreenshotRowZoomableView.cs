@@ -7,7 +7,7 @@ using GamerHub.mobile.core.ViewModels.CoreApp.Game;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 
-namespace GamerHub.mobile.android.Views
+namespace GamerHub.mobile.android.Views.Fragments
 {
     [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.main_frame_layout, true)]
     [Register("GamerHub.mobile.Android.Views.Fragments.FragmentGameScreenshotRowZoomableView")]

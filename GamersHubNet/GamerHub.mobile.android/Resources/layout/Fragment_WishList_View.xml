@@ -24,7 +24,7 @@
     android:id="@+id/games_wish_list_recycler_view"
     android:layout_below="@id/wishlist_text_view"
     android:scrollbars="vertical"
-    local:MvxItemTemplate="@layout/fragment_game_row_view"
+    local:MvxItemTemplate="@layout/fragment_game_twice_in_row_view"
     local:MvxBind="ItemsSource WishList; ItemClick ClickGame" />
   <include
     android:id="@+id/shared_menu_toolbar"
