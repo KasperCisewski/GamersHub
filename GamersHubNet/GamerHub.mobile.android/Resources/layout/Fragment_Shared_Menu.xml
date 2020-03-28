@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
@@ -24,6 +23,7 @@
             android:background="@android:color/background_dark"
             local:MvxBind="Click GoToHomeViewCommand"/>
         <TextView
+            android:id="@+id/shared_menu_home_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -40,9 +40,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/games"
-             android:background="@android:color/background_dark"
+            android:background="@android:color/background_dark"
             local:MvxBind="Click GoToGamesViewCommand"/>
         <TextView
+            android:id="@+id/shared_menu_games_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -59,9 +60,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/search"
-             android:background="@android:color/background_dark"
+            android:background="@android:color/background_dark"
             local:MvxBind="Click GoToSearchViewCommand"/>
         <TextView
+            android:id="@+id/shared_menu_search_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -78,9 +80,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/profileicon"
-             android:background="@android:color/background_dark"
+            android:background="@android:color/background_dark"
             local:MvxBind="Click GoToProfileViewCommand"/>
         <TextView
+            android:id="@+id/shared_menu_profile_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"

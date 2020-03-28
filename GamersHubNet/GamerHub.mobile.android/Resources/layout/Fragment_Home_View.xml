@@ -93,6 +93,7 @@
         </LinearLayout>
     </ScrollView>
     <include
-        android:id="@+id/shared_menu_toolbar"
-        layout="@layout/fragment_shared_menu"/>
+      class="GamerHub.mobile.android.Views.Fragments.FragmentSharedMenu"
+      layout="@layout/fragment_shared_menu"
+        android:id="@+id/shared_menu_toolbar"/>
 </RelativeLayout>

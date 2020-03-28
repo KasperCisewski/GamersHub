@@ -96,7 +96,6 @@
     <Compile Include="Views\Fragments\FragmentRegistrationView.cs" />
     <Compile Include="Views\Fragments\FragmentSearchView.cs" />
     <Compile Include="Views\Fragments\FragmentSettingsView.cs" />
-    <Compile Include="Views\Fragments\FragmentSharedMenu.cs" />
     <Compile Include="Views\Fragments\FragmentWishListView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesCategoryView.cs" />
     <Compile Include="Views\MainView.cs" />

@@ -60,6 +60,7 @@ namespace GamerHub.mobile.android.Views.Fragments
             SetFontForView<Button>(view, Resource.Id.button_add_game_to_wish_list);
             SetFontForView<Button>(view, Resource.Id.delete_game_from_wish_list);
             SetFontForView<Button>(view, Resource.Id.delete_game_from_vault);
+            SetFontsForSharedMenuBar(view);
 
             return view;
         }

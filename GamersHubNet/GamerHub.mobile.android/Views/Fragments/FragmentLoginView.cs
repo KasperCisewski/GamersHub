@@ -2,7 +2,6 @@
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Views;
-using Android.Views.InputMethods;
 using Android.Widget;
 using GamerHub.mobile.android.Views.Fragments.Base;
 using GamerHub.mobile.core.ViewModels;

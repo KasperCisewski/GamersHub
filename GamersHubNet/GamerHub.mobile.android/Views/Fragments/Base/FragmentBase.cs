@@ -12,6 +12,14 @@ namespace GamerHub.mobile.android.Views.Fragments.Base
     {
         private string _gamerHubFont = "HACKED.ttf";
 
+        public void SetFontsForSharedMenuBar(View view)
+        {
+            SetFontForView<TextView>(view, Resource.Id.shared_menu_home_text_view);
+            SetFontForView<TextView>(view, Resource.Id.shared_menu_games_text_view);
+            SetFontForView<TextView>(view, Resource.Id.shared_menu_search_text_view);
+            SetFontForView<TextView>(view, Resource.Id.shared_menu_profile_text_view);
+        }
+
         public void SetFontForView<V>(View v, int viewId) where V : TextView
         {
             var context = Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity;
