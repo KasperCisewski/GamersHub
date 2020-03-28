@@ -9,16 +9,16 @@ namespace GamerHub.mobile.core.Services.Game
 {
     public interface IGameService
     {
-        Task<List<GameModelWithImage>> GetGames(HomeGamesCategory homeGamesCategory);
-        Task<FullDescriptionGameModel> GetFullGameModel(Guid gameId);
+        Task<List<GameWithImageResponse>> GetGames(HomeGamesCategory homeGamesCategory);
+        Task<FullGameDescriptionResponse> GetFullGameModel(Guid gameId);
         Task<bool> AddGameToWishList(Guid gameId);
         Task<bool> AddGameToVault(Guid gameId);
         Task<bool> DeleteGameFromVault(Guid gameModelId);
         Task<bool> DeleteGameFromWishList(Guid gameModelId);
-        Task<List<ScreenShotModel>> GetScreenShotsForGame(Guid gameId);
-        Task<List<GameOfferModel>> GetPricesModelsForGame(Guid gameId);
+        Task<List<ScreenShotResponse>> GetScreenShotsForGame(Guid gameId);
+        Task<List<GameOfferResponse>> GetPricesModelsForGame(Guid gameId);
         Task<string> GetVideoUrlForGame(Guid gameId);
-        Task<List<GameModelWithImage>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest);
-        Task<List<GameModelWithImage>> GetGamesForUser();
+        Task<List<GameWithImageResponse>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest);
+        Task<List<GameWithImageResponse>> GetGamesForUser();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace GamersHub.Shared.Contracts.Responses
 {
-    public class ScreenShotModel
+    public class ScreenShotResponse
     {
         public List<byte> ImageContent { get; set; }
     }

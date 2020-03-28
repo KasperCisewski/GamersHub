@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using GamerHub.mobile.core.Services.Http.Factory;
-using GamerHub.shared.Contracts.Requests;
 using GamersHub.Shared.Api;
+using GamersHub.Shared.Contracts.Requests;
 using GamersHub.Shared.Contracts.Responses;
 using RestSharp;
 
@@ -21,7 +21,7 @@ namespace GamerHub.mobile.core.Services.Search
             _globalStateService = globalStateService;
         }
 
-        public async Task<List<GameModelWithImage>> GetSearchGamesModels(SearchGameRequest searchGameRequest)
+        public async Task<List<GameWithImageResponse>> GetSearchGamesModels(SearchGameRequest searchGameRequest)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -33,7 +33,7 @@ namespace GamerHub.mobile.core.Services.Search
             request.AddQueryParameter("take", searchGameRequest.Take.ToString());
             request.AddQueryParameter("skip", searchGameRequest.Skip.ToString());
 
-            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
+            var response = await client.ExecuteAsync<List<GameWithImageResponse>>(request);
 
             return response.ResponseData;
         }

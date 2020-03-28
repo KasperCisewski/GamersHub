@@ -8,11 +8,11 @@ namespace GamerHub.mobile.core.Services.Profile
 {
     public interface IProfileService
     {
-        Task<UserProfile> GetUserProfileInformation(Guid? userId);
-        Task<List<UserProfile>> GetUserFriends();
-        Task<List<UserProfile>> SearchUsers(SearchFriendsRequest searchFriendsRequest);
-        Task<List<GameModelWithImage>> GetGamesInVault(Guid? userId);
-        Task<List<GameModelWithImage>> GetWishListGames();
+        Task<UserProfileResponse> GetUserProfileInformation(Guid? userId);
+        Task<List<UserProfileResponse>> GetUserFriends();
+        Task<List<UserProfileResponse>> SearchUsers(SearchFriendsRequest searchFriendsRequest);
+        Task<List<GameWithImageResponse>> GetGamesInVault(Guid? userId);
+        Task<List<GameWithImageResponse>> GetWishListGames();
         Task<List<byte>> GetHeatMap(Guid? userId);
         Task<bool> DeleteFromFriendList(Guid userId);
         Task<bool> AddFriendToFriendList(Guid userId);

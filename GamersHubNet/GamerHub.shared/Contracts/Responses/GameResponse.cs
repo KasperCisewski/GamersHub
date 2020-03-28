@@ -1,9 +1,9 @@
 ﻿using System;
 using GamersHub.Shared.Data.Enums;
 
-namespace GamersHub.Shared.Model
+namespace GamersHub.Shared.Contracts.Responses
 {
-    public class GameModel
+    public class GameResponse
     {
         public Guid Id { get; set; }
         public string Title { get; set; }

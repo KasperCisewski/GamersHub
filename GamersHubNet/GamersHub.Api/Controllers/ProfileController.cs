@@ -29,7 +29,7 @@ namespace GamersHub.Api.Controllers
 
         [HttpGet(ApiRoutes.Profile.GetUserProfileInformation)]
         [Authorize]
-        public async Task<UserProfile> GetUserProfile(Guid? userId)
+        public async Task<UserProfileResponse> GetUserProfile(Guid? userId)
         {
             var currentUserId = HttpContext.GetUserId();
             if (userId == null)
@@ -40,7 +40,7 @@ namespace GamersHub.Api.Controllers
             var isFriend = await _dataContext.Friendships
                 .AnyAsync(x => x.CurrentUserId == currentUserId && x.FriendId == userId);
 
-            return new UserProfile
+            return new UserProfileResponse
             {
                 Id = user.Id,
                 UserName = user.UserName,
@@ -52,7 +52,7 @@ namespace GamersHub.Api.Controllers
 
         [HttpGet(ApiRoutes.Profile.GetUserFriends)]
         [Authorize]
-        public async Task<IEnumerable<UserProfile>> GetUserFriends(Guid? userId)
+        public async Task<IEnumerable<UserProfileResponse>> GetUserFriends(Guid? userId)
         {
             if (userId == null)
                 userId = HttpContext.GetUserId();
@@ -65,7 +65,7 @@ namespace GamersHub.Api.Controllers
             var friends = await _dataContext.Users
                 .AsNoTracking()
                 .Where(x => friendIds.Contains(x.Id))
-                .Select(x => new UserProfile
+                .Select(x => new UserProfileResponse
                 {
                     Id = x.Id,
                     ProfileImageContent = null,
@@ -78,7 +78,7 @@ namespace GamersHub.Api.Controllers
 
         [HttpGet(ApiRoutes.Profile.GetGamesInVault)]
         [Authorize]
-        public async Task<IEnumerable<GameModelWithImage>> GetGamesInVault(Guid? userId)
+        public async Task<IEnumerable<GameWithImageResponse>> GetGamesInVault(Guid? userId)
         {
             if (userId == null)
                 userId = HttpContext.GetUserId();
@@ -94,7 +94,7 @@ namespace GamersHub.Api.Controllers
                 .Where(x => userGames.Contains(x.Id))
                 .ToListAsync();
 
-            return games.Select(x => new GameModelWithImage
+            return games.Select(x => new GameWithImageResponse
             {
                 Category = x.GameCategory,
                 Id = x.Id,
@@ -105,7 +105,7 @@ namespace GamersHub.Api.Controllers
 
         [HttpGet(ApiRoutes.Profile.GetWishListGames)]
         [Authorize]
-        public async Task<IEnumerable<GameModelWithImage>> GetGamesOnWishList(Guid? userId)
+        public async Task<IEnumerable<GameWithImageResponse>> GetGamesOnWishList(Guid? userId)
         {
             if (userId == null)
                 userId = HttpContext.GetUserId();
@@ -121,7 +121,7 @@ namespace GamersHub.Api.Controllers
                 .Where(x => userGames.Contains(x.Id))
                 .ToListAsync();
 
-            return games.Select(x => new GameModelWithImage
+            return games.Select(x => new GameWithImageResponse
             {
                 Category = x.GameCategory,
                 Id = x.Id,
@@ -258,7 +258,7 @@ namespace GamersHub.Api.Controllers
 
         [HttpGet(ApiRoutes.Profile.GetRecommendedGames)]
         [Authorize]
-        public async Task<IEnumerable<GameModelWithImage>> GetRecommendedGames(Guid? userId)
+        public async Task<IEnumerable<GameWithImageResponse>> GetRecommendedGames(Guid? userId)
         {
             if (userId == null)
                 userId = HttpContext.GetUserId();
@@ -277,7 +277,7 @@ namespace GamersHub.Api.Controllers
                     .Where(x => recommendedGamesIds.Contains(x.Id))
                     .ToListAsync();
 
-                return games.Select(x => new GameModelWithImage
+                return games.Select(x => new GameWithImageResponse
                 {
                     Category = x.GameCategory,
                     Id = x.Id,
@@ -313,7 +313,7 @@ namespace GamersHub.Api.Controllers
             _dataContext.GamesRecommendations.Add(gamesRecommendation);
             await _dataContext.SaveChangesAsync();
 
-            return recommendedGames.Select(x => new GameModelWithImage
+            return recommendedGames.Select(x => new GameWithImageResponse
             {
                 Category = x.GameCategory,
                 Id = x.Id,

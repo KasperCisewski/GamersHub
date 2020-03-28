@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GamersHub.Shared.Contracts.Responses
 {
-    public class FullDescriptionGameModel
+    public class FullGameDescriptionResponse
     {
         public string Title { get; set; }
         public string Description { get; set; }
