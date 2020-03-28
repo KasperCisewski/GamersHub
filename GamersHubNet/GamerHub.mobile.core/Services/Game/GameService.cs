@@ -25,7 +25,7 @@ namespace GamerHub.mobile.core.Services.Game
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetGamesForHomeScreen)
+            var request = new RestRequest(ApiRoutes.Games.GetHomeScreenGames)
             {
                 Method = Method.GET
             };
@@ -131,7 +131,7 @@ namespace GamerHub.mobile.core.Services.Game
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetScreenshotsForGame)
+            var request = new RestRequest(ApiRoutes.Games.GetGameScreenshots)
             {
                 Method = Method.GET
             };
@@ -146,7 +146,7 @@ namespace GamerHub.mobile.core.Services.Game
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetPricesForGame)
+            var request = new RestRequest(ApiRoutes.Games.GetGameOffers)
             {
                 Method = Method.GET
             };

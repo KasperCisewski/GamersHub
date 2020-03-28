@@ -12,6 +12,9 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Gybs.Logic.Cqrs" Version="1.1.0" />
+    <PackageReference Include="Gybs.Logic.Operations" Version="1.1.0" />
+    <PackageReference Include="Gybs.Logic.Validation" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
@@ -32,6 +35,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
+    <Folder Include="Commands\" />
   </ItemGroup>
 
 

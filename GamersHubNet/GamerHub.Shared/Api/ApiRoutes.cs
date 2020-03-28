@@ -29,14 +29,14 @@
 
         public static class Games
         {
-            public const string GetGamesForHomeScreen = Root + "/games/getGamesForHomeScreen";
+            public const string GetHomeScreenGames = Root + "/games/home";
             public const string AddGameToWishList = Root + "/games/addGameToWishList";
             public const string AddGameToVault = Root + "/games/addGameToVault";
-            public const string GetScreenshotsForGame = Root + "/games/GetScreenShotsForGame";
-            public const string GetPricesForGame = Root + "/games/getPricesForGame";
-            public const string GetVideoUrl = Root + "/games/getVideoUrl";
+            public const string GetGameScreenshots = Root + "/games/screenshots";
+            public const string GetGameOffers = Root + "/games/offers";
+            public const string GetVideoUrl = Root + "/games/video";
             public const string GetGamesByCategory = Root + "/games/getGamesByCategory";
-            public const string GetFullGameDescription = Root + "/games/getFullGameDescription";
+            public const string GetFullGameDescription = Root + "/games/description";
             public const string GetGamesForUser = Root + "/games/getGamesForUser";
             public const string DeleteGameFromVault = Root + "/games/deleteGameFromVault";
             public const string DeleteGameFromWishList = Root + "/games/deleteGameFromWishList";
