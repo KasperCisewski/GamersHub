@@ -19,12 +19,9 @@
 
         public static class Search
         {
-            public const string SearchGames = Root + "/search/searchgames";
-        }
-
-        public static class GameImages
-        {
-            public const string AddGameImage = Root + "/images/add";
+            public const string SearchRoot = Root + "/search";
+            public const string SearchGames = SearchRoot + "/games";
+            public const string SearchUsers = SearchRoot + "/users";
         }
 
         public static class Games
@@ -44,17 +41,19 @@
 
         public static class Profile
         {
-            public const string GetUserProfileInformation = Root + "/profile/getUserProfileInformation";
-            public const string GetUserFriends = Root + "/profile/getUserFriends";
-            public const string SearchUsers = Root + "/profile/searchUsers";
-            public const string GetGamesInVault = Root + "/profile/getGamesInVault";
-            public const string GetWishListGames = Root + "/profile/getWishListGames";
-            public const string GetUserGenres = Root + "/profile/getUserGenres";
-            public const string GetUserGamesNames = Root + "/profile/getUserGamesNames";
-            public const string GetHeatMap = Root + "/profile/getHeatMap";
-            public const string GetRecommendedGames = Root + "/profile/getRecommendedGames";
-            public const string AddToFriendList = Root + "/profile/addToFriendList";
-            public const string DeleteFromFriendList = Root + "/profile/deleteFriendFromFriendList";
+            public const string ProfileRoot = Root + "/profile";
+            public const string GetUserFriends = ProfileRoot + "/friends";
+            public const string GetGamesInVault = ProfileRoot + "/vault";
+            public const string GetWishListGames = ProfileRoot + "/wishlist";
+            public const string GetHeatMap = ProfileRoot + "/heatmap";
+
+            public const string UserFriendsRoot = Root + "/friends";
+
+            public const string ProfileGamesRoot = ProfileRoot + "/games";
+            public const string GetUserGenres = ProfileGamesRoot + "/genres";
+            public const string GetUserGamesNames = ProfileGamesRoot + "/names";
+            public const string GetRecommendedGames = ProfileGamesRoot + "/recommended";
+
         }
     }
 }

@@ -24,7 +24,7 @@ namespace GamerHub.mobile.core.Services.Profile
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Profile.GetUserProfileInformation)
+            var request = new RestRequest(ApiRoutes.Profile.ProfileRoot)
             {
                 Method = Method.GET
             };
@@ -53,7 +53,7 @@ namespace GamerHub.mobile.core.Services.Profile
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Profile.SearchUsers)
+            var request = new RestRequest(ApiRoutes.Search.SearchUsers)
             {
                 Method = Method.GET
             };
@@ -115,7 +115,7 @@ namespace GamerHub.mobile.core.Services.Profile
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Profile.DeleteFromFriendList)
+            var request = new RestRequest(ApiRoutes.Profile.UserFriendsRoot)
             {
                 Method = Method.DELETE
             };
@@ -134,7 +134,7 @@ namespace GamerHub.mobile.core.Services.Profile
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Profile.AddToFriendList)
+            var request = new RestRequest(ApiRoutes.Profile.UserFriendsRoot)
             {
                 Method = Method.POST
             };

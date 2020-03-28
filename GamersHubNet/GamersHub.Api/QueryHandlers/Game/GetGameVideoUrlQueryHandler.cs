@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.Queries;
+using GamersHub.Api.Queries.Game;
 using GamersHub.Api.ValidationRules;
-using GamersHub.Shared.Contracts.Responses;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
@@ -14,12 +12,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.QueryHandlers
 {
-    internal class GetScreenshotsQueryHandler : IQueryHandler<GetScreenshotsQuery, IReadOnlyCollection<ScreenShotModel>>
+    internal class GetGameVideoUrlQueryHandler : IQueryHandler<GetGameVideoUrlQuery, string>
     {
         private readonly DataContext _dataContext;
         private readonly IValidator _validator;
 
-        public GetScreenshotsQueryHandler(
+        public GetGameVideoUrlQueryHandler(
             DataContext dataContext,
             IValidator validator)
         {
@@ -27,28 +25,23 @@ namespace GamersHub.Api.QueryHandlers
             _dataContext = dataContext;
         }
 
-        public async Task<IResult<IReadOnlyCollection<ScreenShotModel>>> HandleAsync(GetScreenshotsQuery query)
+        public async Task<IResult<string>> HandleAsync(GetGameVideoUrlQuery query)
         {
             var validationResult = await IsValidAsync(query);
 
             if (validationResult.HasFailed())
             {
-                return validationResult.Map<IReadOnlyCollection<ScreenShotModel>>();
+                return validationResult.Map<string>();
             }
 
             var game = await _dataContext.Games
                 .AsNoTracking()
-                .Include(x => x.GameImages)
                 .FirstOrDefaultAsync(x => x.Id == query.GameId);
 
-            var screenShotModels = game.GameImages
-                .Select(x => new ScreenShotModel {ImageContent = x.Data.ToList()})
-                .ToList();
-
-            return screenShotModels.ToSuccessfulResult();
+            return game.VideoUrl.ToSuccessfulResult();
         }
 
-        private Task<IResult> IsValidAsync(GetScreenshotsQuery query)
+        private Task<IResult> IsValidAsync(GetGameVideoUrlQuery query)
         {
             return _validator
                 .Require<GameExistsRule>()
