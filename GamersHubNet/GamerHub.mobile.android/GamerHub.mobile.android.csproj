@@ -82,13 +82,10 @@
     <Compile Include="Views\Fragments\Base\FragmentBase.cs" />
     <Compile Include="Views\Fragments\FragmentFriendSearchView.cs" />
     <Compile Include="Views\Fragments\FragmentFriendsListView.cs" />
-    <Compile Include="Views\Fragments\FragmentGamePricesView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesChosenForUser.cs" />
-    <Compile Include="Views\Fragments\FragmentGameScreenshotsView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesVaultHeatMapView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesVaultView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesView.cs" />
-    <Compile Include="Views\Fragments\FragmentGameVideoView.cs" />
     <Compile Include="Views\Fragments\FragmentGameView.cs" />
     <Compile Include="Views\Fragments\FragmentHomeView.cs" />
     <Compile Include="Views\Fragments\FragmentLoginView.cs" />
@@ -353,21 +350,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_Game_Screenshots_View.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_Game_Video_View.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_Game_Prices_View.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Games.png" />
   </ItemGroup>
   <ItemGroup>
@@ -428,11 +410,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Arcade.png">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_Game_Prices_Row_View.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -524,6 +501,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Fragment_Game_Twice_In_Row_View.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\custom_border.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

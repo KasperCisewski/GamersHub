@@ -17,7 +17,6 @@ namespace GamerHub.mobile.android.Views.Fragments
         {
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = this.BindingInflate(Resource.Layout.Fragment_Game_Screenshot_Row_Zoomable_View, null);
-            SetFontsForSharedMenuBar(view);
 
             return view;
         }
