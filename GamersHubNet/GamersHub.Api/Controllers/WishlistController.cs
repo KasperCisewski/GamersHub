@@ -1,92 +1,55 @@
-﻿using System;
-using System.Linq;
-using GamersHub.Api.Data;
-using GamersHub.Shared.Api;
+﻿using GamersHub.Shared.Api;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using GamersHub.Api.Domain;
+using GamersHub.Api.Commands;
 using GamersHub.Api.Extensions;
 using GamersHub.Shared.Contracts.Requests;
+using Gybs.Logic.Operations.Factory;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.Controllers
 {
     public class WishListController : Controller
     {
-        private readonly DataContext _dataContext;
+        private readonly IOperationFactory _operationFactory;
 
-        public WishListController(DataContext dataContext)
+        public WishListController(IOperationFactory operationFactory)
         {
-            _dataContext = dataContext;
+            _operationFactory = operationFactory;
         }
 
         [HttpPost(ApiRoutes.Games.AddGameToWishList)]
         [Authorize]
         public async Task<IActionResult> AddGame([FromBody] AddGameVaultOrWishListRequest request)
         {
-            var userId = HttpContext.GetUserId();
-
-            var user = await _dataContext.Users
-                .Include(x => x.WishList)
-                .SingleOrDefaultAsync(x => x.Id == userId);
-
-            if (user == null)
+            var result = await _operationFactory.Create<AddGameToWishListCommand>(x =>
             {
-                return BadRequest("No user with given id found");
+                x.GameId = request.GameId;
+                x.UserId = HttpContext.GetUserId();
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
             }
-
-            var game = await _dataContext.Games
-                .SingleOrDefaultAsync(x => x.Id == request.GameId);
-
-            if (game == null)
-            {
-                return BadRequest("No game with given id found");
-            }
-
-            if (user.WishList.Any(x => x.GameId == request.GameId))
-            {
-                return BadRequest("Game already on the wishlist");
-            }
-
-            var wishListEntry = new WishListEntry
-            {
-                Game = game,
-                User = user,
-            };
-
-            user.WishList.Add(wishListEntry);
-
-            await _dataContext.SaveChangesAsync();
 
             return Ok();
         }
 
         [HttpDelete(ApiRoutes.Games.DeleteGameFromWishList)]
         [Authorize]
-        public async Task<IActionResult> DeleteGameFromVault([FromBody] DeleteGameRequest request)
+        public async Task<IActionResult> DeleteGameFromWishList([FromBody] DeleteGameRequest request)
         {
-            var userId = HttpContext.GetUserId();
-
-            var user = await _dataContext.Users
-                .Include(x => x.WishList)
-                .SingleOrDefaultAsync(x => x.Id == userId);
-
-            if (user == null)
+            var result = await _operationFactory.Create<DeleteGameFromWishListCommand>(x =>
             {
-                return BadRequest("No user with given id found");
-            }
+                x.GameId = request.GameId;
+                x.UserId = HttpContext.GetUserId();
+            }).HandleAsync();
 
-            if (user.WishList.All(x => x.GameId != request.GameId))
+            if (result.HasFailed())
             {
-                return BadRequest("User does not have this game in vault");
+                return BadRequest(result);
             }
-
-            var userGame = user.WishList.SingleOrDefault(x => x.GameId == request.GameId);
-
-            user.WishList.Remove(userGame);
-
-            await _dataContext.SaveChangesAsync();
 
             return Ok();
         }

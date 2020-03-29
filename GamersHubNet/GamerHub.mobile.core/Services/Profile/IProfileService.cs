@@ -10,7 +10,7 @@ namespace GamerHub.mobile.core.Services.Profile
     {
         Task<UserProfileResponse> GetUserProfileInformation(Guid? userId);
         Task<List<UserProfileResponse>> GetUserFriends();
-        Task<List<UserProfileResponse>> SearchUsers(SearchFriendsRequest searchFriendsRequest);
+        Task<List<UserProfileResponse>> SearchUsers(SearchUserRequest searchUserRequest);
         Task<List<GameWithImageResponse>> GetGamesInVault(Guid? userId);
         Task<List<GameWithImageResponse>> GetWishListGames();
         Task<List<byte>> GetHeatMap(Guid? userId);

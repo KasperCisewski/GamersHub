@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using GamersHub.Api.Extensions;
-using GamersHub.Api.Queries;
 using GamersHub.Api.Queries.Game;
 using Gybs.Logic.Operations.Factory;
 
