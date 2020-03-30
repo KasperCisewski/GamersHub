@@ -26,17 +26,17 @@
 
         public static class Games
         {
-            public const string GetHomeScreenGames = Root + "/games/home";
-            public const string AddGameToWishList = Root + "/games/addGameToWishList";
-            public const string AddGameToVault = Root + "/games/addGameToVault";
-            public const string GetGameScreenshots = Root + "/games/screenshots";
-            public const string GetGameOffers = Root + "/games/offers";
-            public const string GetVideoUrl = Root + "/games/video";
-            public const string GetGamesByCategory = Root + "/games/getGamesByCategory";
-            public const string GetFullGameDescription = Root + "/games/description";
-            public const string GetGamesForUser = Root + "/games/getGamesForUser";
-            public const string DeleteGameFromVault = Root + "/games/deleteGameFromVault";
-            public const string DeleteGameFromWishList = Root + "/games/deleteGameFromWishList";
+            public const string GamesRoot = Root + "/games";
+            public const string GetHomeScreenGames = GamesRoot + "/home";
+            public const string AddGameToWishList = GamesRoot + "/wishlist";
+            public const string AddGameToVault = GamesRoot + "/vault";
+            public const string GetGameScreenshots = GamesRoot + "/screenshots";
+            public const string GetGameOffers = GamesRoot + "/offers";
+            public const string GetVideoUrl = GamesRoot + "/video";
+            public const string GetGamesByCategory = GamesRoot + "/filter-category";
+            public const string GetFullGameDescription = GamesRoot + "/description";
+            public const string DeleteGameFromVault = GamesRoot + "/vault";
+            public const string DeleteGameFromWishList = GamesRoot + "/wishlist";
         }
 
         public static class Profile

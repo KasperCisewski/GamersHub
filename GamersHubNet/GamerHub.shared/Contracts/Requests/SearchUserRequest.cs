@@ -2,7 +2,7 @@
 
 namespace GamersHub.Shared.Contracts.Requests
 {
-    public class SearchFriendsRequest : BasePagingListRequest
+    public class SearchUserRequest : BasePagingListRequest
     {
         public string SearchUserNameText { get; set; }
     }

@@ -1,91 +1,76 @@
-﻿using GamersHub.Api.Data;
-using GamersHub.Shared.Api;
-using GamersHub.Shared.Contracts.Responses;
+﻿using GamersHub.Shared.Api;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using GamersHub.Api.Extensions;
+using GamersHub.Api.Queries.Search;
 using GamersHub.Shared.Contracts.Requests;
+using Gybs.Logic.Operations.Factory;
 
 namespace GamersHub.Api.Controllers
 {
     public class SearchController : Controller
     {
-        private readonly DataContext _dataContext;
+        private readonly IOperationFactory _operationFactory;
 
-        public SearchController(DataContext dataContext)
+        public SearchController(IOperationFactory operationFactory)
         {
-            _dataContext = dataContext;
+            _operationFactory = operationFactory;
         }
 
         [HttpGet(ApiRoutes.Search.SearchGames)]
-        public async Task<IEnumerable<GameWithImageResponse>> SearchGames([FromQuery] SearchGameRequest searchGameRequest)
+        public async Task<IActionResult> SearchGames([FromQuery] SearchGameRequest searchGameRequest)
         {
-            var games = await _dataContext.Games
-                .AsNoTracking()
-                .Where(x => x.Name
-                    .Contains(searchGameRequest.SearchGameText))
-                .Include(x => x.CoverGameImage)
-                .Skip(searchGameRequest.Skip)
-                .Take(searchGameRequest.Take == default ? 10 : searchGameRequest.Take)
-                .ToArrayAsync();
-
-            return games.Select(x => new GameWithImageResponse
+            var result = await _operationFactory.Create<SearchGamesQuery>(x =>
             {
-                Id = x.Id,
-                Category = x.GameCategory,
-                Title = x.Name,
-                ImageBytes = x.CoverGameImage.Data.ToList()
-            });
+                x.SearchText = searchGameRequest.SearchGameText;
+                x.Skip = searchGameRequest.Skip;
+                x.Take = searchGameRequest.Take;
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
 
 
         [HttpGet(ApiRoutes.Games.GetGamesByCategory)]
-        public async Task<IEnumerable<GameWithImageResponse>> GetGames([FromQuery] GameCategoryRequest gameCategoryRequest)
+        public async Task<IActionResult> GetGamesByCategory([FromQuery] GameCategoryRequest gameCategoryRequest)
         {
-            var games = await _dataContext.Games
-                .AsNoTracking()
-                .Where(x => x.GameCategory == gameCategoryRequest.GameCategory)
-                .Include(x => x.CoverGameImage)
-                .Skip(gameCategoryRequest.Skip)
-                .Take(gameCategoryRequest.Take == default ? 10 : gameCategoryRequest.Take)
-                .ToArrayAsync();
-
-            return games.Select(x => new GameWithImageResponse
+            var result = await _operationFactory.Create<SearchGamesByCategoryQuery>(x =>
             {
-                Id = x.Id,
-                Category = x.GameCategory,
-                Title = x.Name,
-                ImageBytes = x.CoverGameImage.Data.ToList()
-            });
+                x.GameCategory = gameCategoryRequest.GameCategory;
+                x.Skip = gameCategoryRequest.Skip;
+                x.Take = gameCategoryRequest.Take;
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
 
         [HttpGet(ApiRoutes.Search.SearchUsers)]
-        public async Task<IEnumerable<UserProfileResponse>> SearchUsers([FromQuery] SearchFriendsRequest searchFriendsRequest)
+        public async Task<IActionResult> SearchUsers([FromQuery] SearchUserRequest searchUserRequest)
         {
-            var users = await _dataContext.Users
-                .AsNoTracking()
-                .Where(x => x.UserName.Contains(searchFriendsRequest.SearchUserNameText))
-                .Skip(searchFriendsRequest.Skip)
-                .Take(searchFriendsRequest.Take == default ? 10 : searchFriendsRequest.Take)
-                .Select(x => new UserProfileResponse
-                {
-                    Id = x.Id,
-                    ProfileImageContent = null,
-                    UserName = x.UserName,
-                }).ToListAsync();
-
-            var currentUserId = HttpContext.GetUserId();
-
-            foreach (var user in users)
+            var result = await _operationFactory.Create<SearchUsersQuery>(x =>
             {
-                user.IsUserFriend = await _dataContext.Friendships
-                    .AnyAsync(x => x.CurrentUserId == currentUserId && x.FriendId == user.Id);
+                x.SearchText = searchUserRequest.SearchUserNameText;
+                x.CurrentUserId = HttpContext.GetUserId();
+                x.Skip = searchUserRequest.Skip;
+                x.Take = searchUserRequest.Take;
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
             }
 
-            return users;
+            return Ok(result);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace GamerHub.mobile.core.Services.Profile
             return response.ResponseData;
         }
 
-        public async Task<List<UserProfileResponse>> SearchUsers(SearchFriendsRequest searchFriendsRequest)
+        public async Task<List<UserProfileResponse>> SearchUsers(SearchUserRequest searchUserRequest)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -57,9 +57,9 @@ namespace GamerHub.mobile.core.Services.Profile
             {
                 Method = Method.GET
             };
-            request.AddQueryParameter("searchUserNameText", searchFriendsRequest.SearchUserNameText);
-            request.AddQueryParameter("take", searchFriendsRequest.Take.ToString());
-            request.AddQueryParameter("skip", searchFriendsRequest.Skip.ToString());
+            request.AddQueryParameter("searchUserNameText", searchUserRequest.SearchUserNameText);
+            request.AddQueryParameter("take", searchUserRequest.Take.ToString());
+            request.AddQueryParameter("skip", searchUserRequest.Skip.ToString());
 
             var response = await client.ExecuteAsync<List<UserProfileResponse>>(request);
 
