@@ -155,40 +155,34 @@
                 android:layout_height="wrap_content"
                 local:MvxItemTemplate="@layout/fragment_game_screenshot_row_view"
                 local:MvxBind="ItemsSource GameScreenshots; ItemClick GameScreenShotOpen;Visible ShouldShowGameScreenshots"/>
-            <LinearLayout
-                android:id="@+id/web_view_container"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
+                android:layout_height="150dp"
                 android:gravity="center"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:background="#ffaaaaaa"
-                android:layout_margin="12dp"
-                local:MvxBind="Visible ShouldShowGameVideo">
-                <WebView
-                    android:id="@+id/video_View"
-                    android:layout_width="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:layout_marginHorizontal="30dp">
+                <LinearLayout
+                    android:id="@+id/web_view_container"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center"
-                    android:background="#ffaaaaaa"
-                    android:fitsSystemWindows="true"
-                    android:drawingCacheQuality="auto"
-                    android:scrollbars="none" />
-            </LinearLayout>
-        </LinearLayout>
-        <!--
-        <android.support.v4.view.ViewPager
-            android:id="@+id/game_view_main_with_view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="top">
-            <android.support.v4.view.PagerTabStrip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryDark" />
-        </android.support.v4.view.ViewPager>-->
+                    android:gravity="center"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_margin="12dp"
+                    local:MvxBind="Visible ShouldShowGameVideo">
+                    <WebView
+                        android:id="@+id/video_View"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:fitsSystemWindows="true"
+                        android:drawingCacheQuality="auto"
+                        android:scrollbars="none" />
+                </LinearLayout>
+            </ScrollView>
     </LinearLayout>
+</LinearLayout>
     <include
         android:id="@+id/shared_menu_toolbar"
         layout="@layout/fragment_shared_menu"/>

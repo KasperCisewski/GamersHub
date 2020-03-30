@@ -52,7 +52,7 @@ namespace GamerHub.mobile.android.Views.Fragments
             recyclerView.SetLayoutManager(layoutManager);
 
             var metrics = Resources.DisplayMetrics;
-            _displayWidth = (ConvertPixelsToDp(metrics.WidthPixels) + 200);
+            _displayWidth = (ConvertPixelsToDp(metrics.WidthPixels)) * 2;
             _displayHeight = (ConvertPixelsToDp(metrics.HeightPixels)) / (2);
             ConfigureEvents();
 
@@ -117,9 +117,10 @@ namespace GamerHub.mobile.android.Views.Fragments
             settings.BuiltInZoomControls = false;
 
             myWebView.SetWebChromeClient(new WebChromeClient());
+
             settings.AllowFileAccess = true;
             settings.SetPluginState(WebSettings.PluginState.On);
-            var strYouTubeUrl = @"<html><body><iframe width=" + _displayWidth + " height=" + _displayHeight + " src=" + strUrl + "></iframe></body></html>";
+            var strYouTubeUrl = @"<html><body><iframe width=" + _displayWidth + " height=" + _displayHeight + " src=" + strUrl + " allowfullscreen=\"allowfullscreen\" mozallowfullscreen=\"mozallowfullscreen\" msallowfullscreen=\"msallowfullscreen\" oallowfullscreen=\"oallowfullscreen\" webkitallowfullscreen=\"webkitallowfullscreen\"></iframe></body></html>";
 
             myWebView.LoadDataWithBaseURL(null, strYouTubeUrl, "text/html", "UTF-8", null);
 
