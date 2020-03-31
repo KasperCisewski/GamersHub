@@ -4,6 +4,7 @@ using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.Home;
 using GamerHub.mobile.core.ViewModels.Registration;
 using System.Threading.Tasks;
+using GamerHub.mobile.core.Services.Db;
 
 namespace GamerHub.mobile.core.ViewModels.Login
 {
@@ -12,10 +13,26 @@ namespace GamerHub.mobile.core.ViewModels.Login
         private readonly IAccountService _accountService;
 
         public LoginViewModel(
-            IAccountService accountService
-            )
+            IAccountService accountService,
+            ISqlLiteService sqlLiteService
+        )
         {
             _accountService = accountService;
+
+            var credentialsStoredInDb = sqlLiteService.GetCredentialsStoredInDb();
+            if (credentialsStoredInDb != null)
+            {
+                Task.Run(async () =>
+                {
+                    var result = await _accountService.LogInByToken(credentialsStoredInDb);
+
+                    if (result)
+                    {
+                        await ShowViewModelAndRemoveHistory<HomeViewModel>();
+                    }
+                });
+
+            }
         }
 
         private async Task GoToRegistrationView()
