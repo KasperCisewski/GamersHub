@@ -76,37 +76,37 @@
                 android:id="@+id/button_add_game_to_wish_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_game_to_wish_list"
+                android:text="Add to &#10;wishlist"
                 android:background="#000000"
                 android:layout_margin="4dp"
-                android:textSize="27dp"
+                android:textSize="20dp"
                 local:MvxBind="Click AddGameToWishListCommand; Visible UserHasGameOnWishList, Converter=InvertBool"/>
             <Button
                 android:id="@+id/delete_game_from_wish_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete from wishlist"
+                android:text="Delete from &#10;wishlist"
                 android:background="#000000"
                 android:layout_margin="4dp"
-                android:textSize="27dp"
+                android:textSize="20dp"
                 local:MvxBind="Click DeleteGameFromWishListCommand; Visible UserHasGameOnWishList"/>
             <Button
                 android:id="@+id/delete_game_from_vault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete from vault"
+                android:text="Delete from &#10;vault"
                 android:background="#FF0000"
                 android:layout_margin="4dp"
-                android:textSize="27dp"
+                android:textSize="20dp"
                 local:MvxBind="Click DeleteGameFromVaultCommand; Visible UserHasGameInVault"/>
             <Button
                 android:id="@+id/button_add_game_to_vault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_game_to_vault"
+                android:text="Add to &#10;vault"
                 android:background="#FF0000"
                 android:layout_margin="4dp"
-                android:textSize="27dp"
+                android:textSize="20dp"
                 local:MvxBind="Click AddGameToVaultCommand; Visible UserHasGameInVault, Converter=InvertBool"/>
         </LinearLayout>
         <LinearLayout
@@ -181,8 +181,8 @@
                         android:scrollbars="none" />
                 </LinearLayout>
             </ScrollView>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
     <include
         android:id="@+id/shared_menu_toolbar"
         layout="@layout/fragment_shared_menu"/>

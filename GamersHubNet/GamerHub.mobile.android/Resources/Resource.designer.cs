@@ -9934,155 +9934,149 @@ namespace GamerHub.mobile.android
 			// aapt resource value: 0x7F0D0027
 			public const int action_settings = 2131558439;
 			
-			// aapt resource value: 0x7F0D0028
-			public const int add_game_to_vault = 2131558440;
-			
 			// aapt resource value: 0x7F0D0029
-			public const int add_game_to_wish_list = 2131558441;
+			public const int appbar_scrolling_view_behavior = 2131558441;
 			
-			// aapt resource value: 0x7F0D002B
-			public const int appbar_scrolling_view_behavior = 2131558443;
+			// aapt resource value: 0x7F0D0028
+			public const int app_name = 2131558440;
 			
 			// aapt resource value: 0x7F0D002A
-			public const int app_name = 2131558442;
+			public const int bottom_sheet_behavior = 2131558442;
+			
+			// aapt resource value: 0x7F0D002B
+			public const int btnPlay = 2131558443;
 			
 			// aapt resource value: 0x7F0D002C
-			public const int bottom_sheet_behavior = 2131558444;
+			public const int character_counter_content_description = 2131558444;
 			
 			// aapt resource value: 0x7F0D002D
-			public const int btnPlay = 2131558445;
+			public const int character_counter_pattern = 2131558445;
 			
 			// aapt resource value: 0x7F0D002E
-			public const int character_counter_content_description = 2131558446;
+			public const int email_exist_in_system = 2131558446;
 			
 			// aapt resource value: 0x7F0D002F
-			public const int character_counter_pattern = 2131558447;
+			public const int email_is_too_short = 2131558447;
 			
 			// aapt resource value: 0x7F0D0030
-			public const int email_exist_in_system = 2131558448;
+			public const int email_should_contain_at = 2131558448;
 			
 			// aapt resource value: 0x7F0D0031
-			public const int email_is_too_short = 2131558449;
+			public const int fab_scroll_shrink_grow_autohide_behavior = 2131558449;
 			
 			// aapt resource value: 0x7F0D0032
-			public const int email_should_contain_at = 2131558450;
+			public const int fab_transformation_scrim_behavior = 2131558450;
 			
 			// aapt resource value: 0x7F0D0033
-			public const int fab_scroll_shrink_grow_autohide_behavior = 2131558451;
+			public const int fab_transformation_sheet_behavior = 2131558451;
 			
 			// aapt resource value: 0x7F0D0034
-			public const int fab_transformation_scrim_behavior = 2131558452;
+			public const int global_email = 2131558452;
 			
 			// aapt resource value: 0x7F0D0035
-			public const int fab_transformation_sheet_behavior = 2131558453;
-			
-			// aapt resource value: 0x7F0D0036
-			public const int global_email = 2131558454;
+			public const int global_games = 2131558453;
 			
 			// aapt resource value: 0x7F0D0037
-			public const int global_games = 2131558455;
+			public const int global_login = 2131558455;
 			
-			// aapt resource value: 0x7F0D0039
-			public const int global_login = 2131558457;
+			// aapt resource value: 0x7F0D0036
+			public const int global_log_in = 2131558454;
 			
 			// aapt resource value: 0x7F0D0038
-			public const int global_log_in = 2131558456;
+			public const int global_name = 2131558456;
+			
+			// aapt resource value: 0x7F0D0039
+			public const int global_password = 2131558457;
 			
 			// aapt resource value: 0x7F0D003A
-			public const int global_name = 2131558458;
+			public const int global_sign_up = 2131558458;
 			
 			// aapt resource value: 0x7F0D003B
-			public const int global_password = 2131558459;
+			public const int global_submit = 2131558459;
 			
 			// aapt resource value: 0x7F0D003C
-			public const int global_sign_up = 2131558460;
+			public const int hide_bottom_view_on_scroll_behavior = 2131558460;
 			
 			// aapt resource value: 0x7F0D003D
-			public const int global_submit = 2131558461;
+			public const int mtrl_chip_close_icon_content_description = 2131558461;
 			
 			// aapt resource value: 0x7F0D003E
-			public const int hide_bottom_view_on_scroll_behavior = 2131558462;
+			public const int name_exist_in_system = 2131558462;
 			
 			// aapt resource value: 0x7F0D003F
-			public const int mtrl_chip_close_icon_content_description = 2131558463;
+			public const int name_is_too_short = 2131558463;
 			
 			// aapt resource value: 0x7F0D0040
-			public const int name_exist_in_system = 2131558464;
+			public const int password_should_contain_digit = 2131558464;
 			
 			// aapt resource value: 0x7F0D0041
-			public const int name_is_too_short = 2131558465;
+			public const int password_should_contain_more_letters = 2131558465;
 			
 			// aapt resource value: 0x7F0D0042
-			public const int password_should_contain_digit = 2131558466;
+			public const int password_should_contain_non_alphanumeric_char = 2131558466;
 			
 			// aapt resource value: 0x7F0D0043
-			public const int password_should_contain_more_letters = 2131558467;
+			public const int password_should_contain_upper_letter = 2131558467;
 			
 			// aapt resource value: 0x7F0D0044
-			public const int password_should_contain_non_alphanumeric_char = 2131558468;
+			public const int password_toggle_content_description = 2131558468;
 			
 			// aapt resource value: 0x7F0D0045
-			public const int password_should_contain_upper_letter = 2131558469;
+			public const int path_password_eye = 2131558469;
 			
 			// aapt resource value: 0x7F0D0046
-			public const int password_toggle_content_description = 2131558470;
+			public const int path_password_eye_mask_strike_through = 2131558470;
 			
 			// aapt resource value: 0x7F0D0047
-			public const int path_password_eye = 2131558471;
+			public const int path_password_eye_mask_visible = 2131558471;
 			
 			// aapt resource value: 0x7F0D0048
-			public const int path_password_eye_mask_strike_through = 2131558472;
-			
-			// aapt resource value: 0x7F0D0049
-			public const int path_password_eye_mask_visible = 2131558473;
+			public const int path_password_strike_through = 2131558472;
 			
 			// aapt resource value: 0x7F0D004A
-			public const int path_password_strike_through = 2131558474;
+			public const int profile_friends = 2131558474;
 			
-			// aapt resource value: 0x7F0D004C
-			public const int profile_friends = 2131558476;
+			// aapt resource value: 0x7F0D0049
+			public const int profile_friend_list_search_friend = 2131558473;
 			
 			// aapt resource value: 0x7F0D004B
-			public const int profile_friend_list_search_friend = 2131558475;
+			public const int profile_profile = 2131558475;
+			
+			// aapt resource value: 0x7F0D004C
+			public const int profile_settings = 2131558476;
 			
 			// aapt resource value: 0x7F0D004D
-			public const int profile_profile = 2131558477;
+			public const int profile_vault = 2131558477;
 			
 			// aapt resource value: 0x7F0D004E
-			public const int profile_settings = 2131558478;
+			public const int profile_vault_games_list_heatmap = 2131558478;
 			
 			// aapt resource value: 0x7F0D004F
-			public const int profile_vault = 2131558479;
+			public const int profile_wish_list = 2131558479;
 			
 			// aapt resource value: 0x7F0D0050
-			public const int profile_vault_games_list_heatmap = 2131558480;
+			public const int registration_password = 2131558480;
 			
 			// aapt resource value: 0x7F0D0051
-			public const int profile_wish_list = 2131558481;
+			public const int registration_repeatable_password = 2131558481;
 			
 			// aapt resource value: 0x7F0D0052
-			public const int registration_password = 2131558482;
+			public const int repeatable_password_could_not_be_emtpy = 2131558482;
 			
 			// aapt resource value: 0x7F0D0053
-			public const int registration_repeatable_password = 2131558483;
+			public const int repeatable_password_should_be_same = 2131558483;
 			
 			// aapt resource value: 0x7F0D0054
-			public const int repeatable_password_could_not_be_emtpy = 2131558484;
+			public const int search_menu_title = 2131558484;
 			
 			// aapt resource value: 0x7F0D0055
-			public const int repeatable_password_should_be_same = 2131558485;
+			public const int status_bar_notification_info_overflow = 2131558485;
 			
 			// aapt resource value: 0x7F0D0056
-			public const int search_menu_title = 2131558486;
+			public const int txtSkipVideo = 2131558486;
 			
 			// aapt resource value: 0x7F0D0057
-			public const int status_bar_notification_info_overflow = 2131558487;
-			
-			// aapt resource value: 0x7F0D0058
-			public const int txtSkipVideo = 2131558488;
-			
-			// aapt resource value: 0x7F0D0059
-			public const int view_scroll_translation_autohide_behavior = 2131558489;
+			public const int view_scroll_translation_autohide_behavior = 2131558487;
 			
 			static String()
 			{

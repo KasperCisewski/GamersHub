@@ -45,7 +45,6 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             SetFontsForSharedMenuBar(_view);
 
-
             var recyclerView = _view.FindViewById<MvxRecyclerView>(Resource.Id.game_screenshot_recycler_view);
 
             var layoutManager = new GridLayoutManager(Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity, 2);

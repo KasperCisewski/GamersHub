@@ -35,10 +35,6 @@
   <string name="repeatable_password_should_be_same">Passwords should be the same</string>
   <string name="repeatable_password_could_not_be_emtpy">Repeatable password could not be empty</string>
   <!--Registration end-->
-  <!-- Game view start-->
-  <string name="add_game_to_wish_list">Add to wishlist</string>
-  <string name="add_game_to_vault">Add to vault</string>
-  <!-- Game view end-->
   <!--Game Video view start-->
   <string name="btnPlay">Play</string>
   <string name="txtSkipVideo">Skip Video,Proceed to chapter >></string>
