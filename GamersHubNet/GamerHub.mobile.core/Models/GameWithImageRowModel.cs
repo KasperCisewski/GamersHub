@@ -12,12 +12,12 @@ namespace GamerHub.mobile.core.Models
         public GameCategory Category { get; set; }
         public string Title { get; set; }
         public GameWithImageRowModel(
-            GameModelWithImage model)
+            GameWithImageResponse withImageResponse)
         {
-            ImageBitmap = BitmapFactory.DecodeByteArray(model.ImageBytes.ToArray(), 0, model.ImageBytes.Count);
-            Id = model.Id;
-            Category = model.Category;
-            Title = model.Title;
+            ImageBitmap = BitmapFactory.DecodeByteArray(withImageResponse.ImageBytes.ToArray(), 0, withImageResponse.ImageBytes.Count);
+            Id = withImageResponse.Id;
+            Category = withImageResponse.Category;
+            Title = withImageResponse.Title;
         }
 
         public GameWithImageRowModel(

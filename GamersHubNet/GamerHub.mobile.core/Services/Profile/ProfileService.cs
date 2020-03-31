@@ -20,22 +20,22 @@ namespace GamerHub.mobile.core.Services.Profile
             _httpClientFactoryService = httpClientFactoryService;
         }
 
-        public async Task<UserProfile> GetUserProfileInformation(Guid? userId)
+        public async Task<UserProfileResponse> GetUserProfileInformation(Guid? userId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Profile.GetUserProfileInformation)
+            var request = new RestRequest(ApiRoutes.Profile.ProfileRoot)
             {
                 Method = Method.GET
             };
             request.AddQueryParameter("userId", userId?.ToString());
 
-            var response = await client.ExecuteAsync<UserProfile>(request);
+            var response = await client.ExecuteAsync<UserProfileResponse>(request);
 
             return response.ResponseData;
         }
 
-        public async Task<List<UserProfile>> GetUserFriends()
+        public async Task<List<UserProfileResponse>> GetUserFriends()
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -44,29 +44,29 @@ namespace GamerHub.mobile.core.Services.Profile
                 Method = Method.GET
             };
 
-            var response = await client.ExecuteAsync<List<UserProfile>>(request);
+            var response = await client.ExecuteAsync<List<UserProfileResponse>>(request);
 
             return response.ResponseData;
         }
 
-        public async Task<List<UserProfile>> SearchUsers(SearchFriendsRequest searchFriendsRequest)
+        public async Task<List<UserProfileResponse>> SearchUsers(SearchUserRequest searchUserRequest)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Profile.SearchUsers)
+            var request = new RestRequest(ApiRoutes.Search.SearchUsers)
             {
                 Method = Method.GET
             };
-            request.AddQueryParameter("searchUserNameText", searchFriendsRequest.SearchUserNameText);
-            request.AddQueryParameter("take", searchFriendsRequest.Take.ToString());
-            request.AddQueryParameter("skip", searchFriendsRequest.Skip.ToString());
+            request.AddQueryParameter("searchUserNameText", searchUserRequest.SearchUserNameText);
+            request.AddQueryParameter("take", searchUserRequest.Take.ToString());
+            request.AddQueryParameter("skip", searchUserRequest.Skip.ToString());
 
-            var response = await client.ExecuteAsync<List<UserProfile>>(request);
+            var response = await client.ExecuteAsync<List<UserProfileResponse>>(request);
 
             return response.ResponseData;
         }
 
-        public async Task<List<GameModelWithImage>> GetGamesInVault(Guid? userId)
+        public async Task<List<GameWithImageResponse>> GetGamesInVault(Guid? userId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -76,12 +76,12 @@ namespace GamerHub.mobile.core.Services.Profile
             };
             request.AddQueryParameter("userId", userId?.ToString());
 
-            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
+            var response = await client.ExecuteAsync<List<GameWithImageResponse>>(request);
 
             return response.ResponseData;
         }
 
-        public async Task<List<GameModelWithImage>> GetWishListGames()
+        public async Task<List<GameWithImageResponse>> GetWishListGames()
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -90,7 +90,7 @@ namespace GamerHub.mobile.core.Services.Profile
                 Method = Method.GET
             };
 
-            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
+            var response = await client.ExecuteAsync<List<GameWithImageResponse>>(request);
 
             return response.ResponseData;
         }
@@ -115,7 +115,7 @@ namespace GamerHub.mobile.core.Services.Profile
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Profile.DeleteFromFriendList)
+            var request = new RestRequest(ApiRoutes.Profile.UserFriendsRoot)
             {
                 Method = Method.DELETE
             };
@@ -134,7 +134,7 @@ namespace GamerHub.mobile.core.Services.Profile
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Profile.AddToFriendList)
+            var request = new RestRequest(ApiRoutes.Profile.UserFriendsRoot)
             {
                 Method = Method.POST
             };

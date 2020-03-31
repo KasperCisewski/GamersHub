@@ -31,7 +31,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
                 FriendsSearchList = new MvxObservableCollection<UserProfileModel>();
             }
 
-            var listRowModels = await _profileService.SearchUsers(new SearchFriendsRequest
+            var listRowModels = await _profileService.SearchUsers(new SearchUserRequest
             {
                 Skip = FetchedPages * StaticAppSettings.PullDataPageSize,
                 Take = StaticAppSettings.PullDataPageSize,

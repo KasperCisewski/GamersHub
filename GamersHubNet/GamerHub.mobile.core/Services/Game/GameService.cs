@@ -21,22 +21,22 @@ namespace GamerHub.mobile.core.Services.Game
             _httpClientFactoryService = httpClientFactoryService;
         }
 
-        public async Task<List<GameModelWithImage>> GetGames(HomeGamesCategory homeGamesCategory)
+        public async Task<List<GameWithImageResponse>> GetGames(HomeGamesCategory homeGamesCategory)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetGamesForHomeScreen)
+            var request = new RestRequest(ApiRoutes.Games.GetHomeScreenGames)
             {
                 Method = Method.GET
             };
             request.AddQueryParameter("homeGamesCategory", homeGamesCategory.ToString());
 
-            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
+            var response = await client.ExecuteAsync<List<GameWithImageResponse>>(request);
 
             return response.ResponseData;
         }
 
-        public async Task<FullDescriptionGameModel> GetFullGameModel(Guid gameId)
+        public async Task<FullGameDescriptionResponse> GetFullGameModel(Guid gameId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -46,7 +46,7 @@ namespace GamerHub.mobile.core.Services.Game
             };
             request.AddQueryParameter("gameId", gameId.ToString());
 
-            var response = await client.ExecuteAsync<FullDescriptionGameModel>(request);
+            var response = await client.ExecuteAsync<FullGameDescriptionResponse>(request);
 
             return response.ResponseData;
         }
@@ -127,32 +127,32 @@ namespace GamerHub.mobile.core.Services.Game
             return response.StatusCode == HttpStatusCode.OK;
         }
 
-        public async Task<List<ScreenShotModel>> GetScreenShotsForGame(Guid gameId)
+        public async Task<List<ScreenShotResponse>> GetScreenShotsForGame(Guid gameId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetScreenshotsForGame)
+            var request = new RestRequest(ApiRoutes.Games.GetGameScreenshots)
             {
                 Method = Method.GET
             };
             request.AddQueryParameter("gameId", gameId.ToString());
 
-            var response = await client.ExecuteAsync<List<ScreenShotModel>>(request);
+            var response = await client.ExecuteAsync<List<ScreenShotResponse>>(request);
 
             return response.ResponseData;
         }
 
-        public async Task<List<PriceModel>> GetPricesModelsForGame(Guid gameId)
+        public async Task<List<GameOfferResponse>> GetPricesModelsForGame(Guid gameId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Games.GetPricesForGame)
+            var request = new RestRequest(ApiRoutes.Games.GetGameOffers)
             {
                 Method = Method.GET
             };
             request.AddQueryParameter("gameId", gameId.ToString());
 
-            var response = await client.ExecuteAsync<List<PriceModel>>(request);
+            var response = await client.ExecuteAsync<List<GameOfferResponse>>(request);
 
             return response.ResponseData;
         }
@@ -172,7 +172,7 @@ namespace GamerHub.mobile.core.Services.Game
             return response.ResponseData;
         }
 
-        public async Task<List<GameModelWithImage>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest)
+        public async Task<List<GameWithImageResponse>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -184,12 +184,12 @@ namespace GamerHub.mobile.core.Services.Game
             request.AddQueryParameter("take", gameCategoryRequest.Take.ToString());
             request.AddQueryParameter("skip", gameCategoryRequest.Skip.ToString());
 
-            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
+            var response = await client.ExecuteAsync<List<GameWithImageResponse>>(request);
 
             return response.ResponseData;
         }
 
-        public async Task<List<GameModelWithImage>> GetGamesForUser()
+        public async Task<List<GameWithImageResponse>> GetGamesForUser()
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();
 
@@ -198,7 +198,7 @@ namespace GamerHub.mobile.core.Services.Game
                 Method = Method.GET
             };
 
-            var response = await client.ExecuteAsync<List<GameModelWithImage>>(request);
+            var response = await client.ExecuteAsync<List<GameWithImageResponse>>(request);
 
             return response.ResponseData;
         }

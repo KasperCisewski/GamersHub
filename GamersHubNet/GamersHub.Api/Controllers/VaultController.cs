@@ -1,63 +1,37 @@
-﻿using System;
-using System.Linq;
-using GamersHub.Api.Data;
-using GamersHub.Shared.Api;
+﻿using GamersHub.Shared.Api;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using GamersHub.Api.Domain;
+using GamersHub.Api.Commands;
 using GamersHub.Api.Extensions;
 using GamersHub.Shared.Contracts.Requests;
+using Gybs.Logic.Operations.Factory;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.Controllers
 {
     public class VaultController : Controller
     {
-        private readonly DataContext _dataContext;
+        private readonly IOperationFactory _operationFactory;
 
-        public VaultController(DataContext dataContext)
+        public VaultController(IOperationFactory operationFactory)
         {
-            _dataContext = dataContext;
+            _operationFactory = operationFactory;
         }
 
         [HttpPost(ApiRoutes.Games.AddGameToVault)]
         [Authorize]
         public async Task<IActionResult> AddGame([FromBody] AddGameVaultOrWishListRequest request)
         {
-            var userId = HttpContext.GetUserId();
-
-            var user = await _dataContext.Users
-                .Include(x => x.Games)
-                .SingleOrDefaultAsync(x => x.Id == userId);
-
-            if (user == null)
+            var result = await _operationFactory.Create<AddGameToVaultCommand>(x =>
             {
-                return BadRequest("No user with given id found");
+                x.GameId = request.GameId;
+                x.UserId = HttpContext.GetUserId();
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result);
             }
-
-            var game = await _dataContext.Games
-                .FindAsync(request.GameId);
-
-            if (game == null)
-            {
-                return BadRequest("No game with given id found");
-            }
-
-            if (user.Games.Any(x => x.GameId == request.GameId))
-            {
-                return BadRequest("Game already in the vault");
-            }
-
-            var vaultEntry = new UserGame()
-            {
-                Game = game,
-                User = user,
-            };
-
-            user.Games.Add(vaultEntry);
-
-            await _dataContext.SaveChangesAsync();
 
             return Ok();
         }
@@ -66,27 +40,16 @@ namespace GamersHub.Api.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteGameFromVault([FromBody] DeleteGameRequest request)
         {
-            var userId = HttpContext.GetUserId();
-
-            var user = await _dataContext.Users
-                .Include(x => x.Games)
-                .SingleOrDefaultAsync(x => x.Id == userId);
-
-            if (user == null)
+            var result = await _operationFactory.Create<DeleteGameFromVaultCommand>(x =>
             {
-                return BadRequest("No user with given id found");
-            }
+                x.GameId = request.GameId;
+                x.UserId = HttpContext.GetUserId();
+            }).HandleAsync();
 
-            if (user.Games.All(x => x.GameId != request.GameId))
+            if (result.HasFailed())
             {
-                return BadRequest("User does not have this game in vault");
+                return BadRequest(result);
             }
-
-            var userGame = user.Games.SingleOrDefault(x => x.GameId == request.GameId);
-
-            user.Games.Remove(userGame);
-
-            await _dataContext.SaveChangesAsync();
 
             return Ok();
         }

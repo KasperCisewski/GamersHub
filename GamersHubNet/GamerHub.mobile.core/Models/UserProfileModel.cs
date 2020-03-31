@@ -12,7 +12,7 @@ namespace GamerHub.mobile.core.Models
         public Guid Id { get; set; }
         public string UserName { get; set; }
         public UserProfileModel(
-            UserProfile model,
+            UserProfileResponse model,
             IResourceService resourceService)
         {
             //TODO
