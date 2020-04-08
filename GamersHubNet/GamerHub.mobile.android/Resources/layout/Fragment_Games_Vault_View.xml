@@ -24,7 +24,7 @@
         android:id="@+id/games_vault_recycler_view"
         android:layout_below="@id/vault_text_view"
         android:scrollbars="vertical"
-        local:MvxItemTemplate="@layout/fragment_game_row_view"
+        local:MvxItemTemplate="@layout/fragment_game_twice_in_row_view"
         local:MvxBind="ItemsSource GamesList; ItemClick ClickGame" />
     <Button
         android:id="@+id/search_friend_button"

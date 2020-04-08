@@ -1,34 +1,26 @@
 ﻿using System.Threading.Tasks;
 using Android.Graphics;
 using GamerHub.mobile.core.Models;
-using GamerHub.mobile.core.Services.Dependency;
+using GamerHub.mobile.core.Models.Messenger;
 using GamerHub.mobile.core.Services.Game;
 using GamerHub.mobile.core.ViewModels.Base;
+using MvvmCross.Plugin.Messenger;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 {
     public partial class GameViewModel : BaseViewModel<GameWithImageRowModel>
     {
         private readonly IGameService _gameService;
-        public GameScreenshotsViewModel GameScreenshotsViewModel { get; }
-        public GameVideoViewModel GameVideoViewModel { get; }
-        public GamePricesViewModel GamePricesViewModel { get; }
+        private MvxSubscriptionToken _openVideoCardToken;
 
         public GameViewModel(
-            IDependencyService dependencyService,
             IGameService gameService)
         {
             _gameService = gameService;
-            GameScreenshotsViewModel = dependencyService.Resolve<GameScreenshotsViewModel>();
-            GameVideoViewModel = dependencyService.Resolve<GameVideoViewModel>();
-            GamePricesViewModel = dependencyService.Resolve<GamePricesViewModel>();
         }
         public override void Prepare(GameWithImageRowModel parameter)
         {
             GameModel = parameter;
-            GameScreenshotsViewModel.Prepare(parameter);
-            GameVideoViewModel.Prepare(parameter);
-            GamePricesViewModel.Prepare(parameter);
         }
 
         public override async Task Initialize()
@@ -41,9 +33,17 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             UserHasGameOnWishList = fullGameModel.UserHasGameOnWishList;
             GameCategoryText = GameModel.Category.ToString();
             GeneralImage = BitmapFactory.DecodeByteArray(fullGameModel.GeneralImage.ToArray(), 0, fullGameModel.GeneralImage.Count);
-            await GameVideoViewModel.Initialize();
-            await GameScreenshotsViewModel.Initialize();
-            await GamePricesViewModel.Initialize();
+            VideoUrl = await _gameService.GetVideoUrlForGame(GameModel.Id);
+            Messenger.Publish(new OpenVideoCardView(this));
+            var screenshotList = await _gameService.GetScreenShotsForGame(GameModel.Id);
+
+            foreach (var screenshot in screenshotList)
+            {
+                GameScreenshots.Add(new GameScreenshotRowModel(screenshot.ImageContent));
+            }
+
+            ShouldShowGameScreenshots = true;
+            ShouldShowGameVideo = false;
         }
 
         private async Task AddGameToWishList()
@@ -104,6 +104,23 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             {
                 NotificationService.Notify("Something was wrong");
             }
+        }
+
+        private async Task OpenGameScreenshot(GameScreenshotRowModel parameter)
+        {
+            await ShowViewModel<GameScreenshotRowZoomableViewModel, GameScreenshotRowModel>(parameter);
+        }
+
+        private void ShowGameScreenshotsTab()
+        {
+            ShouldShowGameVideo = false;
+            ShouldShowGameScreenshots = true;
+        }
+
+        private void ShowGameVideoTab()
+        {
+            ShouldShowGameVideo = true;
+            ShouldShowGameScreenshots = false;
         }
     }
 }

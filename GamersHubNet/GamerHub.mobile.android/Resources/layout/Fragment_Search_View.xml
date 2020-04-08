@@ -29,7 +29,7 @@
         android:layout_below="@id/search_input_layout"
         android:layout_above="@id/shared_menu_toolbar"
         android:scrollbars="vertical"
-        local:MvxItemTemplate="@layout/fragment_game_row_view"
+        local:MvxItemTemplate="@layout/fragment_game_twice_in_row_view"
         local:MvxBind="ItemsSource GamesSearchList; ItemClick ClickGame" />
     <include
         android:id="@+id/shared_menu_toolbar"
