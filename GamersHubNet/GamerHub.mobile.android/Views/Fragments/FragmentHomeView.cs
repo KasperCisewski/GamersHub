@@ -21,7 +21,6 @@ namespace GamerHub.mobile.android.Views.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = this.BindingInflate(Resource.Layout.Fragment_Home_View, null);
 
-
             var comingSoonRecyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.coming_soon_games_recycler_view);
             comingSoonRecyclerView.SetLayoutManager(new LinearLayoutManager(Context, LinearLayoutManager.Horizontal, false));
 
@@ -33,8 +32,14 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             var onSaleRecyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.on_sale_games_games_recycler_view);
             onSaleRecyclerView.SetLayoutManager(new LinearLayoutManager(Context, LinearLayoutManager.Horizontal, false));
-            
+
             SetFontForView<TextView>(view, Resource.Id.app_info_text_view);
+            SetFontForView<TextView>(view, Resource.Id.home_brand_new_text_view);
+            SetFontForView<TextView>(view, Resource.Id.home_coming_soon_text_view);
+            SetFontForView<TextView>(view, Resource.Id.home_hottest_text_view);
+            SetFontForView<TextView>(view, Resource.Id.home_on_sale_text_view);
+
+            SetFontsForSharedMenuBar(view);
 
             return view;
         }

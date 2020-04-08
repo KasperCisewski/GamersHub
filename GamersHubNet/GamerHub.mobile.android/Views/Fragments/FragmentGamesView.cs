@@ -29,6 +29,7 @@ namespace GamerHub.mobile.android.Views.Fragments
             recyclerView.SetLayoutManager(layoutManager);
 
             SetFontForView<TextView>(view, Resource.Id.app_info_text_view);
+            SetFontsForSharedMenuBar(view);
 
             return view;
         }

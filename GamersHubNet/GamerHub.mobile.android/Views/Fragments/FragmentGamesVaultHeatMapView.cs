@@ -21,6 +21,7 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             SetFontForView<TextView>(view, Resource.Id.title_text_view);
             SetFontForView<TextView>(view, Resource.Id.description_text_view);
+            SetFontsForSharedMenuBar(view);
 
             return view;
         }

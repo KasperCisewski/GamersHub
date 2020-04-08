@@ -18,5 +18,16 @@ namespace GamerHub.mobile.core.Models
             Category = withImageResponse.Category;
             Title = withImageResponse.Title;
         }
+
+        public GameWithImageRowModel(
+            GameWithImageRowModel model,
+            int highestWidth,
+            int highestHeight)
+        {
+            ImageBitmap = Bitmap.CreateScaledBitmap(model.ImageBitmap, highestWidth, highestHeight, false);
+            Id = model.Id;
+            Category = model.Category;
+            Title = model.Title;
+        }
     }
 }
