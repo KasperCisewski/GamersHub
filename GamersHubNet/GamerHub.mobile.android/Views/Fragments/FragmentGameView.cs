@@ -40,12 +40,6 @@ namespace GamerHub.mobile.android.Views.Fragments
                         "",
                         typeof(FragmentGameVideoView),
                         ViewModel.GameVideoViewModel
-                    ),
-                    new MvxViewPagerFragmentInfo(
-                        "Prices",
-                        "",
-                    typeof(FragmentGamePricesView),
-                    ViewModel.GamePricesViewModel
                     )
                 };
                 pager.Adapter = new MvxFragmentPagerAdapter(Activity, ChildFragmentManager, fragments);

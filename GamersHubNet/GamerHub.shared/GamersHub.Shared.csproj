@@ -109,7 +109,6 @@
     <Compile Include="Contracts\Requests\GameCategoryRequest.cs" />
     <Compile Include="Contracts\Requests\SearchUserRequest.cs" />
     <Compile Include="Contracts\Responses\FullGameDescriptionResponse.cs" />
-    <Compile Include="Contracts\Responses\GameOfferResponse.cs" />
     <Compile Include="Contracts\Responses\ScreenShotResponse.cs" />
     <Compile Include="Contracts\Responses\UserProfileResponse.cs" />
     <Compile Include="Enums\GameCategory.cs" />

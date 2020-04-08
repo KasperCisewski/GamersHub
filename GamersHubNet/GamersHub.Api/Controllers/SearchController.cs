@@ -29,10 +29,10 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
 
@@ -48,10 +48,10 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Search.SearchUsers)]
@@ -67,10 +67,10 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
     }
 }

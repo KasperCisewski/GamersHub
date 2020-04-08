@@ -12,7 +12,6 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
         private readonly IGameService _gameService;
         public GameScreenshotsViewModel GameScreenshotsViewModel { get; }
         public GameVideoViewModel GameVideoViewModel { get; }
-        public GamePricesViewModel GamePricesViewModel { get; }
 
         public GameViewModel(
             IDependencyService dependencyService,
@@ -21,14 +20,12 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             _gameService = gameService;
             GameScreenshotsViewModel = dependencyService.Resolve<GameScreenshotsViewModel>();
             GameVideoViewModel = dependencyService.Resolve<GameVideoViewModel>();
-            GamePricesViewModel = dependencyService.Resolve<GamePricesViewModel>();
         }
         public override void Prepare(GameWithImageRowModel parameter)
         {
             GameModel = parameter;
             GameScreenshotsViewModel.Prepare(parameter);
             GameVideoViewModel.Prepare(parameter);
-            GamePricesViewModel.Prepare(parameter);
         }
 
         public override async Task Initialize()
@@ -43,7 +40,6 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             GeneralImage = BitmapFactory.DecodeByteArray(fullGameModel.GeneralImage.ToArray(), 0, fullGameModel.GeneralImage.Count);
             await GameVideoViewModel.Initialize();
             await GameScreenshotsViewModel.Initialize();
-            await GamePricesViewModel.Initialize();
         }
 
         private async Task AddGameToWishList()

@@ -11,8 +11,7 @@ namespace GamerHub.mobile.core.Models
         public Guid Id { get; set; }
         public GameCategory Category { get; set; }
         public string Title { get; set; }
-        public GameWithImageRowModel(
-            GameWithImageResponse withImageResponse)
+        public GameWithImageRowModel(GameWithImageResponse withImageResponse)
         {
             ImageBitmap = BitmapFactory.DecodeByteArray(withImageResponse.ImageBytes.ToArray(), 0, withImageResponse.ImageBytes.Count);
             Id = withImageResponse.Id;

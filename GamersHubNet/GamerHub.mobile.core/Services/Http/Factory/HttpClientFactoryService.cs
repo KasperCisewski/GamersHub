@@ -7,7 +7,7 @@ namespace GamerHub.mobile.core.Services.Http.Factory
     {
         private readonly IPollyPolicyService _pollyPolicyService;
         private readonly IGlobalStateService _globalStateService;
-        private string _apiUrl ="https://10.0.2.2:5001/";
+        private string _apiUrl = "https://192.168.1.3:5001/";
         //TODO: get url from app settings -> https://www.andrewhoefling.com/Blog/Post/xamarin-app-configuration-control-your-app-settings?fbclid=IwAR1clIxqp4TM1xto0YzJg70duaLT8Tdwt5sY-maEYpvV0TnbiYzoWpShnIk
 
         public HttpClientFactoryService(

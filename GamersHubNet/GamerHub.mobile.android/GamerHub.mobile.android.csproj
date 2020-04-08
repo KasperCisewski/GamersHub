@@ -82,7 +82,6 @@
     <Compile Include="Views\Fragments\Base\FragmentBase.cs" />
     <Compile Include="Views\Fragments\FragmentFriendSearchView.cs" />
     <Compile Include="Views\Fragments\FragmentFriendsListView.cs" />
-    <Compile Include="Views\Fragments\FragmentGamePricesView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesChosenForUser.cs" />
     <Compile Include="Views\Fragments\FragmentGameScreenshotsView.cs" />
     <Compile Include="Views\Fragments\FragmentGamesVaultHeatMapView.cs" />

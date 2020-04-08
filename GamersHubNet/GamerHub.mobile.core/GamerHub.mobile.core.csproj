@@ -137,8 +137,6 @@
     <Compile Include="ViewModels\CoreApp\Games\GamesChosenForUserViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.Properties.cs" />
-    <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.cs" />
-    <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameScreenshotRowZoomableViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.Properties.cs" />
