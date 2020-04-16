@@ -3,7 +3,6 @@ using Android.App;
 using Android.OS;
 using Android.Views;
 using GamerHub.mobile.core.ViewModels;
-using GamerHub.mobile.core.ViewModels.Login;
 using System.Net;
 
 namespace GamerHub.mobile.android.Views
@@ -23,8 +22,7 @@ namespace GamerHub.mobile.android.Views
 #if DEBUG
             ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
 #endif
-
-            await ViewModel.ShowViewModel<LoginViewModel>();
+            await ViewModel.NavigateToFirstViewModel();
         }
     }
 }

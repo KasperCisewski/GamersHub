@@ -46,7 +46,8 @@ namespace GamerHub.mobile.core.Services.Account
                 _sqlLiteService.SaveCredentials(new UserCredentialsModel
                 {
                     RefreshToken = responseModel.RefreshToken,
-                    Token = responseModel.Token
+                    Token = responseModel.Token,
+                    ExpiryDate = responseModel.ExpiryDate
                 });
 
                 return true;
