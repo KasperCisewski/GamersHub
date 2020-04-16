@@ -25,9 +25,10 @@ namespace GamerHub.mobile.core.Services.Account
         {
             var client = _httpClientFactoryService.GetNotAuthorizedClient();
 
-            var request = new RestRequest(ApiRoutes.Identity.Login);
-            request.Method = Method.POST;
-            request.RequestFormat = DataFormat.Json;
+            var request = new RestRequest(ApiRoutes.Identity.Login, Method.POST)
+            {
+                RequestFormat = DataFormat.Json
+            };
             request.AddJsonBody(new UserLoginRequest { Email = userName, Password = password });
 
             var response = await client.ExecuteAsync<string>(request);

@@ -31,7 +31,6 @@
             public const string AddGameToWishList = GamesRoot + "/wishlist";
             public const string AddGameToVault = GamesRoot + "/vault";
             public const string GetGameScreenshots = GamesRoot + "/screenshots";
-            public const string GetGameOffers = GamesRoot + "/offers";
             public const string GetVideoUrl = GamesRoot + "/video";
             public const string GetGamesByCategory = GamesRoot + "/filter-category";
             public const string GetFullGameDescription = GamesRoot + "/description";

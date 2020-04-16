@@ -2,9 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using GamersHub.Api.Data;
-using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
-using GamersHub.Api.Queries;
 using GamersHub.Api.Queries.Game;
 using GamersHub.Shared.Contracts.Responses;
 using GamersHub.Shared.Data.Enums;
@@ -14,7 +12,7 @@ using Gybs.Logic.Validation;
 using Gybs.Results;
 using Microsoft.EntityFrameworkCore;
 
-namespace GamersHub.Api.QueryHandlers
+namespace GamersHub.Api.QueryHandlers.Game
 {
     internal class GetHomeScreenGamesQueryHandler : IQueryHandler<GetHomeScreenGamesQuery, IReadOnlyCollection<GameWithImageResponse>>
     {
@@ -60,7 +58,7 @@ namespace GamersHub.Api.QueryHandlers
                     .Take(10)
                     .Include(x => x.CoverGameImage)
                     .ToListAsync(),
-                _ => new List<Game>()
+                _ => new List<Domain.Game>()
             };
 
             return games

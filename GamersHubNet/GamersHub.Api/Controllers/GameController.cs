@@ -31,23 +31,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result);
             }
 
-            return Ok(result);
-        }
-
-        [HttpGet(ApiRoutes.Games.GetGameOffers)]
-        public async Task<IActionResult> GetGameOffers(Guid gameId)
-        {
-            var result = await _operationFactory.Create<GetGameOffersQuery>(x =>
-            {
-                x.GameId = gameId;
-            }).HandleAsync();
-
-            if (result.HasFailed())
-            {
-                return BadRequest(result);
-            }
-
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Games.GetVideoUrl)]
@@ -63,7 +47,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Games.GetHomeScreenGames)]
@@ -79,7 +63,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Games.GetFullGameDescription)]
@@ -96,7 +80,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
     }
 }

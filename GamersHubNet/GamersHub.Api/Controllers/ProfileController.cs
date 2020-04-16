@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using GamersHub.Api.Commands;
-using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
-using GamersHub.Api.PythonScripts;
 using GamersHub.Api.Queries.Profile;
 using GamersHub.Shared.Api;
 using GamersHub.Shared.Contracts.Requests;
-using GamersHub.Shared.Contracts.Responses;
 using Gybs.Logic.Operations.Factory;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,7 +35,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Profile.GetUserFriends)]
@@ -55,10 +50,10 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Profile.GetGamesInVault)]
@@ -73,10 +68,10 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Profile.GetWishListGames)]
@@ -91,10 +86,10 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Profile.GetUserGenres)]
@@ -108,7 +103,7 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
             return Json(new { result.Data.Item1, genres = result.Data.Item2 });
@@ -125,7 +120,7 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
             return Json(new { games = result.Data });
@@ -143,7 +138,7 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
             return Ok();
@@ -161,7 +156,7 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
             return Ok();
@@ -179,10 +174,10 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Profile.GetRecommendedGames)]
@@ -197,10 +192,10 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
     }
 }
