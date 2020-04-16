@@ -20,6 +20,8 @@ namespace GamerHub.mobile.android.Views.Fragments
             var view = this.BindingInflate(Resource.Layout.Fragment_Settings_View, null);
 
             SetFontForView<TextView>(view, Resource.Id.app_info_text_view);
+            SetFontForView<Button>(view, Resource.Id.take_profile_image_button_id);
+            SetFontForView<Button>(view, Resource.Id.choose_profile_image_button_id);
             SetFontForView<Button>(view, Resource.Id.logout_button_id);
 
             return view;
