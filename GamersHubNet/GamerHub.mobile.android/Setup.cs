@@ -6,6 +6,7 @@ using MvvmCross.ViewModels;
 using GamerHub.mobile.android.Services;
 using GamerHub.mobile.core.Services;
 using GamerHub.mobile.core.Infrastructure;
+using GamerHub.mobile.core.Services.Db;
 using GamerHub.mobile.core.Services.Http;
 using GamerHub.mobile.core.Services.Http.Factory;
 using GamerHub.mobile.core.Services.Resource;
@@ -26,6 +27,7 @@ namespace GamerHub.mobile.android
             Mvx.IoCProvider.RegisterSingleton<IGlobalStateService>(() => new GlobalStateService(new MvxMessengerHub()));
             Mvx.IoCProvider.RegisterSingleton<ILocalizationService>(new LocalizationAndroid());
             Mvx.IoCProvider.RegisterSingleton<IResourceService>(new ResourceAndroidService());
+            Mvx.IoCProvider.RegisterSingleton<ISqlLiteService>(new SqlLiteService());
 
             Mvx.IoCProvider.RegisterType<INotificationService>(() => new NotificationService());
             Mvx.IoCProvider.RegisterType<IKeyboardService, KeyboardService>();

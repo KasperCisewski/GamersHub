@@ -71,6 +71,7 @@
     <Compile Include="Services\LocalizationAndroid.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\ResourceAndroidService.cs" />
+    <Compile Include="Services\SqlLiteService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SetupAndroidApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,6 +159,9 @@
     </PackageReference>
     <PackageReference Include="RestSharp">
       <Version>106.6.10</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.5.231</Version>
     </PackageReference>
     <PackageReference Include="System.Reactive">
       <Version>4.2.0</Version>

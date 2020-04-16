@@ -26,7 +26,6 @@ namespace GamerHub.mobile.android.Views.Fragments
             SetFontForView<Button>(view, Resource.Id.login_sign_up_id);
             SetFontForView<TextView>(view, Resource.Id.app_info_text_view);
 
-
             var passwordInput = view.FindViewById<TextInputEditText>(Resource.Id.password_input_id);
             passwordInput.EditorAction += (sender, e) =>
             {
