@@ -28,5 +28,10 @@ namespace GamerHub.mobile.android.Services
             _sqlLiteConnection.CreateTable<UserCredentialsModel>();
             _sqlLiteConnection.Insert(model);
         }
+
+        public void ClearCredentials()
+        {
+            _sqlLiteConnection.DropTable<UserCredentialsModel>();
+        }
     }
 }

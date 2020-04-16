@@ -6,5 +6,6 @@ namespace GamerHub.mobile.core.Services.Db
     {
         UserCredentialsModel GetCredentialsStoredInDb();
         void SaveCredentials(UserCredentialsModel model);
+        void ClearCredentials();
     }
 }

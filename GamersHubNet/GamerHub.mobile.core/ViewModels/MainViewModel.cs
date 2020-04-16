@@ -50,7 +50,7 @@ namespace GamerHub.mobile.core.ViewModels
         public async Task NavigateToFirstViewModel()
         {
             var credentialsStoredInDb = _sqlLiteService.GetCredentialsStoredInDb();
-            if (credentialsStoredInDb != null)
+            if (credentialsStoredInDb != default)
             {
                 var result = credentialsStoredInDb.ExpiryDate.AddMinutes(30) > DateTime.UtcNow || await _accountService.LogInByToken(credentialsStoredInDb);
 
