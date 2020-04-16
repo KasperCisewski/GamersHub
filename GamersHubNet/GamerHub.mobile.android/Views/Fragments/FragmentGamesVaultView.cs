@@ -31,6 +31,7 @@ namespace GamerHub.mobile.android.Views.Fragments
 
             SetFontForView<TextView>(view, Resource.Id.vault_text_view);
             SetFontForView<Button>(view, Resource.Id.search_friend_button);
+            SetFontsForSharedMenuBar(view);
 
             return view;
         }

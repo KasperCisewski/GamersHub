@@ -11,13 +11,23 @@ namespace GamerHub.mobile.core.Models
         public Guid Id { get; set; }
         public GameCategory Category { get; set; }
         public string Title { get; set; }
-        public GameWithImageRowModel(
-            GameWithImageResponse withImageResponse)
+        public GameWithImageRowModel(GameWithImageResponse withImageResponse)
         {
             ImageBitmap = BitmapFactory.DecodeByteArray(withImageResponse.ImageBytes.ToArray(), 0, withImageResponse.ImageBytes.Count);
             Id = withImageResponse.Id;
             Category = withImageResponse.Category;
             Title = withImageResponse.Title;
+        }
+
+        public GameWithImageRowModel(
+            GameWithImageRowModel model,
+            int highestWidth,
+            int highestHeight)
+        {
+            ImageBitmap = Bitmap.CreateScaledBitmap(model.ImageBitmap, highestWidth, highestHeight, false);
+            Id = model.Id;
+            Category = model.Category;
+            Title = model.Title;
         }
     }
 }

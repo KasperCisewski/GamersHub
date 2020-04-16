@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
-using GamersHub.Api.Queries;
 using GamersHub.Api.Queries.Game;
 using GamersHub.Api.ValidationRules;
 using Gybs;
@@ -10,7 +9,7 @@ using Gybs.Logic.Validation;
 using Gybs.Results;
 using Microsoft.EntityFrameworkCore;
 
-namespace GamersHub.Api.QueryHandlers
+namespace GamersHub.Api.QueryHandlers.Game
 {
     internal class GetGameVideoUrlQueryHandler : IQueryHandler<GetGameVideoUrlQuery, string>
     {

@@ -27,5 +27,6 @@
 
   <style name="TextView">
     <item name="android:background">@android:drawable/alert_light_frame</item>
+    <item name="android:textColor">@android:color/white</item>
   </style>
 </resources>

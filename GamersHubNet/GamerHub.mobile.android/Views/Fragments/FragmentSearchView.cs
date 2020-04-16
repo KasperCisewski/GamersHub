@@ -43,6 +43,7 @@ namespace GamerHub.mobile.android.Views.Fragments
             _searchTextChangedObservable = this.InitObservableFromEvent<TextChangedEventArgs, SearchViewModel>(_searchTextEdit, "TextChanged");
 
             SetFontForView<TextInputEditText>(view, _searchTextEdit.Id);
+            SetFontsForSharedMenuBar(view);
 
             return view;
         }

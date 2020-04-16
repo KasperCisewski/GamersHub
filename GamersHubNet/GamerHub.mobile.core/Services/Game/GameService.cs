@@ -142,21 +142,6 @@ namespace GamerHub.mobile.core.Services.Game
             return response.ResponseData;
         }
 
-        public async Task<List<GameOfferResponse>> GetPricesModelsForGame(Guid gameId)
-        {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
-
-            var request = new RestRequest(ApiRoutes.Games.GetGameOffers)
-            {
-                Method = Method.GET
-            };
-            request.AddQueryParameter("gameId", gameId.ToString());
-
-            var response = await client.ExecuteAsync<List<GameOfferResponse>>(request);
-
-            return response.ResponseData;
-        }
-
         public async Task<string> GetVideoUrlForGame(Guid gameId)
         {
             var client = _httpClientFactoryService.GetAuthorizedClient();

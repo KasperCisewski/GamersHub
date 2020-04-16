@@ -105,7 +105,6 @@
     <Compile Include="Infrastructure\ValueConverter\InvertBoolValueConverter.cs" />
     <Compile Include="Models\Db\UserCredentialsModel.cs" />
     <Compile Include="Models\GameCategoryModel.cs" />
-    <Compile Include="Models\GameOfferRowModel.cs" />
     <Compile Include="Models\GameScreenshotRowModel.cs" />
     <Compile Include="Models\GameWithImageRowModel.cs" />
     <Compile Include="Models\Http\HttpResult.cs" />
@@ -156,13 +155,7 @@
     <Compile Include="ViewModels\CoreApp\Games\GamesChosenForUserViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Games\GamesViewModel.Properties.cs" />
-    <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.cs" />
-    <Compile Include="ViewModels\CoreApp\Game\GamePricesViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameScreenshotRowZoomableViewModel.cs" />
-    <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.cs" />
-    <Compile Include="ViewModels\CoreApp\Game\GameScreenshotsViewModel.Properties.cs" />
-    <Compile Include="ViewModels\CoreApp\Game\GameVideoViewModel.cs" />
-    <Compile Include="ViewModels\CoreApp\Game\GameVideoViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameViewModel.cs" />
     <Compile Include="ViewModels\CoreApp\Game\GameViewModel.Properties.cs" />
     <Compile Include="ViewModels\CoreApp\Home\HomeViewModel.cs" />

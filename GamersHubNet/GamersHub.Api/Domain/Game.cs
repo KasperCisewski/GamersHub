@@ -10,7 +10,6 @@ namespace GamersHub.Api.Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime? ReleaseDate { get; set; }
-        public List<GameOffer> GameOffers { get; set; }
         public List<GameImage> GameImages { get; set; }
         public GameImage CoverGameImage { get; set; }
         public string VideoUrl { get; set; }

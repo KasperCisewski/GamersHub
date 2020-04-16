@@ -27,7 +27,7 @@
     android:layout_below="@id/title_text_view"
     android:layout_above="@id/shared_menu_toolbar"
     android:scrollbars="vertical"
-    local:MvxItemTemplate="@layout/fragment_game_row_view"
+    local:MvxItemTemplate="@layout/fragment_game_twice_in_row_view"
     local:MvxBind="ItemsSource GamesList; ItemClick ClickGame" />
   <include
     android:id="@+id/shared_menu_toolbar"

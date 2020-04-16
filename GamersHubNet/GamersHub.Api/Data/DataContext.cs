@@ -18,7 +18,6 @@ namespace GamersHub.Api.Data
         public DbSet<Store> Stores { get; set; }
         public DbSet<Metatag> Metatags { get; set; }
         public DbSet<Game> Games { get; set; }
-        public DbSet<GameOffer> GameOffers { get; set; }
         public DbSet<GameImage> GameImages { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
         public DbSet<GeneratedHeatmap> GeneratedHeatMaps { get; set; }

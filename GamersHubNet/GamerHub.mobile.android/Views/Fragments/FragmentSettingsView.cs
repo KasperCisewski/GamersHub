@@ -12,7 +12,7 @@ namespace GamerHub.mobile.android.Views.Fragments
 {
     [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.main_frame_layout, true)]
     [Register("GamerHub.mobile.Android.Views.Fragments.FragmentSettingsView")]
-    public class FragmentSettingsView:FragmentBase<SettingsViewModel>
+    public class FragmentSettingsView : FragmentBase<SettingsViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
