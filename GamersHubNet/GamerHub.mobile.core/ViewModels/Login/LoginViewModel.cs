@@ -14,8 +14,7 @@ namespace GamerHub.mobile.core.ViewModels.Login
 
         public LoginViewModel(
             IAccountService accountService,
-            ISqlLiteService sqlLiteService
-        )
+            ISqlLiteService sqlLiteService)
         {
             _accountService = accountService;
 
@@ -31,7 +30,6 @@ namespace GamerHub.mobile.core.ViewModels.Login
                         await ShowViewModelAndRemoveHistory<HomeViewModel>();
                     }
                 });
-
             }
         }
 

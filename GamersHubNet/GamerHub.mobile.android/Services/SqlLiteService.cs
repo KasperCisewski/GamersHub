@@ -12,11 +12,11 @@ namespace GamerHub.mobile.android.Services
         public SqlLiteService()
         {
             var dbName = "gamershub.sqlite";
-                var dbPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var path = System.IO.Path.Combine(dbPath, dbName);
-                _sqlLiteConnection = new SQLiteConnection(path);
-                _sqlLiteConnection.CreateTable<UserCredentialsModel>();
-            }
+            var dbPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var path = System.IO.Path.Combine(dbPath, dbName);
+            _sqlLiteConnection = new SQLiteConnection(path);
+            _sqlLiteConnection.CreateTable<UserCredentialsModel>();
+        }
 
         public UserCredentialsModel GetCredentialsStoredInDb() =>
             (from c in _sqlLiteConnection.Table<UserCredentialsModel>() select c)
@@ -25,9 +25,8 @@ namespace GamerHub.mobile.android.Services
         public void SaveCredentials(UserCredentialsModel model)
         {
             _sqlLiteConnection.DropTable<UserCredentialsModel>();
-                _sqlLiteConnection.CreateTable<UserCredentialsModel>();
-
-                _sqlLiteConnection.Insert(model);
+            _sqlLiteConnection.CreateTable<UserCredentialsModel>();
+            _sqlLiteConnection.Insert(model);
         }
     }
 }
