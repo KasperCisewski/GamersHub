@@ -77,7 +77,8 @@ namespace GamersHub.Api.Controllers
             return Ok(new AuthSuccessResponse
             {
                 Token = authResponse.Token,
-                RefreshToken = authResponse.RefreshToken
+                RefreshToken = authResponse.RefreshToken,
+                ExpiryDate = authResponse.TokenExpiryDate
             });
         }
     }
