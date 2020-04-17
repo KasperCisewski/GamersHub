@@ -7,7 +7,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/game_layout"
+        android:layout_above="@id/shared_menu_toolbar">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="250dp">
@@ -147,8 +149,7 @@
         </LinearLayout>
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/shared_menu_toolbar">
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
