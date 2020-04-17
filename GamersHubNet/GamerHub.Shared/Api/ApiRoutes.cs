@@ -45,6 +45,7 @@
             public const string GetGamesInVault = ProfileRoot + "/vault";
             public const string GetWishListGames = ProfileRoot + "/wishlist";
             public const string GetHeatMap = ProfileRoot + "/heatmap";
+            public const string ChangeProfileImage = ProfileRoot + "/profileImage";
 
             public const string UserFriendsRoot = Root + "/friends";
 
@@ -52,7 +53,6 @@
             public const string GetUserGenres = ProfileGamesRoot + "/genres";
             public const string GetUserGamesNames = ProfileGamesRoot + "/names";
             public const string GetRecommendedGames = ProfileGamesRoot + "/recommended";
-
         }
     }
 }

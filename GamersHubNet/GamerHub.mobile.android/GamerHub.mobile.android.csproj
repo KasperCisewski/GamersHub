@@ -151,6 +151,9 @@
     <PackageReference Include="MvvmCross.Plugin.Messenger">
       <Version>6.3.1</Version>
     </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.PictureChooser">
+      <Version>6.3.1</Version>
+    </PackageReference>
     <PackageReference Include="NETStandard.Library">
       <Version>2.0.3</Version>
     </PackageReference>
