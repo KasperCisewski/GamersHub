@@ -38,6 +38,5 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Settings
             get { return _bytes; }
             set { _bytes = value; RaisePropertyChanged(() => Bytes); }
         }
-
     }
 }

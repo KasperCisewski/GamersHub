@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using GamerHub.mobile.core.Services.Http.Factory;
@@ -142,6 +143,25 @@ namespace GamerHub.mobile.core.Services.Profile
             request.AddJsonBody(new
             {
                 UserId = userId
+            });
+
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
+        }
+
+        public async Task<bool> EditProfileImage(byte[] bytes)
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Profile.ChangeProfileImage)
+            {
+                Method = Method.POST
+            };
+
+            request.AddJsonBody(new
+            {
+                Bytes = bytes.ToList()
             });
 
             var response = await client.ExecuteAsync(request);
