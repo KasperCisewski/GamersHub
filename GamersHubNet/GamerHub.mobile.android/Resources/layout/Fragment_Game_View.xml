@@ -8,7 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/game_layout"
         android:layout_above="@id/shared_menu_toolbar">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -147,19 +146,20 @@
                 android:textSize="22dp"
                 local:MvxBind="Click ShowGameVideoCommand"/>
         </LinearLayout>
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
+            <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+                android:id="@+id/game_screenshot_recycler_view"
+                android:scrollbars="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
-                    android:id="@+id/game_screenshot_recycler_view"
-                    android:scrollbars="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    local:MvxItemTemplate="@layout/fragment_game_screenshot_row_view"
-                    local:MvxBind="ItemsSource GameScreenshots; ItemClick GameScreenShotOpen;Visible ShouldShowGameScreenshots"/>
+                android:layout_height="wrap_content"
+                local:MvxItemTemplate="@layout/fragment_game_screenshot_row_view"
+                local:MvxBind="ItemsSource GameScreenshots; ItemClick GameScreenShotOpen;Visible ShouldShowGameScreenshots"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
                 <LinearLayout
                     android:id="@+id/web_view_container"
                     android:layout_width="match_parent"
@@ -167,20 +167,21 @@
                     android:gravity="center"
                     android:minWidth="25px"
                     android:minHeight="25px"
-                    android:layout_margin="12dp"
+                    android:background="#000000"
                     local:MvxBind="Visible ShouldShowGameVideo">
                     <WebView
                         android:id="@+id/video_View"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
                         android:layout_gravity="center"
+                        android:foregroundGravity="center_horizontal"
                         android:fitsSystemWindows="true"
                         android:drawingCacheQuality="auto"
+                        android:background="#000000"
                         android:scrollbars="none" />
                 </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
+            </ScrollView>
+        </LinearLayout>
     </LinearLayout>
     <include
         android:id="@+id/shared_menu_toolbar"
