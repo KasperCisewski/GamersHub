@@ -11,6 +11,8 @@
         android:layout_margin="4dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_centerVertical="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
         android:layout_centerHorizontal="true"
         local:MvxBind="Bitmap ScreenshotBitmap"/>
 </LinearLayout>
