@@ -23,7 +23,7 @@ namespace GamersHub.DbSeeder
 
         private static async Task<DataContext> SeedGames(DataContext dbContext)
         {
-            var games = ReadGamesFromCsv("Final.csv");
+            var games = ReadGamesFromCsv("delete_small.csv");
 
             foreach (var game in games)
             {
@@ -49,7 +49,7 @@ namespace GamersHub.DbSeeder
 
         private static DataContext SetUpDbConnection()
         {
-            const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=aspnet-GamersHub;Trusted_Connection=True;MultipleActiveResultSets=true";
+            const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=aspnet-GamersHubNewImages;Trusted_Connection=True;MultipleActiveResultSets=true";
 
             var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
             optionsBuilder.UseSqlServer(connectionString);

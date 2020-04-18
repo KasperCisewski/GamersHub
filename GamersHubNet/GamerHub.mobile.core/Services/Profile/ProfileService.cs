@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using GamerHub.mobile.core.Services.Http.Factory;
@@ -161,7 +160,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
             request.AddJsonBody(new
             {
-                Bytes = bytes.ToList()
+                ImageEncoded = Convert.ToBase64String(bytes)
             });
 
             var response = await client.ExecuteAsync(request);

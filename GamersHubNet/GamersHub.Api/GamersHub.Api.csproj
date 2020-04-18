@@ -34,11 +34,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-  </ItemGroup>
-
-
-  <ItemGroup>
     <None Update="PythonScripts\heatmap.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

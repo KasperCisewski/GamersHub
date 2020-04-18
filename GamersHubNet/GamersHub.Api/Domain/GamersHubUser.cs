@@ -8,5 +8,6 @@ namespace GamersHub.Api.Domain
     {
         public ICollection<WishListEntry> WishList { get; set; }
         public ICollection<UserGame> Games { get; set; }
+        public byte[] ProfileImage { get; set; }
     }
 }

@@ -197,5 +197,23 @@ namespace GamersHub.Api.Controllers
 
             return Ok(result.Data);
         }
+
+        [HttpPost(ApiRoutes.Profile.ChangeProfileImage)]
+        [Authorize]
+        public async Task<IActionResult> ChangeProfileImage([FromBody] ChangeProfileImageRequest imageEncoded)
+        {
+            var result = await _operationFactory.Create<ChangeProfileImageCommand>(x =>
+            {
+                x.ImageContent = Convert.FromBase64String(imageEncoded.ImageEncoded);
+                x.CurrentUserId = HttpContext.GetUserId();
+            }).HandleAsync();
+
+            if (result.HasFailed())
+            {
+                return BadRequest(result.Errors);
+            }
+
+            return Ok();
+        }
     }
 }
