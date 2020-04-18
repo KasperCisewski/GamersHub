@@ -8,6 +8,7 @@ using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
+using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.CommandHandlers
 {
@@ -34,7 +35,7 @@ namespace GamersHub.Api.CommandHandlers
             }
 
             var game = await _dataContext.Games.FindAsync(command.GameId);
-            var user = await _dataContext.Users.FindAsync(command.UserId);
+            var user = await _dataContext.Users.Include(x => x.Games).FirstAsync(x => x.Id == command.UserId);
 
             var vaultEntry = new UserGame()
             {
