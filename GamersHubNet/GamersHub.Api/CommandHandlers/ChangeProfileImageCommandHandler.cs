@@ -1,23 +1,21 @@
 ﻿using System.Threading.Tasks;
 using GamersHub.Api.Commands;
 using GamersHub.Api.Data;
-using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.ValidationRules;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.CommandHandlers
 {
-    internal class AddGameToVaultCommandHandler : ICommandHandler<AddGameToVaultCommand>
+    public class ChangeProfileImageCommandHandler : ICommandHandler<ChangeProfileImageCommand>
     {
         private readonly IValidator _validator;
         private readonly DataContext _dataContext;
 
-        public AddGameToVaultCommandHandler(
+        public ChangeProfileImageCommandHandler(
             IValidator validator,
             DataContext dataContext)
         {
@@ -25,7 +23,7 @@ namespace GamersHub.Api.CommandHandlers
             _dataContext = dataContext;
         }
 
-        public async Task<IResult> HandleAsync(AddGameToVaultCommand command)
+        public async Task<IResult> HandleAsync(ChangeProfileImageCommand command)
         {
             var validationResult = await IsValidAsync(command);
 
@@ -34,34 +32,23 @@ namespace GamersHub.Api.CommandHandlers
                 return validationResult;
             }
 
-            var game = await _dataContext.Games.FindAsync(command.GameId);
-            var user = await _dataContext.Users.Include(x => x.Games).FirstAsync(x => x.Id == command.UserId);
-
-            var vaultEntry = new UserGame()
-            {
-                Game = game,
-                User = user,
-            };
-
-            user.Games.Add(vaultEntry);
+            var user = await _dataContext.Users.FindAsync(command.CurrentUserId);
+            user.ProfileImage = command.ImageContent;
 
             await _dataContext.SaveChangesAsync();
 
             return Result.Success();
         }
 
-        private Task<IResult> IsValidAsync(AddGameToVaultCommand query)
+        private Task<IResult> IsValidAsync(ChangeProfileImageCommand command)
         {
             return _validator
                 .Require<UserExistsRule>()
                     .WithOptions(x => x.StopIfFailed())
-                    .WithData(query.UserId)
-                .Require<GameExistsRule>()
+                    .WithData(command.CurrentUserId)
+                .Require<ImageNotEmptyRule>()
                     .WithOptions(x => x.StopIfFailed())
-                    .WithData(query.GameId)
-                .Require<GameNotInVaultAlreadyRule>()
-                    .WithOptions(x => x.StopIfFailed())
-                    .WithData((query.GameId, query.UserId))
+                    .WithData(command.ImageContent)
                 .ValidateAsync();
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.Queries.Profile;
@@ -44,8 +45,7 @@ namespace GamersHub.Api.QueryHandlers.Profile
             {
                 Id = user.Id,
                 UserName = user.UserName,
-                //TODO 
-                ProfileImageContent = null,
+                ProfileImageContent = user.ProfileImage?.ToList(),
                 IsUserFriend = isFriend
             }.ToSuccessfulResult();
         }
