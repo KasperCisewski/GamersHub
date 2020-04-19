@@ -16,6 +16,7 @@ namespace GamerHub.mobile.core.ViewModels
     public class MainViewModel : BaseViewModel
     {
         private MvxSubscriptionToken _userLoggedInSubscription;
+        private MvxSubscriptionToken _progressBarIsActiveSubscription;
         private AuthSuccessResponse _user = new AuthSuccessResponse();
 
         private readonly IMvxNavigationService _navigationService;
@@ -39,6 +40,14 @@ namespace GamerHub.mobile.core.ViewModels
         {
             get => _user;
             set => SetProperty(ref _user, value);
+        }
+
+        private bool _isLoading;
+
+        public bool IsLoading
+        {
+            get => _isLoading;
+            set => SetProperty(ref _isLoading, value);
         }
 
         public override void Prepare()
@@ -80,6 +89,11 @@ namespace GamerHub.mobile.core.ViewModels
             _userLoggedInSubscription = Messenger.Subscribe<UserHasBeenLogged>(m =>
             {
                 User = m.User;
+            });
+
+            _progressBarIsActiveSubscription = Messenger.Subscribe<ProgressBarActivator>(m =>
+            {
+                IsLoading = m.IsActive;
             });
         }
     }
