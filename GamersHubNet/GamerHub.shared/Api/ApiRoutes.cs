@@ -45,7 +45,7 @@
             public const string GetGamesInVault = ProfileRoot + "/vault";
             public const string GetWishListGames = ProfileRoot + "/wishlist";
             public const string GetHeatMap = ProfileRoot + "/heatmap";
-            public const string ChangeProfileImage = ProfileRoot + "/changeImage";
+            public const string ChangeProfileImage = ProfileRoot + "/profileImage";
 
             public const string UserFriendsRoot = Root + "/friends";
 
