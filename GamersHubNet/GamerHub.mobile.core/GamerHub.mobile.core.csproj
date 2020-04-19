@@ -107,7 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\App.cs" />
-    <Compile Include="Infrastructure\Converters\VisibilityValueConverter.cs" />
     <Compile Include="Infrastructure\StaticAppSettings.cs" />
     <Compile Include="Infrastructure\Converters\InvertBoolValueConverter.cs" />
     <Compile Include="Models\Db\UserCredentialsModel.cs" />
