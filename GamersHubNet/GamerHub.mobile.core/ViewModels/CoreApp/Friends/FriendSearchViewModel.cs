@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using GamerHub.mobile.core.Infrastructure;
 using GamerHub.mobile.core.Models;
+using GamerHub.mobile.core.Models.Messenger;
 using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.Services.Resource;
 using GamerHub.mobile.core.ViewModels.Base;
@@ -25,6 +26,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
 
         public async Task SearchFriends(bool replace)
         {
+            Messenger.Publish(new ProgressBarActivator(this, true));
             if (replace)
             {
                 FetchedPages = 0;
@@ -47,6 +49,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
 
                 FetchedPages++;
             }
+            Messenger.Publish(new ProgressBarActivator(this, false));
         }
 
         private async Task ShowFriend(UserProfileModel arg)

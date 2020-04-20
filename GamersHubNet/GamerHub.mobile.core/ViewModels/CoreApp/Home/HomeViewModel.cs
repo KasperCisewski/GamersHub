@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using GamerHub.mobile.core.Models;
+using GamerHub.mobile.core.Models.Messenger;
 using GamerHub.mobile.core.Services.Game;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.Game;
@@ -20,7 +21,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
         public override async Task Initialize()
         {
             KeyboardService.HideKeyboard();
-
+            Messenger.Publish(new ProgressBarActivator(this, true));
             var comingSoonGames = await _gameService.GetGames(HomeGamesCategory.ComingSoon);
             foreach (var game in comingSoonGames)
             {
@@ -44,6 +45,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Home
             {
                 OnSaleGames.Add(new GameWithImageRowModel(game));
             }
+            Messenger.Publish(new ProgressBarActivator(this, false));
         }
 
         private async Task OpenGame(GameWithImageRowModel arg)

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Android.Graphics;
 using GamerHub.mobile.core.Models;
+using GamerHub.mobile.core.Models.Messenger;
 using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.Services.Resource;
 using GamerHub.mobile.core.ViewModels.Base;
@@ -34,10 +35,10 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
 
         public override async Task Initialize()
         {
+            Messenger.Publish(new ProgressBarActivator(this, true));
             var model = await _profileService.GetUserProfileInformation(_userId);
             UserName = model.UserName;
             IsUserFriend = model.IsUserFriend;
-            //TODO
             if (model.ProfileImageContent != null && model.ProfileImageContent.Any())
             {
                 ProfileImageBitmap = BitmapFactory.DecodeByteArray(model.ProfileImageContent.ToArray(), 0, model.ProfileImageContent.Count);
@@ -49,6 +50,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Profile
 
                 ProfileImageBitmap = BitmapFactory.DecodeResource(resource, profileImageId);
             }
+            Messenger.Publish(new ProgressBarActivator(this, false));
         }
 
         private async Task AddToFriendList()

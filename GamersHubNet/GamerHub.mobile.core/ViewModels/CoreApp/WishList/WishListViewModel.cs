@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using GamerHub.mobile.core.Models;
+using GamerHub.mobile.core.Models.Messenger;
 using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.Game;
@@ -19,6 +20,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.WishList
 
         public async Task FillGamesVault()
         {
+            Messenger.Publish(new ProgressBarActivator(this, true));
             WishList = new MvxObservableCollection<GameWithImageRowModel>();
 
             var gamesInVault = await _profileService.GetWishListGames();
@@ -27,6 +29,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.WishList
             {
                 WishList.Add(new GameWithImageRowModel(game));
             }
+            Messenger.Publish(new ProgressBarActivator(this, false));
         }
 
         private async Task OpenGame(GameWithImageRowModel arg)

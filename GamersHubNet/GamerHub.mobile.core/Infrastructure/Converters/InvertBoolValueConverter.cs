@@ -1,8 +1,8 @@
-﻿using MvvmCross.Converters;
-using System;
+﻿using System;
 using System.Globalization;
+using MvvmCross.Converters;
 
-namespace GamerHub.mobile.core.Infrastructure.ValueConverter
+namespace GamerHub.mobile.core.Infrastructure.Converters
 {
     public class InvertBoolValueConverter : MvxValueConverter<bool?, bool>
     {

@@ -25,6 +25,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 
         public override async Task Initialize()
         {
+            Messenger.Publish(new ProgressBarActivator(this, true));
             var fullGameModel = await _gameService.GetFullGameModel(GameModel.Id);
             Description = fullGameModel.Description;
             ReleaseDate = fullGameModel.ReleaseDate;
@@ -44,6 +45,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 
             ShouldShowGameScreenshots = true;
             ShouldShowGameVideo = false;
+            Messenger.Publish(new ProgressBarActivator(this, false));
         }
 
         private async Task AddGameToWishList()
