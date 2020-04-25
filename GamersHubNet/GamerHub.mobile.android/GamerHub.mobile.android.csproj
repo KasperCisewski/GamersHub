@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\HACKED.ttf" />
+    <AndroidAsset Include="Assets\JURA.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />

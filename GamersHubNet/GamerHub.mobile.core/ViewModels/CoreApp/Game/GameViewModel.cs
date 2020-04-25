@@ -4,7 +4,9 @@ using GamerHub.mobile.core.Models;
 using GamerHub.mobile.core.Models.Messenger;
 using GamerHub.mobile.core.Services.Game;
 using GamerHub.mobile.core.ViewModels.Base;
+using Java.Lang;
 using MvvmCross.Plugin.Messenger;
+using String = System.String;
 
 namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
 {
@@ -28,7 +30,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             Messenger.Publish(new ProgressBarActivator(this, true));
             var fullGameModel = await _gameService.GetFullGameModel(GameModel.Id);
             Description = fullGameModel.Description;
-            ReleaseDate = fullGameModel.ReleaseDate;
+            ReleaseDate = fullGameModel.ReleaseDate.HasValue ? fullGameModel.ReleaseDate.Value.ToShortDateString() : string.Empty;
             Title = fullGameModel.Title;
             UserHasGameInVault = fullGameModel.UserHasGameInVault;
             UserHasGameOnWishList = fullGameModel.UserHasGameOnWishList;

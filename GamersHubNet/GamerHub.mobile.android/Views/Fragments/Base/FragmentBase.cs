@@ -1,7 +1,11 @@
-﻿using Android.Graphics;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Android.Graphics;
 using Android.Views;
 using Android.Widget;
 using GamerHub.mobile.core.ViewModels.Base;
+using GamersHub.Shared.Data.Enums;
 using MvvmCross;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Platforms.Android;
@@ -10,7 +14,8 @@ namespace GamerHub.mobile.android.Views.Fragments.Base
 {
     public class FragmentBase<T> : MvxFragment<T> where T : BaseViewModel
     {
-        private string _gamerHubFont = "HACKED.ttf";
+        private string _gamerHubHackedFont = "HACKED.ttf";
+        private string _gamersHubJuraFont = "JURA.ttf";
 
         public void SetFontsForSharedMenuBar(View view)
         {
@@ -27,7 +32,11 @@ namespace GamerHub.mobile.android.Views.Fragments.Base
 
             var view = v.FindViewById<V>(viewId) as TextView;
 
-            var tf = Typeface.CreateFromAsset(am, _gamerHubFont);
+            var enumNamesToHackedFont = Enum.GetNames(typeof(GameCategory)).ToList();
+            var namesToHackedFont = new List<string>()
+                {"GamersHub", "Profile", "Settings", "Vault", "WishList", "Friends"};
+            namesToHackedFont = namesToHackedFont.Concat(enumNamesToHackedFont).ToList();
+            var tf = namesToHackedFont.Contains(view.Text) ? Typeface.CreateFromAsset(am, _gamerHubHackedFont) : Typeface.CreateFromAsset(am, _gamersHubJuraFont);
 
             view.SetTypeface(tf, TypefaceStyle.Normal);
         }
