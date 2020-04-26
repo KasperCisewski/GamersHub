@@ -51,8 +51,8 @@ namespace GamerHub.mobile.android.Views.Fragments
             recyclerView.SetLayoutManager(layoutManager);
 
             var metrics = Resources.DisplayMetrics;
-            _displayWidth = (ConvertPixelsToDp(metrics.WidthPixels)) * 2;
-            _displayHeight = (ConvertPixelsToDp(metrics.HeightPixels)) / (2);
+            _displayWidth = (int)(ConvertPixelsToDp(metrics.WidthPixels) * 2.5);
+            _displayHeight = (int)(ConvertPixelsToDp(metrics.HeightPixels) / 1.5);
             ConfigureEvents();
 
             return _view;
