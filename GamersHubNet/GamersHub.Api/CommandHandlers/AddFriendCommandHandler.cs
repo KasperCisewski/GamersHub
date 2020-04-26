@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using GamersHub.Api.Commands;
-using GamersHub.Api.Data;
-using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
-using GamersHub.Shared.Contracts.Responses;
+using GamersHub.Api.Services;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
@@ -15,14 +12,14 @@ namespace GamersHub.Api.CommandHandlers
     internal class AddFriendCommandHandler : ICommandHandler<AddFriendCommand>
     {
         private readonly IValidator _validator;
-        private readonly DataContext _dataContext;
+        private readonly IFriendService _friendService;
 
         public AddFriendCommandHandler(
             IValidator validator,
-            DataContext dataContext)
+            IFriendService friendService)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _friendService = friendService;
         }
 
         public async Task<IResult> HandleAsync(AddFriendCommand command)
@@ -34,13 +31,7 @@ namespace GamersHub.Api.CommandHandlers
                 return validationResult;
             }
 
-            var friendship = new Friendship { CurrentUserId = command.CurrentUserId, FriendId = command.UserId };
-            var friendshipReversed = new Friendship { CurrentUserId = command.UserId, FriendId = command.CurrentUserId };
-
-            _dataContext.Friendships.Add(friendship);
-            _dataContext.Friendships.Add(friendshipReversed);
-
-            await _dataContext.SaveChangesAsync();
+            await _friendService.AddFriend(command.CurrentUserId, command.UserId);
 
             return Result.Success();
         }
