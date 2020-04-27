@@ -42,6 +42,18 @@ namespace GamersHub.Api.Tests
                 new Friendship { CurrentUserId = friendThreeId, FriendId = friendOneId }
             });
 
+            context.Games.AddRange(new List<Game>
+            {
+                new Game
+                {
+                    Id = Guid.Parse("3d948385-a94b-40ea-8ea2-4a87de24f113"),
+                    Description = "Lorem ipsum",
+                    CoverGameImage = new GameImage {Data = new byte[1]},
+                    Name = "Lorem",
+                    ReleaseDate = DateTime.Parse("01/01/2020")
+                }
+            });
+
             context.SaveChanges();
         }
     }

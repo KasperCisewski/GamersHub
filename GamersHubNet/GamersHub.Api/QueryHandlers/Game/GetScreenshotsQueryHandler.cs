@@ -1,31 +1,28 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
-using GamersHub.Api.Queries;
 using GamersHub.Api.Queries.Game;
+using GamersHub.Api.Services;
 using GamersHub.Api.ValidationRules;
 using GamersHub.Shared.Contracts.Responses;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
-using Microsoft.EntityFrameworkCore;
 
-namespace GamersHub.Api.QueryHandlers
+namespace GamersHub.Api.QueryHandlers.Game
 {
     internal class GetScreenshotsQueryHandler : IQueryHandler<GetScreenshotsQuery, IReadOnlyCollection<ScreenShotResponse>>
     {
-        private readonly DataContext _dataContext;
+        private readonly IGameService _gameService;
         private readonly IValidator _validator;
 
         public GetScreenshotsQueryHandler(
-            DataContext dataContext,
+            IGameService gameService,
             IValidator validator)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _gameService = gameService;
         }
 
         public async Task<IResult<IReadOnlyCollection<ScreenShotResponse>>> HandleAsync(GetScreenshotsQuery query)
@@ -37,16 +34,9 @@ namespace GamersHub.Api.QueryHandlers
                 return validationResult.Map<IReadOnlyCollection<ScreenShotResponse>>();
             }
 
-            var game = await _dataContext.Games
-                .AsNoTracking()
-                .Include(x => x.GameImages)
-                .FirstOrDefaultAsync(x => x.Id == query.GameId);
+            var screenshots = await _gameService.GetScreenshots(query.GameId);
 
-            var screenShotModels = game.GameImages
-                .Select(x => new ScreenShotResponse { ImageContent = x.Data.ToList()})
-                .ToList();
-
-            return screenShotModels.ToSuccessfulResult();
+            return screenshots.ToSuccessfulResult();
         }
 
         private Task<IResult> IsValidAsync(GetScreenshotsQuery query)

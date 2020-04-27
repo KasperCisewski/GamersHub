@@ -34,22 +34,6 @@ namespace GamersHub.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet(ApiRoutes.Games.GetGameOffers)]
-        public async Task<IActionResult> GetGameOffers(Guid gameId)
-        {
-            var result = await _operationFactory.Create<GetGameOffersQuery>(x =>
-            {
-                x.GameId = gameId;
-            }).HandleAsync();
-
-            if (result.HasFailed())
-            {
-                return BadRequest(result);
-            }
-
-            return Ok(result);
-        }
-
         [HttpGet(ApiRoutes.Games.GetVideoUrl)]
         public async Task<IActionResult> GetGameVideoUrl(Guid gameId)
         {
