@@ -3,6 +3,7 @@ using GamersHub.Api.Commands;
 using GamersHub.Api.Data;
 using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
+using GamersHub.Api.Services;
 using GamersHub.Api.ValidationRules;
 using Gybs;
 using Gybs.Logic.Cqrs;
@@ -14,14 +15,14 @@ namespace GamersHub.Api.CommandHandlers
     internal class AddGameToWishListCommandHandler : ICommandHandler<AddGameToWishListCommand>
     {
         private readonly IValidator _validator;
-        private readonly DataContext _dataContext;
+        private readonly IGameService _gameService;
 
         public AddGameToWishListCommandHandler(
             IValidator validator,
-            DataContext dataContext)
+            IGameService gameService)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _gameService = gameService;
         }
 
         public async Task<IResult> HandleAsync(AddGameToWishListCommand command)
@@ -33,18 +34,7 @@ namespace GamersHub.Api.CommandHandlers
                 return validationResult;
             }
 
-            var game = await _dataContext.Games.FindAsync(command.GameId);
-            var user = await _dataContext.Users.FindAsync(command.UserId);
-
-            var wishListEntry = new WishListEntry()
-            {
-                Game = game,
-                User = user,
-            };
-
-            user.WishList.Add(wishListEntry);
-
-            await _dataContext.SaveChangesAsync();
+            await _gameService.AddGameToWishList(command.GameId, command.UserId);
 
             return Result.Success();
         }

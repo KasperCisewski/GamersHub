@@ -50,7 +50,8 @@ namespace GamersHub.Api.Tests
                     Description = "Lorem ipsum",
                     CoverGameImage = new GameImage {Data = new byte[1]},
                     Name = "Lorem",
-                    ReleaseDate = DateTime.Parse("01/01/2020")
+                    ReleaseDate = DateTime.Parse("01/01/2020"),
+                    VideoUrl = "https://www.youtube.com/watch?v=cG6dyEjgtIM"
                 }
             });
 

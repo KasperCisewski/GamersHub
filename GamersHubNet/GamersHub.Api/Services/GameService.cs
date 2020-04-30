@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using GamersHub.Api.Data;
+using GamersHub.Api.Domain;
 using GamersHub.Shared.Contracts.Responses;
 using GamersHub.Shared.Data.Enums;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,10 @@ namespace GamersHub.Api.Services
         Task<string> GetGameVideoUrl(Guid gameId);
         Task<IReadOnlyCollection<GameWithImageResponse>> GetHomeScreenGames(HomeGamesCategory homeGamesCategory);
         Task<IReadOnlyCollection<ScreenShotResponse>> GetScreenshots(Guid gameId);
+        Task AddGameToVault(Guid gameId, Guid userId);
+        Task AddGameToWishList(Guid gameId, Guid userId);
+        Task DeleteGameFromWishList(Guid gameId, Guid userId);
+        Task DeleteGameFromVault(Guid gameId, Guid userId);
     }
 
     internal class GameService : IGameService
@@ -89,7 +94,7 @@ namespace GamersHub.Api.Services
                     .Take(10)
                     .Include(x => x.CoverGameImage)
                     .ToListAsync(),
-                _ => new List<Domain.Game>()
+                _ => new List<Game>()
             };
 
             return games
@@ -113,6 +118,64 @@ namespace GamersHub.Api.Services
             return game.GameImages
                 .Select(x => new ScreenShotResponse { ImageContent = x.Data.ToList() })
                 .ToList();
+        }
+
+        public async Task AddGameToVault(Guid gameId, Guid userId)
+        {
+            var game = await _dataContext.Games.FindAsync(gameId);
+            var user = await _dataContext.Users.FindAsync(userId);
+
+            var vaultEntry = new UserGame()
+            {
+                Game = game,
+                User = user,
+            };
+
+            user.Games.Add(vaultEntry);
+
+            await _dataContext.SaveChangesAsync();
+        }
+
+        public async Task AddGameToWishList(Guid gameId, Guid userId)
+        {
+            var game = await _dataContext.Games.FindAsync(gameId);
+            var user = await _dataContext.Users.FindAsync(userId);
+
+            var wishListEntry = new WishListEntry()
+            {
+                Game = game,
+                User = user,
+            };
+
+            user.WishList.Add(wishListEntry);
+
+            await _dataContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteGameFromWishList(Guid gameId, Guid userId)
+        {
+            var user = await _dataContext.Users
+                .Include(x => x.Games)
+                .FirstAsync(x => x.Id == userId);
+
+            var userGame = user.Games.First(x => x.GameId == gameId);
+
+            user.Games.Remove(userGame);
+
+            await _dataContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteGameFromVault(Guid gameId, Guid userId)
+        {
+            var user = await _dataContext.Users
+                .Include(x => x.Games)
+                .FirstAsync(x => x.Id == userId);
+
+            var userGame = user.WishList.First(x => x.GameId == gameId);
+
+            user.WishList.Remove(userGame);
+
+            await _dataContext.SaveChangesAsync();
         }
     }
 }
