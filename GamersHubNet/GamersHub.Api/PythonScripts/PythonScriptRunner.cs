@@ -4,9 +4,8 @@ namespace GamersHub.Api.PythonScripts
 {
     public static class PythonScriptRunner
     {
-        //  private const string PathToPython = @"C:\Users\marcin\AppData\Local\Programs\Python\Python38\python.exe";
-        private const string PathToPython =
-            @"C:\Users\PC\AppData\Local\Programs\Python\Python38\python.exe";
+        private const string PathToPython = @"C:\Users\marcin\AppData\Local\Programs\Python\Python38\python.exe";
+
         public static void RunScript(string scriptPath, string scriptArgv)
         {
             var start = new ProcessStartInfo

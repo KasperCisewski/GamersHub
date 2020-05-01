@@ -98,7 +98,7 @@ namespace GamersHub.Api.Controllers
             var result = await _operationFactory.Create<GetUserGenresQuery>(x =>
             {
                 x.UserId = userId;
-                x.CurrentUserId = HttpContext.GetUserId();
+                x.CurrentUserId = userId.GetValueOrDefault();
             }).HandleAsync();
 
             if (result.HasFailed())
@@ -106,7 +106,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result.Errors);
             }
 
-            return Json(new { result.Data.Item1, genres = result.Data.Item2 });
+            return Json(new { userId = result.Data.Item1, genres = result.Data.Item2 });
         }
 
         [HttpGet(ApiRoutes.Profile.GetUserGamesNames)]
@@ -115,7 +115,7 @@ namespace GamersHub.Api.Controllers
             var result = await _operationFactory.Create<GetUserGamesNamesQuery>(x =>
             {
                 x.UserId = userId;
-                x.CurrentUserId = HttpContext.GetUserId();
+                x.CurrentUserId = userId.GetValueOrDefault();
             }).HandleAsync();
 
             if (result.HasFailed())

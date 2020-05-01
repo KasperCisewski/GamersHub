@@ -8,8 +8,8 @@ import sys
 
 profile = sys.argv[1]
 
-response = req.get("http://localhost:5000/api/profile/getUserGenres?userId=" + profile)
-#response =("https://localhost:5001/api/profile/getUserGenres?userId=" + profile)
+response = req.get("http://192.168.0.137:5000/api/profile/games/genres?userId=" + profile)
+#response =("https://192.168.0.137:5001/api/profile/games/genres?userId=" + profile)
 #print(response)
 
 ##Uncomment below function when used with req
