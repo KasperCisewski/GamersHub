@@ -47,7 +47,7 @@ namespace GamersHub.Api.CommandHandlers
                 .Include(x => x.RecommendedGames)
                 .FirstOrDefaultAsync(x => x.UserId == userId && x.GeneratedAt > yesterday);
 
-            if (existingActualRecommendation != null)
+            if (existingActualRecommendation != null && existingActualRecommendation.RecommendedGames.Count > 0)
             {
                 var recommendedGamesIds = existingActualRecommendation.RecommendedGames.Select(x => x.GameId);
                 var games = await _dataContext.Games
@@ -68,7 +68,7 @@ namespace GamersHub.Api.CommandHandlers
 
             PythonScriptRunner.RunScript("PythonScripts/recommender.py", userId.ToString());
 
-            var lines = File.ReadAllLines("list_of_games.txt");
+            var lines = File.ReadAllLines("PythonScripts/list_of_games.txt");
 
             var recommendedGames = new List<Game>();
 

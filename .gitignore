@@ -344,3 +344,9 @@ WebScraping\PhotosScrapper\images/
 /GamersHubNet/GamersHub.Api/PythonScripts/train_data_reviews.pkl
 /GamersHubNet/GamersHub.Api/PythonScripts/game_id_df.pkl
 *.txt
+/GamersHubNet/GamersHub.Api/PythonScripts/save3.p
+/GamersHubNet/GamersHub.Api/PythonScripts/save2.p
+/GamersHubNet/GamersHub.Api/PythonScripts/save1.p
+/GamersHubNet/GamersHub.Api/PythonScripts/save0.p
+/GamersHubNet/GamersHub.Api/PythonScripts/heatplot.png
+/GamersHubNet/GamersHub.Api/PythonScripts/delete_small.csv
