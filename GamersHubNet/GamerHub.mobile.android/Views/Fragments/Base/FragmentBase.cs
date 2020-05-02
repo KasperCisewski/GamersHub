@@ -34,7 +34,7 @@ namespace GamerHub.mobile.android.Views.Fragments.Base
 
             var enumNamesToHackedFont = Enum.GetNames(typeof(GameCategory)).ToList();
             var namesToHackedFont = new List<string>()
-                {"GamersHub", "Profile", "Settings", "Vault", "WishList", "Friends"};
+                {"GamersHub", "Profile", "Settings", "Vault", "WishList", "Friends", "Games for you", "Games","Search","Home"};
             namesToHackedFont = namesToHackedFont.Concat(enumNamesToHackedFont).ToList();
             var tf = namesToHackedFont.Contains(view.Text) ? Typeface.CreateFromAsset(am, _gamerHubHackedFont) : Typeface.CreateFromAsset(am, _gamersHubJuraFont);
 
