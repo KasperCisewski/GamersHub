@@ -86,9 +86,9 @@
                     android:text="Add to &#10;wishlist"
                     android:background="#000000"
                     android:layout_marginVertical="8dp"
-                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginHorizontal="35dp"
                     android:paddingVertical="4dp"
-                    android:paddingHorizontal="20dp"
+                    android:paddingHorizontal="15dp"
                     android:textSize="16dp"
                     local:MvxBind="Click AddGameToWishListCommand; Visible UserHasGameOnWishList, Converter=InvertBool"/>
                 <Button
@@ -98,9 +98,9 @@
                     android:text="Delete from &#10;wishlist"
                     android:background="#000000"
                     android:layout_marginVertical="8dp"
-                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginHorizontal="35dp"
                     android:paddingVertical="4dp"
-                    android:paddingHorizontal="20dp"
+                    android:paddingHorizontal="15dp"
                     android:textSize="16dp"
                     local:MvxBind="Click DeleteGameFromWishListCommand; Visible UserHasGameOnWishList"/>
                 <Button
@@ -110,9 +110,9 @@
                     android:text="Delete from &#10;vault"
                     android:background="#FF0000"
                     android:layout_marginVertical="8dp"
-                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginHorizontal="35dp"
                     android:paddingVertical="4dp"
-                    android:paddingHorizontal="20dp"
+                    android:paddingHorizontal="15dp"
                     android:textSize="16dp"
                     local:MvxBind="Click DeleteGameFromVaultCommand; Visible UserHasGameInVault"/>
                 <Button
@@ -122,9 +122,9 @@
                     android:text="Add to &#10;vault"
                     android:background="#FF0000"
                     android:layout_marginVertical="8dp"
-                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginHorizontal="35dp"
                     android:paddingVertical="4dp"
-                    android:paddingHorizontal="20dp"
+                    android:paddingHorizontal="15dp"
                     android:textSize="16dp"
                     local:MvxBind="Click AddGameToVaultCommand; Visible UserHasGameInVault, Converter=InvertBool"/>
             </LinearLayout>

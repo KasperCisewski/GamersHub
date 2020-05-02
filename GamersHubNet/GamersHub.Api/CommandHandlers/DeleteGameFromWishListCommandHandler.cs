@@ -51,7 +51,7 @@ namespace GamersHub.Api.CommandHandlers
                     .WithData(query.GameId)
                 .Require<UserHasGameOnWishListRule>()
                     .WithOptions(x => x.StopIfFailed())
-                    .WithData((query.GameId, query.GameId))
+                    .WithData((query.GameId, query.UserId))
                 .ValidateAsync();
         }
     }

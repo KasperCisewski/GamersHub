@@ -123,7 +123,9 @@ namespace GamersHub.Api.Services
         public async Task AddGameToVault(Guid gameId, Guid userId)
         {
             var game = await _dataContext.Games.FindAsync(gameId);
-            var user = await _dataContext.Users.FindAsync(userId);
+            var user = await _dataContext.Users
+                .Include(x => x.Games)
+                .FirstAsync(x => x.Id == userId);
 
             var vaultEntry = new UserGame()
             {
@@ -139,7 +141,9 @@ namespace GamersHub.Api.Services
         public async Task AddGameToWishList(Guid gameId, Guid userId)
         {
             var game = await _dataContext.Games.FindAsync(gameId);
-            var user = await _dataContext.Users.FindAsync(userId);
+            var user = await _dataContext.Users
+                .Include(x => x.WishList)
+                .FirstAsync(x => x.Id == userId);
 
             var wishListEntry = new WishListEntry()
             {
@@ -155,7 +159,7 @@ namespace GamersHub.Api.Services
         public async Task DeleteGameFromWishList(Guid gameId, Guid userId)
         {
             var user = await _dataContext.Users
-                .Include(x => x.Games)
+                .Include(x => x.WishList)
                 .FirstAsync(x => x.Id == userId);
 
             var userGame = user.WishList.First(x => x.GameId == gameId);

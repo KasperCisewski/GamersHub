@@ -25,7 +25,7 @@ namespace GamersHub.Api.ValidationRules
             var (gameId, userId) = data;
             var user = await _dataContext.Users
                 .AsNoTracking()
-                .Include(x => x.Games)
+                .Include(x => x.WishList)
                 .FirstAsync(x => x.Id == userId);
 
             if (user.WishList.All(x => x.GameId != gameId))
