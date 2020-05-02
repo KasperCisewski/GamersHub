@@ -39,12 +39,13 @@ namespace GamersHub.Api.CommandHandlers
             }
 
             var userId = command.UserId ?? command.CurrentUserId;
+            var gamesCount = await _dataContext.Users.Where(x => x.Id == userId).Select(x => x.Games).CountAsync();
 
             var existingActualHeatMap = await _dataContext.GeneratedHeatMaps
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.UserId == userId && x.GeneratedAt > DateTime.Now.AddDays(-1));
 
-            if (existingActualHeatMap != null)
+            if (existingActualHeatMap != null && existingActualHeatMap.GamesCount == gamesCount)
             {
                 return existingActualHeatMap.HeatMap.ToList().ToSuccessfulResult();
             }
@@ -66,7 +67,8 @@ namespace GamersHub.Api.CommandHandlers
             {
                 HeatMap = data,
                 UserId = userId,
-                GeneratedAt = DateTime.Now
+                GeneratedAt = DateTime.Now,
+                GamesCount = gamesCount
             });
 
             await _dataContext.SaveChangesAsync();
