@@ -1,27 +1,26 @@
 ﻿using System.Threading.Tasks;
-using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.Queries.Game;
+using GamersHub.Api.Services;
 using GamersHub.Api.ValidationRules;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.QueryHandlers.Game
 {
     internal class GetGameVideoUrlQueryHandler : IQueryHandler<GetGameVideoUrlQuery, string>
     {
-        private readonly DataContext _dataContext;
+        private readonly IGameService _gameService;
         private readonly IValidator _validator;
 
         public GetGameVideoUrlQueryHandler(
-            DataContext dataContext,
+            IGameService gameService,
             IValidator validator)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _gameService = gameService;
         }
 
         public async Task<IResult<string>> HandleAsync(GetGameVideoUrlQuery query)
@@ -33,11 +32,9 @@ namespace GamersHub.Api.QueryHandlers.Game
                 return validationResult.Map<string>();
             }
 
-            var game = await _dataContext.Games
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == query.GameId);
+            var url = await _gameService.GetGameVideoUrl(query.GameId);
 
-            return game.VideoUrl.ToSuccessfulResult();
+            return url.ToSuccessfulResult();
         }
 
         private Task<IResult> IsValidAsync(GetGameVideoUrlQuery query)

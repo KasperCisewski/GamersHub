@@ -1,30 +1,28 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.Queries.Search;
+using GamersHub.Api.Services;
 using GamersHub.Api.ValidationRules;
 using GamersHub.Shared.Contracts.Responses;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.QueryHandlers.Search
 {
     internal class SearchGamesByCategoryQueryHandler : IQueryHandler<SearchGamesByCategoryQuery, IReadOnlyCollection<GameWithImageResponse>>
     {
         private readonly IValidator _validator;
-        private readonly DataContext _dataContext;
+        private readonly ISearchService _searchService;
 
         public SearchGamesByCategoryQueryHandler(
             IValidator validator,
-            DataContext dataContext)
+            ISearchService searchService)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _searchService = searchService;
         }
 
         public async Task<IResult<IReadOnlyCollection<GameWithImageResponse>>> HandleAsync(SearchGamesByCategoryQuery query)
@@ -36,23 +34,8 @@ namespace GamersHub.Api.QueryHandlers.Search
                 return validationResult.Map<IReadOnlyCollection<GameWithImageResponse>>();
             }
 
-            var games = await _dataContext.Games
-                .AsNoTracking()
-                .Where(x => x.GameCategory == query.GameCategory)
-                .Include(x => x.CoverGameImage)
-                .Skip(query.Skip)
-                .Take(query.Take == default ? 10 : query.Take)
-                .ToArrayAsync();
-
-            return games
-                .Select(x => new GameWithImageResponse
-                {
-                    Id = x.Id,
-                    Category = x.GameCategory,
-                    Title = x.Name,
-                    ImageBytes = x.CoverGameImage.Data.ToList()
-                })
-                .ToList()
+            return (await _searchService
+                .SearchGamesByCategory(query.GameCategory, query.Skip, query.Take))
                 .ToSuccessfulResult();
         }
 

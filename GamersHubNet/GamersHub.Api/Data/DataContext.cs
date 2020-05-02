@@ -14,6 +14,11 @@ namespace GamersHub.Api.Data
         {
         }
 
+        protected DataContext()
+        {
+            //needed for mocking db context to work
+        }
+
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<Store> Stores { get; set; }
         public DbSet<Metatag> Metatags { get; set; }

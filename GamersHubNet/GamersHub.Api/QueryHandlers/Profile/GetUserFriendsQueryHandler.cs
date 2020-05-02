@@ -1,30 +1,27 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
-using GamersHub.Api.Queries;
 using GamersHub.Api.Queries.Profile;
+using GamersHub.Api.Services;
 using GamersHub.Shared.Contracts.Responses;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.QueryHandlers.Profile
 {
     public class GetUserFriendsQueryHandler : IQueryHandler<GetUserFriendsQuery, IReadOnlyCollection<UserProfileResponse>>
     {
         private readonly IValidator _validator;
-        private readonly DataContext _dataContext;
+        private readonly IFriendService _friendService;
 
         public GetUserFriendsQueryHandler(
             IValidator validator,
-            DataContext dataContext)
+            IFriendService friendService)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _friendService = friendService;
         }
 
         public async Task<IResult<IReadOnlyCollection<UserProfileResponse>>> HandleAsync(GetUserFriendsQuery query)
@@ -37,21 +34,7 @@ namespace GamersHub.Api.QueryHandlers.Profile
             }
 
             var userId = query.UserId ?? query.CurrentUserId;
-
-            var friendsIds = _dataContext.Friendships
-                .AsNoTracking()
-                .Where(x => x.CurrentUserId == userId)
-                .Select(x => x.FriendId);
-
-            var friends = await _dataContext.Users
-                .AsNoTracking()
-                .Where(x => friendsIds.Contains(x.Id))
-                .Select(x => new UserProfileResponse
-                {
-                    Id = x.Id,
-                    UserName = x.UserName,
-                    IsUserFriend = true
-                }).ToListAsync();
+            var friends = await _friendService.GetFriends(userId);
 
             return friends.ToSuccessfulResult();
         }

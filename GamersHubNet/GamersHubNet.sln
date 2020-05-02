@@ -11,7 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerHub.mobile.android", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamersHub.Api", "GamersHub.Api\GamersHub.Api.csproj", "{3A680765-9C0B-4693-8C4B-C6D53FAC08BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamersHub.DbSeeder", "GamersHub.DbSeeder\GamersHub.DbSeeder.csproj", "{8976696C-62C8-4D7D-86C5-0EEBDB6140AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamersHub.DbSeeder", "GamersHub.DbSeeder\GamersHub.DbSeeder.csproj", "{8976696C-62C8-4D7D-86C5-0EEBDB6140AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{604C6DC4-CA30-4601-991C-70FAA73FA15F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamersHub.Api.Tests", "GamersHub.Api.Tests\GamersHub.Api.Tests.csproj", "{9BA6CEF0-306F-4C1B-A246-1370D796CFD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,9 +45,16 @@ Global
 		{8976696C-62C8-4D7D-86C5-0EEBDB6140AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8976696C-62C8-4D7D-86C5-0EEBDB6140AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8976696C-62C8-4D7D-86C5-0EEBDB6140AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA6CEF0-306F-4C1B-A246-1370D796CFD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA6CEF0-306F-4C1B-A246-1370D796CFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA6CEF0-306F-4C1B-A246-1370D796CFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA6CEF0-306F-4C1B-A246-1370D796CFD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9BA6CEF0-306F-4C1B-A246-1370D796CFD0} = {604C6DC4-CA30-4601-991C-70FAA73FA15F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AEEB1D20-E6AC-485B-88AC-BC27253B5723}

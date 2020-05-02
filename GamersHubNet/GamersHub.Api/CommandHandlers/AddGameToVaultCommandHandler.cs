@@ -1,8 +1,7 @@
 ﻿using System.Threading.Tasks;
 using GamersHub.Api.Commands;
-using GamersHub.Api.Data;
-using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
+using GamersHub.Api.Services;
 using GamersHub.Api.ValidationRules;
 using Gybs;
 using Gybs.Logic.Cqrs;
@@ -15,14 +14,14 @@ namespace GamersHub.Api.CommandHandlers
     internal class AddGameToVaultCommandHandler : ICommandHandler<AddGameToVaultCommand>
     {
         private readonly IValidator _validator;
-        private readonly DataContext _dataContext;
+        private readonly IGameService _gameService;
 
         public AddGameToVaultCommandHandler(
             IValidator validator,
-            DataContext dataContext)
+            IGameService gameService)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _gameService = gameService;
         }
 
         public async Task<IResult> HandleAsync(AddGameToVaultCommand command)
@@ -34,18 +33,7 @@ namespace GamersHub.Api.CommandHandlers
                 return validationResult;
             }
 
-            var game = await _dataContext.Games.FindAsync(command.GameId);
-            var user = await _dataContext.Users.Include(x => x.Games).FirstAsync(x => x.Id == command.UserId);
-
-            var vaultEntry = new UserGame()
-            {
-                Game = game,
-                User = user,
-            };
-
-            user.Games.Add(vaultEntry);
-
-            await _dataContext.SaveChangesAsync();
+            await _gameService.AddGameToVault(command.GameId, command.UserId);
 
             return Result.Success();
         }

@@ -1,28 +1,26 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using GamersHub.Api.Commands;
-using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
+using GamersHub.Api.Services;
 using GamersHub.Api.ValidationRules;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.CommandHandlers
 {
     internal class DeleteGameFromVaultCommandHandler : ICommandHandler<DeleteGameFromVaultCommand>
     {
         private readonly IValidator _validator;
-        private readonly DataContext _dataContext;
+        private readonly IGameService _gameService;
 
         public DeleteGameFromVaultCommandHandler(
             IValidator validator,
-            DataContext dataContext)
+            IGameService gameService)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _gameService = gameService;
         }
 
         public async Task<IResult> HandleAsync(DeleteGameFromVaultCommand command)
@@ -34,15 +32,7 @@ namespace GamersHub.Api.CommandHandlers
                 return validationResult;
             }
 
-            var user = await _dataContext.Users
-                .Include(x => x.Games)
-                .FirstAsync(x => x.Id == command.UserId);
-
-            var userGame = user.Games.First(x => x.GameId == command.GameId);
-
-            user.Games.Remove(userGame);
-
-            await _dataContext.SaveChangesAsync();
+            await _gameService.DeleteGameFromVault(command.GameId, command.UserId);
 
             return Result.Success();
         }

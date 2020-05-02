@@ -1,30 +1,27 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using GamersHub.Api.Data;
+﻿using System.Threading.Tasks;
 using GamersHub.Api.Extensions;
-using GamersHub.Api.Queries;
 using GamersHub.Api.Queries.Game;
+using GamersHub.Api.Services;
 using GamersHub.Api.ValidationRules;
 using GamersHub.Shared.Contracts.Responses;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
-using Microsoft.EntityFrameworkCore;
 
-namespace GamersHub.Api.QueryHandlers
+namespace GamersHub.Api.QueryHandlers.Game
 {
     internal class GetFullGameDescriptionQueryHandler : IQueryHandler<GetFullGameDescriptionQuery, FullGameDescriptionResponse>
     {
-        private readonly DataContext _dataContext;
         private readonly IValidator _validator;
+        private readonly IGameService _gameService;
 
         public GetFullGameDescriptionQueryHandler(
-            DataContext dataContext,
+            IGameService gameService,
             IValidator validator)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _gameService = gameService;
         }
 
         public async Task<IResult<FullGameDescriptionResponse>> HandleAsync(GetFullGameDescriptionQuery query)
@@ -36,29 +33,7 @@ namespace GamersHub.Api.QueryHandlers
                 return validationResult.Map<FullGameDescriptionResponse>();
             }
 
-            var game = await _dataContext.Games
-                .AsNoTracking()
-                .Include(x => x.CoverGameImage)
-                .FirstOrDefaultAsync(x => x.Id == query.GameId);
-
-            var model = new FullGameDescriptionResponse
-            {
-                Description = game.Description,
-                GeneralImage = game.CoverGameImage.Data.ToList(),
-                Title = game.Name,
-                ReleaseDate = game.ReleaseDate,
-            };
-
-            if (query.UserId != null)
-            {
-                var user = await _dataContext.Users
-                    .Include(x => x.Games)
-                    .Include(x => x.WishList)
-                    .SingleOrDefaultAsync(x => x.Id == query.UserId);
-
-                model.UserHasGameInVault = user.Games.Any(x => x.GameId == query.GameId);
-                model.UserHasGameOnWishList = user.WishList.Any(x => x.GameId == query.GameId);
-            }
+            var model = await _gameService.GetFullGameDescription(query.GameId, query.UserId.GetValueOrDefault());
 
             return model.ToSuccessfulResult();
         }
