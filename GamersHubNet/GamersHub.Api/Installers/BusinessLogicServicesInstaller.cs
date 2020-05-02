@@ -9,6 +9,8 @@ namespace GamersHub.Api.Installers
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IFriendService, FriendService>();
+            services.AddScoped<IGameService, GameService>();
+            services.AddScoped<ISearchService, SearchService>();
         }
     }
 }
