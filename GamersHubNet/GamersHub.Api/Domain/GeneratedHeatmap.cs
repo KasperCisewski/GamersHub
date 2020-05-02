@@ -8,6 +8,7 @@ namespace GamersHub.Api.Domain
         public byte[] HeatMap { get; set; }
         public Guid UserId { get; set; }
         public DateTime GeneratedAt { get; set; }
+        public int GamesCount { get; set; }
 
         public GeneratedHeatmap()
         {
