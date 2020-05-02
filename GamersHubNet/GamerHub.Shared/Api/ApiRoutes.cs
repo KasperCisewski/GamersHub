@@ -31,7 +31,6 @@
             public const string AddGameToWishList = GamesRoot + "/wishlist";
             public const string AddGameToVault = GamesRoot + "/vault";
             public const string GetGameScreenshots = GamesRoot + "/screenshots";
-            public const string GetGameOffers = GamesRoot + "/offers";
             public const string GetVideoUrl = GamesRoot + "/video";
             public const string GetGamesByCategory = GamesRoot + "/filter-category";
             public const string GetFullGameDescription = GamesRoot + "/description";
@@ -46,6 +45,7 @@
             public const string GetGamesInVault = ProfileRoot + "/vault";
             public const string GetWishListGames = ProfileRoot + "/wishlist";
             public const string GetHeatMap = ProfileRoot + "/heatmap";
+            public const string ChangeProfileImage = ProfileRoot + "/profileImage";
 
             public const string UserFriendsRoot = Root + "/friends";
 
@@ -53,7 +53,6 @@
             public const string GetUserGenres = ProfileGamesRoot + "/genres";
             public const string GetUserGamesNames = ProfileGamesRoot + "/names";
             public const string GetRecommendedGames = ProfileGamesRoot + "/recommended";
-
         }
     }
 }

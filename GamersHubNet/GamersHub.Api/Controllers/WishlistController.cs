@@ -30,7 +30,7 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
             return Ok();
@@ -48,7 +48,7 @@ namespace GamersHub.Api.Controllers
 
             if (result.HasFailed())
             {
-                return BadRequest(result);
+                return BadRequest(result.Errors);
             }
 
             return Ok();

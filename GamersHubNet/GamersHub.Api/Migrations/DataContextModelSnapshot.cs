@@ -97,35 +97,6 @@ namespace GamersHub.Api.Migrations
                     b.ToTable("GameImages");
                 });
 
-            modelBuilder.Entity("GamersHub.Api.Domain.GameOffer", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("OfferUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1000)")
-                        .HasMaxLength(1000);
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<Guid>("StoreId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameId");
-
-                    b.HasIndex("StoreId");
-
-                    b.ToTable("GameOffers");
-                });
-
             modelBuilder.Entity("GamersHub.Api.Domain.GamersHubUser", b =>
                 {
                     b.Property<Guid>("Id")
@@ -168,6 +139,9 @@ namespace GamersHub.Api.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<byte[]>("ProfileImage")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -489,21 +463,6 @@ namespace GamersHub.Api.Migrations
                     b.HasOne("GamersHub.Api.Domain.Game", null)
                         .WithMany("GameImages")
                         .HasForeignKey("GameId");
-                });
-
-            modelBuilder.Entity("GamersHub.Api.Domain.GameOffer", b =>
-                {
-                    b.HasOne("GamersHub.Api.Domain.Game", "Game")
-                        .WithMany("GameOffers")
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GamersHub.Api.Domain.Store", "Store")
-                        .WithMany()
-                        .HasForeignKey("StoreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("GamersHub.Api.Domain.RecommendationEntry", b =>

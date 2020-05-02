@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using GamerHub.mobile.core.Models.Db;
 
 namespace GamerHub.mobile.core.Services.Account
 {
@@ -8,5 +9,6 @@ namespace GamerHub.mobile.core.Services.Account
         Task<bool> CheckIfNameExist(string name);
         Task<bool> CheckIfEmailExist(string email);
         Task<bool> RegisterUser(string userName, string email, string password);
+        Task<bool> LogInByToken(UserCredentialsModel credentialsStoredInDb);
     }
 }

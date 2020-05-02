@@ -9,6 +9,7 @@ using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
+using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.CommandHandlers
 {

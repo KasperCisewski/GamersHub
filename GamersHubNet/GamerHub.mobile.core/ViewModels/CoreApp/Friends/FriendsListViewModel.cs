@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using GamerHub.mobile.core.Models;
+using GamerHub.mobile.core.Models.Messenger;
 using GamerHub.mobile.core.Services.Profile;
 using GamerHub.mobile.core.Services.Resource;
 using GamerHub.mobile.core.ViewModels.Base;
@@ -23,6 +24,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
 
         public async Task FillFriendsList()
         {
+            Messenger.Publish(new ProgressBarActivator(this, true));
             FriendsList = new MvxObservableCollection<UserProfileModel>();
             var userFriends = await _profileService.GetUserFriends();
 
@@ -30,6 +32,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Friends
             {
                 FriendsList.Add(new UserProfileModel(friendModel, _resourceService));
             }
+            Messenger.Publish(new ProgressBarActivator(this, false));
         }
 
         private async Task GoToFriendSearch()

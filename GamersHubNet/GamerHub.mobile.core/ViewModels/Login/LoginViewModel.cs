@@ -12,8 +12,7 @@ namespace GamerHub.mobile.core.ViewModels.Login
         private readonly IAccountService _accountService;
 
         public LoginViewModel(
-            IAccountService accountService
-            )
+            IAccountService accountService)
         {
             _accountService = accountService;
         }

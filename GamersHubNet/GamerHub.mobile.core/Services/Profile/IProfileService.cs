@@ -16,5 +16,6 @@ namespace GamerHub.mobile.core.Services.Profile
         Task<List<byte>> GetHeatMap(Guid? userId);
         Task<bool> DeleteFromFriendList(Guid userId);
         Task<bool> AddFriendToFriendList(Guid userId);
+        Task<bool> EditProfileImage(byte[] imageContent);
     }
 }

@@ -36,9 +36,9 @@ namespace GamersHub.Api.CommandHandlers
             return Result.Success();
         }
 
-        private Task<IResult> IsValidAsync(DeleteFriendCommand query)
+        private Task<IResult> IsValidAsync(DeleteFriendCommand command)
         {
-            _validator.ValidateUserIds(query.CurrentUserId, query.UserId);
+            _validator.ValidateUserIds(command.CurrentUserId, command.UserId);
 
             return _validator.ValidateAsync();
         }

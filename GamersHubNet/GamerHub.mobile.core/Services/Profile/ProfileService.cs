@@ -148,5 +148,24 @@ namespace GamerHub.mobile.core.Services.Profile
 
             return response.StatusCode == HttpStatusCode.OK;
         }
+
+        public async Task<bool> EditProfileImage(byte[] bytes)
+        {
+            var client = _httpClientFactoryService.GetAuthorizedClient();
+
+            var request = new RestRequest(ApiRoutes.Profile.ChangeProfileImage)
+            {
+                Method = Method.POST
+            };
+
+            request.AddJsonBody(new
+            {
+                ImageEncoded = Convert.ToBase64String(bytes)
+            });
+
+            var response = await client.ExecuteAsync(request);
+
+            return response.StatusCode == HttpStatusCode.OK;
+        }
     }
 }

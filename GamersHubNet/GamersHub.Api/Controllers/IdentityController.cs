@@ -57,7 +57,7 @@ namespace GamersHub.Api.Controllers
         }
 
         [HttpPost(ApiRoutes.Identity.Refresh)]
-        public async Task<IActionResult> Login([FromBody] RefreshTokenRequest request)
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request)
         {
             var authResponse = await _identityService.RefreshTokenAsync(request.Token, request.RefreshToken);
 
@@ -77,7 +77,8 @@ namespace GamersHub.Api.Controllers
             return Ok(new AuthSuccessResponse
             {
                 Token = authResponse.Token,
-                RefreshToken = authResponse.RefreshToken
+                RefreshToken = authResponse.RefreshToken,
+                ExpiryDate = authResponse.TokenExpiryDate
             });
         }
     }

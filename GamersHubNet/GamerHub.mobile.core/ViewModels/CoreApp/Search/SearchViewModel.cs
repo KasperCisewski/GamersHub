@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using GamerHub.mobile.core.Infrastructure;
 using GamerHub.mobile.core.Models;
+using GamerHub.mobile.core.Models.Messenger;
 using GamerHub.mobile.core.Services.Search;
 using GamerHub.mobile.core.ViewModels.Base;
 using GamerHub.mobile.core.ViewModels.CoreApp.Game;
@@ -21,6 +22,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Search
 
         public async Task SearchGames(bool replace)
         {
+            Messenger.Publish(new ProgressBarActivator(this, true));
             if (replace)
             {
                 FetchedPages = 0;
@@ -43,6 +45,7 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Search
 
                 FetchedPages++;
             }
+            Messenger.Publish(new ProgressBarActivator(this, false));
         }
 
         private async Task OpenGame(GameWithImageRowModel arg)

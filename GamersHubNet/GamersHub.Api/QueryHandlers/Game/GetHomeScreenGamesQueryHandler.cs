@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using GamersHub.Api.Data;
+using GamersHub.Api.Domain;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.Queries.Game;
 using GamersHub.Api.Services;

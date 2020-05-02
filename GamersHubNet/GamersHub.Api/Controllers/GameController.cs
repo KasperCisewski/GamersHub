@@ -31,7 +31,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Games.GetVideoUrl)]
@@ -47,7 +47,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Games.GetHomeScreenGames)]
@@ -63,7 +63,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
 
         [HttpGet(ApiRoutes.Games.GetFullGameDescription)]
@@ -80,7 +80,7 @@ namespace GamersHub.Api.Controllers
                 return BadRequest(result);
             }
 
-            return Ok(result);
+            return Ok(result.Data);
         }
     }
 }

@@ -25,9 +25,9 @@ namespace GamerHub.mobile.core.ViewModels.CoreApp.Game
             set => SetProperty(ref _description, value);
         }
 
-        private DateTime? _releaseDate;
+        private string _releaseDate;
 
-        public DateTime? ReleaseDate
+        public string ReleaseDate
         {
             get => _releaseDate;
             set => SetProperty(ref _releaseDate, value);

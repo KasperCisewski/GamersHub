@@ -71,6 +71,7 @@
     <Compile Include="Services\LocalizationAndroid.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\ResourceAndroidService.cs" />
+    <Compile Include="Services\SqlLiteService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SetupAndroidApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\HACKED.ttf" />
+    <AndroidAsset Include="Assets\JURA.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
@@ -150,6 +152,12 @@
     <PackageReference Include="MvvmCross.Plugin.Messenger">
       <Version>6.3.1</Version>
     </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.PictureChooser">
+      <Version>6.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.Visibility">
+      <Version>6.4.1</Version>
+    </PackageReference>
     <PackageReference Include="NETStandard.Library">
       <Version>2.0.3</Version>
     </PackageReference>
@@ -158,6 +166,9 @@
     </PackageReference>
     <PackageReference Include="RestSharp">
       <Version>106.6.10</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.5.231</Version>
     </PackageReference>
     <PackageReference Include="System.Reactive">
       <Version>4.2.0</Version>
@@ -261,78 +272,6 @@
     <AndroidResource Include="Resources\layout\Fragment_Home_View.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\Search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\Games.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\Home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\ProfileIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Games.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\ProfileIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Games.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\ProfileIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Games.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\ProfileIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Games.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\ProfileIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Games.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\ProfileIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Fragment_Game_Row_View.xml">
@@ -506,6 +445,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\custom_border.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\background.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

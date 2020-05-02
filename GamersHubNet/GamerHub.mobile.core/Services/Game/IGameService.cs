@@ -16,7 +16,6 @@ namespace GamerHub.mobile.core.Services.Game
         Task<bool> DeleteGameFromVault(Guid gameModelId);
         Task<bool> DeleteGameFromWishList(Guid gameModelId);
         Task<List<ScreenShotResponse>> GetScreenShotsForGame(Guid gameId);
-        Task<List<GameOfferResponse>> GetPricesModelsForGame(Guid gameId);
         Task<string> GetVideoUrlForGame(Guid gameId);
         Task<List<GameWithImageResponse>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest);
         Task<List<GameWithImageResponse>> GetGamesForUser();
