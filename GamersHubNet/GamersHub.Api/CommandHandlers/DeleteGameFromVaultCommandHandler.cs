@@ -48,7 +48,7 @@ namespace GamersHub.Api.CommandHandlers
                     .WithData(query.GameId)
                 .Require<UserHasGameRule>()
                     .WithOptions(x => x.StopIfFailed())
-                    .WithData((query.GameId, query.GameId))
+                    .WithData((query.GameId, query.UserId))
                 .ValidateAsync();
         }
     }

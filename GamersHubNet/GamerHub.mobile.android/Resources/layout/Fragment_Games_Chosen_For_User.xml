@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
@@ -19,12 +19,13 @@
         android:text="Games for you"/>
     <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:id="@+id/games_chosen_for_user_recycler_view"
         android:layout_below="@id/title_text_view"
+        android:layout_above="@id/shared_menu_toolbar"
         android:scrollbars="vertical"
-        local:MvxItemTemplate="@layout/fragment_game_row_view"
+        local:MvxItemTemplate="@layout/fragment_game_twice_in_row_view"
         local:MvxBind="ItemsSource GamesList; ItemClick ClickGame" />
     <include
         android:id="@+id/shared_menu_toolbar"
