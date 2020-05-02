@@ -1,30 +1,28 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using GamersHub.Api.Data;
 using GamersHub.Api.Extensions;
 using GamersHub.Api.Queries.Search;
+using GamersHub.Api.Services;
 using GamersHub.Api.ValidationRules;
 using GamersHub.Shared.Contracts.Responses;
 using Gybs;
 using Gybs.Logic.Cqrs;
 using Gybs.Logic.Validation;
 using Gybs.Results;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.QueryHandlers.Search
 {
     internal class SearchGamesQueryHandler : IQueryHandler<SearchGamesQuery, IReadOnlyCollection<GameWithImageResponse>>
     {
         private readonly IValidator _validator;
-        private readonly DataContext _dataContext;
+        private readonly ISearchService _searchService;
 
         public SearchGamesQueryHandler(
             IValidator validator,
-            DataContext dataContext)
+            ISearchService searchService)
         {
             _validator = validator;
-            _dataContext = dataContext;
+            _searchService = searchService;
         }
 
         public async Task<IResult<IReadOnlyCollection<GameWithImageResponse>>> HandleAsync(SearchGamesQuery query)
@@ -36,24 +34,8 @@ namespace GamersHub.Api.QueryHandlers.Search
                 return validationResult.Map<IReadOnlyCollection<GameWithImageResponse>>();
             }
 
-            var games = await _dataContext.Games
-                .AsNoTracking()
-                .Where(x => x.Name
-                    .Contains(query.SearchText))
-                .Include(x => x.CoverGameImage)
-                .Skip(query.Skip)
-                .Take(query.Take == default ? 10 : query.Take)
-                .ToListAsync();
-
-            return games
-                .Select(x => new GameWithImageResponse
-                {
-                    Id = x.Id,
-                    Category = x.GameCategory,
-                    Title = x.Name,
-                    ImageBytes = x.CoverGameImage.Data.ToList()
-                })
-                .ToList()
+            return (await _searchService
+                    .SearchGames(query.SearchText, query.Skip, query.Take))
                 .ToSuccessfulResult();
         }
 

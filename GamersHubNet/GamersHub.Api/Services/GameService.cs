@@ -158,9 +158,9 @@ namespace GamersHub.Api.Services
                 .Include(x => x.Games)
                 .FirstAsync(x => x.Id == userId);
 
-            var userGame = user.Games.First(x => x.GameId == gameId);
+            var userGame = user.WishList.First(x => x.GameId == gameId);
 
-            user.Games.Remove(userGame);
+            user.WishList.Remove(userGame);
 
             await _dataContext.SaveChangesAsync();
         }
@@ -171,9 +171,9 @@ namespace GamersHub.Api.Services
                 .Include(x => x.Games)
                 .FirstAsync(x => x.Id == userId);
 
-            var userGame = user.WishList.First(x => x.GameId == gameId);
+            var userGame = user.Games.First(x => x.GameId == gameId);
 
-            user.WishList.Remove(userGame);
+            user.Games.Remove(userGame);
 
             await _dataContext.SaveChangesAsync();
         }

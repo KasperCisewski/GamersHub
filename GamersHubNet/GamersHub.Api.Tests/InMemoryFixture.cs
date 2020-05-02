@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using GamersHub.Api.Data;
 using GamersHub.Api.Domain;
+using GamersHub.Shared.Data.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace GamersHub.Api.Tests
@@ -23,12 +24,6 @@ namespace GamersHub.Api.Tests
 
         private static void SeedData(DataContext context)
         {
-            context.Users.AddRange(new List<GamersHubUser>
-            {
-                new GamersHubUser { Id = Guid.Parse("852cd5f9-083e-464e-86e1-f2631eb88573")},
-                new GamersHubUser { Id = Guid.Parse("475d30dc-6e0f-4369-bf15-37f4f8873215")}
-            });
-
             var friendOneId = Guid.Parse("44889f11-b43e-476f-8cba-e9bbbf5d2b86");
             var friendTwoId = Guid.Parse("c47d5746-461f-461a-9f99-88e5dd725c1a");
             var friendThreeId = Guid.Parse("475d30dc-6e0f-4369-bf15-37f4f8873215");
@@ -51,7 +46,43 @@ namespace GamersHub.Api.Tests
                     CoverGameImage = new GameImage {Data = new byte[1]},
                     Name = "Lorem",
                     ReleaseDate = DateTime.Parse("01/01/2020"),
-                    VideoUrl = "https://www.youtube.com/watch?v=cG6dyEjgtIM"
+                    GameCategory = GameCategory.Action,
+                    VideoUrl = "https://www.youtube.com/watch?v=cG6dyEjgtIM",
+                    GameImages = new List<GameImage>
+                    {
+                        new GameImage() { Data =new byte[] { 1, 2, 3 }}
+                    }
+                }
+            });
+
+            context.Users.AddRange(new List<GamersHubUser>
+            {
+                new GamersHubUser
+                {
+                    Id = Guid.Parse("852cd5f9-083e-464e-86e1-f2631eb88573"),
+                    Games = new List<UserGame>(),
+                    WishList = new List<WishListEntry>()
+                },
+                new GamersHubUser
+                {
+                    Id = Guid.Parse("475d30dc-6e0f-4369-bf15-37f4f8873215"),
+                    UserName = "cisek :*",
+                    Games = new List<UserGame>
+                    {
+                        new UserGame
+                        {
+                            GameId = Guid.Parse("3d948385-a94b-40ea-8ea2-4a87de24f113"),
+                            UserId = Guid.Parse("475d30dc-6e0f-4369-bf15-37f4f8873215")
+                        }
+                    },
+                    WishList = new List<WishListEntry>
+                    {
+                        new WishListEntry
+                        {
+                            UserId = Guid.Parse("475d30dc-6e0f-4369-bf15-37f4f8873215"),
+                            GameId = Guid.Parse("3d948385-a94b-40ea-8ea2-4a87de24f113")
+                        }
+                    }
                 }
             });
 

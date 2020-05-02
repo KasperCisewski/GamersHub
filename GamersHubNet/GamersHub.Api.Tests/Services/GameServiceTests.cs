@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
+using GamersHub.Api.Data;
 using GamersHub.Api.Services;
 using GamersHub.Shared.Contracts.Responses;
 using GamersHub.Shared.Data.Enums;
@@ -12,11 +14,12 @@ namespace GamersHub.Api.Tests.Services
     public class GameServiceTests
     {
         private readonly IGameService _gameService;
+        private readonly DataContext _dataContext;
 
         public GameServiceTests()
         {
-            var dataContext = InMemoryFixture.Context;
-            _gameService = new GameService(dataContext);
+            _dataContext = InMemoryFixture.Context;
+            _gameService = new GameService(_dataContext);
         }
 
         [Fact]
@@ -59,6 +62,66 @@ namespace GamersHub.Api.Tests.Services
             var result = await _gameService.GetHomeScreenGames((HomeGamesCategory)6);
 
             result.Count.Should().Be(0);
+        }
+
+        [Fact]
+        public async void GetScreenshots_ForProperGameId_ShouldReturnScreenshots()
+        {
+            var result = await _gameService.GetScreenshots(Guid.Parse("3d948385-a94b-40ea-8ea2-4a87de24f113"));
+
+            result.First().Should().BeEquivalentTo(new ScreenShotResponse { ImageContent = new List<byte> {1, 2 , 3 }});
+        }
+
+        [Fact]
+        public async void AddGameToVault_ForProperGameAndUserId_ShouldAddGameToUsersVault()
+        {
+            var userId = Guid.Parse("852cd5f9-083e-464e-86e1-f2631eb88573");
+            var gameId = Guid.Parse("3d948385-a94b-40ea-8ea2-4a87de24f113");
+            var userGamesCount = _dataContext.Users.First(x => x.Id == userId).Games.Count;
+
+            await _gameService.AddGameToVault(gameId, userId);
+            var newCount = _dataContext.Users.First(x => x.Id == userId).Games.Count;
+
+            newCount.Should().Be(userGamesCount + 1);
+        }
+
+        [Fact]
+        public async void AddGameToWishList_ForProperGameAndUserId_ShouldAddGameToUsersWishList()
+        {
+            var userId = Guid.Parse("852cd5f9-083e-464e-86e1-f2631eb88573");
+            var gameId = Guid.Parse("3d948385-a94b-40ea-8ea2-4a87de24f113");
+            var userGamesCount = _dataContext.Users.First(x => x.Id == userId).WishList.Count;
+
+            await _gameService.AddGameToWishList(gameId, userId);
+            var newCount = _dataContext.Users.First(x => x.Id == userId).WishList.Count;
+
+            newCount.Should().Be(userGamesCount + 1);
+        }
+
+        [Fact]
+        public async void DeleteGameFromWishList_ForProperGameAndUserId_ShouldDeleteGameFromWishList()
+        {
+            var userId = Guid.Parse("475d30dc-6e0f-4369-bf15-37f4f8873215");
+            var gameId = Guid.Parse("3d948385-a94b-40ea-8ea2-4a87de24f113");
+            var userGamesCount = _dataContext.Users.First(x => x.Id == userId).WishList.Count;
+
+            await _gameService.DeleteGameFromWishList(gameId, userId);
+            var newCount = _dataContext.Users.First(x => x.Id == userId).WishList.Count;
+
+            newCount.Should().Be(userGamesCount - 1);
+        }
+
+        [Fact]
+        public async void DeleteGameFromVault_ForProperGameAndUserId_ShouldDeleteGameFromVault()
+        {
+            var userId = Guid.Parse("475d30dc-6e0f-4369-bf15-37f4f8873215");
+            var gameId = Guid.Parse("3d948385-a94b-40ea-8ea2-4a87de24f113");
+            var userGamesCount = _dataContext.Users.First(x => x.Id == userId).Games.Count;
+
+            await _gameService.DeleteGameFromVault(gameId, userId);
+            var newCount = _dataContext.Users.First(x => x.Id == userId).Games.Count;
+
+            newCount.Should().Be(userGamesCount - 1);
         }
     }
 }
