@@ -187,9 +187,9 @@
     <Compile Include="ViewModels\CoreApp\Game\GameScreenshotRowZoomableViewModel.Properties.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GamerHub.shared\GamersHub.Shared.csproj">
+    <ProjectReference Include="..\GamerHub.Shared\GamersHub.Shared.csproj">
       <Project>{D726EE56-9E6B-4927-9F15-BD898ADECCDD}</Project>
-      <Name>GamerHub.shared</Name>
+      <Name>GamersHub.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
