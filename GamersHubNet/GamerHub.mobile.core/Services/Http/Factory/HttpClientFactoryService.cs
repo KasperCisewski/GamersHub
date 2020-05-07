@@ -23,21 +23,18 @@ namespace GamerHub.mobile.core.Services.Http.Factory
             _globalStateService = globalStateService;
         }
 
-        public IHttpClientService GetAuthorizedClient()
+        public IHttpClientService GetHttpClient()
         {
-            var client = new RestClient(_apiUrl)
-            {
-                Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_globalStateService.UserData.Token, "Bearer")
-            };
+            var client = new RestClient(_apiUrl);
 
-            client.AddDefaultHeader("Authorization", $"Bearer {_globalStateService.UserData.Token}");
+            if (_globalStateService.UserData != null && !string.IsNullOrWhiteSpace(_globalStateService.UserData?.Token))
+            {
+                client.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_globalStateService.UserData.Token, "Bearer");
+
+                client.AddDefaultHeader("Authorization", $"Bearer {_globalStateService.UserData.Token}");
+            }
 
             return new HttpClientService(client, _pollyPolicyService);
-        }
-
-        public HttpClientService GetNotAuthorizedClient()
-        {
-            return new HttpClientService(new RestClient(_apiUrl), _pollyPolicyService);
         }
     }
 }

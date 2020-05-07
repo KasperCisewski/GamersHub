@@ -23,7 +23,7 @@ namespace GamerHub.mobile.core.Services.Search
 
         public async Task<List<GameWithImageResponse>> GetSearchGamesModels(SearchGameRequest searchGameRequest)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Search.SearchGames)
             {

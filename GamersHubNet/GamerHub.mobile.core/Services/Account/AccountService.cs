@@ -28,7 +28,7 @@ namespace GamerHub.mobile.core.Services.Account
 
         public async Task<bool> LogInUserAsync(string userName, string password)
         {
-            var client = _httpClientFactoryService.GetNotAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Identity.Login, Method.POST)
             {
@@ -58,7 +58,7 @@ namespace GamerHub.mobile.core.Services.Account
 
         public async Task<bool> RegisterUser(string userName, string email, string password)
         {
-            var client = _httpClientFactoryService.GetNotAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Identity.Register)
             {
@@ -82,7 +82,7 @@ namespace GamerHub.mobile.core.Services.Account
 
         public async Task<bool> LogInByToken(UserCredentialsModel credentialsStoredInDb)
         {
-            var client = _httpClientFactoryService.GetNotAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Identity.Refresh);
             request.Method = Method.POST;
@@ -104,7 +104,7 @@ namespace GamerHub.mobile.core.Services.Account
 
         public async Task<bool> CheckIfNameExist(string name)
         {
-            var client = _httpClientFactoryService.GetNotAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Identity.UserWithUsernameExists)
             {
@@ -119,7 +119,7 @@ namespace GamerHub.mobile.core.Services.Account
 
         public async Task<bool> CheckIfEmailExist(string email)
         {
-            var client = _httpClientFactoryService.GetNotAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Identity.UserWithEmailExists)
             {

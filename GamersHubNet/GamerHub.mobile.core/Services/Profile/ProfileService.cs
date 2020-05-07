@@ -22,7 +22,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
         public async Task<UserProfileResponse> GetUserProfileInformation(Guid? userId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Profile.ProfileRoot)
             {
@@ -37,7 +37,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
         public async Task<List<UserProfileResponse>> GetUserFriends()
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Profile.GetUserFriends)
             {
@@ -51,7 +51,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
         public async Task<List<UserProfileResponse>> SearchUsers(SearchUserRequest searchUserRequest)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Search.SearchUsers)
             {
@@ -68,7 +68,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
         public async Task<List<GameWithImageResponse>> GetGamesInVault(Guid? userId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Profile.GetGamesInVault)
             {
@@ -83,7 +83,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
         public async Task<List<GameWithImageResponse>> GetWishListGames()
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Profile.GetWishListGames)
             {
@@ -97,7 +97,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
         public async Task<List<byte>> GetHeatMap(Guid? userId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Profile.GetHeatMap)
             {
@@ -113,7 +113,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
         public async Task<bool> DeleteFromFriendList(Guid userId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Profile.UserFriendsRoot)
             {
@@ -132,7 +132,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
         public async Task<bool> AddFriendToFriendList(Guid userId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Profile.UserFriendsRoot)
             {
@@ -151,7 +151,7 @@ namespace GamerHub.mobile.core.Services.Profile
 
         public async Task<bool> EditProfileImage(byte[] bytes)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Profile.ChangeProfileImage)
             {

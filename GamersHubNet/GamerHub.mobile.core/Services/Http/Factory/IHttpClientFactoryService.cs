@@ -2,7 +2,6 @@
 {
     public interface IHttpClientFactoryService
     {
-        IHttpClientService GetAuthorizedClient();
-        HttpClientService GetNotAuthorizedClient();
+        IHttpClientService GetHttpClient();
     }
 }

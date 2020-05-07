@@ -23,7 +23,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<List<GameWithImageResponse>> GetGames(HomeGamesCategory homeGamesCategory)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Games.GetHomeScreenGames)
             {
@@ -38,7 +38,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<FullGameDescriptionResponse> GetFullGameModel(Guid gameId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Games.GetFullGameDescription)
             {
@@ -53,7 +53,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<bool> AddGameToWishList(Guid gameId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Games.AddGameToWishList)
             {
@@ -72,7 +72,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<bool> AddGameToVault(Guid gameId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Games.AddGameToVault)
             {
@@ -91,7 +91,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<bool> DeleteGameFromVault(Guid gameId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Games.DeleteGameFromVault)
             {
@@ -110,7 +110,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<bool> DeleteGameFromWishList(Guid gameId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Games.DeleteGameFromWishList)
             {
@@ -129,7 +129,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<List<ScreenShotResponse>> GetScreenShotsForGame(Guid gameId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Games.GetGameScreenshots)
             {
@@ -144,7 +144,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<string> GetVideoUrlForGame(Guid gameId)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Games.GetVideoUrl)
             {
@@ -159,7 +159,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<List<GameWithImageResponse>> GetGamesByCategory(GameCategoryRequest gameCategoryRequest)
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Games.GetGamesByCategory)
             {
@@ -176,7 +176,7 @@ namespace GamerHub.mobile.core.Services.Game
 
         public async Task<List<GameWithImageResponse>> GetGamesForUser()
         {
-            var client = _httpClientFactoryService.GetAuthorizedClient();
+            var client = _httpClientFactoryService.GetHttpClient();
 
             var request = new RestRequest(ApiRoutes.Profile.GetRecommendedGames)
             {
